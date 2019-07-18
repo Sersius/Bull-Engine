@@ -25,6 +25,7 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 	glewInit();
 	ImGui_ImplSdlGL3_Init(App->window->window);
+	
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 
@@ -40,7 +41,7 @@ update_status ModuleSceneIntro::PreUpdate(float dt)
 bool ModuleSceneIntro::CleanUp()
 {
 	LOG("Unloading Intro scene");
-
+	ImGui_ImplSdlGL3_Shutdown();
 	return true;
 }
 
@@ -50,6 +51,26 @@ update_status ModuleSceneIntro::Update(float dt)
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
 	p.Render();
+	static bool show_test_window = false;
+	if (show_test_window)
+	{
+		ImGui::ShowTestWindow();
+	}
+
+	if (ImGui::BeginMainMenuBar())
+	{
+		if (ImGui::BeginMenu("File"))
+		{
+			if (ImGui::MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
+			if (ImGui::MenuItem("Save", "Ctrl+S")) { /* Do stuff */ }
+			
+			ImGui::EndMenu();
+		}
+		ImGui::EndMainMenuBar();
+	
+	}
+	ImGui::Render();
+	
 
 
 

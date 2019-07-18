@@ -20,7 +20,7 @@
       <UniqueIdentifier>{83f46af7-e02f-40c0-9e56-41d76082527b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Sources\Tools\ImGui">
-      <UniqueIdentifier>{c6aaa097-da57-478b-830b-0a9036136c30}</UniqueIdentifier>
+      <UniqueIdentifier>{69bed194-8fd0-4bf6-8437-cb167392d1fb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -84,22 +84,13 @@
     <ClInclude Include="PhysVehicle3D.h">
       <Filter>Sources\Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imgui_internal.h">
+    <ClInclude Include="imGUI\imgui.h">
       <Filter>Sources\Tools\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imstb_rectpack.h">
+    <ClInclude Include="imGUI\imgui_impl_sdl_gl3.h">
       <Filter>Sources\Tools\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="ImGui\imstb_textedit.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGui\imstb_truetype.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGui\imconfig.h">
-      <Filter>Sources\Tools\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGui\imgui.h">
+    <ClInclude Include="imGUI\imgui_internal.h">
       <Filter>Sources\Tools\ImGui</Filter>
     </ClInclude>
   </ItemGroup>
@@ -155,16 +146,16 @@
     <ClCompile Include="PhysVehicle3D.cpp">
       <Filter>Sources\Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_widgets.cpp">
+    <ClCompile Include="imGUI\imgui.cpp">
       <Filter>Sources\Tools\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui.cpp">
+    <ClCompile Include="imGUI\imgui_demo.cpp">
       <Filter>Sources\Tools\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_demo.cpp">
+    <ClCompile Include="imGUI\imgui_draw.cpp">
       <Filter>Sources\Tools\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_draw.cpp">
+    <ClCompile Include="imGUI\imgui_impl_sdl_gl3.cpp">
       <Filter>Sources\Tools\ImGui</Filter>
     </ClCompile>
   </ItemGroup>

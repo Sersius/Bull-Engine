@@ -25,6 +25,13 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 	glewInit();
 	ImGui_ImplSdlGL3_Init(App->window->window);
+	//HARDWARE
+	SDL_VERSION(&version);
+	CPU_Cache = SDL_GetCPUCacheLineSize();
+	CPU_Count = SDL_GetCPUCount();
+	ram = SDL_GetSystemRAM();
+	ram /= 1000;
+	
 	
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
@@ -60,19 +67,32 @@ update_status ModuleSceneIntro::Update(float dt)
 	{
 		ImGui::ShowTestWindow();
 	}
-	if(ImGui::Begin("ImGui Test"))
-	{
-		ImGui::Text("ImGui says hello");
-		
+		ImGui::Begin("ImGui Test");
+		ImGui::Text("SDL Version: ");
+		ImGui::SameLine();
+		ImGui::Text("%d.%d.%d", version.major, version.minor, version.patch);
+		ImGui::Separator();
+		ImGui::Text("CPUs: ");
+		ImGui::SameLine();
+		ImGui::Text("%i (Cache:%ikb)", CPU_Count,CPU_Cache);
+		ImGui::Text("System RAM: %iGb ",ram);
+	
+		ImGui::Text("Caps: ");
+		ImGui::Separator();
+		ImGui::Text("GPU: ");
+		ImGui::Text("Brand: ");
+		ImGui::Text("VRAM Budget: ");
+		ImGui::Text("VRAM Usage: ");
+		ImGui::Text("VRAM Available: ");
+		ImGui::Text("VRAM Reserved: ");
 		ImGui::SliderInt("Slider", &sliderInt, 0, 100);
 		ImGui::SliderFloat("SliderFloat", &sliderFloat, 0.0f, 100.0f);
 		ImGui::Separator();
 		ImGui::Spacing();
 		ImGui::ColorEdit3("clear color", (float*)&clear_color);
 		ImGui::End();
-		
-		
-	}
+			
+	
 	if (ImGui::BeginMenu("Examples"))
 	{
 		ImGui::MenuItem("Main menu bar", NULL, &show_app_main_menu_bar);

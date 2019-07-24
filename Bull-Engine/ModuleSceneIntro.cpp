@@ -2,7 +2,6 @@
 #include "Application.h"
 #include "ModuleSceneIntro.h"
 #include "Primitive.h"
-#include "PhysBody3D.h"
 #include "imGUI\imgui.h"
 #include "imGUI\imgui_impl_sdl_gl3.h"
 #include "Glew\include\glew.h"
@@ -65,6 +64,7 @@ update_status ModuleSceneIntro::Update(float dt)
 	//ImGui::PushItemWidth(ImGui::GetFontSize() * 12);
 	if (show_test_window)
 	{
+		
 		ImGui::ShowTestWindow();
 	}
 		ImGui::Begin("ImGui Test");

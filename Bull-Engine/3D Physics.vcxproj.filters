@@ -22,6 +22,9 @@
     <Filter Include="Sources\Tools\ImGui">
       <UniqueIdentifier>{69bed194-8fd0-4bf6-8437-cb167392d1fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Modules\UI">
+      <UniqueIdentifier>{54be3e61-1837-4f75-8808-15b6c3a7f13c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -71,6 +74,9 @@
     </ClInclude>
     <ClInclude Include="imGUI\imgui_internal.h">
       <Filter>Sources\Tools\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleUI.h">
+      <Filter>Sources\Modules\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +130,9 @@
     </ClCompile>
     <ClCompile Include="imGUI\imgui_impl_sdl_gl3.cpp">
       <Filter>Sources\Tools\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleUI.cpp">
+      <Filter>Sources\Modules\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

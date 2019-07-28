@@ -42,6 +42,8 @@ update_status ModuleUI::Update(float dt)
 	
 	//ImGui::ShowTestWindow();
 	static bool show_test = false;
+	static bool custom = false;
+	static bool normal = true;
 	if (show_test)
 		ImGui::ShowTestWindow();
 	if (ImGui::BeginMainMenuBar())
@@ -60,11 +62,23 @@ update_status ModuleUI::Update(float dt)
 		ImGui::EndMainMenuBar();
 	}
 	if (ImGui::Begin("HOLA")) {
-		ImGui::Text("AAAAA");
+		ImGui::Checkbox("Normal", &normal);
+		ImGui::SameLine();
+		ImGui::Checkbox("Custom", &custom);
 		ImGui::ColorEdit3("clear color", (float*)&clear_color);
-		//ImGui::PushStyleColor(ImGuiCol_WindowBg, (ImVec4)ImColor::HSV(clear_color.x, clear_color.y, clear_color.w, clear_color.z));
+		
+		//ImGui::PushStyleColor(ImGuiCol_Text, ImColor(255, 255, 255, 255));
+		//ImGui::PushStyleColor(ImGuiCol_WindowBg, ImColor(255, 255, 255, 255));
 	}
 	ImGui::End();
 	ImGui::Render();
+	if (custom == true) {
+		normal = false;
+		ImGui::PushStyleColor(ImGuiCol_Text, clear_color);
+	}
+	if (normal == true) {
+		//custom = false;
+		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.00f, 0.00f, 0.00f, 0.70f));
+	}
 	return UPDATE_CONTINUE;
 }

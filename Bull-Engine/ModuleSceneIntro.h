@@ -23,5 +23,11 @@ public:
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
 
 public:
-
+	uint my_id = 0;
+	
+	float v0[3] = { 1.0f, 1.0f, 0.0f };
+	float v1[3] = { 0.0f, 1.0f, 0.0f };
+	float v2[3] = { 0.0f, 0.0f, 0.0f };
+	float v3[3] = { 1.0f, 0.0f, 0.0f };
+	
 };

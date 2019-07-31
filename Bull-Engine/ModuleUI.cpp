@@ -47,6 +47,18 @@ update_status ModuleUI::Update(float dt)
 	static bool show_test = false;
 	static bool custom = false;
 	static bool normal = true;
+
+	GLint total_memory;
+	GLint memory_usage = 0;
+	GLint dedicated_memory = 0;
+	GLint available_memory = 0;
+
+	glGetIntegerv(GL_GPU_MEMORY_INFO_TOTAL_AVAILABLE_MEMORY_NVX, &total_memory);
+	glGetIntegerv(GL_GPU_MEMORY_INFO_CURRENT_AVAILABLE_VIDMEM_NVX, &available_memory);
+	glGetIntegerv(GL_GPU_MEMORY_INFO_DEDICATED_VIDMEM_NVX, &dedicated_memory);
+
+	memory_usage = total_memory - available_memory;
+
 	if (show_test)
 		ImGui::ShowTestWindow();
 	if (ImGui::BeginMainMenuBar())
@@ -194,11 +206,23 @@ update_status ModuleUI::Update(float dt)
 
 			ImGui::Separator();
 			ImGui::Text("GPU:  ");
+			ImGui::SameLine();
+			ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.0f, 1.0f), "%s", glGetString(GL_VENDOR));
 			ImGui::Text("Brand: ");
+			ImGui::SameLine();
+			ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.0f, 1.0f), "%s", glGetString(GL_RENDERER));
 			ImGui::Text("VRAM Budget: ");
+			ImGui::SameLine();
+			ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.0f, 1.0f), "%.1f Mb", (total_memory * 0.001));
 			ImGui::Text("VRAM Usage: ");
+			ImGui::SameLine();
+			ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.0f, 1.0f), "%.1f Mb", (memory_usage * 0.001));
 			ImGui::Text("VRAM Available: ");
+			ImGui::SameLine();
+			ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.0f, 1.0f), "%.1f Mb", (available_memory * 0.001)); 
 			ImGui::Text("VRAM Reserved: ");
+			ImGui::SameLine();
+			ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.0f, 1.0f), "%.1f Mb", (dedicated_memory * 0.001));
 		}
 	}
 	ImGui::End();

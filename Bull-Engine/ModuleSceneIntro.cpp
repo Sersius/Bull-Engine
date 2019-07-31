@@ -24,20 +24,67 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 	glewInit();
 	//HARDWARE
+	
 	glBegin(GL_TRIANGLES);
-	glVertex3fv(v0);    // v0-v1-v2
-	glVertex3fv(v1);
-	glVertex3fv(v2);
-	glVertex3fv(v2);    // v2-v3-v0
-	glVertex3fv(v3);
-	glVertex3fv(v0);
+	GLfloat vertices[] =
+	{
+		//FRONT
+		1.0f,1.0f,0.0f,
+		0.0f,1.0f,0.0f,
+		0.0f,0.0f,0.0f,
+		//FRONT 
+		0.0f,0.0f,0.0f,
+		1.0f,0.0f,0.0f,
+		1.0f,1.0f,0.0f,
+		//TOP
+		0.0f,1.0f,0.0f,
+		1.0f,1.0f,0.0f,
+		0.0f,1.0f,-1.0f,
+		//TOP
+		0.0f,1.0f,-1.0f,
+		1.0f,1.0f, 0.0f,
+		1.0f,1.0f,-1.0f,
+		//BOT
+		0.0f,0.0f,0.0f,
+		0.0f,0.0f,-1.0f,
+		1.0f,0.0f,0.0f,
+		//BOT
+		0.0f,0.0f,-1.0f,
+		1.0f,0.0f, -1.0f,
+		1.0f,0.0f,0.0f,
+		//LEFT
+		0.0f,0.0f,0.0f,
+		0.0f,1.0f,0.0f,
+		0.0f,1.0f,-1.0f,
+		//LEFT
+		0.0f,1.0f,-1.0f,
+		0.0f,0.0f,-1.0f,
+		0.0f,0.0f,0.0f,
+		//RIGHT
+		1.0f,0.0f,0.0f,
+		1.0f,1.0f,-1.0f,
+		1.0f,1.0f,0.0f,
+		//RIGHT
+		1.0f,0.0f,0.0f,
+		1.0f,0.0f,-1.0f,
+		1.0f,1.0f,-1.0f,
+		//BACK
+		1.0f,0.0f,-1.0f,
+		0.0f,1.0f,-1.0f,
+		1.0f,1.0f,-1.0f,
+		//BACK
+		1.0f,0.0f,-1.0f,
+		0.0f,0.0f,-1.0f,
+		0.0f,1.0f,-1.0f,
+
+	};
 
 	glEnd();
 
 	
 	glGenBuffers(1, (GLuint*) &(my_id));
 	glBindBuffer(GL_ARRAY_BUFFER, my_id);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 36 * 3, v0, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 36 * 3, vertices, GL_STATIC_DRAW);
 
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));

@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Globals.h"
 #include "SDL/include/SDL.h"
+#include <vector>
 
 class UiMainMenu;
 
@@ -23,7 +24,15 @@ public:
 public:
 	UiMainMenu* mainMenu = nullptr;
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-	
+	SDL_version version;
+	int CPU_Cache = 0;
+	int CPU_Count = 0;
+	int ram = 0;
+
+private:
+	std::vector<float> vector_ms;
+	std::vector<float> vector_fps;
+
 };
 
 #endif 

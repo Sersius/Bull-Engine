@@ -24,12 +24,6 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 	glewInit();
 	//HARDWARE
-	SDL_VERSION(&version);
-	CPU_Cache = SDL_GetCPUCacheLineSize();
-	CPU_Count = SDL_GetCPUCount();
-	ram = SDL_GetSystemRAM();
-	ram /= 1000;
-	
 	
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));

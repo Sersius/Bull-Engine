@@ -43,6 +43,9 @@ bool Application::Init()
 {
 	bool ret = true;
 
+	app_name = "Bull Engine";
+	organization = "UPC CITM";
+
 	// Call Init() in all modules
 	std::list<Module*>::iterator item = list_modules.begin();
 
@@ -76,6 +79,8 @@ void Application::PrepareUpdate()
 // ---------------------------------------------
 void Application::FinishUpdate()
 {
+	last_FPS = 1.0f / dt;
+	last_ms = (float)ms_timer.Read();
 }
 
 // Call PreUpdate, Update and PostUpdate on all modules
@@ -128,4 +133,14 @@ bool Application::CleanUp()
 void Application::AddModule(Module* mod)
 {
 	list_modules.push_back(mod);
+}
+
+float Application::GetMS()
+{
+	return last_ms;
+}
+
+float Application::GetFPS()
+{
+	return last_FPS;
 }

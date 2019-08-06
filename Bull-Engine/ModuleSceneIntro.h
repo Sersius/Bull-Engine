@@ -24,10 +24,8 @@ public:
 
 public:
 	uint my_id = 0;
-	float vertexs[200];
-	float v0[3] = { 1.0f, 1.0f, 0.0f };
-	float v1[3] = { 0.0f, 1.0f, 0.0f };
-	float v2[3] = { 0.0f, 0.0f, 0.0f };
-	float v3[3] = { 1.0f, 0.0f, 0.0f };
-	float vertex[4] = { *v0,*v1,*v2,*v3 };
+	uint my_indices = 0;
+	uint* indices = nullptr;
+	float* vertex = nullptr;
+	
 };

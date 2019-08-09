@@ -45,6 +45,10 @@ public :
 	void InnerRender() const;
 public:
 	vec3 size;
+	uint my_id = 0;
+	uint my_indices = 0;
+	uint* indices = nullptr;
+	float* vertex = nullptr;
 };
 
 // ============================================

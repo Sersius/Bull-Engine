@@ -2,6 +2,7 @@
 #include "Module.h"
 #include "Globals.h"
 #include "ImGui/imgui.h"
+#include "Primitive.h"	
 
 
 #define MAX_SNAKE 2
@@ -23,9 +24,6 @@ public:
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
 
 public:
-	uint my_id = 0;
-	uint my_indices = 0;
-	uint* indices = nullptr;
-	float* vertex = nullptr;
 	
+	Cube* cube;
 };

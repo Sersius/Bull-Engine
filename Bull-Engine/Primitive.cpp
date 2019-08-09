@@ -1,8 +1,9 @@
 
 #include "Globals.h"
+#include "Primitive.h"
+#include "Glew/include/glew.h" 
 #include <gl/GL.h>
 #include <gl/GLU.h>
-#include "Primitive.h"
 
 
 
@@ -108,53 +109,50 @@ Cube::Cube() : Primitive(), size(1.0f, 1.0f, 1.0f)
 Cube::Cube(float sizeX, float sizeY, float sizeZ) : Primitive(), size(sizeX, sizeY, sizeZ)
 {
 	type = PrimitiveTypes::Primitive_Cube;
+	float sx = size.x;
+	float sy = size.y;
+	float sz = size.z;
+
+	vertex = new float[72]{ sx, sy, sz,   -sx, sy, sz,    -sx, -sy, sz,   sx, -sy, sz,   // FRONT   
+							sx, sy, sz,    sx, -sy, sz,    sx, -sy, -sz,  sx, sy, -sz,	 // TOP
+							sx, sy, sz,    sx, sy, -sz,   -sx, sy, -sz,  -sx, sy, sz,	 // RIGHT
+						   -sx, sy, sz,   -sx, sy, -sz,   -sx, -sy, -sz, -sx, -sy, sz,   // LEFT
+						   -sx, -sy, -sz,  sx, -sy, -sz,   sx, -sy, sz,  -sx, -sy, sz,   // BOTTOM
+					        sx, -sy, -sz, -sx, -sy, -sz,  -sx, sy, -sz,   sx, sy, -sz	 // BACK
+	}; 
+
+	glGenBuffers(1, (GLuint*) &(my_id));
+	glBindBuffer(GL_ARRAY_BUFFER, my_id);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 72, vertex, GL_STATIC_DRAW);
+
+	indices = new uint[36]{ 0, 1, 2,   2, 3, 0,  // FRONT
+							4, 5, 6,   6, 7, 4,	 // TOP
+							8, 9, 10,  10,11,8,  // RIGHT
+							12,13,14,  14,15,12, // LEFT
+							16,17,18,  18,19,16, // BOTTOM
+							20,21,22,  22,23,20  // BACK
+	};
+
+
+	glGenBuffers(1, (GLuint*) &(my_indices));
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, my_indices);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * 36, indices, GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
 void Cube::InnerRender() const
 {	
-	float sx = size.x * 0.5f;
-	float sy = size.y * 0.5f;
-	float sz = size.z * 0.5f;
+	glEnableClientState(GL_VERTEX_ARRAY);
 
-	glBegin(GL_QUADS);
+	glBindBuffer(GL_ARRAY_BUFFER, my_id);
+	glVertexPointer(3, GL_FLOAT, 0, NULL);
 
-	glNormal3f(0.0f, 0.0f, 1.0f);
-	glVertex3f(-sx, -sy, sz);
-	glVertex3f( sx, -sy, sz);
-	glVertex3f( sx,  sy, sz);
-	glVertex3f(-sx,  sy, sz);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, my_indices);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, NULL);
 
-	glNormal3f(0.0f, 0.0f, -1.0f);
-	glVertex3f( sx, -sy, -sz);
-	glVertex3f(-sx, -sy, -sz);
-	glVertex3f(-sx,  sy, -sz);
-	glVertex3f( sx,  sy, -sz);
+	glDisableClientState(GL_VERTEX_ARRAY);
 
-	glNormal3f(1.0f, 0.0f, 0.0f);
-	glVertex3f(sx, -sy,  sz);
-	glVertex3f(sx, -sy, -sz);
-	glVertex3f(sx,  sy, -sz);
-	glVertex3f(sx,  sy,  sz);
-
-	glNormal3f(-1.0f, 0.0f, 0.0f);
-	glVertex3f(-sx, -sy, -sz);
-	glVertex3f(-sx, -sy,  sz);
-	glVertex3f(-sx,  sy,  sz);
-	glVertex3f(-sx,  sy, -sz);
-
-	glNormal3f(0.0f, 1.0f, 0.0f);
-	glVertex3f(-sx, sy,  sz);
-	glVertex3f( sx, sy,  sz);
-	glVertex3f( sx, sy, -sz);
-	glVertex3f(-sx, sy, -sz);
-
-	glNormal3f(0.0f, -1.0f, 0.0f);
-	glVertex3f(-sx, -sy, -sz);
-	glVertex3f( sx, -sy, -sz);
-	glVertex3f( sx, -sy,  sz);
-	glVertex3f(-sx, -sy,  sz);
-
-	glEnd();
+	
 }
 
 // SPHERE ============================================

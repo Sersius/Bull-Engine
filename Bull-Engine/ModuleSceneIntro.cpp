@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleSceneIntro.h"
 #include "Primitive.h"
+#include "ModuleLoadFBX.h"
 #include "imGUI\imgui.h"
 #include "imGUI\imgui_impl_sdl_gl3.h"
 #include "Glew\include\glew.h"
@@ -27,6 +28,7 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 	cube = new Cube(1.0f, 1.0f, 1.0f);
+	App->loadFBX->LoadFbx("warrior.FBX");
 	return ret;
 }
 update_status ModuleSceneIntro::PreUpdate(float dt)
@@ -48,8 +50,8 @@ update_status ModuleSceneIntro::Update(float dt)
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
 	p.Render();
-	cube->Render();
 	
+	App->renderer3D->DrawModel(App->loadFBX->mesh);
 
 	return UPDATE_CONTINUE;
 }

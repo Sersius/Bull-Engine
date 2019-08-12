@@ -1,8 +1,11 @@
 #pragma once
 #include "Module.h"
+
 #include "Globals.h"
 #include "glmath.h"
 #include "Light.h"
+#include "ModuleLoadFBX.h"
+#include "Glew/include/glew.h"
 
 #define MAX_LIGHTS 8
 
@@ -16,6 +19,7 @@ public:
 	update_status PreUpdate(float dt);
 	update_status PostUpdate(float dt);
 	bool CleanUp();
+	void DrawModel(InfoFbx mesh);
 
 	void OnResize(int width, int height);
 

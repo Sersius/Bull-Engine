@@ -10,6 +10,7 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
 #include "ModuleUI.h"
+#include "ModuleLoadFBX.h"
 #include <list>
 
 
@@ -23,6 +24,7 @@ public:
 	ModuleRenderer3D* renderer3D;
 	ModuleCamera3D* camera;
 	ModuleUI* UI;
+	ModuleLoadFBX* loadFBX;
 
 	char* app_name;
 	char* organization;

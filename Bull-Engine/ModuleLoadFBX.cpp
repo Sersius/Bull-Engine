@@ -76,14 +76,14 @@ bool ModuleLoadFBX::LoadFbx(const char* path)
 				} 
 			}
 		}
+
 		glGenBuffers(1, (GLuint*) &(mesh.id_vertex));
 		glBindBuffer(GL_ARRAY_BUFFER, mesh.id_vertex);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * mesh.num_vertex, mesh.vertex, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * mesh.num_vertex, mesh.vertex, GL_STATIC_DRAW);
 
 		glGenBuffers(1, (GLuint*) &(mesh.id_index));
-		glBindBuffer(GL_ARRAY_BUFFER, mesh.id_index);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * mesh.num_index, mesh.index, GL_STATIC_DRAW);
-
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.id_index);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * mesh.num_index, mesh.index, GL_STATIC_DRAW);
 		
 		
 		return true;

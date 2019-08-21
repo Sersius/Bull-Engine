@@ -123,9 +123,9 @@ update_status ModuleUI::Update(float dt)
 				SDL_UpdateWindowSurface(App->window->window);
 			}
 
-			if (ImGui::SliderInt("Width", &App->window->width, 1, 2000) || ImGui::SliderInt("Height", &App->window->height, 1, 2000))
+			if (ImGui::SliderInt("Width", &App->width, 1, 2000) || ImGui::SliderInt("Height", &App->height, 1, 2000))
 			{
-				SDL_SetWindowSize(App->window->window, App->window->width, App->window->height);
+				SDL_SetWindowSize(App->window->window, App->width, App->height);
 				SDL_UpdateWindowSurface(App->window->window);
 			}
 

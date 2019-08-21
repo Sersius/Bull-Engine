@@ -27,6 +27,9 @@ public:
 	ModuleLoadFBX* loadFBX;
 
 	char* app_name;
+	const char* title;
+	int width = 0;
+	int height = 0;
 	char* organization;
 
 private:

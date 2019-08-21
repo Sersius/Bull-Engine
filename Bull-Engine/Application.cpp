@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "JSON/parson.h"
 
 Application::Application()
 {
@@ -47,6 +48,15 @@ bool Application::Init()
 
 	app_name = "Bull Engine";
 	organization = "UPC CITM";
+
+	JSON_Value* conf = json_parse_file("config.json");
+	JSON_Object* conf_obj = nullptr;
+	conf_obj = json_value_get_object(conf);
+	JSON_Object* window_obj = nullptr;
+	window_obj = json_object_get_object(conf_obj, "window");
+	title = json_object_get_string(window_obj, "title");
+	width = json_object_get_number(window_obj, "width");
+	height = json_object_get_number(window_obj, "height");
 
 	// Call Init() in all modules
 	std::list<Module*>::iterator item = list_modules.begin();

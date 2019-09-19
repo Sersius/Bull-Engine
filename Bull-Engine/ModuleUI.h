@@ -3,10 +3,12 @@
 
 #include "Module.h"
 #include "Globals.h"
+#include "Window.h"
 #include "SDL/include/SDL.h"
 #include <vector>
 
-class UiMainMenu;
+class Window;
+class ConfigWindow;
 
 class ModuleUI: public Module
 {
@@ -22,16 +24,10 @@ public:
 	bool CleanUp();
 
 public:
-	UiMainMenu* mainMenu = nullptr;
-	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-	SDL_version version;
-	int CPU_Cache = 0;
-	int CPU_Count = 0;
-	int ram = 0;
+	std::vector<Window*> windows;
 
 private:
-	std::vector<float> vector_ms;
-	std::vector<float> vector_fps;
+	ConfigWindow* config = nullptr;
 
 };
 

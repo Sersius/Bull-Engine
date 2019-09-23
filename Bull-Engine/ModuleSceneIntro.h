@@ -2,10 +2,12 @@
 #include "Module.h"
 #include "Globals.h"
 #include "ImGui/imgui.h"
-#include "Primitive.h"	
+#include "Primitive.h"
+//
+//#include "MathGeoLib\include\Geometry\Sphere.h"
+//#include "MathGeoLib\include\Math\float3.h"
 
-struct PhysBody3D;
-struct PhysMotor3D;
+
 
 class ModuleSceneIntro : public Module
 {
@@ -17,10 +19,10 @@ public:
 	update_status Update(float dt);
 	update_status PreUpdate(float dt);
 	bool CleanUp();
-
-	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
+	//Sphere s1, s2;
+	
 
 public:
 	
-	Cube* cube;
+	
 };

@@ -156,20 +156,20 @@ void Cube::InnerRender() const
 }
 
 // SPHERE ============================================
-Sphere::Sphere() : Primitive(), radius(1.0f)
-{
-	type = PrimitiveTypes::Primitive_Sphere;
-}
-
-Sphere::Sphere(float radius) : Primitive(), radius(radius)
-{
-	type = PrimitiveTypes::Primitive_Sphere;
-}
-
-void Sphere::InnerRender() const
-{
-	//glutSolidSphere(radius, 25, 25);
-}
+//Sphere::Sphere() : Primitive(), radius(1.0f)
+//{
+//	type = PrimitiveTypes::Primitive_Sphere;
+//}
+//
+//Sphere::Sphere(float radius) : Primitive(), radius(radius)
+//{
+//	type = PrimitiveTypes::Primitive_Sphere;
+//}
+//
+//void Sphere::InnerRender() const
+//{
+//	//glutSolidSphere(radius, 25, 25);
+//}
 
 
 // CYLINDER ============================================

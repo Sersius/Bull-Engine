@@ -7,6 +7,8 @@
 #include "imGUI\imgui_impl_sdl_gl3.h"
 #include "Glew\include\glew.h"
 
+#pragma comment( lib, "Glew/libx86/glew32.lib" )
+
 ModuleUI ::ModuleUI(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 }
@@ -17,6 +19,7 @@ ModuleUI::~ModuleUI()
 bool ModuleUI::Start()
 {
 	bool ret = true;
+	
 	ImGui_ImplSdlGL3_Init(App->window->window);
 	windows.push_back(config = new ConfigWindow());
 	return ret;

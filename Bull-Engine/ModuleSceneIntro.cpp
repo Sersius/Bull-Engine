@@ -3,12 +3,6 @@
 #include "ModuleSceneIntro.h"
 #include "Primitive.h"
 #include "ModuleLoadFBX.h"
-#include "imGUI\imgui.h"
-#include "imGUI\imgui_impl_sdl_gl3.h"
-#include "Glew\include\glew.h"
-
-#pragma comment( lib, "Glew/libx86/glew32.lib" )
-
 
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
@@ -27,7 +21,12 @@ bool ModuleSceneIntro::Start()
 
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
-	cube = new Cube(1.0f, 1.0f, 1.0f);
+	/*s1.pos = { 0,0,0 };
+	s1.r = 10;
+
+	s2.pos = { 0,0,0 };
+	s2.r = 5;*/
+
 	App->loadFBX->LoadFbx("warrior.FBX");
 	return ret;
 }
@@ -50,14 +49,15 @@ update_status ModuleSceneIntro::Update(float dt)
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
 	p.Render();
-	
+	//if (s1.Intersects(s2))
+	//{
+	//	LOG("They intersect");
+	//	
+	//}
 	App->renderer3D->DrawModel(App->loadFBX->mesh);
 
 	return UPDATE_CONTINUE;
 }
 
-void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
-{
-	LOG("Hit!");
-}
+
 

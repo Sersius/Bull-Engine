@@ -9,6 +9,7 @@
 
 class Window;
 class ConfigWindow;
+class AboutWindow;
 
 class ModuleUI: public Module
 {
@@ -28,7 +29,7 @@ public:
 
 private:
 	ConfigWindow* config = nullptr;
-
+	AboutWindow* about = nullptr;
 };
 
 #endif 

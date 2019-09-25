@@ -3,6 +3,7 @@
 #include "ModuleUI.h"
 #include "Module.h"
 #include "ConfigWindow.h"
+#include "AboutWindow.h"
 #include "imGUI\imgui.h"
 #include "imGUI\imgui_impl_sdl_gl3.h"
 #include "Glew\include\glew.h"
@@ -22,6 +23,7 @@ bool ModuleUI::Start()
 	
 	ImGui_ImplSdlGL3_Init(App->window->window);
 	windows.push_back(config = new ConfigWindow());
+	windows.push_back(about = new AboutWindow());
 	return ret;
 }
 

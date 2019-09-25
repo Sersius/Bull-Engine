@@ -11,3 +11,9 @@ void Window::Active()
 	on = !on;
 }
 
+
+bool Window::IsActivated()
+{
+	return on;
+}
+

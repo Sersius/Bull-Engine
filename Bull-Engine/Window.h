@@ -10,6 +10,7 @@ public:
 	virtual ~Window();
 
 	virtual void Active();
+	virtual bool IsActivated();
 	virtual void Draw() = 0;
 	
 	

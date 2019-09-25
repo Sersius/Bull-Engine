@@ -51,12 +51,28 @@ update_status ModuleUI::Update(float dt)
 	{
 		if (ImGui::BeginMenu("Menu"))
 		{
-			if (ImGui::MenuItem("Open..", "Ctrl+O")) { /* Do stuff */ }
-			if (ImGui::MenuItem("Save", "Ctrl+S")) { show_test = true; }
-			if (ImGui::MenuItem("Quit", "Alt+F4"))
-			{
-				return UPDATE_STOP;
-			}
+			if (ImGui::MenuItem("Open in explorer")) {}
+			ImGui::Separator();
+			if (ImGui::MenuItem("Save", "Ctrl+S")) {}
+			if (ImGui::MenuItem("Exit", "Escape")) { return UPDATE_STOP; }
+			ImGui::EndMenu();
+		}
+		if (ImGui::BeginMenu("Window"))
+		{
+			if (ImGui::MenuItem("Configuration")) { config->on = !config->on; }
+			
+			
+
+			ImGui::EndMenu();
+		}
+		
+		if (ImGui::BeginMenu("Help"))
+		{
+			if (ImGui::MenuItem("GUI Demo")) { show_test = !show_test; }
+			if (ImGui::MenuItem("Documentation")) { ShellExecute(GetActiveWindow(), "open", "https://github.com/Sersius/Bull-Engine", NULL, NULL, SW_SHOWNORMAL); }
+			if (ImGui::MenuItem("Report a bug")) { ShellExecute(GetActiveWindow(), "open", "https://github.com/Sersius/Bull-Engine/issues", NULL, NULL, SW_SHOWNORMAL); }
+			if (ImGui::MenuItem("About")) { about->on = !about->on; }
+			
 
 			ImGui::EndMenu();
 		}
@@ -65,7 +81,7 @@ update_status ModuleUI::Update(float dt)
 
 	for (int i = 0; i < windows.capacity(); i++)
 	{
-		if (windows[i]->on == true)
+		if (windows[i]->IsActivated())
 			windows[i]->Draw();
 	}
 	

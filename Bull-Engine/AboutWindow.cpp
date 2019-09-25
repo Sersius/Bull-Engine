@@ -6,7 +6,7 @@
 
 AboutWindow::AboutWindow() : Window()
 {
-	on = true;
+	on = false;
 }
 
 AboutWindow::~AboutWindow()
@@ -26,21 +26,35 @@ void AboutWindow::Draw()
 	{
 		ImGui::Text("Bull Engine v0.3");
 		ImGui::Separator();
-
+		
 		ImGui::Text("By Victor Tirado & Sergio Gomez.");
 		ImGui::Text("This is a 3D Engine for the subject 3D engines, do it during the 3rd year of\nthe Game Desing and Game Development degree at CITM.");
 		ImGui::Separator();
 
 		if (ImGui::CollapsingHeader("Libraries"))
 		{
+			ImGui::Columns(2, NULL);
+			ImGui::Text("Libraries:");
+			ImGui::SameLine();
+			//ImGui::Separator();
+			ImGui::NextColumn();
+			ImGui::Text("Version:");
+			
+			ImGui::Separator();
+			ImGui::NextColumn();
 			ImGui::Text("Assimp");
+			/*ImGui::Separator();
+			ImGui::NextColumn();*/
 			ImGui::Text("DevIl");
 			ImGui::Text("Glew");
 			ImGui::Text("ImGui");
+			
 			ImGui::Text("MathGeoLib");
 			ImGui::Text("mmgr");
 			ImGui::Text("SDL");
 			ImGui::Text("SDL_mixer");
+			ImGui::Columns(1, NULL);
+
 		}
 
 		if (ImGui::CollapsingHeader("License"))

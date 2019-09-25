@@ -7,7 +7,7 @@
 
 ConfigWindow::ConfigWindow() : Window()
 {
-	on = true;
+	on = false;
 }
 
 ConfigWindow::~ConfigWindow()
@@ -33,7 +33,7 @@ bool ConfigWindow::CleanUp()
 
 void ConfigWindow::Draw()
 {
-	
+	static bool show_config = false;
 	static bool custom = false;
 	static bool normal = true;
 

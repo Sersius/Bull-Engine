@@ -16,6 +16,8 @@ ModuleWindow::~ModuleWindow()
 // Called before render is available
 bool ModuleWindow::Init()
 {
+	icon = SDL_LoadBMP("Icon.bmp");
+	
 	LOG("Init SDL window & surface");
 	bool ret = true;
 
@@ -68,7 +70,7 @@ bool ModuleWindow::Init()
 			screen_surface = SDL_GetWindowSurface(window);
 		}
 	}
-
+	SDL_SetWindowIcon(window, icon);
 	brightness = SDL_GetWindowBrightness(App->window->window);
 
 	return ret;
@@ -87,6 +89,8 @@ bool ModuleWindow::CleanUp()
 	{
 		SDL_DestroyWindow(window);
 	}
+	if (icon != NULL)
+		SDL_FreeSurface(icon);
 
 	//Quit SDL subsystems
 	SDL_Quit();

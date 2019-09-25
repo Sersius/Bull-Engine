@@ -26,7 +26,7 @@ public:
 
 	//The surface contained by the window
 	SDL_Surface* screen_surface;
-
+	SDL_Surface* icon = nullptr;
 	Uint32 flags;
 	int width = 0;
 	int height = 0;

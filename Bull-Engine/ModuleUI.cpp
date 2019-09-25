@@ -68,7 +68,7 @@ update_status ModuleUI::Update(float dt)
 		if (windows[i]->on == true)
 			windows[i]->Draw();
 	}
-	ImGui::End();
+	
 	ImGui::Render();
 	
 	return UPDATE_CONTINUE;

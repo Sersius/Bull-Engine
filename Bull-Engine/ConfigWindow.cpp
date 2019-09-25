@@ -192,6 +192,6 @@ void ConfigWindow::Draw()
 			}
 		}
 
-
+		ImGui::End();
 	}
 

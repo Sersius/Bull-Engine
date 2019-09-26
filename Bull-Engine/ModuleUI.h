@@ -10,6 +10,7 @@
 class Window;
 class ConfigWindow;
 class AboutWindow;
+class ConsoleWindow;
 
 class ModuleUI: public Module
 {
@@ -30,6 +31,7 @@ public:
 private:
 	ConfigWindow* config = nullptr;
 	AboutWindow* about = nullptr;
+	ConsoleWindow* console = nullptr;
 };
 
 #endif 

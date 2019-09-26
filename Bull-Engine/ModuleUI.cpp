@@ -51,9 +51,9 @@ update_status ModuleUI::Update(float dt)
 	{
 		if (ImGui::BeginMenu("Menu"))
 		{
-			if (ImGui::MenuItem("Open in explorer")) {}
+			if (ImGui::MenuItem("Save","Coming soon")) {}
+			if (ImGui::MenuItem("Load", "Coming soon")) {}
 			ImGui::Separator();
-			if (ImGui::MenuItem("Save", "Ctrl+S")) {}
 			if (ImGui::MenuItem("Exit", "Escape")) { return UPDATE_STOP; }
 			ImGui::EndMenu();
 		}
@@ -70,6 +70,7 @@ update_status ModuleUI::Update(float dt)
 		{
 			if (ImGui::MenuItem("GUI Demo")) { show_test = !show_test; }
 			if (ImGui::MenuItem("Documentation")) { ShellExecute(GetActiveWindow(), "open", "https://github.com/Sersius/Bull-Engine", NULL, NULL, SW_SHOWNORMAL); }
+			if (ImGui::MenuItem("Download latest")) { ShellExecute(GetActiveWindow(), "open", "https://github.com/Sersius/Bull-Engine/releases", NULL, NULL, SW_SHOWNORMAL); }
 			if (ImGui::MenuItem("Report a bug")) { ShellExecute(GetActiveWindow(), "open", "https://github.com/Sersius/Bull-Engine/issues", NULL, NULL, SW_SHOWNORMAL); }
 			if (ImGui::MenuItem("About")) { about->on = !about->on; }
 			

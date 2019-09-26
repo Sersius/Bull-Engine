@@ -54,6 +54,11 @@ void ConfigWindow::Draw()
 		if (ImGui::CollapsingHeader("Application"))
 		{
 		
+			static char eng_name[30] = "Bull Engine";
+			ImGui::InputText("App Name", eng_name, ARRAYSIZE(eng_name)); 
+			App->window->SetTitle(eng_name);
+			static char org_name[30] = "UPC CITM";
+			ImGui::InputText("Organization", org_name, _ARRAYSIZE(org_name)); 
 			//ImGui::InputText("App name", App->app_name, 20);
 			//ImGui::InputText("Organization", App->organization, 20);
 

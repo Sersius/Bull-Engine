@@ -48,8 +48,8 @@ void ConfigWindow::Draw()
 
 	memory_usage = total_memory - available_memory;
 
-	if (ImGui::Begin("Configuration"))
-	{
+	ImGui::Begin("Configuration", &on, 0);
+	
 
 		if (ImGui::CollapsingHeader("Application"))
 		{
@@ -195,7 +195,7 @@ void ConfigWindow::Draw()
 				ImGui::SameLine();
 				ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.0f, 1.0f), "%.1f Mb", (dedicated_memory * 0.001));
 			}
-		}
+		
 
 		ImGui::End();
 	}

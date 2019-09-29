@@ -63,7 +63,7 @@ update_status ModuleUI::Update(float dt)
 		if (ImGui::BeginMenu("Window"))
 		{
 			if (ImGui::MenuItem("Configuration")) { config->on = !config->on; }
-			
+			ImGui::Checkbox("Wireframe mode", &App->renderer3D->wireframe);
 			
 
 			ImGui::EndMenu();

@@ -27,7 +27,7 @@ bool ModuleSceneIntro::Start()
 	s2.pos = { 0,0,0 };
 	s2.r = 5;*/
 
-	App->loadFBX->LoadFbx("warrior.FBX");
+	App->loadFBX->LoadFbx("");
 	return ret;
 }
 update_status ModuleSceneIntro::PreUpdate(float dt)

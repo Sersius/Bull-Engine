@@ -7,7 +7,7 @@
 ConsoleWindow::ConsoleWindow() : Window()
 {
 	on = true;
-	AddLog("Welcome to ImGui");
+	
 }
 
 ConsoleWindow::~ConsoleWindow()

@@ -14,6 +14,9 @@
 
 ModuleUI ::ModuleUI(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
+	windows.push_back(config = new ConfigWindow());
+	windows.push_back(about = new AboutWindow());
+	windows.push_back(console = new ConsoleWindow());
 }
 
 ModuleUI::~ModuleUI()
@@ -24,9 +27,7 @@ bool ModuleUI::Start()
 	bool ret = true;
 	
 	ImGui_ImplSdlGL3_Init(App->window->window);
-	windows.push_back(config = new ConfigWindow());
-	windows.push_back(about = new AboutWindow());
-	windows.push_back(console = new ConsoleWindow());
+	
 	config->Start();
 	return ret;
 }

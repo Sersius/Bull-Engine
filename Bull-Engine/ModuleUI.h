@@ -27,11 +27,12 @@ public:
 
 public:
 	std::vector<Window*> windows;
-
-private:
 	ConfigWindow* config = nullptr;
 	AboutWindow* about = nullptr;
 	ConsoleWindow* console = nullptr;
+
+private:
+	
 };
 
 #endif 

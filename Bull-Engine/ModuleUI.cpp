@@ -27,6 +27,7 @@ bool ModuleUI::Start()
 	windows.push_back(config = new ConfigWindow());
 	windows.push_back(about = new AboutWindow());
 	windows.push_back(console = new ConsoleWindow());
+	config->Start();
 	return ret;
 }
 

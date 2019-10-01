@@ -74,11 +74,7 @@ update_status ModuleUI::Update(float dt)
 		if (ImGui::BeginMenu("Help"))
 		{
 			if (ImGui::MenuItem("GUI Demo")) { show_test = !show_test; }
-			if (ImGui::MenuItem("Documentation")) { ShellExecute(GetActiveWindow(), "open", "https://github.com/Sersius/Bull-Engine", NULL, NULL, SW_SHOWNORMAL); }
-			if (ImGui::MenuItem("Download latest")) { ShellExecute(GetActiveWindow(), "open", "https://github.com/Sersius/Bull-Engine/releases", NULL, NULL, SW_SHOWNORMAL); }
-			if (ImGui::MenuItem("Report a bug")) { ShellExecute(GetActiveWindow(), "open", "https://github.com/Sersius/Bull-Engine/issues", NULL, NULL, SW_SHOWNORMAL); }
-			if (ImGui::MenuItem("About")) { about->on = !about->on; }
-			
+			if (ImGui::MenuItem("About")) { about->on = !about->on; }			
 
 			ImGui::EndMenu();
 		}

@@ -51,13 +51,16 @@ void AboutWindow::Draw()
 			ImGui::Separator();
 
 			ImGui::NextColumn();
-			ImGui::MenuItem("SDL");
+			if (ImGui::MenuItem("SDL"))
+				if(ImGui::IsMouseClicked(0))
+					ShellExecute(GetActiveWindow(), "open", "https://www.libsdl.org/download-2.0.php", NULL, NULL, SW_SHOWNORMAL);
 			ImGui::SameLine();
 			ImGui::NextColumn();
-			ImGui::Text("v4.0.2");
+			ImGui::Text("v2.0.4");
 
 			ImGui::NextColumn();
 			if (ImGui::MenuItem("DevIl"))
+				if (ImGui::IsMouseClicked(0))
 				ShellExecute(GetActiveWindow(), "open", "http://openil.sourceforge.net/download.php", NULL, NULL, SW_SHOWNORMAL);
 			ImGui::SameLine();
 			ImGui::NextColumn();
@@ -65,6 +68,7 @@ void AboutWindow::Draw()
 
 			ImGui::NextColumn();
 			if (ImGui::MenuItem("OpenGL"))
+				if (ImGui::IsMouseClicked(0))
 				ShellExecute(GetActiveWindow(), "open", "https://opengl.es.jaleco.com", NULL, NULL, SW_SHOWNORMAL);
 			ImGui::SameLine();
 			ImGui::NextColumn();
@@ -72,6 +76,7 @@ void AboutWindow::Draw()
 
 			ImGui::NextColumn();
 			if (ImGui::MenuItem("Glew"))
+				if (ImGui::IsMouseClicked(0))
 				ShellExecute(GetActiveWindow(), "open", "http://glew.sourceforge.net/", NULL, NULL, SW_SHOWNORMAL);
 			ImGui::SameLine();
 			ImGui::NextColumn();
@@ -79,6 +84,7 @@ void AboutWindow::Draw()
 
 			ImGui::NextColumn();
 			if (ImGui::MenuItem("ImGui"))
+				if (ImGui::IsMouseClicked(0))
 				ShellExecute(GetActiveWindow(), "open", "https://github.com/ocornut/imgui/releases/tag/v1.72", NULL, NULL, SW_SHOWNORMAL);
 			ImGui::SameLine();
 			ImGui::NextColumn();
@@ -86,6 +92,7 @@ void AboutWindow::Draw()
 			
 			ImGui::NextColumn();
 			if (ImGui::MenuItem("MathGeoLib"))
+				if (ImGui::IsMouseClicked(0))
 				ShellExecute(GetActiveWindow(), "open", "https://github.com/juj/MathGeoLib/releases/tag/v1.5", NULL, NULL, SW_SHOWNORMAL);
 			ImGui::SameLine();
 			ImGui::NextColumn();
@@ -93,6 +100,7 @@ void AboutWindow::Draw()
 
 			ImGui::NextColumn();
 			if (ImGui::MenuItem("Assimp"))
+				if (ImGui::IsMouseClicked(0))
 				ShellExecute(GetActiveWindow(), "open", "http://www.assimp.org/index.php/downloads", NULL, NULL, SW_SHOWNORMAL);
 			ImGui::SameLine();
 			ImGui::NextColumn();

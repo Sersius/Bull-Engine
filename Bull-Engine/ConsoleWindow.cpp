@@ -45,7 +45,13 @@ void ConsoleWindow::ClearLog()
 
 void ConsoleWindow::Draw()
 {
-	ImGui::Begin("Console", &on, 0);
+	ImGuiWindowFlags flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
+	ImGui::Begin("Console", &on, flags);
+	ImGui::SetWindowPos(ImVec2(0, 815), ImGuiCond_Once);
+	ImGui::SetWindowSize(ImVec2(App->width,200 ), ImGuiCond_Always);
+	SDL_GetWindowSize(App->window->window,&App->width,&App->height);
+
+	
 	for (int i = 0; i < Items.Size; i++)
 	{
 		const char* item = Items[i];

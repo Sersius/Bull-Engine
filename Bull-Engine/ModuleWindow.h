@@ -31,7 +31,7 @@ public:
 	int width = 0;
 	int height = 0;
 	float brightness = 0;
-	bool fullscreen = false, resizable = false, bordeless = false, fullscreen_desktop = false;
+	bool fullscreen = false, resizable = false, bordeless = false, fullscreen_desktop = false, maximized = false;
 };
 
 #endif // __ModuleWindow_H__

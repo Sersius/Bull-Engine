@@ -49,11 +49,14 @@ void ConfigWindow::Draw()
 	memory_usage = total_memory - available_memory;
 
 	ImGui::Begin("Configuration", &on, 0);
-	
+	ImGui::SetWindowSize(ImVec2(370,795), ImGuiCond_Once);
+	//SDL_GetWindowSize(App->window->window, &App->width, &App->height);
+	ImGui::SetWindowPos(ImVec2(0, 20), ImGuiCond_Once);
 
 		if (ImGui::CollapsingHeader("Application"))
 		{
-		
+			
+			ImGui::GetMouseCursor();
 			static char eng_name[30] = "Bull Engine";
 			ImGui::InputText("App Name", eng_name, ARRAYSIZE(eng_name)); 
 			App->window->SetTitle(eng_name);
@@ -116,6 +119,13 @@ void ConfigWindow::Draw()
 					//	SDL_SetWindowFullscreen(App->window->window, SDL_WINDOW_RESIZABLE);
 					//else
 					//	SDL_SetWindowFullscreen(App->window->window, App->window->flags);
+				}
+				if (ImGui::Checkbox("Maximized", &App->window->maximized))
+				{
+					if (App->window->maximized)
+						SDL_MaximizeWindow(App->window->window);
+					else
+						SDL_RestoreWindow(App->window->window);
 				}
 
 				if (ImGui::Checkbox("Bordeless ", &App->window->bordeless))
@@ -195,6 +205,29 @@ void ConfigWindow::Draw()
 				ImGui::SameLine();
 				ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.0f, 1.0f), "%.1f Mb", (dedicated_memory * 0.001));
 			}
+			if (ImGui::CollapsingHeader("Input"))
+			{
+				ImGui::Text("Mouse Position: ");
+				ImGui::SameLine();
+				ImGui::TextColored({ 1.0f, 1.0f, 0.0f, 1.0f }, "X: %i ", App->input->GetMouseX());
+				ImGui::SameLine();
+				ImGui::TextColored({ 1.0f, 1.0f, 0.0f, 1.0f }, "Y: %i", App->input->GetMouseY());
+
+				ImGui::Text("Mouse Motion: ");
+				ImGui::SameLine();
+				ImGui::TextColored({ 1.0f, 1.0f, 0.0f, 1.0f }, "X: %i ", App->input->GetMouseXMotion());
+				ImGui::SameLine();
+				ImGui::TextColored({ 1.0f, 1.0f, 0.0f, 1.0f }, "Y: %i", App->input->GetMouseYMotion());
+
+				ImGui::Text("Mouse Wheel: ");
+				ImGui::SameLine();
+				ImGui::TextColored({ 1.0f, 1.0f, 0.0f, 1.0f }, "%i ", App->input->GetMouseZ());
+			}
+			if (ImGui::CollapsingHeader("Style"))
+			{
+				ImGui::ShowStyleSelector("Style##Selector");
+			}
+
 		
 
 		ImGui::End();

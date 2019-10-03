@@ -48,7 +48,13 @@ update_status ModuleUI::PreUpdate(float dt)
 
 bool ModuleUI::CleanUp()
 {
-	//ImGui_ImplSdlGL3_Shutdown();
+	for (int i = 0; i < windows.capacity(); i++)
+	{
+		windows[i]->~Window();
+	}
+	windows.clear();
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplSDL2_Shutdown();
 	return true;
 }
 
@@ -71,9 +77,16 @@ update_status ModuleUI::Update(float dt)
 		if (ImGui::BeginMenu("Window"))
 		{
 			if (ImGui::MenuItem("Configuration")) { config->on = !config->on; }
+	
+			ImGui::EndMenu();
+		}
+		if (ImGui::BeginMenu("View"))
+		{
+			ImGui::Checkbox("Console",&console->on);
+			//ImGui::Checkbox("Inspector",&console->on);
+			ImGui::Separator();
 			ImGui::Checkbox("Wireframe mode", &App->renderer3D->wireframe);
-			
-
+			//TODO:: DEPTH CULL MODE, etc...
 			ImGui::EndMenu();
 		}
 		

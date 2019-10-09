@@ -7,6 +7,8 @@
 #include "ModuleLoadFBX.h"
 #include "Glew/include/glew.h"
 
+#include <vector>
+
 #define MAX_LIGHTS 8
 
 class ModuleRenderer3D : public Module
@@ -24,7 +26,7 @@ public:
 	void OnResize(int width, int height);
 
 public:
-
+	std::vector<InfoFbx> meshes;
 	Light lights[MAX_LIGHTS];
 	SDL_GLContext context;
 	mat3x3 NormalMatrix;

@@ -54,8 +54,10 @@ update_status ModuleSceneIntro::Update(float dt)
 	//	LOG("They intersect");
 	//	
 	//}
-	App->renderer3D->DrawModel(App->loadFBX->mesh);
-
+	//App->renderer3D->DrawModel(App->loadFBX->mesh);
+	for (std::vector<InfoFbx>::iterator item = App->renderer3D->meshes.begin(); item != App->renderer3D->meshes.end(); ++item) {
+		App->renderer3D->DrawModel(*item);
+	}
 	return UPDATE_CONTINUE;
 }
 

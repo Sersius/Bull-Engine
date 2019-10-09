@@ -1,6 +1,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleRenderer3D.h"
+#include "ModuleLoadFBX.h"
 #include "ImGui/imgui_impl_opengl3.h"
 #include "ImGui/imgui_impl_sdl.h"
 #include "SDL\include\SDL_opengl.h"
@@ -134,6 +135,7 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	
 	SDL_GL_SwapWindow(App->window->window);
 	return UPDATE_CONTINUE;
 }
@@ -154,7 +156,7 @@ void ModuleRenderer3D::DrawModel(InfoFbx mesh)
 
 	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_vertex);
 	glVertexPointer(3, GL_FLOAT, 0, NULL);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.id_index);
 	if (wireframe == true) {

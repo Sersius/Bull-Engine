@@ -47,19 +47,36 @@ update_status ModuleLoadFBX::Update(float dt)
 {
 	return UPDATE_CONTINUE;
 }
-
-
 bool ModuleLoadFBX::LoadFbx(const char* path)
 {
 	const aiScene* scene = aiImportFile(path, aiProcessPreset_TargetRealtime_MaxQuality);
+	if (scene != nullptr && scene->HasMeshes()) {
+	
+		aiNode* rootNode = scene->mRootNode;
+		for (int i = 0; i < rootNode->mNumChildren; ++i)
+		{
+			LoadModelInfo(scene,rootNode->mChildren[i], path);
+		}
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+}
+
+void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,const char* path)
+{
+	
 	if (scene != nullptr && scene->HasMeshes()) {   
 		// Use scene->mNumMeshes to iterate on scene->mMeshes array
 		
-		for (int i = 0; i < scene->mNumMeshes; i++)
+		for (int i = 0; i < node->mNumMeshes; i++)
 		{
-			aiMesh* new_mesh = scene->mMeshes[i];
+			aiMesh* new_mesh = scene->mMeshes[node->mMeshes[i]];
 			mesh.num_vertex = new_mesh->mNumVertices;
-			mesh.vertex = new float[mesh.num_vertex * 3];
+			mesh.vertex = new uint[mesh.num_vertex * 3];
 			memcpy(mesh.vertex, new_mesh->mVertices, sizeof(float)*mesh.num_vertex * 3);
 			LOG("New mesh with %d vertices", mesh.num_vertex);
 
@@ -84,13 +101,12 @@ bool ModuleLoadFBX::LoadFbx(const char* path)
 		glGenBuffers(1, (GLuint*) &(mesh.id_index));
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.id_index);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * mesh.num_index, mesh.index, GL_STATIC_DRAW);
+		App->renderer3D->meshes.push_back(mesh);
 		
-		
-		return true;
 	}
 	else {
 		LOG("Error loading scene %s", path);
-		return false;
+		
 	}
 	
 }

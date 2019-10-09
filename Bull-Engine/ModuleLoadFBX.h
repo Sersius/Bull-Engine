@@ -3,6 +3,8 @@
 #include "Globals.h"
 #include "Primitive.h"	
 
+class aiScene;
+class aiNode;
 struct InfoFbx {
 	uint id_index = 0; // index in VRAM
 	uint num_index = 0;
@@ -10,7 +12,7 @@ struct InfoFbx {
 
 	uint id_vertex = 0; // unique vertex in VRAM
 	uint num_vertex = 0;
-	float* vertex = nullptr;
+	uint* vertex = nullptr;
 };
 class ModuleLoadFBX : public Module
 {
@@ -23,6 +25,7 @@ public:
 	update_status PreUpdate(float dt);
 	bool CleanUp();
 	bool LoadFbx(const char* path);
+	void LoadModelInfo(const aiScene* scene, aiNode* node,const char* path);
 
 public:
 

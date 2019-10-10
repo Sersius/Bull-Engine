@@ -100,11 +100,9 @@ update_status ModuleUI::Update(float dt)
 			ImGui::EndMenu();
 		}
 
-		if (ImGui::BeginMenu("Add"))
+		if (ImGui::BeginMenu("Add an object"))
 		{
-			if (ImGui::MenuItem("Plane")) { add->on = !add->on; }
-			if (ImGui::MenuItem("Pyramid")) { add->on = !add->on; }
-			if (ImGui::MenuItem("Cube")) { add->on = !add->on; }
+			add->on = !add->on;
 
 			ImGui::EndMenu();
 		}

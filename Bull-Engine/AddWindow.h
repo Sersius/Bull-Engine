@@ -27,7 +27,9 @@ public:
 
 
 private:
-
+	int scale = 1;
+	int pos[3] = { 1, 1, 1 };
+	float color[3] = { 1.0f, 1.0f, 1.0f };
 
 };
 

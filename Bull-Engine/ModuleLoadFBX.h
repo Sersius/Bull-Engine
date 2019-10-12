@@ -30,6 +30,7 @@ public:
 	bool CleanUp();
 	bool LoadFbx(const char* path);
 	void LoadModelInfo(const aiScene* scene, aiNode* node,const char* path);
+	void LoadTexture(char * path_texture);
 
 public:
 

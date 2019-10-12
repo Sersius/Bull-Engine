@@ -6,12 +6,20 @@
 #include "Assimp/include/scene.h"
 #include "Assimp/include/postprocess.h"
 #include "Assimp/include/cfileio.h"
-
+#include "Devil/include/il.h"
+#include "Devil/include/ilu.h"
+#include "Devil/include/ilut.h"
 
 #pragma comment (lib, "Assimp/libx86/assimp.lib")
+#pragma comment (lib, "Devil\\libx86\\DevIL.lib")
+#pragma comment ( lib, "Devil\\libx86\\ILU.lib" )
+#pragma comment ( lib, "Devil\\libx86\\ILUT.lib" )
 
 ModuleLoadFBX::ModuleLoadFBX(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
+	ilInit();
+	iluInit();
+	ilutInit();
 }
 
 ModuleLoadFBX::~ModuleLoadFBX()
@@ -24,7 +32,7 @@ bool ModuleLoadFBX::Start()
 	struct aiLogStream stream;
 	stream = aiGetPredefinedLogStream(aiDefaultLogStream_DEBUGGER, nullptr);
 	aiAttachLogStream(&stream);
-
+	LoadTexture("Baker_house.png");
 
 	return ret;
 }
@@ -119,6 +127,31 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,const char*
 		
 	}
 	
+}
+
+void ModuleLoadFBX::LoadTexture( char * path_texture)
+{
+	GLuint id;			
+	if(ilLoadImage(path_texture))
+	{
+		ILuint Width, Height;
+		Width = ilGetInteger(IL_IMAGE_WIDTH);
+		Height = ilGetInteger(IL_IMAGE_HEIGHT);
+
+		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+		glGenTextures(1, &id);
+		glBindTexture(GL_TEXTURE_2D, id);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, Width, Height,0, GL_RGBA, GL_UNSIGNED_BYTE, ilGetData());
+		LOG("Texture loaded");
+	}
+	else
+	{
+		LOG("Couldn't load texture");
+	}
 }
 
 

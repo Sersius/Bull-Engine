@@ -92,6 +92,11 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,const char*
 						memcpy(&mesh.index[i*3], new_mesh->mFaces[i].mIndices, 3 * sizeof(uint));
 				} 
 			}
+			if (new_mesh->HasNormals()) {
+				mesh.num_normals = new_mesh->mNumVertices;
+				mesh.normals = new float[mesh.num_normals * 3]; // assume each face is a triangle
+				memcpy(mesh.normals, new_mesh->mNormals, sizeof(float)*mesh.num_normals * 3);
+			}
 		}
 
 		glGenBuffers(1, (GLuint*) &(mesh.id_vertex));
@@ -101,6 +106,11 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,const char*
 		glGenBuffers(1, (GLuint*) &(mesh.id_index));
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.id_index);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * mesh.num_index, mesh.index, GL_STATIC_DRAW);
+
+		glGenBuffers(1, (GLuint*)&(mesh.id_normals));
+		glBindBuffer(GL_ARRAY_BUFFER, mesh.id_normals);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * mesh.num_normals, mesh.normals, GL_STATIC_DRAW);
+
 		App->renderer3D->meshes.push_back(mesh);
 		
 	}

@@ -81,6 +81,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,const char*
 		for (int i = 0; i < node->mNumMeshes; i++)
 		{
 			aiMesh* new_mesh = scene->mMeshes[node->mMeshes[i]];
+			mesh = InfoFbx();
 			mesh.num_vertex = new_mesh->mNumVertices;
 			mesh.vertex = new uint[mesh.num_vertex * 3];
 			memcpy(mesh.vertex, new_mesh->mVertices, sizeof(float)*mesh.num_vertex * 3);
@@ -159,17 +160,17 @@ void ModuleLoadFBX::LoadTexture( char * path_texture)
 		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 		glGenTextures(1, &texture_id);
 		glBindTexture(GL_TEXTURE_2D, texture_id);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, ilGetInteger(IL_IMAGE_WIDTH), ilGetInteger(IL_IMAGE_HEIGHT), 0, GL_RGBA, GL_UNSIGNED_BYTE, Data);*/
 		uint id =0;
 		
 		ilGenImages(1, &id);
 		ilBindImage(id);
 		ilLoadImage(path_texture);
-
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		texture_id = ilutGLBindTexImage();
 		glBindTexture(GL_TEXTURE_2D, 0);
 		ilDeleteImages(1, &id);

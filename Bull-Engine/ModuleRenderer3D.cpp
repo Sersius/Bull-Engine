@@ -174,6 +174,7 @@ void ModuleRenderer3D::DrawModel(InfoFbx mesh)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	
 	glDisableClientState(GL_VERTEX_ARRAY);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glDisable(GL_TEXTURE_2D);
 }

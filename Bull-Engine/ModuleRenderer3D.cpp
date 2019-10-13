@@ -98,6 +98,7 @@ bool ModuleRenderer3D::Init()
 		lights[0].Active(true);
 		glEnable(GL_LIGHTING);
 		glEnable(GL_COLOR_MATERIAL);
+
 	}
 
 	// Projection matrix for
@@ -153,10 +154,16 @@ bool ModuleRenderer3D::CleanUp()
 void ModuleRenderer3D::DrawModel(InfoFbx mesh)
 {
 	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, App->loadFBX->texture_id);
 
 	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_vertex);
 	glVertexPointer(3, GL_FLOAT, 0, NULL);
 	
+	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_uvs);
+	glTexCoordPointer(2, GL_FLOAT, 0, NULL);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.id_index);
 	if (wireframe == true) {
@@ -167,6 +174,8 @@ void ModuleRenderer3D::DrawModel(InfoFbx mesh)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	
 	glDisableClientState(GL_VERTEX_ARRAY);
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glDisable(GL_TEXTURE_2D);
 }
 
 

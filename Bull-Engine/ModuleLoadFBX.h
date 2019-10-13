@@ -17,6 +17,10 @@ struct InfoFbx {
 	uint id_normals = 0;
 	uint num_normals = 0;
 	float* normals = 0;
+
+	uint id_uvs = 0;
+	uint num_uvs = 0;
+	float* uvs = 0;
 };
 class ModuleLoadFBX : public Module
 {
@@ -31,7 +35,7 @@ public:
 	bool LoadFbx(const char* path);
 	void LoadModelInfo(const aiScene* scene, aiNode* node,const char* path);
 	void LoadTexture(char * path_texture);
-
+	uint texture_id;
 public:
 
 	InfoFbx mesh;

@@ -136,7 +136,9 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-	
+	for (std::vector<InfoFbx>::iterator item = App->renderer3D->meshes.begin(); item != App->renderer3D->meshes.end(); ++item) {
+		App->renderer3D->DrawModel(*item);
+	}
 	SDL_GL_SwapWindow(App->window->window);
 	return UPDATE_CONTINUE;
 }

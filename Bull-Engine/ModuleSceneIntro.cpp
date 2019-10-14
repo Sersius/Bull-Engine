@@ -21,13 +21,8 @@ bool ModuleSceneIntro::Start()
 
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
-	/*s1.pos = { 0,0,0 };
-	s1.r = 10;
-
-	s2.pos = { 0,0,0 };
-	s2.r = 5;*/
-
-	//App->loadFBX->LoadFbx("");
+	App->loadFBX->LoadFbx("Models/BakerHouse.fbx");
+	App->loadFBX->LoadTexture("Textures/Baker_house.png");
 	return ret;
 }
 update_status ModuleSceneIntro::PreUpdate(float dt)
@@ -49,15 +44,9 @@ update_status ModuleSceneIntro::Update(float dt)
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
 	p.Render();
-	//if (s1.Intersects(s2))
-	//{
-	//	LOG("They intersect");
-	//	
-	//}
-	//App->renderer3D->DrawModel(App->loadFBX->mesh);
-	for (std::vector<InfoFbx>::iterator item = App->renderer3D->meshes.begin(); item != App->renderer3D->meshes.end(); ++item) {
-		App->renderer3D->DrawModel(*item);
-	}
+	
+	
+	//App->loadFBX->LoadTexture(dropped_filedir);
 	return UPDATE_CONTINUE;
 }
 

@@ -30,7 +30,7 @@ bool ModuleLoadFBX::Start()
 	struct aiLogStream stream;
 	stream = aiGetPredefinedLogStream(aiDefaultLogStream_DEBUGGER, nullptr);
 	aiAttachLogStream(&stream);
-	LoadTexture("Baker_house.png");
+	//LoadTexture("Baker_house.png");
 
 	return ret;
 }
@@ -101,6 +101,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,const char*
 			}
 			if (new_mesh->HasTextureCoords(mesh.id_uvs))
 			{
+				
 				// ---- UVs ----
 				mesh.num_uvs = new_mesh->mNumVertices;
 				mesh.uvs = new float[mesh.num_uvs * 2];

@@ -138,6 +138,7 @@ update_status ModuleInput::PreUpdate(float dt)
 				);
 
 				App->loadFBX->LoadFbx(dropped_filedir);
+				App->loadFBX->LoadTexture(dropped_filedir);
 
 				SDL_free(dropped_filedir);
 			}

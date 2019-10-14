@@ -40,14 +40,8 @@ void AddWindow::Draw()
 	ImGui::ColorEdit3("", color);
 	ImGui::Separator();
 
-	if (ImGui::Button("Create") == true || current_item == 0)
-		ImGui::Text("XD");
+	if (ImGui::Button("Create"))
 
-	else if (ImGui::Button("Create") == true || current_item == 1)
-		ImGui::Text("XD");
-
-	else if (ImGui::Button("Create") == true || current_item == 2)
-		ImGui::Text("XD");
 
 	ImGui::End();
 }

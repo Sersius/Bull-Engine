@@ -11,6 +11,7 @@
 #include "ModuleCamera3D.h"
 #include "ModuleUI.h"
 #include "ModuleLoadFBX.h"
+#include "ModuleFileSystem.h"
 #include <list>
 
 
@@ -25,6 +26,7 @@ public:
 	ModuleCamera3D* camera;
 	ModuleUI* UI;
 	ModuleLoadFBX* loadFBX;
+	ModuleFileSystem* fileSystem;
 
 	char* app_name;
 	const char* title;

@@ -11,6 +11,7 @@ Application::Application()
 	camera = new ModuleCamera3D(this);
 	UI = new ModuleUI(this);
 	loadFBX = new ModuleLoadFBX(this);
+	fileSystem = new ModuleFileSystem(this, ASSETS_FOLDER);
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -20,6 +21,7 @@ Application::Application()
 	AddModule(window);
 	AddModule(camera);
 	AddModule(input);
+	AddModule(fileSystem);
 	AddModule(loadFBX);
 
 	

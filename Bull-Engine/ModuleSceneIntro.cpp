@@ -22,7 +22,7 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 	App->loadFBX->LoadFbx("Models/BakerHouse.fbx");
-	App->loadFBX->LoadTexture("Textures/Baker_house.png");
+	//App->loadFBX->LoadTexture("Textures/Baker_house.png");
 	return ret;
 }
 update_status ModuleSceneIntro::PreUpdate(float dt)

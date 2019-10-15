@@ -99,6 +99,7 @@ bool ModuleRenderer3D::Init()
 		glEnable(GL_LIGHTING);
 		glEnable(GL_COLOR_MATERIAL);
 
+
 	}
 
 	// Projection matrix for
@@ -128,7 +129,9 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
-
+	for (std::vector<InfoFbx>::iterator item = App->renderer3D->meshes.begin(); item != App->renderer3D->meshes.end(); ++item) {
+		App->renderer3D->DrawModel(*item);
+	}
 	return UPDATE_CONTINUE;
 }
 
@@ -136,9 +139,7 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 update_status ModuleRenderer3D::PostUpdate(float dt)
 {
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-	for (std::vector<InfoFbx>::iterator item = App->renderer3D->meshes.begin(); item != App->renderer3D->meshes.end(); ++item) {
-		App->renderer3D->DrawModel(*item);
-	}
+	
 	SDL_GL_SwapWindow(App->window->window);
 	return UPDATE_CONTINUE;
 }

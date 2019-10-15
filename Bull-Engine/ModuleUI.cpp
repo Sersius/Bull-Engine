@@ -32,8 +32,6 @@ bool ModuleUI::Start()
 {
 	bool ret = true;
 	
-	//ImGui_ImplSdlGL3_Init(App->window->window);
-	
 	config->Start();
 	return ret;
 }

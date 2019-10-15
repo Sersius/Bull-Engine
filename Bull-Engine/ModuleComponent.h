@@ -6,7 +6,7 @@
 class Component
 {
 public:
-	Component();
+	Component(GameObject* parent, COMPONENT_TYPE type);
 	~Component();
 
 	void Update(float dt);

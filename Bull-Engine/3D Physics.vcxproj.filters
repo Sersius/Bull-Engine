@@ -22,9 +22,6 @@
     <Filter Include="Sources\Tools\ImGui">
       <UniqueIdentifier>{69bed194-8fd0-4bf6-8437-cb167392d1fb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Modules\UI">
-      <UniqueIdentifier>{54be3e61-1837-4f75-8808-15b6c3a7f13c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sources\Tools\Assimp">
       <UniqueIdentifier>{bf90c9f6-df97-47af-b7b6-63b675a45b4e}</UniqueIdentifier>
     </Filter>
@@ -45,6 +42,12 @@
     </Filter>
     <Filter Include="Sources\Tools\PhysFS">
       <UniqueIdentifier>{032161f0-233a-4faf-9cb2-cc4dd8ff9813}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Modules\Components GameObject">
+      <UniqueIdentifier>{d80acf1f-3c0e-4cb0-bb81-4d4df8db5b65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Modules\UI">
+      <UniqueIdentifier>{54be3e61-1837-4f75-8808-15b6c3a7f13c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -540,6 +543,15 @@
     <ClInclude Include="..\..\..\..\Desktop\Edu-Game-Engine-master\Source\PhysFS\include\physfs.h">
       <Filter>Sources\Tools\PhysFS</Filter>
     </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -727,6 +739,15 @@
     </ClCompile>
     <ClCompile Include="ModuleFileSystem.cpp">
       <Filter>Sources\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Sources\Modules\Components GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

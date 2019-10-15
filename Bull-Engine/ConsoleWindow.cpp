@@ -47,23 +47,23 @@ void ConsoleWindow::Draw()
 {
 	ImGuiWindowFlags flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
 	ImGui::Begin("Console", &on, flags);
-	ImGui::SetWindowPos(ImVec2(0, 815), ImGuiCond_Once);
-	ImGui::SetWindowSize(ImVec2(App->width,200 ), ImGuiCond_Always);
-	SDL_GetWindowSize(App->window->window,&App->width,&App->height);
+
+		ImGui::SetWindowPos(ImVec2(0, 815), ImGuiCond_Once);
+		ImGui::SetWindowSize(ImVec2(App->width,200 ), ImGuiCond_Always);
+		SDL_GetWindowSize(App->window->window,&App->width,&App->height);
 
 	
-	for (int i = 0; i < Items.Size; i++)
-	{
-		const char* item = Items[i];
-		ImVec4 col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f); 
-		if (strstr(item, "[error]")) col = ImColor(1.0f, 0.4f, 0.4f, 1.0f);
-		else if (strncmp(item, "# ", 2) == 0) col = ImColor(1.0f, 0.78f, 0.58f, 1.0f);
-		ImGui::PushStyleColor(ImGuiCol_Text, col);
-		ImGui::TextUnformatted(item);
-		ImGui::PopStyleColor();
+		for (int i = 0; i < Items.Size; i++)
+		{
+			const char* item = Items[i];
+			ImVec4 col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f); 
+			if (strstr(item, "[error]")) col = ImColor(1.0f, 0.4f, 0.4f, 1.0f);
+			else if (strncmp(item, "# ", 2) == 0) col = ImColor(1.0f, 0.78f, 0.58f, 1.0f);
+			ImGui::PushStyleColor(ImGuiCol_Text, col);
+			ImGui::TextUnformatted(item);
+			ImGui::PopStyleColor();		
+		}
 
-		
-	}
 	ImGui::End();
 
 }

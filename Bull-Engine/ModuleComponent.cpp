@@ -1,26 +1,26 @@
 #include "ModuleComponent.h"
 
-ModuleComponent::ModuleComponent()
+Component::Component()
 {
 
 }
 
-ModuleComponent::~ModuleComponent()
+Component::~Component()
 {
 
 }
 
-void ModuleComponent::Update(float dt)
+void Component::Update(float dt)
 {
 
 }
 
-void ModuleComponent::SetEnable(bool set)
+void Component::SetEnable(bool set)
 {
 	active = set;
 }
 
-bool ModuleComponent::GetEnabled()
+bool Component::GetEnabled()
 {
 	return active;
 }

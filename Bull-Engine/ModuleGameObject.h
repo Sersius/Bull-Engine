@@ -13,26 +13,26 @@ enum COMPONENT_TYPE
 	MATERIAL
 };
 
-class ModuleComponent;
+class Component;
 
-class ModuleGameObject
+class GameObject
 {
 public:
 
-	ModuleGameObject(std::string name, ModuleGameObject* parent = nullptr);
-	~ModuleGameObject();
+	GameObject(std::string name, GameObject* parent = nullptr);
+	~GameObject();
 
 	void Update(float dt);
 
-	ModuleComponent* CreateComponent(COMPONENT_TYPE type, std::string name);
-	ModuleComponent* GetComponent(COMPONENT_TYPE type, std::string name);
+	Component* CreateComponent(COMPONENT_TYPE type, std::string name);
+	Component* GetComponent(COMPONENT_TYPE type, std::string name);
 
 private:
 
 	std::string name;
-	ModuleGameObject* parent = nullptr;
-	std::vector<ModuleGameObject*> children;
-	std::vector<ModuleComponent*> components;
+	GameObject* parent = nullptr;
+	std::vector<GameObject*> children;
+	std::vector<Component*> components;
 };
 
 #endif

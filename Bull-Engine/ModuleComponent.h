@@ -3,11 +3,11 @@
 
 #include "ModuleGameObject.h"
 
-class ModuleComponent
+class Component
 {
 public:
-	ModuleComponent();
-	~ModuleComponent();
+	Component();
+	~Component();
 
 	void Update(float dt);
 
@@ -17,7 +17,7 @@ public:
 public:
 	COMPONENT_TYPE type;
 	bool active = true;
-	ModuleGameObject* parent;
+	GameObject* parent;
 };
 
 #endif

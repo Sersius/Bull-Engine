@@ -1,27 +1,27 @@
 #include "ModuleGameObject.h"
 
-ModuleGameObject::ModuleGameObject(std::string name, ModuleGameObject* parent)
+GameObject::GameObject(std::string name, GameObject* parent)
 {
 	this->name = name;
 	this->parent = parent;
 }
 
-ModuleGameObject::~ModuleGameObject()
+GameObject::~GameObject()
 {
 
 }
 
-void ModuleGameObject::Update(float dt)
+void GameObject::Update(float dt)
 {
 
 }
 
-ModuleComponent* ModuleGameObject::CreateComponent(COMPONENT_TYPE type, std::string name)
+Component* GameObject::CreateComponent(COMPONENT_TYPE type, std::string name)
 {
 	return nullptr;
 }
 
-ModuleComponent* ModuleGameObject::GetComponent(COMPONENT_TYPE type, std::string name)
+Component* GameObject::GetComponent(COMPONENT_TYPE type, std::string name)
 {
 	return nullptr;
 }

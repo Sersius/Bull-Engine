@@ -21,6 +21,9 @@ bool ModuleSceneIntro::Start()
 
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
+	root = new GameObject(nullptr);
+	root->SetName("Root");
+	game_objects.push_back(root);
 	//App->loadFBX->LoadFbx("Models/Notebook.fbx");
 	//App->loadFBX->LoadTexture("Textures/Baker_house.png");
 	return ret;

@@ -552,6 +552,9 @@
     <ClInclude Include="Material.h">
       <Filter>Sources\Modules\Components GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="HierarchyWindow.h">
+      <Filter>Sources\Modules\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -748,6 +751,9 @@
     </ClCompile>
     <ClCompile Include="Material.cpp">
       <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="HierarchyWindow.cpp">
+      <Filter>Sources\Modules\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

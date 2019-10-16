@@ -28,6 +28,7 @@ public:
 	Component* GetComponent(COMPONENT_TYPE type, std::string name);
 	void SetName(const char* new_name);
 	const char* GetName()const;
+	void BlitHierarchy();
 	std::vector<GameObject*> children;
 
 private:

@@ -154,6 +154,7 @@
     <ClInclude Include="ConsoleWindow.h" />
     <ClInclude Include="glmath.h" />
     <ClInclude Include="Globals.h" />
+    <ClInclude Include="HierarchyWindow.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_opengl3.h" />
@@ -250,6 +251,7 @@
     <ClCompile Include="ConfigWindow.cpp" />
     <ClCompile Include="ConsoleWindow.cpp" />
     <ClCompile Include="glmath.cpp" />
+    <ClCompile Include="HierarchyWindow.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_demo.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />

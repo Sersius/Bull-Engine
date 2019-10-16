@@ -6,6 +6,7 @@
 #include "AboutWindow.h"
 #include "ConsoleWindow.h"
 #include "AddWindow.h"
+#include "HierarchyWindow.h"
 
 #include "imGUI\imgui.h"
 #include "ImGui/imgui_impl_opengl3.h"
@@ -23,6 +24,7 @@ ModuleUI ::ModuleUI(Application* app, bool start_enabled) : Module(app, start_en
 	windows.push_back(about = new AboutWindow());
 	windows.push_back(console = new ConsoleWindow());
 	windows.push_back(add = new AddWindow());
+	windows.push_back(hierarchy = new HierarchyWindow());
 }
 
 ModuleUI::~ModuleUI()
@@ -48,7 +50,7 @@ update_status ModuleUI::PreUpdate(float dt)
 
 bool ModuleUI::CleanUp()
 {
-	for (int i = 0; i < windows.capacity(); i++)
+	for (int i = 0; i < windows.capacity()-1; i++)
 	{
 		windows[i]->~Window();
 	}
@@ -107,7 +109,7 @@ update_status ModuleUI::Update(float dt)
 		ImGui::EndMainMenuBar();
 	}
 
-	for (int i = 0; i < windows.capacity(); i++)
+	for (int i = 0; i < windows.capacity()-1; i++)
 	{
 		if (windows[i]->IsActivated())
 			windows[i]->Draw();

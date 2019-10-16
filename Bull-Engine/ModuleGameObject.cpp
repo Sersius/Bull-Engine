@@ -40,6 +40,6 @@ void GameObject::BlitHierarchy()
 {
 	char name_str[250];
 	sprintf_s(name_str, 250, "%s##%i", name.c_str());
-	bool op = ImGui::TreeNodeEx(name_str, 0);
-	//ImGui::TreePop();
+	if(ImGui::TreeNodeEx(name_str))
+	ImGui::TreePop();
 }

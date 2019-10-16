@@ -87,8 +87,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			mesh.num_vertex = new_mesh->mNumVertices;
 			mesh.vertex = new uint[mesh.num_vertex * 3];
 			memcpy(mesh.vertex, new_mesh->mVertices, sizeof(float)*mesh.num_vertex * 3);
-			LOG("New mesh with %d vertices", mesh.num_vertex);
-
+			
 			if (new_mesh->HasFaces()) {
 				mesh.num_index = new_mesh->mNumFaces * 3;
 				mesh.index = new uint[mesh.num_index]; // assume each face is a triangle
@@ -103,7 +102,6 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			}
 			if (new_mesh->HasTextureCoords(mesh.id_uvs))
 			{
-				
 				// ---- UVs ----
 				mesh.num_uvs = new_mesh->mNumVertices;
 				mesh.uvs = new float[mesh.num_uvs * 2];
@@ -140,6 +138,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * mesh.num_normals, mesh.normals, GL_STATIC_DRAW);
 
 		App->renderer3D->meshes.push_back(mesh);
+		LOG("Mesh name: %s", name_mesh.c_str());
 		LOG("Loaded mesh with %i vertices.", mesh.num_vertex);
 		LOG("Loaded mesh with %i indices.", mesh.num_index);
 		LOG("Loaded mesh with %i triangles.", mesh.num_vertex / 3);
@@ -151,12 +150,10 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		LOG("Error loading scene %s", path);
 		
 	}
-	if (scene->mNumMeshes != 1) {
-		
-
+	if (scene->mNumMeshes != 0) 
+	{
 		GameObject* childGO = App->scene_intro->CreateGameObject(game_object);
-		//childGO->SetName(name_mesh.c_str());
-		
+		//childGO->SetName(name_mesh.c_str());	
 	}
 	
 }

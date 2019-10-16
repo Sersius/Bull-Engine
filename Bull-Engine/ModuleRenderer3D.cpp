@@ -154,6 +154,15 @@ bool ModuleRenderer3D::CleanUp()
 	return true;
 }
 
+void ModuleRenderer3D::RendererSettings(int enum_, bool render_type)
+{
+	if (!render_type)
+		glEnable(enum_);
+	else
+		glDisable(enum_);
+
+}
+
 void ModuleRenderer3D::DrawModel(InfoFbx mesh)
 {
 	glEnableClientState(GL_VERTEX_ARRAY);

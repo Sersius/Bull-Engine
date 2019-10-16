@@ -3,6 +3,7 @@
 #include "ConfigWindow.h"
 #include "ModuleWindow.h"
 #include "imGUI\imgui.h"
+#include "ModuleRenderer3D.h"
 
 
 ConfigWindow::ConfigWindow() : Window()
@@ -226,6 +227,20 @@ void ConfigWindow::Draw()
 			if (ImGui::CollapsingHeader("Style"))
 			{
 				ImGui::ShowStyleSelector("Style##Selector");
+			}
+			if (ImGui::CollapsingHeader("Renderer"))
+			{
+				
+				if (ImGui::Checkbox("GL_DEPTH_TEST", &depth_test))
+					App->renderer3D->RendererSettings(GL_DEPTH_TEST, depth_test);
+				else if (ImGui::Checkbox("GL_CULL_FACE", &cull_face))
+					App->renderer3D->RendererSettings(GL_CULL_FACE, cull_face);
+				else if (ImGui::Checkbox("GL_LIGHTING", &lightning))
+					App->renderer3D->RendererSettings(GL_LIGHTING, lightning);
+				else if (ImGui::Checkbox("GL_COLOR_MATERIAL", &color_material))
+					App->renderer3D->RendererSettings(GL_COLOR_MATERIAL, color_material);
+				else if (ImGui::Checkbox("GL_TEXTURE_2D", &texture2d))
+					App->renderer3D->RendererSettings(GL_TEXTURE_2D, texture2d);
 			}
 
 		

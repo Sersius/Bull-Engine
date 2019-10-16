@@ -27,7 +27,11 @@ public:
 	int CPU_Cache = 0;
 	int CPU_Count = 0;
 	int ram = 0;
-	
+	bool lightning = false;
+	bool depth_test = false;
+	bool cull_face = false;
+	bool color_material = false;
+	bool texture2d = false;
 
 private:
 	std::vector<float> vector_ms;

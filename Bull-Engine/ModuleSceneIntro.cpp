@@ -24,7 +24,7 @@ bool ModuleSceneIntro::Start()
 	root = new GameObject(nullptr);
 	root->SetName("Root");
 	game_objects.push_back(root);
-	//App->loadFBX->LoadFbx("Models/Notebook.fbx");
+	//App->loadFBX->LoadFbx("Models/BakerHouse.fbx");
 	//App->loadFBX->LoadTexture("Textures/Baker_house.png");
 	return ret;
 }

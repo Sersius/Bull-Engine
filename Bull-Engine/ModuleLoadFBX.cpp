@@ -61,7 +61,8 @@ bool ModuleLoadFBX::LoadFbx(const char* path)
 		aiNode* rootNode = scene->mRootNode;
 		for (int i = 0; i < rootNode->mNumChildren; ++i)
 		{
-			LoadModelInfo(scene,rootNode->mChildren[i], path);
+			
+			LoadModelInfo(scene,rootNode->mChildren[i],game_object, path);
 		}
 		return true;
 	}
@@ -72,7 +73,7 @@ bool ModuleLoadFBX::LoadFbx(const char* path)
 
 }
 
-void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,const char* path)
+void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject* game_object,const char* path)
 {
 	
 	if (scene != nullptr && scene->HasMeshes()) {   
@@ -81,6 +82,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,const char*
 		for (int i = 0; i < node->mNumMeshes; i++)
 		{
 			aiMesh* new_mesh = scene->mMeshes[node->mMeshes[i]];
+			name_mesh =  node->mName.C_Str();
 			mesh = InfoFbx();
 			mesh.num_vertex = new_mesh->mNumVertices;
 			mesh.vertex = new uint[mesh.num_vertex * 3];
@@ -116,13 +118,15 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,const char*
 				glBindBuffer(GL_ARRAY_BUFFER, mesh.id_uvs);
 				glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 2 * mesh.num_uvs, mesh.uvs, GL_STATIC_DRAW);
 			}
+			
 			if (new_mesh->HasNormals()) {
 				mesh.num_normals = new_mesh->mNumVertices;
 				mesh.normals = new float[mesh.num_normals * 3]; // assume each face is a triangle
 				memcpy(mesh.normals, new_mesh->mNormals, sizeof(float)*mesh.num_normals * 3);
 			}
+			
 		}
-
+		
 		glGenBuffers(1, (GLuint*) &(mesh.id_vertex));
 		glBindBuffer(GL_ARRAY_BUFFER, mesh.id_vertex);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * mesh.num_vertex, mesh.vertex, GL_STATIC_DRAW);
@@ -145,6 +149,13 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,const char*
 	}
 	else {
 		LOG("Error loading scene %s", path);
+		
+	}
+	if (scene->mNumMeshes != 1) {
+		
+
+		GameObject* childGO = App->scene_intro->CreateGameObject(game_object);
+		//childGO->SetName(name_mesh.c_str());
 		
 	}
 	

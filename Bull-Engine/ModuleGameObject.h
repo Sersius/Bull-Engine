@@ -19,19 +19,23 @@ class GameObject
 {
 public:
 
-	GameObject(std::string name, GameObject* parent = nullptr);
+	GameObject(GameObject* parent = nullptr);
 	~GameObject();
 
 	void Update(float dt);
 
 	Component* CreateComponent(COMPONENT_TYPE type, std::string name);
 	Component* GetComponent(COMPONENT_TYPE type, std::string name);
+	void SetName(const char* new_name);
+	const char* GetName()const;
+	std::vector<GameObject*> children;
 
 private:
 
 	std::string name;
+	
 	GameObject* parent = nullptr;
-	std::vector<GameObject*> children;
+	
 	std::vector<Component*> components;
 };
 

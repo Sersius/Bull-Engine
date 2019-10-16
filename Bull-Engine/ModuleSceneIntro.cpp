@@ -21,7 +21,7 @@ bool ModuleSceneIntro::Start()
 
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
-	App->loadFBX->LoadFbx("Models/BakerHouse.fbx");
+	//App->loadFBX->LoadFbx("Models/Notebook.fbx");
 	//App->loadFBX->LoadTexture("Textures/Baker_house.png");
 	return ret;
 }
@@ -48,6 +48,18 @@ update_status ModuleSceneIntro::Update(float dt)
 	
 	//App->loadFBX->LoadTexture(dropped_filedir);
 	return UPDATE_CONTINUE;
+}
+GameObject* ModuleSceneIntro::CreateGameObject(GameObject* parent)
+{
+	GameObject* object = new GameObject(parent);
+	object->SetName(App->loadFBX->name_mesh.c_str());
+	game_objects.push_back(object);
+	for (int i = 0; i < game_objects.capacity(); i++)
+	{
+		LOG("Name: %s",game_objects[i]->GetName());
+	}
+	LOG("GameObjects in scene: %d", game_objects.capacity());
+	return object;
 }
 
 

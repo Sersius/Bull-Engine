@@ -2,9 +2,11 @@
 #include "Module.h"
 #include "Globals.h"
 #include "Primitive.h"	
+#include "ModuleGameObject.h"
 
 class aiScene;
 class aiNode;
+class GameObject;
 struct InfoFbx {
 	uint id_index = 0; // index in VRAM
 	uint num_index = 0;
@@ -33,11 +35,12 @@ public:
 	update_status PreUpdate(float dt);
 	bool CleanUp();
 	bool LoadFbx(const char* path);
-	void LoadModelInfo(const aiScene* scene, aiNode* node,const char* path);
+	void LoadModelInfo(const aiScene* scene, aiNode* node, GameObject* game_object,const char* path);
 	void LoadTexture(char * path_texture);
 	uint texture_id;
 public:
-
+	GameObject* game_object = new GameObject(nullptr);
+	std::string name_mesh;
 	InfoFbx mesh;
 	
 };

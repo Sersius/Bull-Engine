@@ -1,8 +1,8 @@
 #include "ModuleGameObject.h"
 
-GameObject::GameObject(std::string name, GameObject* parent)
+GameObject::GameObject(GameObject* parent)
 {
-	this->name = name;
+	
 	this->parent = parent;
 }
 
@@ -24,4 +24,14 @@ Component* GameObject::CreateComponent(COMPONENT_TYPE type, std::string name)
 Component* GameObject::GetComponent(COMPONENT_TYPE type, std::string name)
 {
 	return nullptr;
+}
+
+void GameObject::SetName(const char* name)
+{
+	this->name = name;
+	//LOG("name: %s", name);
+}
+const char* GameObject::GetName()const
+{
+	return name.c_str();
 }

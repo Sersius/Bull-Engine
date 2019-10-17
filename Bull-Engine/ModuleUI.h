@@ -13,6 +13,7 @@ class AboutWindow;
 class ConsoleWindow;
 class AddWindow;
 class HierarchyWindow;
+class InspectorWindow;
 
 class ModuleUI: public Module
 {
@@ -34,6 +35,7 @@ public:
 	ConsoleWindow* console = nullptr;
 	AddWindow* add = nullptr;
 	HierarchyWindow* hierarchy = nullptr;
+	InspectorWindow* inspector = nullptr;
 
 private:
 	

@@ -7,6 +7,7 @@
 #include "ConsoleWindow.h"
 #include "AddWindow.h"
 #include "HierarchyWindow.h"
+#include "InspectorWindow.h"
 
 #include "imGUI\imgui.h"
 #include "ImGui/imgui_impl_opengl3.h"
@@ -25,6 +26,7 @@ ModuleUI ::ModuleUI(Application* app, bool start_enabled) : Module(app, start_en
 	windows.push_back(console = new ConsoleWindow());
 	windows.push_back(add = new AddWindow());
 	windows.push_back(hierarchy = new HierarchyWindow());
+	windows.push_back(inspector = new InspectorWindow());
 }
 
 ModuleUI::~ModuleUI()

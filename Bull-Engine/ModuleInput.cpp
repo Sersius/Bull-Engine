@@ -138,16 +138,18 @@ update_status ModuleInput::PreUpdate(float dt)
 				if (file_type == File_type::FILE_MODEL)
 				{
 					LOG("Loading FBX from: %s", dropped_filedir);
-					App->loadFBX->LoadFbx(dropped_filedir);
+					//App->loadFBX->LoadFbx(dropped_filedir);
+					App->scene_intro->CreateGameObjectMesh(dropped_filedir);
 					
 				}
 				else if (file_type == File_type::FILE_MATERIAL)
 				{
-					for (int i = 0; i < App->scene_intro->game_objects.capacity(); i++)
+					App->loadFBX->LoadTexture(dropped_filedir);
+					/*for (int i = 0; i < App->scene_intro->game_objects.capacity(); i++)
 					{
 						App->scene_intro->game_objects.at(i)->material->GetTexture(dropped_filedir);
-					}
-					
+					}*/
+					//App->scene_intro->game_objects.at(0)->material->GetTexture(dropped_filedir);
 				}
 				// Shows directory of dropped file
 				/*SDL_ShowSimpleMessageBox(
@@ -159,7 +161,7 @@ update_status ModuleInput::PreUpdate(float dt)
 				
 				SDL_free(dropped_filedir);
 				
-				//App->loadFBX->LoadTexture(dropped_filedir);
+				//
 				
 			}
 

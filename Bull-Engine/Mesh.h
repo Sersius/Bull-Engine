@@ -6,13 +6,13 @@
 class Mesh : public Component
 {
 public:
-	Mesh(GameObject* parent);
+	Mesh(GameObject* parent,char* path);
 	~Mesh();
 
 	void Update(float dt);
-
+	void GetMesh(char* path);
 private:
-
+	char* path = nullptr;
 };
 
 #endif

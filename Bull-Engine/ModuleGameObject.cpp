@@ -1,5 +1,6 @@
 #include "ModuleGameObject.h"
 #include "Material.h"
+#include "Mesh.h"
 #include "ImGui/imgui.h"
 GameObject::GameObject(GameObject* parent)
 {
@@ -17,13 +18,16 @@ void GameObject::Update(float dt)
 
 }
 
-Component* GameObject::CreateComponent(COMPONENT_TYPE type)
+Component* GameObject::CreateComponent(COMPONENT_TYPE type,char* name)
 {
 	if (type == COMPONENT_TYPE::MATERIAL)
 	{
 		material = new Material(this);
 	}
-
+	else if (type == COMPONENT_TYPE::MESH)
+	{
+		mesh = new Mesh(this,name);
+	}
 	return material;
 }
 

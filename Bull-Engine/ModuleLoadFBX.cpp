@@ -163,6 +163,8 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 	if (scene->mNumMeshes != 0) 
 	{
 		GameObject* childGO = App->scene_intro->CreateGameObject(game_object);
+		childGO->CreateComponent(COMPONENT_TYPE::MATERIAL);
+		childGO->CreateComponent(COMPONENT_TYPE::MESH);
 		//childGO->SetName(name_mesh.c_str());	
 	}
 	

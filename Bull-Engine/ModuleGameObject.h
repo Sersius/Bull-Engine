@@ -16,7 +16,7 @@ enum COMPONENT_TYPE
 
 class Component;
 class Material;
-
+class Mesh;
 class GameObject
 {
 public:
@@ -26,13 +26,14 @@ public:
 
 	void Update(float dt);
 
-	Component* CreateComponent(COMPONENT_TYPE type);
+	Component* CreateComponent(COMPONENT_TYPE type, char* name="");
 	Component* GetComponent(COMPONENT_TYPE type, std::string name);
 	void SetName(const char* new_name);
 	const char* GetName()const;
 	void BlitHierarchy();
 	std::vector<GameObject*> children;
 	Material* material = nullptr;
+	Mesh* mesh = nullptr;
 private:
 
 	std::string name;

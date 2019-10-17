@@ -24,7 +24,7 @@ public:
 	void DrawModel(InfoFbx mesh);
 
 	void OnResize(int width, int height);
-
+	void RendererSettings(int enum_, bool type_render);
 public:
 	std::vector<InfoFbx> meshes;
 	Light lights[MAX_LIGHTS];

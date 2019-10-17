@@ -84,7 +84,7 @@ GameObject* ModuleSceneIntro::CreateGameObject(GameObject* parent)
 void ModuleSceneIntro::CreateGameObjectMesh(char* path)
 {
 	root = CreateGameObject(root_object);
-	root->CreateComponent(COMPONENT_TYPE::MESH);
+	root->CreateComponent(COMPONENT_TYPE::MESH,path);
 }
 
 

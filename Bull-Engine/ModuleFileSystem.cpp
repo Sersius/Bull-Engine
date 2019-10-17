@@ -426,6 +426,26 @@ const char * ModuleFileSystem::GetReadPaths() const
 
 	return paths;
 }
+File_type ModuleFileSystem::TypeFromExtension(const char* extension)
+{
+	File_type ret = File_type::FILE_NONE;
+	std::string file_name = extension;
+	file_name = file_name.substr(file_name.find_last_of(".") +1);
+	if (extension != nullptr)
+	{
+		if (_stricmp(file_name.c_str(), "dds") == 0)
+			ret = File_type::FILE_NONE;
+		else if (_stricmp(file_name.c_str(), "png") == 0)
+			ret = File_type::FILE_MATERIAL;
+		else if (_stricmp(file_name.c_str(), "jpg") == 0)
+			ret = File_type::FILE_MATERIAL;
+		else if (_stricmp(file_name.c_str(), "fbx") == 0)
+			ret = File_type::FILE_MODEL;
+	
+	}
+
+	return ret;
+}
 
 // -----------------------------------------------------
 // ASSIMP IO

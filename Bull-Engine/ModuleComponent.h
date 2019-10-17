@@ -3,6 +3,8 @@
 
 #include "ModuleGameObject.h"
 
+class GameObject;
+enum COMPONENT_TYPE;
 class Component
 {
 public:

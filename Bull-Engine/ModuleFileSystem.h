@@ -8,7 +8,12 @@ struct SDL_RWops;
 int close_sdl_rwops(SDL_RWops *rw);
 
 struct aiFileIO;
-
+enum File_type
+{
+	FILE_NONE = 0,
+	FILE_MATERIAL,
+	FILE_MODEL
+};
 //struct BASS_FILEPROCS;
 
 class ModuleFileSystem : public Module
@@ -47,6 +52,7 @@ public:
 	// IO interfaces for other libs to handle files via PHYSfs
 	aiFileIO* GetAssimpIO();
 	
+	File_type TypeFromExtension(const char* extension);
 
 	unsigned int Save(const char* file, const void* buffer, unsigned int size, bool append = false) const;
 	bool SaveUnique(std::string& output, const void* buffer, uint size, const char* path, const char* prefix, const char* extension);

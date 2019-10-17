@@ -1,6 +1,8 @@
 
 #include "Application.h"
 #include "ModuleLoadFBX.h"
+#include "ModuleGameObject.h"
+#include "Material.h"
 #include "Glew/include/glew.h" 
 #include "Assimp/include/cimport.h"
 #include "Assimp/include/scene.h"
@@ -51,6 +53,7 @@ bool ModuleLoadFBX::CleanUp()
 // Update
 update_status ModuleLoadFBX::Update(float dt)
 {
+	
 	return UPDATE_CONTINUE;
 }
 bool ModuleLoadFBX::LoadFbx(const char* path)
@@ -82,6 +85,13 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		for (int i = 0; i < node->mNumMeshes; i++)
 		{
 			aiMesh* new_mesh = scene->mMeshes[node->mMeshes[i]];
+			aiMaterial* material = scene->mMaterials[new_mesh->mMaterialIndex];
+			if (material != nullptr) {
+				uint numTextures = material->GetTextureCount(aiTextureType_DIFFUSE);
+				aiString path;
+				material->GetTexture(aiTextureType_DIFFUSE, 0, &path);
+				game_object->CreateComponent(COMPONENT_TYPE::MATERIAL);
+			}
 			name_mesh =  node->mName.C_Str();
 			mesh = InfoFbx();
 			mesh.num_vertex = new_mesh->mNumVertices;
@@ -158,7 +168,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 	
 }
 
-void ModuleLoadFBX::LoadTexture( char * path_texture)
+bool ModuleLoadFBX::LoadTexture( char * path_texture)
 {
 	ilInit();
 	iluInit();
@@ -184,10 +194,12 @@ void ModuleLoadFBX::LoadTexture( char * path_texture)
 		glBindTexture(GL_TEXTURE_2D, 0);
 		ilDeleteImages(1, &id);
 		LOG("Texture loaded");
+		return true;
 	}
 	else
 	{
 		LOG("Couldn't load texture");
+		return false;
 	}
 }
 

@@ -1,6 +1,6 @@
 #include "ModuleComponent.h"
 
-Component::Component(GameObject* parent, COMPONENT_TYPE type)
+Component::Component(GameObject* parent, COMPONENT_TYPE type) : parent(parent)
 {
 	this->parent = parent;
 	this->type = type;

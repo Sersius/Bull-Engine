@@ -1,9 +1,13 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleInput.h"
+#include "ModuleFileSystem.h"
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_opengl3.h"
 #include "ImGui/imgui_impl_sdl.h"
+
+#include "Material.h"
+#include "ModuleGameObject.h"
 
 
 #define MAX_KEYS 300
@@ -126,9 +130,25 @@ update_status ModuleInput::PreUpdate(float dt)
 
 			case SDL_DROPFILE:
 			{
-
+				
+				
 				char* dropped_filedir;
 				dropped_filedir = e.drop.file;
+				File_type file_type = App->fileSystem->TypeFromExtension(dropped_filedir);
+				if (file_type == File_type::FILE_MODEL)
+				{
+					LOG("Loading FBX from: %s", dropped_filedir);
+					App->loadFBX->LoadFbx(dropped_filedir);
+					
+				}
+				else if (file_type == File_type::FILE_MATERIAL)
+				{
+					for (int i = 0; i < App->scene_intro->game_objects.capacity(); i++)
+					{
+						App->scene_intro->game_objects.at(i)->material->GetTexture(dropped_filedir);
+					}
+					
+				}
 				// Shows directory of dropped file
 				/*SDL_ShowSimpleMessageBox(
 					SDL_MESSAGEBOX_INFORMATION,
@@ -136,12 +156,11 @@ update_status ModuleInput::PreUpdate(float dt)
 					dropped_filedir,
 					App->window->window
 				);*/
-				LOG("Loading FBX from: %s", dropped_filedir);
-				App->loadFBX->LoadFbx(dropped_filedir);
 				
-				App->loadFBX->LoadTexture(dropped_filedir);
-
 				SDL_free(dropped_filedir);
+				
+				//App->loadFBX->LoadTexture(dropped_filedir);
+				
 			}
 
 			break;

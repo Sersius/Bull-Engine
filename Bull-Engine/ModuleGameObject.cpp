@@ -1,4 +1,5 @@
 #include "ModuleGameObject.h"
+#include "Material.h"
 #include "ImGui/imgui.h"
 GameObject::GameObject(GameObject* parent)
 {
@@ -16,9 +17,14 @@ void GameObject::Update(float dt)
 
 }
 
-Component* GameObject::CreateComponent(COMPONENT_TYPE type, std::string name)
+Component* GameObject::CreateComponent(COMPONENT_TYPE type)
 {
-	return nullptr;
+	if (type == COMPONENT_TYPE::MATERIAL)
+	{
+		material = new Material(this);
+	}
+
+	return material;
 }
 
 Component* GameObject::GetComponent(COMPONENT_TYPE type, std::string name)

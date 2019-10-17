@@ -5,6 +5,7 @@
 #include <string>
 #include "Globals.h"
 
+
 enum COMPONENT_TYPE
 {
 	NONE = 0,
@@ -14,6 +15,7 @@ enum COMPONENT_TYPE
 };
 
 class Component;
+class Material;
 
 class GameObject
 {
@@ -24,13 +26,13 @@ public:
 
 	void Update(float dt);
 
-	Component* CreateComponent(COMPONENT_TYPE type, std::string name);
+	Component* CreateComponent(COMPONENT_TYPE type);
 	Component* GetComponent(COMPONENT_TYPE type, std::string name);
 	void SetName(const char* new_name);
 	const char* GetName()const;
 	void BlitHierarchy();
 	std::vector<GameObject*> children;
-
+	Material* material = nullptr;
 private:
 
 	std::string name;

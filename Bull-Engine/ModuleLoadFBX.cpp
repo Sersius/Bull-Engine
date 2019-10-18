@@ -78,7 +78,11 @@ bool ModuleLoadFBX::LoadFbx(const char* path)
 
 void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject* game_object,const char* path)
 {
-	
+	this->path = path;
+
+	std::string name(path);
+	this->file_name = name.substr(name.find_last_of('\\') + 1);
+
 	if (scene != nullptr && scene->HasMeshes()) {   
 		// Use scene->mNumMeshes to iterate on scene->mMeshes array
 		
@@ -90,6 +94,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 				uint numTextures = material->GetTextureCount(aiTextureType_DIFFUSE);
 				aiString path;
 				material->GetTexture(aiTextureType_DIFFUSE, 0, &path);
+				texture_path = path.data;
 				game_object->CreateComponent(COMPONENT_TYPE::MATERIAL);
 			}
 			name_mesh =  node->mName.C_Str();
@@ -192,6 +197,8 @@ bool ModuleLoadFBX::LoadTexture( char * path_texture)
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		texture_width = ilGetInteger(IL_IMAGE_WIDTH);
+		texture_height = ilGetInteger(IL_IMAGE_HEIGHT);
 		texture_id = ilutGLBindTexImage();
 		glBindTexture(GL_TEXTURE_2D, 0);
 		ilDeleteImages(1, &id);

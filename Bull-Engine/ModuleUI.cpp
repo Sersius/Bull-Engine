@@ -81,13 +81,13 @@ update_status ModuleUI::Update(float dt)
 		if (ImGui::BeginMenu("Window"))
 		{
 			if (ImGui::MenuItem("Configuration")) { config->on = !config->on; }
+			if (ImGui::MenuItem("Inspector")) { inspector->on = !inspector->on; }
 	
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("View"))
 		{
 			ImGui::Checkbox("Console",&console->on);
-			//ImGui::Checkbox("Inspector",&console->on);
 			ImGui::Separator();
 			ImGui::Checkbox("Wireframe mode", &App->renderer3D->wireframe);
 			//TODO:: DEPTH CULL MODE, etc...

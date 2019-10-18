@@ -41,6 +41,12 @@ public:
 public:
 	GameObject* game_object = new GameObject(nullptr);
 	std::string name_mesh;
+	std::string texture_path;
+	std::string file_name;
+	std::string path;
 	InfoFbx mesh;
+
+	int texture_width = 0;
+	int texture_height = 0;
 	
 };

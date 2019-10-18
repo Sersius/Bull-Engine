@@ -111,7 +111,7 @@ update_status ModuleUI::Update(float dt)
 		ImGui::EndMainMenuBar();
 	}
 
-	for (int i = 0; i < windows.capacity()-1; i++)
+	for (int i = 0; i < windows.capacity(); i++)
 	{
 		if (windows[i]->IsActivated())
 			windows[i]->Draw();

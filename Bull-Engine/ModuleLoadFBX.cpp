@@ -1,18 +1,17 @@
-
 #include "Application.h"
 #include "ModuleLoadFBX.h"
 #include "ModuleGameObject.h"
 #include "Material.h"
-#include "Glew/include/glew.h" 
-#include "Assimp/include/cimport.h"
-#include "Assimp/include/scene.h"
-#include "Assimp/include/postprocess.h"
-#include "Assimp/include/cfileio.h"
-#include "Devil/include/il.h"
-#include "Devil/include/ilu.h"
-#include "Devil/include/ilut.h"
+#include "Glew\include\glew.h" 
+#include "Assimp\include\cimport.h"
+#include "Assimp\include\scene.h"
+#include "Assimp\include\postprocess.h"
+#include "Assimp\include\cfileio.h"
+#include "Devil\include\il.h"
+#include "Devil\include\ilu.h"
+#include "Devil\include\ilut.h"
 
-#pragma comment (lib, "Assimp/libx86/assimp.lib")
+#pragma comment (lib, "Assimp\\libx86\\assimp.lib")
 #pragma comment (lib, "Devil\\libx86\\DevIL.lib")
 #pragma comment ( lib, "Devil\\libx86\\ILU.lib" )
 #pragma comment ( lib, "Devil\\libx86\\ILUT.lib" )
@@ -165,6 +164,18 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		LOG("Error loading scene %s", path);
 		
 	}
+
+	aiVector3D translation;
+	aiVector3D scaling;
+	aiQuaternion rotation;
+	node->mTransformation.Decompose(scaling, rotation, translation);
+	aiMatrix3x3 rotMat = rotation.GetMatrix();
+	aiVector3D rotationEuler = rotMat.GetEuler();
+
+	mesh.position = (translation.x, translation.y, translation.z);
+	mesh.rotation = (rotationEuler.x, rotationEuler.y, rotationEuler.z);
+	mesh.scale = (scaling.x, scaling.y, scaling.z);
+
 	if (scene->mNumMeshes != 0) 
 	{
 		GameObject* childGO = App->scene_intro->CreateGameObject(game_object);

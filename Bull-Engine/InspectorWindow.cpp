@@ -30,8 +30,8 @@ void InspectorWindow::Draw()
 	ImGuiWindowFlags flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
 	ImGui::Begin("Inspector", &on, flags);
 
-		ImGui::SetWindowPos(ImVec2((App->width / 4) * 3, 20), ImGuiCond_Once);
-		ImGui::SetWindowSize(ImVec2(App->width / 4, 795), ImGuiCond_Once);
+		ImGui::SetWindowPos(ImVec2((App->width / 3.0f) * 2, 20), ImGuiCond_Once);
+		ImGui::SetWindowSize(ImVec2(App->width / 3.0f, 795), ImGuiCond_Once);
 		SDL_GetWindowSize(App->window->window, &App->width, &App->height);
 
 		ImGui::Text("Model Name: %s", App->loadFBX->file_name.c_str());
@@ -41,13 +41,13 @@ void InspectorWindow::Draw()
 			ImGui::Separator();
 
 			ImGui::Text("Position:");
-			ImGui::Text("[%f]    [%f]    [%f]");
+			ImGui::Text("[%f]    [%f]    [%f]", App->loadFBX->mesh.position.x, App->loadFBX->mesh.position.y, App->loadFBX->mesh.position.z);
 
 			ImGui::Text("Rotation:");
-			ImGui::Text("[%f]    [%f]    [%f]");
+			ImGui::Text("[%f]    [%f]    [%f]", App->loadFBX->mesh.rotation.x, App->loadFBX->mesh.rotation.y, App->loadFBX->mesh.rotation.z);
 
 			ImGui::Text("Scale:");
-			ImGui::Text("[%f]    [%f]    [%f]");
+			ImGui::Text("[%f]    [%f]    [%f]", App->loadFBX->mesh.scale.x, App->loadFBX->mesh.scale.y, App->loadFBX->mesh.scale.z);
 		}
 
 		if (ImGui::CollapsingHeader("Mesh Information")) {

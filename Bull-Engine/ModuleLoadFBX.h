@@ -7,6 +7,7 @@
 class aiScene;
 class aiNode;
 class GameObject;
+
 struct InfoFbx {
 	uint id_index = 0; // index in VRAM
 	uint num_index = 0;
@@ -23,6 +24,10 @@ struct InfoFbx {
 	uint id_uvs = 0;
 	uint num_uvs = 0;
 	float* uvs = 0;
+
+	vec3 position;
+	vec3 rotation;
+	vec3 scale;
 };
 class ModuleLoadFBX : public Module
 {

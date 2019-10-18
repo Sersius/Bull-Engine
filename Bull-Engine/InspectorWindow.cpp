@@ -72,6 +72,13 @@ void InspectorWindow::Draw()
 			ImGui::Text("Texture WIDTH: %i", App->loadFBX->texture_width);
 
 			ImGui::Text("Texture HEIGHT: %i", App->loadFBX->texture_height);
+
+			if (App->loadFBX->texture_id == 0) {
+				ImGui::Image((ImTextureID)App->loadFBX->texture_id, ImVec2(200, 200));
+			}
+			else {
+				ImGui::Image((ImTextureID)App->loadFBX->texture_id, ImVec2(200, 200));
+			}
 		}
 
 

@@ -27,7 +27,7 @@ public:
 	void CreateGameObjectMesh(char* path);
 public:
 	GameObject* root;
-	GameObject* gameobject_scene;
+	GameObject* gameobject_scene = nullptr;
 	/*std::vector<GameObject*> game_objects;*/
 	
 };

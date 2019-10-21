@@ -82,6 +82,11 @@ GameObject* ModuleSceneIntro::CreateGameObject(GameObject* parent)
 void ModuleSceneIntro::CreateGameObjectMesh(char* path)
 {
 	gameobject_scene = CreateGameObject(root);
+	std::string name_model =path;
+	std::string base_filename = name_model.substr(name_model.find_last_of("/\\") + 1);
+	std::string::size_type const p(base_filename.find_last_of('.'));
+	std::string file_without_extension = base_filename.substr(0, p);
+	gameobject_scene->SetName(file_without_extension.c_str());
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH,path);
 }
 

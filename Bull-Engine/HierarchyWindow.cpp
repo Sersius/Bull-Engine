@@ -29,12 +29,12 @@ bool HierarchyWindow::Start()
 void HierarchyWindow::Draw()
 {
 	if (ImGui::Begin("Hierarchy", &on, 0)) {
-		for (int i = 0; i < App->scene_intro->game_objects.capacity(); i++)
+		/*for (int i = 0; i < App->scene_intro->game_objects.capacity(); i++)
 		{
 			App->scene_intro->game_objects.at(i)->BlitHierarchy();
 
 		}
-		
+		*/
 	}
 
 	ImGui::End();

@@ -23,16 +23,14 @@ bool ModuleSceneIntro::Start()
 
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
-	/*root = new GameObject(nullptr);
+	root = CreateGameObject(nullptr);
 	root->SetName("Root");
-	game_objects.push_back(root);*/
 	//App->loadFBX->LoadFbx("Models/BakerHouse.fbx");
-	/*root = CreateGameObject(root_object);
-	root->SetName("BakerHouse");
-	root->CreateComponent(COMPONENT_TYPE::MESH, "Models/BakerHouse.fbx");
-	root->CreateComponent(COMPONENT_TYPE::MATERIAL, "Textures/Baker_house.png");
-	root->mesh->GetMesh("Models/BakerHouse.fbx");
-	root->material->GetTexture("Textures/Baker_house.png");*/
+	gameobject_scene = CreateGameObject(root);
+	gameobject_scene->SetName("BakerHouse");
+	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Models/BakerHouse.fbx");
+	//gameobject_scene->CreateComponent(COMPONENT_TYPE::MATERIAL, "Textures/Baker_house.png");
+	//gameobject_scene->material->GetTexture("Textures/Baker_house.png");
 	//root->CreateComponent(Comp_Mesh, "Assets/Meshes/BakerHouse.fbx");
 	/*if (scene_gameobject->material)
 		scene_gameobject->material->AssignTexture("Baker_house.png");
@@ -65,7 +63,7 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 	
-	
+	gameobject_scene;
 	//App->loadFBX->LoadTexture(dropped_filedir);
 	return UPDATE_CONTINUE;
 }
@@ -83,8 +81,8 @@ GameObject* ModuleSceneIntro::CreateGameObject(GameObject* parent)
 }
 void ModuleSceneIntro::CreateGameObjectMesh(char* path)
 {
-	root = CreateGameObject(root_object);
-	root->CreateComponent(COMPONENT_TYPE::MESH,path);
+	gameobject_scene = CreateGameObject(root);
+	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH,path);
 }
 
 

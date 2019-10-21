@@ -26,8 +26,8 @@ public:
 	GameObject* CreateGameObject(GameObject* parent);
 	void CreateGameObjectMesh(char* path);
 public:
-	GameObject* root_object;
 	GameObject* root;
-	std::vector<GameObject*> game_objects;
+	GameObject* gameobject_scene;
+	/*std::vector<GameObject*> game_objects;*/
 	
 };

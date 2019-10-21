@@ -2,6 +2,7 @@
 #include "ModuleLoadFBX.h"
 #include "ModuleGameObject.h"
 #include "Material.h"
+#include "Transform.h"
 #include "Glew\include\glew.h" 
 #include "Assimp\include\cimport.h"
 #include "Assimp\include\scene.h"
@@ -64,7 +65,7 @@ bool ModuleLoadFBX::LoadFbx(const char* path)
 		for (int i = 0; i < rootNode->mNumChildren; ++i)
 		{
 			
-			LoadModelInfo(scene,rootNode->mChildren[i],game_object, path);
+			LoadModelInfo(scene,rootNode->mChildren[i],App->scene_intro->gameobject_scene, path);
 		}
 		return true;
 	}
@@ -88,6 +89,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		for (int i = 0; i < node->mNumMeshes; i++)
 		{
 			aiMesh* new_mesh = scene->mMeshes[node->mMeshes[i]];
+			game_object->CreateComponent(COMPONENT_TYPE::TRANSFORM);
 			aiMaterial* material = scene->mMaterials[new_mesh->mMaterialIndex];
 			if (material != nullptr) {
 				uint numTextures = material->GetTextureCount(aiTextureType_DIFFUSE);
@@ -151,6 +153,29 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.id_index);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * mesh.num_index, mesh.index, GL_STATIC_DRAW);
 
+	/*	aiVector3D translation;
+		aiVector3D scaling;
+		aiQuaternion rotation;
+		node->mTransformation.Decompose(scaling, rotation, translation);
+		aiMatrix3x3 rotMat = rotation.GetMatrix();
+		aiVector3D rotationEuler = rotMat.GetEuler();
+
+		float3 pos(translation.x, translation.y, translation.z);
+		float3 scale(scaling.x, scaling.y, scaling.z);
+		Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);
+
+		game_object->transform->position = pos;
+		game_object->transform->rotation = rot;
+		game_object->transform->scale = scale;*/
+
+		if (scene->mNumMeshes != 0)
+		{
+			GameObject* childGO = App->scene_intro->CreateGameObject(game_object);
+			childGO->CreateComponent(COMPONENT_TYPE::MATERIAL);
+			childGO->CreateComponent(COMPONENT_TYPE::MESH);
+			//childGO->SetName(name_mesh.c_str());	
+		}
+
 		App->renderer3D->meshes.push_back(mesh);
 		LOG("Mesh name: %s", name_mesh.c_str());
 		LOG("Loaded mesh with %i vertices.", mesh.num_vertex);
@@ -165,24 +190,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		
 	}
 
-	aiVector3D translation;
-	aiVector3D scaling;
-	aiQuaternion rotation;
-	node->mTransformation.Decompose(scaling, rotation, translation);
-	aiMatrix3x3 rotMat = rotation.GetMatrix();
-	aiVector3D rotationEuler = rotMat.GetEuler();
-
-	mesh.position = (translation.x, translation.y, translation.z);
-	mesh.rotation = (rotationEuler.x, rotationEuler.y, rotationEuler.z);
-	mesh.scale = (scaling.x, scaling.y, scaling.z);
-
-	if (scene->mNumMeshes != 0) 
-	{
-		GameObject* childGO = App->scene_intro->CreateGameObject(game_object);
-		childGO->CreateComponent(COMPONENT_TYPE::MATERIAL);
-		childGO->CreateComponent(COMPONENT_TYPE::MESH);
-		//childGO->SetName(name_mesh.c_str());	
-	}
+	
 	
 }
 

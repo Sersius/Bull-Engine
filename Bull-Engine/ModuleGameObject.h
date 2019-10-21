@@ -17,6 +17,8 @@ enum COMPONENT_TYPE
 class Component;
 class Material;
 class Mesh;
+class Transform;
+
 class GameObject
 {
 public:
@@ -34,6 +36,8 @@ public:
 	std::vector<GameObject*> children;
 	Material* material = nullptr;
 	Mesh* mesh = nullptr;
+	Transform* transform = nullptr;
+	
 private:
 
 	std::string name;

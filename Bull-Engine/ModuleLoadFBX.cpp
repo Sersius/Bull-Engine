@@ -127,31 +127,17 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 					memcpy(&mesh.uvs[i * 2], &new_mesh->mTextureCoords[0][i].x, sizeof(float));
 					memcpy(&mesh.uvs[(i * 2) + 1], &new_mesh->mTextureCoords[0][i].y, sizeof(float));
 				}
-
-				glGenBuffers(1, (GLuint*)&(mesh.id_uvs));
-				glBindBuffer(GL_ARRAY_BUFFER, mesh.id_uvs);
-				glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 2 * mesh.num_uvs, mesh.uvs, GL_STATIC_DRAW);
 			}
 			
 			if (new_mesh->HasNormals()) {
 				mesh.num_normals = new_mesh->mNumVertices;
 				mesh.normals = new float[mesh.num_normals * 3]; // assume each face is a triangle
 				memcpy(mesh.normals, new_mesh->mNormals, sizeof(float)*mesh.num_normals * 3);
-
-				glGenBuffers(1, (GLuint*)&(mesh.id_normals));
-				glBindBuffer(GL_ARRAY_BUFFER, mesh.id_normals);
-				glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * mesh.num_normals, mesh.normals, GL_STATIC_DRAW);
 			}
 			
 		}
-		
-		glGenBuffers(1, (GLuint*) &(mesh.id_vertex));
-		glBindBuffer(GL_ARRAY_BUFFER, mesh.id_vertex);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * mesh.num_vertex, mesh.vertex, GL_STATIC_DRAW);
-
-		glGenBuffers(1, (GLuint*) &(mesh.id_index));
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.id_index);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * mesh.num_index, mesh.index, GL_STATIC_DRAW);
+		CreateBuffers();
+	
 
 	/*	aiVector3D translation;
 		aiVector3D scaling;
@@ -229,6 +215,25 @@ bool ModuleLoadFBX::LoadTexture( char * path_texture)
 		LOG("Couldn't load texture");
 		return false;
 	}
+}
+
+void ModuleLoadFBX::CreateBuffers()
+{
+	glGenBuffers(1, (GLuint*) &(mesh.id_vertex));
+	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_vertex);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * mesh.num_vertex, mesh.vertex, GL_STATIC_DRAW);
+
+	glGenBuffers(1, (GLuint*) &(mesh.id_index));
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.id_index);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * mesh.num_index, mesh.index, GL_STATIC_DRAW);
+
+	glGenBuffers(1, (GLuint*)&(mesh.id_uvs));
+	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_uvs);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 2 * mesh.num_uvs, mesh.uvs, GL_STATIC_DRAW);
+
+	glGenBuffers(1, (GLuint*)&(mesh.id_normals));
+	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_normals);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * mesh.num_normals, mesh.normals, GL_STATIC_DRAW);
 }
 
 

@@ -25,9 +25,12 @@ public:
 	
 	GameObject* CreateGameObject(GameObject* parent);
 	void CreateGameObjectMesh(char* path);
+	void SetSelectedGameObject(const GameObject* target);
+	GameObject* GetSelectedGO() const;
 public:
 	GameObject* root;
 	GameObject* gameobject_scene = nullptr;
+	GameObject* selected = nullptr;
 	/*std::vector<GameObject*> game_objects;*/
 	
 };

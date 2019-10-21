@@ -89,6 +89,14 @@ void ModuleSceneIntro::CreateGameObjectMesh(char* path)
 	gameobject_scene->SetName(file_without_extension.c_str());
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH,path);
 }
+void ModuleSceneIntro::SetSelectedGameObject(const GameObject * target)
+{
+	selected = (GameObject*)target;
+}
 
+GameObject * ModuleSceneIntro::GetSelectedGO() const
+{
+	return selected;
+}
 
 

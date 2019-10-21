@@ -29,14 +29,18 @@ void InspectorWindow::Draw()
 {
 	ImGuiWindowFlags flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
 	ImGui::Begin("Inspector", &on, flags);
+	
+	ImGui::SetWindowPos(ImVec2((App->width / 3.0f) * 2, 20), ImGuiCond_Once);
+	ImGui::SetWindowSize(ImVec2(App->width / 3.0f, 795), ImGuiCond_Once);
+	SDL_GetWindowSize(App->window->window, &App->width, &App->height);
 
-		ImGui::SetWindowPos(ImVec2((App->width / 3.0f) * 2, 20), ImGuiCond_Once);
-		ImGui::SetWindowSize(ImVec2(App->width / 3.0f, 795), ImGuiCond_Once);
-		SDL_GetWindowSize(App->window->window, &App->width, &App->height);
-
+	
+	GameObject* selected_go = App->scene_intro->GetSelectedGO();
+	
+	if (selected_go != nullptr) {
+		LOG("%s", selected_go->GetName());
 		ImGui::Text("Model Name: %s", App->loadFBX->file_name.c_str());
 		ImGui::Text("Model Path: %s", App->loadFBX->path.c_str());
-
 		if (ImGui::CollapsingHeader("Transform")) {
 			ImGui::Separator();
 
@@ -53,7 +57,7 @@ void InspectorWindow::Draw()
 		if (ImGui::CollapsingHeader("Mesh Information")) {
 			ImGui::Separator();
 
-			ImGui::Text("Mesh triangles: %i", App->loadFBX->mesh.num_vertex/3);
+			ImGui::Text("Mesh triangles: %i", App->loadFBX->mesh.num_vertex / 3);
 
 			ImGui::Text("Mesh vertices: %i", App->loadFBX->mesh.num_vertex);
 
@@ -80,7 +84,7 @@ void InspectorWindow::Draw()
 				ImGui::Image((ImTextureID)App->loadFBX->texture_id, ImVec2(200, 200));
 			}
 		}
-
+	}
 
 	ImGui::End();
 }

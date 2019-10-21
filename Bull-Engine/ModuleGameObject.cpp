@@ -1,5 +1,7 @@
+#include "Application.h"
 #include "ModuleGameObject.h"
 #include "Material.h"
+#include "ModuleInput.h"
 #include "Mesh.h"
 #include "Transform.h"
 #include "ImGui/imgui.h"
@@ -72,5 +74,14 @@ void GameObject::BlitHierarchy()
 		}
 		ImGui::TreePop();
 	}
+	if (ImGui::IsItemHovered())
+	{
+		if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN)
+		{
+			App->scene_intro->SetSelectedGameObject(this);
+		}
+	}
 	
 }
+
+

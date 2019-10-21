@@ -73,7 +73,7 @@ bool ModuleLoadFBX::LoadFbx(const char* path)
 	{
 		return false;
 	}
-
+	
 }
 
 void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject* game_object,const char* path)
@@ -171,8 +171,8 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		if (scene->mNumMeshes != 0)
 		{
 			GameObject* childGO = App->scene_intro->CreateGameObject(game_object);
-			childGO->CreateComponent(COMPONENT_TYPE::MATERIAL);
-			childGO->CreateComponent(COMPONENT_TYPE::MESH);
+			childGO->SetName(name_mesh.c_str());
+		
 			//childGO->SetName(name_mesh.c_str());	
 		}
 

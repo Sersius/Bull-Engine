@@ -1,5 +1,6 @@
 #include "Transform.h"
-
+#include "ModuleLoadFBX.h"
+#include "Application.h"
 Transform::Transform(GameObject* parent) : Component(parent, COMPONENT_TYPE::TRANSFORM)
 {}
 

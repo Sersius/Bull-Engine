@@ -36,11 +36,11 @@ Component* GameObject::CreateComponent(COMPONENT_TYPE type,char* name)
 		mesh = new Mesh(this,name);
 		_type = mesh;
 	}
-	/*else if (type == COMPONENT_TYPE::TRANSFORM)
+	else if (type == COMPONENT_TYPE::TRANSFORM)
 	{
 		transform = new Transform(this);
-		_type = transform;
-	}*/
+		_type = (Component*)transform;
+	}
 	return _type;
 }
 

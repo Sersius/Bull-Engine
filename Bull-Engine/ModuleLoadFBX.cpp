@@ -138,8 +138,14 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		}
 		CreateBuffers();
 	
+		/*aiVector3D translation, scaling;
+		aiQuaternion rotation;
+		node->mTransformation.Decompose(scaling, rotation, translation);
+		float3 pos(translation.x, translation.y, translation.z);
+		float3 scale(scaling.x, scaling.y, scaling.z);
+		Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);*/
 
-	/*	aiVector3D translation;
+		aiVector3D translation;
 		aiVector3D scaling;
 		aiQuaternion rotation;
 		node->mTransformation.Decompose(scaling, rotation, translation);
@@ -150,15 +156,18 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		float3 scale(scaling.x, scaling.y, scaling.z);
 		Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);
 
-		game_object->transform->position = pos;
+		/*game_object->transform->position = pos;
 		game_object->transform->rotation = rot;
 		game_object->transform->scale = scale;*/
 
 		if (scene->mNumMeshes != 0)
 		{
 			GameObject* childGO = App->scene_intro->CreateGameObject(game_object);
+			childGO->CreateComponent(COMPONENT_TYPE::TRANSFORM);
 			childGO->SetName(name_mesh.c_str());
-		
+			childGO->transform->position = pos;
+			childGO->transform->rotation = rot;
+			childGO->transform->scale = scale;
 			//childGO->SetName(name_mesh.c_str());	
 		}
 

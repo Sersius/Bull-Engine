@@ -39,19 +39,19 @@ void InspectorWindow::Draw()
 	
 	if (selected_go != nullptr) {
 		LOG("%s", selected_go->GetName());
-		ImGui::Text("Model Name: %s", App->loadFBX->file_name.c_str());
+		ImGui::Text("Model Name: %s", selected_go->GetName());
 		ImGui::Text("Model Path: %s", App->loadFBX->path.c_str());
 		if (ImGui::CollapsingHeader("Transform")) {
 			ImGui::Separator();
 
 			ImGui::Text("Position:");
-			ImGui::Text("[%f]    [%f]    [%f]", App->loadFBX->mesh.position.x, App->loadFBX->mesh.position.y, App->loadFBX->mesh.position.z);
+			ImGui::Text("[%f]    [%f]    [%f]", selected_go->transform->position.x, selected_go->transform->position.y, selected_go->transform->position.z);
 
 			ImGui::Text("Rotation:");
-			ImGui::Text("[%f]    [%f]    [%f]", App->loadFBX->mesh.rotation.x, App->loadFBX->mesh.rotation.y, App->loadFBX->mesh.rotation.z);
+			ImGui::Text("[%f]    [%f]    [%f]", selected_go->transform->rotation.x, selected_go->transform->rotation.y, selected_go->transform->rotation.z);
 
 			ImGui::Text("Scale:");
-			ImGui::Text("[%f]    [%f]    [%f]", App->loadFBX->mesh.scale.x, App->loadFBX->mesh.scale.y, App->loadFBX->mesh.scale.z);
+			ImGui::Text("[%f]    [%f]    [%f]", selected_go->transform->scale.x, selected_go->transform->scale.y, selected_go->transform->scale.z);
 		}
 
 		if (ImGui::CollapsingHeader("Mesh Information")) {

@@ -2,6 +2,11 @@
 #include "Application.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleLoadFBX.h"
+#include "ModuleUI.h"
+#include "InspectorWindow.h"
+#include "ModuleGameObject.h"
+#include "Transform.h"
+#include "Material.h"
 #include "ImGui/imgui_impl_opengl3.h"
 #include "ImGui/imgui_impl_sdl.h"
 #include "SDL\include\SDL_opengl.h"
@@ -169,8 +174,11 @@ void ModuleRenderer3D::DrawModel(InfoFbx mesh)
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, App->loadFBX->texture_id);
-
+	if (App->UI->inspector->selected_go != nullptr) {
+		if (App->UI->inspector->selected_go->transform->draw_texture == true) {
+			glBindTexture(GL_TEXTURE_2D, App->scene_intro->gameobject_scene->material->id);
+		}
+	}
 	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_vertex);
 	glVertexPointer(3, GL_FLOAT, 0, NULL);
 	

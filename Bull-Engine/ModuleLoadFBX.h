@@ -42,7 +42,7 @@ public:
 	bool LoadFbx(const char* path);
 	void LoadModelInfo(const aiScene* scene, aiNode* node, GameObject* game_object,const char* path);
 	void CreateBuffers();
-	bool LoadTexture(char * path_texture);
+	bool LoadTexture(char * path_texture, uint& texture_id);
 	uint texture_id;
 public:
 	GameObject* game_object = new GameObject(nullptr);

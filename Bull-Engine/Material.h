@@ -11,6 +11,8 @@ public:
 
 	void Update(float dt);
 	void GetTexture(char* texture_path);
+
+	uint id = 0;
 private:
 	char* texture_path; 
 

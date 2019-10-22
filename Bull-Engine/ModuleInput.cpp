@@ -144,7 +144,7 @@ update_status ModuleInput::PreUpdate(float dt)
 				}
 				else if (file_type == File_type::FILE_MATERIAL)
 				{
-					App->loadFBX->LoadTexture(dropped_filedir);
+					App->scene_intro->gameobject_scene->material->GetTexture(dropped_filedir);
 					/*for (int i = 0; i < App->scene_intro->game_objects.capacity(); i++)
 					{
 						App->scene_intro->game_objects.at(i)->material->GetTexture(dropped_filedir);

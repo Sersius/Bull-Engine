@@ -189,7 +189,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 	
 }
 
-bool ModuleLoadFBX::LoadTexture( char * path_texture)
+bool ModuleLoadFBX::LoadTexture( char * path_texture, uint& texture_id)
 {
 	ilInit();
 	iluInit();
@@ -207,10 +207,10 @@ bool ModuleLoadFBX::LoadTexture( char * path_texture)
 		ilGenImages(1, &id);
 		ilBindImage(id);
 		ilLoadImage(path_texture);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		/*glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);*/
 		texture_width = ilGetInteger(IL_IMAGE_WIDTH);
 		texture_height = ilGetInteger(IL_IMAGE_HEIGHT);
 		texture_id = ilutGLBindTexImage();

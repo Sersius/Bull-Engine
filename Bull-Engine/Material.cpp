@@ -19,7 +19,7 @@ void Material::Update(float dt)
 
 void Material::GetTexture(char* texture_path)
 {
-	App->loadFBX->LoadTexture(texture_path);
+	App->loadFBX->LoadTexture(texture_path,id);
 	this->texture_path = texture_path;
 	
 }

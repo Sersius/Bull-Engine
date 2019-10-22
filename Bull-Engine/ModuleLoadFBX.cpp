@@ -79,17 +79,15 @@ bool ModuleLoadFBX::LoadFbx(const char* path)
 void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject* game_object,const char* path)
 {
 	this->path = path;
-
 	std::string name(path);
-	this->file_name = name.substr(name.find_last_of('\\') + 1);
 
-	if (scene != nullptr && scene->HasMeshes()) {   
-		// Use scene->mNumMeshes to iterate on scene->mMeshes array
+	//this->file_name = name.substr(name.find_last_of('\\') + 1);
+
+	if (node->mNumMeshes> 0) {   	
 		
-		for (int i = 0; i < node->mNumMeshes; i++)
-		{
-			aiMesh* new_mesh = scene->mMeshes[node->mMeshes[i]];
-			game_object->CreateComponent(COMPONENT_TYPE::TRANSFORM);
+			aiMesh* new_mesh = scene->mMeshes[node->mMeshes[0]];
+			
+			//CHECK FOR MATERIAL
 			aiMaterial* material = scene->mMaterials[new_mesh->mMaterialIndex];
 			if (material != nullptr) {
 				uint numTextures = material->GetTextureCount(aiTextureType_DIFFUSE);
@@ -100,6 +98,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			}
 			name_mesh =  node->mName.C_Str();
 			mesh = InfoFbx();
+
 			mesh.num_vertex = new_mesh->mNumVertices;
 			mesh.vertex = new uint[mesh.num_vertex * 3];
 			memcpy(mesh.vertex, new_mesh->mVertices, sizeof(float)*mesh.num_vertex * 3);
@@ -135,7 +134,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 				memcpy(mesh.normals, new_mesh->mNormals, sizeof(float)*mesh.num_normals * 3);
 			}
 			
-		}
+		
 		CreateBuffers();
 	
 		/*aiVector3D translation, scaling;
@@ -180,9 +179,10 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		LOG("Loaded mesh with %i uvs.", mesh.num_uvs);
 		
 	}
-	else {
-		LOG("Error loading scene %s", path);
-		
+
+	for (int i = 0; i < node->mNumChildren; ++i)
+	{
+		LoadModelInfo(scene, node->mChildren[i], game_object,path);
 	}
 
 	

@@ -11,6 +11,8 @@ GameObject::GameObject(GameObject* parent)
 	this->parent = parent;
 	if (parent != nullptr)
 		parent->children.push_back(this);
+
+	CreateComponent(COMPONENT_TYPE::TRANSFORM);
 }
 
 GameObject::~GameObject()
@@ -61,9 +63,12 @@ const char* GameObject::GetName()const
 
 void GameObject::BlitHierarchy()
 {
+	ImGuiTreeNodeFlags flag = 0;
+	if (children.empty())
+		flag += ImGuiTreeNodeFlags_::ImGuiTreeNodeFlags_Leaf;
 	char name_str[250];
 	sprintf_s(name_str, 250, "%s##%i", name.c_str());
-	if (ImGui::TreeNodeEx(name_str))
+	if (ImGui::TreeNodeEx(name_str,flag))
 	{
 		if (children.size() != 0) {
 			uint size = children.size();

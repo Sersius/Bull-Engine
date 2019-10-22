@@ -32,6 +32,7 @@ void HierarchyWindow::Draw()
 		if (App->scene_intro->gameobject_scene != nullptr) {
 			App->scene_intro->gameobject_scene->BlitHierarchy();
 		}
+		
 	}
 
 	ImGui::End();

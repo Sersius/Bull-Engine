@@ -434,7 +434,7 @@ File_type ModuleFileSystem::TypeFromExtension(const char* extension)
 	if (extension != nullptr)
 	{
 		if (_stricmp(file_name.c_str(), "dds") == 0)
-			ret = File_type::FILE_NONE;
+			ret = File_type::FILE_MATERIAL;
 		else if (_stricmp(file_name.c_str(), "png") == 0)
 			ret = File_type::FILE_MATERIAL;
 		else if (_stricmp(file_name.c_str(), "jpg") == 0)

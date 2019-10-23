@@ -35,6 +35,11 @@ bool ModuleLoadFBX::Start()
 	aiAttachLogStream(&stream);
 	//LoadTexture("Baker_house.png");
 
+	ilInit();
+	iluInit();
+	ilutInit();
+	ilutRenderer(ILUT_OPENGL);
+
 	return ret;
 }
 update_status ModuleLoadFBX::PreUpdate(float dt)
@@ -219,39 +224,28 @@ InfoFbx ModuleLoadFBX::LoadParShapeMesh(par_shapes_mesh* mesh)
 
 bool ModuleLoadFBX::LoadTexture( char * path_texture, uint& texture_id)
 {
-	ilInit();
-	iluInit();
-	ilutInit();
-	if(ilLoadImage(path_texture))
+	uint id = 0;
+
+	ilGenImages(1, &id);
+	ilBindImage(id);
+
+	if(ilLoad(IL_TYPE_UNKNOWN, path_texture))
 	{
-		/*ILubyte* Data = ilGetData();
-		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-		glGenTextures(1, &texture_id);
-		glBindTexture(GL_TEXTURE_2D, texture_id);
-		
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, ilGetInteger(IL_IMAGE_WIDTH), ilGetInteger(IL_IMAGE_HEIGHT), 0, GL_RGBA, GL_UNSIGNED_BYTE, Data);*/
-		uint id =0;
-		
-		ilGenImages(1, &id);
-		ilBindImage(id);
-		ilLoadImage(path_texture);
-		/*glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);*/
-		texture_width = ilGetInteger(IL_IMAGE_WIDTH);
-		texture_height = ilGetInteger(IL_IMAGE_HEIGHT);
-		texture_id = ilutGLBindTexImage();
-		glBindTexture(GL_TEXTURE_2D, 0);
-		ilDeleteImages(1, &id);
-		LOG("Texture loaded");
-		return true;
+		LOG("Texture loaded correctly");
 	}
 	else
 	{
 		LOG("Couldn't load texture");
 		return false;
 	}
+
+	texture_width = ilGetInteger(IL_IMAGE_WIDTH);
+	texture_height = ilGetInteger(IL_IMAGE_HEIGHT);
+	texture_id = ilutGLBindTexImage();
+	glBindTexture(GL_TEXTURE_2D, 0);
+	ilDeleteImages(1, &id);
+
+	return true;
 }
 
 void ModuleLoadFBX::CreateBuffers()

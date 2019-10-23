@@ -38,7 +38,7 @@ void InspectorWindow::Draw()
 	selected_go = App->scene_intro->GetSelectedGO();
 	
 	if (selected_go != nullptr) {
-		LOG("%s", selected_go->GetName());
+		//LOG("%s", selected_go->GetName());
 		ImGui::Text("Model Name: %s", selected_go->GetName());
 		ImGui::Text("Model Path: %s", App->loadFBX->path.c_str());
 		if (ImGui::CollapsingHeader("Transform")) {

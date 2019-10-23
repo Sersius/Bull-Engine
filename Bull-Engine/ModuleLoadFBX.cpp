@@ -162,7 +162,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		if (scene->mNumMeshes != 0)
 		{
 			GameObject* childGO = App->scene_intro->CreateGameObject(game_object);
-			childGO->CreateComponent(COMPONENT_TYPE::TRANSFORM);
+			childGO->material = game_object->material;
 			childGO->SetName(name_mesh.c_str());
 			childGO->transform->position = pos;
 			childGO->transform->rotation = rot;

@@ -25,6 +25,7 @@ public:
 	
 	GameObject* CreateGameObject(GameObject* parent);
 	void CreateGameObjectMesh(char* path);
+	void CreateGameObjectMaterial(char* path,GameObject* gameobject);
 	void SetSelectedGameObject(const GameObject* target);
 	GameObject* GetSelectedGO() const;
 public:

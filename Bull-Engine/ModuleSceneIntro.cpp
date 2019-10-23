@@ -64,7 +64,6 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.Render();
 	
 	gameobject_scene;
-	//App->loadFBX->LoadTexture(dropped_filedir);
 	return UPDATE_CONTINUE;
 }
 GameObject* ModuleSceneIntro::CreateGameObject(GameObject* parent)
@@ -88,6 +87,17 @@ void ModuleSceneIntro::CreateGameObjectMesh(char* path)
 	std::string file_without_extension = base_filename.substr(0, p);
 	gameobject_scene->SetName(file_without_extension.c_str());
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH,path);
+}
+void ModuleSceneIntro::CreateGameObjectMaterial(char* path, GameObject* gameobject)
+{
+	gameobject->material->GetTexture(path);
+
+	for (int i = 0; i < gameobject->children.size(); i++)
+	{
+		
+		CreateGameObjectMaterial(path, gameobject->children[i]);
+	}
+
 }
 void ModuleSceneIntro::SetSelectedGameObject(const GameObject * target)
 {

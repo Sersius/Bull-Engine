@@ -11,6 +11,7 @@
 #include "Devil\include\il.h"
 #include "Devil\include\ilu.h"
 #include "Devil\include\ilut.h"
+#include "ParShapes\par_shapes.h"
 
 #pragma comment (lib, "Assimp\\libx86\\assimp.lib")
 #pragma comment (lib, "Devil\\libx86\\DevIL.lib")
@@ -56,6 +57,7 @@ update_status ModuleLoadFBX::Update(float dt)
 	
 	return UPDATE_CONTINUE;
 }
+
 bool ModuleLoadFBX::LoadFbx(const char* path)
 {
 	const aiScene* scene = aiImportFile(path, aiProcessPreset_TargetRealtime_MaxQuality);
@@ -189,6 +191,32 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 	
 }
 
+InfoFbx ModuleLoadFBX::LoadParShapeMesh(par_shapes_mesh* mesh)
+{
+	InfoFbx par_mesh = InfoFbx();
+
+	//Vertex
+	par_mesh.num_vertex = mesh->npoints;
+	par_mesh.vertex = new uint[par_mesh.num_vertex * 3];
+	memcpy(par_mesh.vertex, mesh->points, sizeof(float) * mesh->npoints * 3);
+
+	//Faces
+	par_mesh.num_normals = mesh->ntriangles;
+	par_mesh.num_index = mesh->ntriangles * 3;
+	par_mesh.index = new uint[par_mesh.num_index];
+
+	for (int i = 0; i < par_mesh.num_index; i++)
+	{
+		par_mesh.index[i] = (uint)mesh->triangles[i];
+	}
+
+	CreateBuffers();
+
+	App->renderer3D->meshes.push_back(par_mesh);
+
+	return par_mesh;
+}
+
 bool ModuleLoadFBX::LoadTexture( char * path_texture, uint& texture_id)
 {
 	ilInit();
@@ -244,8 +272,3 @@ void ModuleLoadFBX::CreateBuffers()
 	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_normals);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * mesh.num_normals, mesh.normals, GL_STATIC_DRAW);
 }
-
-
-
-
-

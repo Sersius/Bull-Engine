@@ -3,6 +3,7 @@
 #include "Globals.h"
 #include "ModuleWindow.h"
 #include "imGUI\imgui.h"
+#include "ParShapes\par_shapes.h"
 
 AddWindow::AddWindow() : Window()
 {
@@ -40,6 +41,15 @@ void AddWindow::Draw()
 		ImGui::Text("Color");
 		ImGui::ColorEdit3("", color);
 		ImGui::Separator();
+
+		if (current_item == 2 && ImGui::Button("Create"))
+		{
+			//par_shapes_mesh* cube = par_shapes_create_cube();
+			//InfoFbx mesh = App->loadFBX->LoadParShapeMesh(cube);
+			//par_shapes_free_mesh(cube);
+
+			//GameObject* new_go = new GameObject();
+		}
 
 	ImGui::End();
 }

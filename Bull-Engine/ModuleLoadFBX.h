@@ -3,9 +3,11 @@
 #include "Globals.h"
 #include "Primitive.h"	
 #include "ModuleGameObject.h"
+#include "ParShapes\par_shapes.h"
 
 class aiScene;
 class aiNode;
+class aiMesh;
 class GameObject;
 
 struct InfoFbx {
@@ -41,6 +43,7 @@ public:
 	bool CleanUp();
 	bool LoadFbx(const char* path);
 	void LoadModelInfo(const aiScene* scene, aiNode* node, GameObject* game_object,const char* path);
+	InfoFbx LoadParShapeMesh(par_shapes_mesh* mesh);
 	void CreateBuffers();
 	bool LoadTexture(char * path_texture, uint& texture_id);
 	uint texture_id;

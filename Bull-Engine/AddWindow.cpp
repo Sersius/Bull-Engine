@@ -44,11 +44,11 @@ void AddWindow::Draw()
 
 		if (current_item == 2 && ImGui::Button("Create"))
 		{
-			//par_shapes_mesh* cube = par_shapes_create_cube();
-			//InfoFbx mesh = App->loadFBX->LoadParShapeMesh(cube);
-			//par_shapes_free_mesh(cube);
+			par_shapes_mesh* cube = par_shapes_create_cube();
+			InfoFbx mesh = App->loadFBX->LoadParShapeMesh(cube);
+			par_shapes_free_mesh(cube);
 
-			//GameObject* new_go = new GameObject();
+			GameObject* new_go = new GameObject();
 		}
 
 	ImGui::End();

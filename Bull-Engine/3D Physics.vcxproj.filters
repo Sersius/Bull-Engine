@@ -49,6 +49,9 @@
     <Filter Include="Sources\Modules\UI">
       <UniqueIdentifier>{54be3e61-1837-4f75-8808-15b6c3a7f13c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\Tools\Par_shapes">
+      <UniqueIdentifier>{6896b1b2-17e0-4f62-a95d-90c54713a655}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -558,6 +561,9 @@
     <ClInclude Include="InspectorWindow.h">
       <Filter>Sources\Modules\UI</Filter>
     </ClInclude>
+    <ClInclude Include="ParShapes\par_shapes.h">
+      <Filter>Sources\Tools\Par_shapes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -760,6 +766,9 @@
     </ClCompile>
     <ClCompile Include="InspectorWindow.cpp">
       <Filter>Sources\Modules\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="par_shapes.cpp">
+      <Filter>Sources\Tools\Par_shapes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

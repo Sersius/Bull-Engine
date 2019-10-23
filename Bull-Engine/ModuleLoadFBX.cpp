@@ -215,7 +215,13 @@ InfoFbx ModuleLoadFBX::LoadParShapeMesh(par_shapes_mesh* mesh)
 		par_mesh.index[i] = (uint)mesh->triangles[i];
 	}
 
-	CreateBuffers();
+	glGenBuffers(1, (GLuint*) &(par_mesh.id_vertex));
+	glBindBuffer(GL_ARRAY_BUFFER, par_mesh.id_vertex);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * par_mesh.num_vertex, par_mesh.vertex, GL_STATIC_DRAW);
+
+	glGenBuffers(1, (GLuint*) &(par_mesh.id_index));
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, par_mesh.id_index);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * par_mesh.num_index, par_mesh.index, GL_STATIC_DRAW);
 
 	App->renderer3D->meshes.push_back(par_mesh);
 

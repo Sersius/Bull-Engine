@@ -3,6 +3,7 @@
 #include "ModuleGameObject.h"
 #include "Material.h"
 #include "Transform.h"
+#include "Mesh.h"
 #include "Glew\include\glew.h" 
 #include "Assimp\include\cimport.h"
 #include "Assimp\include\scene.h"
@@ -169,6 +170,8 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		if (scene->mNumMeshes != 0)
 		{
 			GameObject* childGO = App->scene_intro->CreateGameObject(game_object);
+			childGO->CreateComponent(COMPONENT_TYPE::MESH);
+			childGO->mesh->info_mesh = mesh;
 			childGO->material = game_object->material;
 			childGO->SetName(name_mesh.c_str());
 			childGO->transform->position = pos;

@@ -32,7 +32,7 @@ public:
 	Component* GetComponent(COMPONENT_TYPE type, std::string name);
 	void SetName(const char* new_name);
 	const char* GetName()const;
-	void BlitHierarchy();
+	void BlitHierarchy(GameObject* root);
 	std::vector<GameObject*> children;
 	Material* material = nullptr;
 	Mesh* mesh = nullptr;

@@ -61,22 +61,26 @@ const char* GameObject::GetName()const
 	return name.c_str();
 }
 
-void GameObject::BlitHierarchy()
+void GameObject::BlitHierarchy(GameObject* root)
 {
 	ImGuiTreeNodeFlags flag = 0;
-	if (children.empty())
+	if (root->children.empty())
 		flag += ImGuiTreeNodeFlags_::ImGuiTreeNodeFlags_Leaf;
 	char name_str[250];
-	sprintf_s(name_str, 250, "%s##%i", name.c_str());
+	sprintf_s(name_str, 250, "%s##%i", root->name.c_str());
 	if (ImGui::TreeNodeEx(name_str,flag))
 	{
-		if (children.size() != 0) {
-			uint size = children.size();
-			for (uint k = 0; k < size; k++)
-			{
-				children[k]->BlitHierarchy();
-			}
+		for (std::vector<GameObject*>::iterator children = root->children.begin(); children != root->children.end(); children++)
+		{
+			BlitHierarchy(*children);
 		}
+		//if (children.size() != 0) {
+		//	uint size = children.size();
+		//	/*for (uint k = 0; k < size; k++)
+		//	{
+		//		children[k]->BlitHierarchy(root);
+		//	}*/
+		//}
 		ImGui::TreePop();
 	}
 	if (ImGui::IsItemHovered())

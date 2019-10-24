@@ -2,6 +2,7 @@
 #include "AddWindow.h"
 #include "Globals.h"
 #include "ModuleWindow.h"
+#include "ModuleSceneIntro.h"
 #include "imGUI\imgui.h"
 #include "ParShapes\par_shapes.h"
 
@@ -48,7 +49,7 @@ void AddWindow::Draw()
 			InfoFbx mesh = App->loadFBX->LoadParShapeMesh(plane);
 			par_shapes_free_mesh(plane);
 
-			GameObject* new_go = new GameObject();
+			GameObject* new_go = App->scene_intro->CreateGameObject(App->scene_intro->root);
 		}
 
 		if (current_item == 1 && ImGui::Button("Create"))

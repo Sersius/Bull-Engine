@@ -29,8 +29,8 @@ bool HierarchyWindow::Start()
 void HierarchyWindow::Draw()
 {
 	if (ImGui::Begin("Hierarchy", &on, 0)) {
-		if (App->scene_intro->gameobject_scene != nullptr) {
-			App->scene_intro->gameobject_scene->BlitHierarchy();
+		if (App->scene_intro->root != nullptr) {
+			App->scene_intro->root->BlitHierarchy(App->scene_intro->root);
 		}
 		
 	}

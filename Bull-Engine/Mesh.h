@@ -2,6 +2,7 @@
 #define __MESH_H__
 
 #include "ModuleComponent.h"
+#include "ModuleLoadFBX.h"
 
 class Mesh : public Component
 {
@@ -11,6 +12,7 @@ public:
 
 	void Update(float dt);
 	void GetMesh(char* path);
+	InfoFbx info_mesh;
 private:
 	char* path = nullptr;
 };

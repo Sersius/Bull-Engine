@@ -8,6 +8,7 @@
 
 #include "Transform.h"
 #include "Material.h"
+#include "Mesh.h"
 
 InspectorWindow::InspectorWindow() : Window()
 {
@@ -62,15 +63,15 @@ void InspectorWindow::Draw()
 		if (ImGui::CollapsingHeader("Mesh Information")) {
 			ImGui::Separator();
 
-			ImGui::Text("Mesh triangles: %i", App->loadFBX->mesh.num_vertex / 3);
+			ImGui::Text("Mesh triangles: %i", selected_go->mesh->info_mesh.num_vertex / 3);
 
-			ImGui::Text("Mesh vertices: %i", App->loadFBX->mesh.num_vertex);
+			ImGui::Text("Mesh vertices: %i", selected_go->mesh->info_mesh.num_vertex);
 
-			ImGui::Text("Mesh indices: %i", App->loadFBX->mesh.num_index);
+			ImGui::Text("Mesh indices: %i", selected_go->mesh->info_mesh.num_index);
 
-			ImGui::Text("Mesh normals: %f", App->loadFBX->mesh.num_normals);
+			ImGui::Text("Mesh normals: %f", selected_go->mesh->info_mesh.num_normals);
 
-			ImGui::Text("Mesh uvs: %f", App->loadFBX->mesh.num_uvs);
+			ImGui::Text("Mesh uvs: %f", selected_go->mesh->info_mesh.num_uvs);
 		}
 
 		if (ImGui::CollapsingHeader("Material")) {

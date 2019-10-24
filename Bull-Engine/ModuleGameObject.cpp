@@ -4,6 +4,8 @@
 #include "ModuleInput.h"
 #include "Mesh.h"
 #include "Transform.h"
+#include "ModuleUI.h"
+#include "InspectorWindow.h"
 #include "ImGui/imgui.h"
 GameObject::GameObject(GameObject* parent)
 {
@@ -70,9 +72,23 @@ void GameObject::BlitHierarchy(GameObject* root)
 	sprintf_s(name_str, 250, "%s##%i", root->name.c_str());
 	if (ImGui::TreeNodeEx(name_str,flag))
 	{
-		for (std::vector<GameObject*>::iterator children = root->children.begin(); children != root->children.end(); children++)
+		if (ImGui::IsItemHovered())
 		{
+			if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN)
+			{
+				App->scene_intro->SetSelectedGameObject(root);
+			}
+		}
+		//if (ImGui::IsItemClicked())
+		//{
+		//	App->scene_intro->SetSelectedGameObject(root);
+		//	//App->scene_intro->SetSelectedGameObject(root);
+		//}
+		for (std::vector<GameObject*>::iterator children = root->children.begin(); children != root->children.end(); ++children)
+		{
+			ImGui::PushID(*children);
 			BlitHierarchy(*children);
+			ImGui::PopID();
 		}
 		//if (children.size() != 0) {
 		//	uint size = children.size();
@@ -81,15 +97,11 @@ void GameObject::BlitHierarchy(GameObject* root)
 		//		children[k]->BlitHierarchy(root);
 		//	}*/
 		//}
+		
+		
 		ImGui::TreePop();
 	}
-	if (ImGui::IsItemHovered())
-	{
-		if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN)
-		{
-			App->scene_intro->SetSelectedGameObject(this);
-		}
-	}
+	
 	
 }
 

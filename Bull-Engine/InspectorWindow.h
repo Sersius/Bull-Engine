@@ -22,7 +22,7 @@ public:
 	void Draw();
 
 public:
-	GameObject* selected_go;
+	GameObject* selected_go = nullptr;
 
 private:
 

@@ -26,7 +26,7 @@ public:
 	void OnResize(int width, int height);
 	void RendererSettings(int enum_, bool type_render);
 public:
-	std::vector<InfoFbx> meshes;
+	std::vector<Mesh*> meshes;
 	Light lights[MAX_LIGHTS];
 	SDL_GLContext context;
 	mat3x3 NormalMatrix;

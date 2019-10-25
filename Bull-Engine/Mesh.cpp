@@ -1,6 +1,12 @@
 #include "Mesh.h"
 #include "Application.h"
+#include "ModuleRenderer3D.h"
 #include "ModuleLoadFBX.h"
+#include "ModuleUI.h"
+#include "InspectorWindow.h"
+#include "Transform.h"
+#include "Material.h"
+#include "ModuleSceneIntro.h"
 
 Mesh::Mesh(GameObject* parent,char* path) : Component(parent, COMPONENT_TYPE::MESH), path(path)
 {
@@ -21,4 +27,34 @@ void Mesh::GetMesh(char* path)
 {
 	App->loadFBX->LoadFbx(path);
 	this->path = path;
+}
+void Mesh::Draw()
+{
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+
+	glEnable(GL_TEXTURE_2D);
+	if (App->UI->inspector->selected_go != nullptr) {
+		if (App->UI->inspector->selected_go->transform->draw_texture == true) {
+			glBindTexture(GL_TEXTURE_2D, App->scene_intro->gameobject_scene->material->id);
+		}
+	}
+	glBindBuffer(GL_ARRAY_BUFFER, info_mesh.id_vertex);
+	glVertexPointer(3, GL_FLOAT, 0, NULL);
+
+	glBindBuffer(GL_ARRAY_BUFFER, info_mesh.id_uvs);
+	glTexCoordPointer(2, GL_FLOAT, 0, NULL);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, info_mesh.id_index);
+	if (App->renderer3D->wireframe == true) {
+		glColor3d(1, 1., 0);
+		glPolygonMode(GL_FRONT, GL_LINE);
+	}
+	glDrawElements(GL_TRIANGLES, info_mesh.num_index, GL_UNSIGNED_INT, NULL);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+	glDisableClientState(GL_VERTEX_ARRAY);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glDisable(GL_TEXTURE_2D);
 }

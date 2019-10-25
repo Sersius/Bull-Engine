@@ -169,7 +169,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 
 		if (scene->mNumMeshes != 0)
 		{
-			GameObject* childGO = App->scene_intro->CreateGameObject(game_object);
+			childGO = App->scene_intro->CreateGameObject(game_object);
 			childGO->CreateComponent(COMPONENT_TYPE::MESH);
 			childGO->mesh->info_mesh = mesh;
 			childGO->material = game_object->material;
@@ -180,7 +180,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			//childGO->SetName(name_mesh.c_str());	
 		}
 
-		App->renderer3D->meshes.push_back(mesh);
+		App->renderer3D->meshes.push_back(childGO->mesh);
 		LOG("Mesh name: %s", name_mesh.c_str());
 		LOG("Loaded mesh with %i vertices.", mesh.num_vertex);
 		LOG("Loaded mesh with %i indices.", mesh.num_index);
@@ -226,7 +226,7 @@ InfoFbx ModuleLoadFBX::LoadParShapeMesh(par_shapes_mesh* mesh)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, par_mesh.id_index);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * par_mesh.num_index, par_mesh.index, GL_STATIC_DRAW);
 
-	App->renderer3D->meshes.push_back(par_mesh);
+	//App->renderer3D->meshes.push_back(par_mesh);
 
 	return par_mesh;
 }

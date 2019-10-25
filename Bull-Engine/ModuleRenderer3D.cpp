@@ -7,6 +7,7 @@
 #include "ModuleGameObject.h"
 #include "Transform.h"
 #include "Material.h"
+#include "Mesh.h"
 #include "ImGui/imgui_impl_opengl3.h"
 #include "ImGui/imgui_impl_sdl.h"
 #include "SDL\include\SDL_opengl.h"
@@ -134,8 +135,8 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
-	for (std::vector<InfoFbx>::iterator item = App->renderer3D->meshes.begin(); item != App->renderer3D->meshes.end(); ++item) {
-		App->renderer3D->DrawModel(*item);
+	for (std::vector<Mesh*>::iterator item = App->renderer3D->meshes.begin(); item != App->renderer3D->meshes.end(); ++item) {
+		(*item)->Draw();
 	}
 	return UPDATE_CONTINUE;
 }

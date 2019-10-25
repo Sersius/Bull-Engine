@@ -13,6 +13,7 @@ public:
 	void Update(float dt);
 	void GetMesh(char* path);
 	InfoFbx info_mesh;
+	void Draw();
 private:
 	char* path = nullptr;
 };

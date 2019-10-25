@@ -54,7 +54,7 @@ public:
 	//std::string file_name;
 	std::string path;
 	InfoFbx mesh;
-
+	GameObject* childGO;
 	int texture_width = 0;
 	int texture_height = 0;
 	

@@ -32,12 +32,13 @@ void Mesh::Draw()
 {
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
-	glEnable(GL_TEXTURE_2D);
-	if (App->UI->inspector->selected_go != nullptr) {
-		if (App->UI->inspector->selected_go->transform->draw_texture == true) {
-			glBindTexture(GL_TEXTURE_2D, App->scene_intro->gameobject_scene->material->id);
+	
+	if (parent) {
+		if (parent->transform->draw_texture == true) {
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D, parent->material->id);
 		}
+			
 	}
 	glBindBuffer(GL_ARRAY_BUFFER, info_mesh.id_vertex);
 	glVertexPointer(3, GL_FLOAT, 0, NULL);

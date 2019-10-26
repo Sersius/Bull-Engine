@@ -34,9 +34,14 @@ void Mesh::Draw()
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	
 	if (parent) {
-		if (parent->transform->draw_texture == true) {
+		if (parent->material->draw_texture == true) {
 			glEnable(GL_TEXTURE_2D);
 			glBindTexture(GL_TEXTURE_2D, parent->material->id);
+		}
+		if(parent->material->draw_checkers == true)
+		{ 
+			App->renderer3D->Checkers();
+			glBindTexture(GL_TEXTURE_2D, App->renderer3D->ImageName);
 		}
 			
 	}

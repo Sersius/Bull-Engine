@@ -79,7 +79,9 @@ void InspectorWindow::Draw()
 		if (selected_go->material != nullptr) {
 			if (ImGui::CollapsingHeader("Material")) {
 				ImGui::Separator();
-				ImGui::Checkbox("Active", &selected_go->transform->draw_texture);
+				ImGui::Checkbox("Texture", &selected_go->material->draw_texture);
+				ImGui::SameLine();
+				ImGui::Checkbox("Checkers", &selected_go->material->draw_checkers);
 				ImGui::Text("Texture path: %s", App->loadFBX->texture_path.c_str());
 
 				ImGui::Text("Texture WIDTH: %i", App->loadFBX->texture_width);

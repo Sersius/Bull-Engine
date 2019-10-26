@@ -10,6 +10,8 @@
 #include <vector>
 
 #define MAX_LIGHTS 8
+#define CHECKERS_HEIGHT 64
+#define CHECKERS_WIDTH 64
 
 class ModuleRenderer3D : public Module
 {
@@ -22,7 +24,7 @@ public:
 	update_status PostUpdate(float dt);
 	bool CleanUp();
 	void DrawModel(InfoFbx mesh);
-
+	void Checkers();
 	void OnResize(int width, int height);
 	void RendererSettings(int enum_, bool type_render);
 public:
@@ -32,4 +34,5 @@ public:
 	mat3x3 NormalMatrix;
 	mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
 	bool wireframe = false;
+	uint ImageName;
 };

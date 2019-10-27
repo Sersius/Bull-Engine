@@ -147,26 +147,18 @@ update_status ModuleInput::PreUpdate(float dt)
 				}
 				else if (file_type == File_type::FILE_MATERIAL)
 				{
-					if(App->UI->inspector->selected_go)
-					App->scene_intro->CreateGameObjectMaterial(dropped_filedir,App->UI->inspector->selected_go);
-					//App->scene_intro->gameobject_scene->material->GetTexture(dropped_filedir);
-					/*for (int i = 0; i < App->scene_intro->game_objects.capacity(); i++)
-					{
-						App->scene_intro->game_objects.at(i)->material->GetTexture(dropped_filedir);
-					}*/
-					//App->scene_intro->game_objects.at(0)->material->GetTexture(dropped_filedir);
+					if (App->UI->inspector->selected_go) {
+						if (App->UI->inspector->selected_go->is_primitive == false) {
+							App->scene_intro->CreateGameObjectMaterial(dropped_filedir, App->UI->inspector->selected_go);
+						}
+					}
+				
 				}
-				// Shows directory of dropped file
-				/*SDL_ShowSimpleMessageBox(
-					SDL_MESSAGEBOX_INFORMATION,
-					"File dropped on window",
-					dropped_filedir,
-					App->window->window
-				);*/
+				
 				
 				SDL_free(dropped_filedir);
 				
-				//
+				
 				
 			}
 

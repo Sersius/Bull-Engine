@@ -64,7 +64,9 @@ void InspectorWindow::Draw()
 			if (ImGui::CollapsingHeader("Mesh Information")) {
 				ImGui::Separator();
 				ImGui::Checkbox("Render model", &selected_go->render_model);
-				ImGui::Checkbox("Draw normals", &selected_go->mesh->draw_normals);
+				if (selected_go->mesh->info_mesh.num_uvs > 0) {
+					ImGui::Checkbox("Draw normals", &selected_go->mesh->draw_normals);
+				}
 				ImGui::Text("Mesh triangles: %i", selected_go->mesh->info_mesh.num_vertex / 3);
 
 				ImGui::Text("Mesh vertices: %i", selected_go->mesh->info_mesh.num_vertex);
@@ -76,9 +78,10 @@ void InspectorWindow::Draw()
 				ImGui::Text("Mesh uvs: %i", selected_go->mesh->info_mesh.num_uvs);
 			}
 		}
-		if (selected_go->material != nullptr) {
+		if (selected_go->material != nullptr && selected_go->is_primitive == false) {
 			if (ImGui::CollapsingHeader("Material")) {
 				ImGui::Separator();
+
 				ImGui::Checkbox("Texture", &selected_go->material->draw_texture);
 				ImGui::SameLine();
 				ImGui::Checkbox("Checkers", &selected_go->material->draw_checkers);

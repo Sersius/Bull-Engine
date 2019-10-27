@@ -50,7 +50,7 @@ void Mesh::Draw()
 				App->renderer3D->Checkers();
 				glBindTexture(GL_TEXTURE_2D, App->renderer3D->ImageName);
 			}
-			if (parent->mesh->draw_normals)
+			if (parent->mesh->draw_normals )
 			{
 				DrawNormals();
 			}

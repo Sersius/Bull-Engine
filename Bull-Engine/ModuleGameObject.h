@@ -39,6 +39,7 @@ public:
 	Mesh* mesh = nullptr;
 	Transform* transform = nullptr;
 	bool render_model = true;
+	bool is_primitive = false;
 private:
 	std::string name;
 	GameObject* parent = nullptr;

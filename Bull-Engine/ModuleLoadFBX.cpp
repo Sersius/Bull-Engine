@@ -218,6 +218,7 @@ InfoFbx ModuleLoadFBX::LoadParShapeMesh(par_shapes_mesh* mesh)
 	childGO->CreateComponent(COMPONENT_TYPE::MATERIAL);
 	childGO->mesh->info_mesh = par_mesh;
 	childGO->SetName("Primitive");
+	childGO->is_primitive = true;
 	App->renderer3D->meshes.push_back(childGO->mesh);
 	return par_mesh;
 }

@@ -256,6 +256,11 @@ void ModuleLoadFBX::FocusGameObject()
 	App->camera->Reference.y = box.CenterPoint().y;
 	App->camera->Reference.z = box.CenterPoint().z;
 
+	App->camera->Position.x = box.maxPoint.x * 2.0f;
+	App->camera->Position.y = box.maxPoint.y * 2.0f;
+	App->camera->Position.z = box.maxPoint.z * 2.0f;
+
+
 	App->camera->LookAt(App->camera->Reference);
 }
 

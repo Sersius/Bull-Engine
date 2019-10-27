@@ -33,6 +33,7 @@ void Mesh::GetMesh(char* path)
 	App->loadFBX->LoadFbx(path);
 	this->path = path;
 }
+
 void Mesh::Draw()
 {
 	if (parent->render_model) {

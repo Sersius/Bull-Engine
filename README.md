@@ -21,8 +21,11 @@ A 3d game engine developed with OpenGL in c ++. This project has been done by tw
 
 - Mouse right click: Move Camera with static position
 - Mouse right click + arrow keys: Navigate arround the scene
+- Mouse right click + Q: Move up the camera
+- Mouse right click + E: Move down the camera
 - Mouse left + Alt-left: Move Camera arround model pivot
 - Mouse wheel: Move Camera forward and backward
+- Press Mouse wheel: Move camera
 - F: Center the Camera on an object
 
 # Tools used

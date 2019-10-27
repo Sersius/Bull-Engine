@@ -83,8 +83,8 @@ update_status ModuleCamera3D::Update(float dt)
 	}
 	//FREE LOOK
 	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT) {
-		if (App->input->GetKey(SDL_SCANCODE_R) == KEY_REPEAT) newPos.y += speed;
-		if (App->input->GetKey(SDL_SCANCODE_F) == KEY_REPEAT) newPos.y -= speed;
+		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) newPos.y += speed;
+		if (App->input->GetKey(SDL_SCANCODE_E) == KEY_REPEAT) newPos.y -= speed;
 
 		if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos -= Z * speed;
 		if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos += Z * speed;
@@ -113,6 +113,28 @@ update_status ModuleCamera3D::Update(float dt)
 	else if (App->input->GetMouseZ() == -1)
 	{
 		newPos += Z * wheelSpeed * 3 * dt;
+		Position += newPos;
+		Reference += newPos;
+	}
+	if (App->input->GetMouseButton(SDL_BUTTON_MIDDLE) == KEY_REPEAT)
+	{
+		if (App->input->GetMouseXMotion() > 0)
+		{
+			newPos -= X * (App->input->GetMouseXMotion()  * speed);
+		}
+		if (App->input->GetMouseXMotion() < 0)
+		{
+			newPos -= X * (App->input->GetMouseXMotion()  * speed);
+		}
+		if (App->input->GetMouseYMotion() > 0)
+		{
+			newPos += Y * (App->input->GetMouseYMotion()  * speed);
+		}
+		if (App->input->GetMouseYMotion() < 0)
+		{
+			newPos += Y * (App->input->GetMouseYMotion() * speed);
+		}
+
 		Position += newPos;
 		Reference += newPos;
 	}

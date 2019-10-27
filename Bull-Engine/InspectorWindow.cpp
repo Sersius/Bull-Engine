@@ -70,9 +70,9 @@ void InspectorWindow::Draw()
 
 				ImGui::Text("Mesh indices: %i", selected_go->mesh->info_mesh.num_index);
 
-				ImGui::Text("Mesh normals: %f", selected_go->mesh->info_mesh.num_normals);
+				ImGui::Text("Mesh normals: %i", selected_go->mesh->info_mesh.num_normals);
 
-				ImGui::Text("Mesh uvs: %f", selected_go->mesh->info_mesh.num_uvs);
+				ImGui::Text("Mesh uvs: %i", selected_go->mesh->info_mesh.num_uvs);
 			}
 		}
 		if (selected_go->material != nullptr) {

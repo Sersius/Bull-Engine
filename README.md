@@ -17,6 +17,14 @@ A 3d game engine developed with OpenGL in c ++. This project has been done by tw
 - Drag & Drop to load and visualization of geometry and textures.
 - Hierachy Panel where you can see all the GameObjects.
 
+# Camera controls
+
+- Mouse right click: Move Camera with static position
+- Mouse right click + arrow keys: Navigate arround the scene
+- Mouse left + Alt-left: Move Camera arround model pivot
+- Mouse wheel: Move Camera forward and backward
+- F: Center the Camera on an object
+
 # Tools used
 
 - Visual Studio 2017

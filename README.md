@@ -2,7 +2,7 @@
 
 A 3d game engine developed with OpenGL in c ++. This project has been done by two students of CITM - UPC (Terrasa, Spain) for the subject Game Engines.
 
-- GitHub repository: [Bull Engine](https://github.com/isaaccalvis/Bull-Engine)
+- GitHub repository: [Bull Engine](https://github.com/Sersius/Bull-Engine)
  
 ## Students
 

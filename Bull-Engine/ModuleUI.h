@@ -26,7 +26,6 @@ public:
 	bool Start();
 	update_status PreUpdate(float dt);
 	update_status Update(float dt);
-	//update_status PostUpdate(float dt);
 	bool CleanUp();
 
 public:
@@ -36,10 +35,7 @@ public:
 	ConsoleWindow* console = nullptr;
 	AddWindow* add = nullptr;
 	HierarchyWindow* hierarchy = nullptr;
-	InspectorWindow* inspector = nullptr;
-
-private:
-	
+	InspectorWindow* inspector = nullptr;	
 };
 
 #endif 

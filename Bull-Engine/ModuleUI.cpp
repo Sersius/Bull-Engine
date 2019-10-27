@@ -9,13 +9,13 @@
 #include "HierarchyWindow.h"
 #include "InspectorWindow.h"
 
+#include "Psapi.h"
+#include "MathGeoLib/include/MathGeoLib.h"
+#include "Glew/include/glew.h"
 #include "imGUI/imgui.h"
 #include "ImGui/imgui_impl_opengl3.h"
 #include "ImGui/imgui_impl_sdl.h"
 #include "ImGui/imgui_internal.h"
-#include "Psapi.h"
-#include "MathGeoLib/include/MathGeoLib.h"
-#include "Glew/include/glew.h"
 
 #pragma comment( lib, "Glew/libx86/glew32.lib" )
 

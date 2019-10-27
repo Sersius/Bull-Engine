@@ -3,7 +3,8 @@
 #include "Globals.h"
 #include "Primitive.h"	
 #include "ModuleGameObject.h"
-#include "ParShapes\par_shapes.h"
+
+#include "ParShapes/par_shapes.h"
 
 class aiScene;
 class aiNode;

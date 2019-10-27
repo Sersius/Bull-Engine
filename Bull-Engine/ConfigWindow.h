@@ -1,10 +1,11 @@
 #ifndef __CONFIGWINDOW_H__
 #define __CONFIGWINDOW_H__
 
-#include "Module.h"
-#include "Application.h"	
+#include "Application.h"
+#include "Module.h"	
 #include "Globals.h"
 #include "Window.h"
+
 #include "SDL/include/SDL.h"
 #include "imGUI/imgui.h"
 

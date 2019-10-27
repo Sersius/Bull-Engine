@@ -3,9 +3,9 @@
 #include "ModuleSceneIntro.h"
 #include "Primitive.h"
 #include "ModuleLoadFBX.h"
-#include "Mesh.h"
-#include "Material.h"
 
+#include "Material.h"
+#include "Mesh.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {

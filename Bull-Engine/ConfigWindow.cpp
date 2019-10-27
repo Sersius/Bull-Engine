@@ -2,8 +2,9 @@
 #include "Globals.h"
 #include "ConfigWindow.h"
 #include "ModuleWindow.h"
-#include "imGUI\imgui.h"
 #include "ModuleRenderer3D.h"
+
+#include "imGUI/imgui.h"
 
 
 ConfigWindow::ConfigWindow() : Window()

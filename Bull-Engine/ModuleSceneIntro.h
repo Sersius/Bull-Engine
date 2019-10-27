@@ -1,14 +1,13 @@
 #pragma once
 #include "Module.h"
 #include "Globals.h"
-#include "ImGui/imgui.h"
 #include "Primitive.h"
 #include "ModuleGameObject.h"
 
 #include <vector>
-//
-//#include "MathGeoLib\include\Geometry\Sphere.h"
-//#include "MathGeoLib\include\Math\float3.h"
+
+#include "ImGui/imgui.h"
+
 
 class GameObject;
 
@@ -29,9 +28,9 @@ public:
 	void SetSelectedGameObject(const GameObject* target);
 	GameObject* GetSelectedGO() const;
 public:
-	GameObject* root;
+	GameObject* root = nullptr;
 	GameObject* gameobject_scene = nullptr;
 	GameObject* selected = nullptr;
-	/*std::vector<GameObject*> game_objects;*/
+	
 	
 };

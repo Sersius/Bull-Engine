@@ -1,10 +1,10 @@
 #pragma once
 #include "Module.h"
-
 #include "Globals.h"
 #include "glmath.h"
 #include "Light.h"
 #include "ModuleLoadFBX.h"
+
 #include "Glew/include/glew.h"
 
 #include <vector>

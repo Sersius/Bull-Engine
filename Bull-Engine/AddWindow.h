@@ -5,8 +5,9 @@
 #include "Application.h"	
 #include "Globals.h"
 #include "Window.h"
+
 #include "SDL/include/SDL.h"
-#include "imGUI\imgui.h"
+#include "imGUI/imgui.h"
 
 #include <vector>
 

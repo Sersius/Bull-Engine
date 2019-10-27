@@ -3,6 +3,7 @@
 
 #include "ModuleComponent.h"
 #include "Globals.h"
+
 class Material : public Component
 {
 public:

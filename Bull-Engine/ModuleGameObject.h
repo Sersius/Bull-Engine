@@ -1,9 +1,11 @@
 #ifndef __MODULEGAMEOBJECT_H__
 #define __MODULEGAMEOBJECT_H__
 
+#include "Globals.h"
+
 #include <vector>
 #include <string>
-#include "Globals.h"
+
 
 enum COMPONENT_TYPE
 {

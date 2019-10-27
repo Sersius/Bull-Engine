@@ -4,8 +4,9 @@
 #include "ModuleWindow.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleSceneIntro.h"
-#include "imGUI\imgui.h"
-#include "ParShapes\par_shapes.h"
+
+#include "imGUI/imgui.h"
+#include "ParShapes/par_shapes.h"
 
 AddWindow::AddWindow() : Window()
 {

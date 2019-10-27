@@ -2,7 +2,8 @@
 #include "ConsoleWindow.h"
 #include "Globals.h"
 #include "ModuleWindow.h"
-#include "imGUI\imgui.h"
+
+#include "imGUI/imgui.h"
 
 ConsoleWindow::ConsoleWindow() : Window()
 {

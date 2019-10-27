@@ -4,13 +4,15 @@
 #include "ModuleLoadFBX.h"
 #include "ModuleUI.h"
 #include "InspectorWindow.h"
+
 #include "ModuleGameObject.h"
 #include "Transform.h"
 #include "Material.h"
 #include "Mesh.h"
+
 #include "ImGui/imgui_impl_opengl3.h"
 #include "ImGui/imgui_impl_sdl.h"
-#include "SDL\include\SDL_opengl.h"
+#include "SDL/include/SDL_opengl.h"
 #include <gl/GL.h>
 #include <gl/GLU.h>
 

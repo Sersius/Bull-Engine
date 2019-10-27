@@ -1,8 +1,9 @@
 #ifndef __INSPECTORWINDOW_H__
 #define __INSPECTORWINDOW_H__
 #include "Window.h"
+
 #include "SDL/include/SDL.h"
-#include "imGUI\imgui.h"
+#include "imGUI/imgui.h"
 #include "MathGeoLib/include/MathGeoLib.h"
 
 #include <vector>

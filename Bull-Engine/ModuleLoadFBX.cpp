@@ -1,20 +1,22 @@
 #include "Application.h"
 #include "ModuleLoadFBX.h"
 #include "ModuleSceneIntro.h"
+
 #include "ModuleGameObject.h"
 #include "Material.h"
 #include "Transform.h"
 #include "Mesh.h"
-#include "Glew\include\glew.h" 
-#include "Assimp\include\cimport.h"
-#include "Assimp\include\scene.h"
-#include "Assimp\include\postprocess.h"
-#include "Assimp\include\cfileio.h"
-#include "Devil\include\il.h"
-#include "Devil\include\ilu.h"
-#include "Devil\include\ilut.h"
-#include "ParShapes\par_shapes.h"
-#include "MathGeoLib\include\Geometry\AABB.h"
+
+#include "Glew/include/glew.h" 
+#include "Assimp/include/cimport.h"
+#include "Assimp/include/scene.h"
+#include "Assimp/include/postprocess.h"
+#include "Assimp/include/cfileio.h"
+#include "Devil/include/il.h"
+#include "Devil/include/ilu.h"
+#include "Devil/include/ilut.h"
+#include "ParShapes/par_shapes.h"
+#include "MathGeoLib/include/Geometry/AABB.h"
 
 #pragma comment (lib, "Assimp\\libx86\\assimp.lib")
 #pragma comment (lib, "Devil\\libx86\\DevIL.lib")

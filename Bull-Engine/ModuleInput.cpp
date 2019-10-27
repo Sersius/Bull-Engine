@@ -4,13 +4,13 @@
 #include "ModuleUI.h"
 #include "InspectorWindow.h"
 #include "ModuleFileSystem.h"
+
+#include "ModuleGameObject.h"
+#include "Material.h"
+
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_opengl3.h"
 #include "ImGui/imgui_impl_sdl.h"
-
-#include "Material.h"
-#include "ModuleGameObject.h"
-
 
 #define MAX_KEYS 300
 

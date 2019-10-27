@@ -227,8 +227,11 @@ InfoFbx ModuleLoadFBX::LoadParShapeMesh(par_shapes_mesh* mesh)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, par_mesh.id_index);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(float) * par_mesh.num_index, par_mesh.index, GL_STATIC_DRAW);
 
-	//App->renderer3D->meshes.push_back(par_mesh);
-
+	childGO = App->scene_intro->CreateGameObject(App->scene_intro->root);
+	childGO->CreateComponent(COMPONENT_TYPE::MESH);
+	childGO->CreateComponent(COMPONENT_TYPE::MATERIAL);
+	childGO->mesh->info_mesh = par_mesh;
+	App->renderer3D->meshes.push_back(childGO->mesh);
 	return par_mesh;
 }
 

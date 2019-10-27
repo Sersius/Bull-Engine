@@ -2,6 +2,7 @@
 #include "AddWindow.h"
 #include "Globals.h"
 #include "ModuleWindow.h"
+#include "ModuleRenderer3D.h"
 #include "ModuleSceneIntro.h"
 #include "imGUI\imgui.h"
 #include "ParShapes\par_shapes.h"
@@ -47,9 +48,7 @@ void AddWindow::Draw()
 		{
 			par_shapes_mesh* plane = par_shapes_create_plane(3,3);
 			InfoFbx mesh = App->loadFBX->LoadParShapeMesh(plane);
-			par_shapes_free_mesh(plane);
-
-			GameObject* new_go = App->scene_intro->CreateGameObject(App->scene_intro->root);
+			par_shapes_free_mesh(plane);	
 		}
 
 		if (current_item == 1 && ImGui::Button("Create"))
@@ -57,8 +56,6 @@ void AddWindow::Draw()
 			par_shapes_mesh* cube = par_shapes_create_cube();
 			InfoFbx mesh = App->loadFBX->LoadParShapeMesh(cube);
 			par_shapes_free_mesh(cube);
-
-			GameObject* new_go = new GameObject();
 		}
 
 		if (current_item == 2 && ImGui::Button("Create"))
@@ -66,8 +63,6 @@ void AddWindow::Draw()
 			par_shapes_mesh* sphere = par_shapes_create_subdivided_sphere(2);
 			InfoFbx mesh = App->loadFBX->LoadParShapeMesh(sphere);
 			par_shapes_free_mesh(sphere);
-
-			GameObject* new_go = new GameObject();
 		}
 
 		if (current_item == 3 && ImGui::Button("Create"))
@@ -75,10 +70,8 @@ void AddWindow::Draw()
 			par_shapes_mesh* cone = par_shapes_create_cone(10,10);
 			InfoFbx mesh = App->loadFBX->LoadParShapeMesh(cone);
 			par_shapes_free_mesh(cone);
-
-			GameObject* new_go = new GameObject();
 		}
-
+		
 	ImGui::End();
 }
 

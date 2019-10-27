@@ -167,6 +167,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			childGO->transform->position = pos;
 			childGO->transform->rotation = rot;
 			childGO->transform->scale = scale;
+			childGO->is_primitive = false;
 		}
 
 		App->renderer3D->meshes.push_back(childGO->mesh);

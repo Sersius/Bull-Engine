@@ -78,7 +78,7 @@ void InspectorWindow::Draw()
 				ImGui::Text("Mesh uvs: %i", selected_go->mesh->info_mesh.num_uvs);
 			}
 		}
-		if (selected_go->material != nullptr && selected_go->is_primitive == false) {
+		if (selected_go->is_primitive == false) {
 			if (ImGui::CollapsingHeader("Material")) {
 				ImGui::Separator();
 

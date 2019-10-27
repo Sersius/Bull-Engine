@@ -23,7 +23,7 @@ public:
 	update_status PreUpdate(float dt);
 	update_status PostUpdate(float dt);
 	bool CleanUp();
-	void DrawModel(InfoFbx mesh);
+
 	void Checkers();
 	void OnResize(int width, int height);
 	void RendererSettings(int enum_, bool type_render);
@@ -34,5 +34,5 @@ public:
 	mat3x3 NormalMatrix;
 	mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
 	bool wireframe = false;
-	uint ImageName;
+	uint ImageName=0;
 };

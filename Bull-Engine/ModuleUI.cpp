@@ -9,13 +9,13 @@
 #include "HierarchyWindow.h"
 #include "InspectorWindow.h"
 
-#include "imGUI\imgui.h"
+#include "imGUI/imgui.h"
 #include "ImGui/imgui_impl_opengl3.h"
 #include "ImGui/imgui_impl_sdl.h"
-#include "ImGui\imgui_internal.h"
+#include "ImGui/imgui_internal.h"
 #include "Psapi.h"
 #include "MathGeoLib/include/MathGeoLib.h"
-#include "Glew\include\glew.h"
+#include "Glew/include/glew.h"
 
 #pragma comment( lib, "Glew/libx86/glew32.lib" )
 
@@ -89,8 +89,7 @@ update_status ModuleUI::Update(float dt)
 		{
 			ImGui::Checkbox("Console",&console->on);
 			ImGui::Separator();
-			ImGui::Checkbox("Wireframe mode", &App->renderer3D->wireframe);
-			//TODO:: DEPTH CULL MODE, etc...
+			
 			ImGui::EndMenu();
 		}
 		

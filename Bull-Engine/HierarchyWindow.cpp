@@ -34,7 +34,6 @@ void HierarchyWindow::Draw()
 		}
 		
 	}
-
 	ImGui::End();
 }
 

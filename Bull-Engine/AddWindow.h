@@ -25,7 +25,6 @@ public:
 public:
 	GameObject* new_go;
 
-
 private:
 	int scale = 1;
 	int pos[3] = { 1, 1, 1 };

@@ -241,10 +241,9 @@ void ConfigWindow::Draw()
 					App->renderer3D->RendererSettings(GL_COLOR_MATERIAL, color_material);
 				else if (ImGui::Checkbox("GL_TEXTURE_2D", &texture2d))
 					App->renderer3D->RendererSettings(GL_TEXTURE_2D, texture2d);
+				else if (ImGui::Checkbox("WIREFRAME", &App->renderer3D->wireframe)) {};
+			
 			}
-
-		
-
 		ImGui::End();
 	}
 

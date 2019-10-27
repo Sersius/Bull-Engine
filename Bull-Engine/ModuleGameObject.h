@@ -5,7 +5,6 @@
 #include <string>
 #include "Globals.h"
 
-
 enum COMPONENT_TYPE
 {
 	NONE = 0,
@@ -33,17 +32,15 @@ public:
 	void SetName(const char* new_name);
 	const char* GetName()const;
 	void BlitHierarchy(GameObject* root);
+	
+public:
 	std::vector<GameObject*> children;
 	Material* material = nullptr;
 	Mesh* mesh = nullptr;
 	Transform* transform = nullptr;
-	
 private:
-
 	std::string name;
-	
 	GameObject* parent = nullptr;
-	
 	std::vector<Component*> components;
 };
 

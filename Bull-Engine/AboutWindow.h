@@ -10,25 +10,15 @@
 
 #include <vector>
 
-
 class AboutWindow : public Window
 {
 public:
 	AboutWindow();
 	~AboutWindow();
 
-
 	bool Start();
 	void Draw();
 	bool CleanUp();
-
-public:
-
-
-
-private:
-
-
 };
 
 #endif 

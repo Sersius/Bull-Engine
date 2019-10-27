@@ -1,10 +1,11 @@
 #ifndef __ModuleUI_H__
 #define __ModuleUI_H__
-
 #include "Module.h"
 #include "Globals.h"
 #include "Window.h"
+
 #include "SDL/include/SDL.h"
+
 #include <vector>
 
 class Window;

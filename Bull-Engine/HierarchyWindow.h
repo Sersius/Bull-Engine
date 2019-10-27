@@ -17,19 +17,8 @@ public:
 	HierarchyWindow();
 	~HierarchyWindow();
 	
-
 	bool Start();
 	void Draw();
 	
-	
-	
-
-public:
-
-
-
-private:
-	
-
 };
 #endif

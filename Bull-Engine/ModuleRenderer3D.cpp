@@ -190,37 +190,6 @@ void ModuleRenderer3D::Checkers()
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, CHECKERS_WIDTH, CHECKERS_HEIGHT,
 		0, GL_RGBA, GL_UNSIGNED_BYTE, checkImage);
 }
-void ModuleRenderer3D::DrawModel(InfoFbx mesh)
-{
-	/*glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
-	glEnable(GL_TEXTURE_2D);
-	if (App->UI->inspector->selected_go != nullptr) {
-		if (App->UI->inspector->selected_go->material->draw_texture == true) {
-			glBindTexture(GL_TEXTURE_2D, App->scene_intro->gameobject_scene->material->id);
-		}
-	}
-	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_vertex);
-	glVertexPointer(3, GL_FLOAT, 0, NULL);
-	
-	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_uvs);
-	glTexCoordPointer(2, GL_FLOAT, 0, NULL);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.id_index);
-	if (wireframe == true) {
-		glColor3d(1, 1., 0);
-		glPolygonMode(GL_FRONT, GL_LINE);
-	}
-	glDrawElements(GL_TRIANGLES, mesh.num_index, GL_UNSIGNED_INT, NULL);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-	
-	glDisableClientState(GL_VERTEX_ARRAY);
-	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-	glBindTexture(GL_TEXTURE_2D, 0);
-	glDisable(GL_TEXTURE_2D);*/
-}
-
 
 void ModuleRenderer3D::OnResize(int width, int height)
 {

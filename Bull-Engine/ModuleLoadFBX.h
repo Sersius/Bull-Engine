@@ -46,6 +46,8 @@ public:
 	InfoFbx LoadParShapeMesh(par_shapes_mesh* mesh);
 	void CreateBuffers();
 	bool LoadTexture(char * path_texture, uint& texture_id);
+	void FocusGameObject();
+
 	uint texture_id;
 public:
 	GameObject* game_object = new GameObject(nullptr);

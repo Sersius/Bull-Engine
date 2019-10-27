@@ -13,6 +13,7 @@
 #include "Devil\include\ilu.h"
 #include "Devil\include\ilut.h"
 #include "ParShapes\par_shapes.h"
+#include "MathGeoLib\include\Geometry\AABB.h"
 
 #pragma comment (lib, "Assimp\\libx86\\assimp.lib")
 #pragma comment (lib, "Devil\\libx86\\DevIL.lib")
@@ -255,6 +256,18 @@ bool ModuleLoadFBX::LoadTexture( char * path_texture, uint& texture_id)
 	ilDeleteImages(1, &id);
 
 	return true;
+}
+
+void ModuleLoadFBX::FocusGameObject()
+{
+	math::AABB box(float3(0, 0, 0), float3(0, 0, 0));
+	box.Enclose((float3*)mesh.vertex, mesh.num_vertex);
+
+	App->camera->Reference.x = box.CenterPoint().x;
+	App->camera->Reference.y = box.CenterPoint().y;
+	App->camera->Reference.z = box.CenterPoint().z;
+
+	App->camera->LookAt(App->camera->Reference);
 }
 
 void ModuleLoadFBX::CreateBuffers()

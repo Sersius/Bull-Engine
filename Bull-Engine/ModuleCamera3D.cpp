@@ -95,6 +95,13 @@ update_status ModuleCamera3D::Update(float dt)
 		Position += newPos;
 		Reference += newPos;
 	}
+
+	//FOCUS ON SELECTED
+	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN)
+	{
+		App->loadFBX->FocusGameObject();
+	}
+
 	//MOUSE WHEEL
 	if (App->input->GetMouseZ() == 1)
 	{

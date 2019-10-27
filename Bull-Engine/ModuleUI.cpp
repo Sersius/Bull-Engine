@@ -78,18 +78,13 @@ update_status ModuleUI::Update(float dt)
 			if (ImGui::MenuItem("Exit", "Escape")) { return UPDATE_STOP; }
 			ImGui::EndMenu();
 		}
-		if (ImGui::BeginMenu("Window"))
+		if (ImGui::BeginMenu("Windows"))
 		{
 			if (ImGui::MenuItem("Configuration")) { config->on = !config->on; }
-			if (ImGui::MenuItem("Inspector")) { inspector->on = !inspector->on; }
+			if (ImGui::Checkbox("Inspector", &inspector->on));
+			if (ImGui::Checkbox("Hierarchy", &hierarchy->on));
+			if (ImGui::Checkbox("Console", &console->on));
 	
-			ImGui::EndMenu();
-		}
-		if (ImGui::BeginMenu("View"))
-		{
-			ImGui::Checkbox("Console",&console->on);
-			ImGui::Separator();
-			
 			ImGui::EndMenu();
 		}
 		

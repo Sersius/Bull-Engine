@@ -1,12 +1,11 @@
 #include "Application.h"
-#include "Globals.h"
 #include "InspectorWindow.h"
 #include "ModuleLoadFBX.h"
+#include "ModuleGameObject.h"
+#include "Globals.h"
 #include "ModuleWindow.h"
-
 #include "imGUI\imgui.h"
 
-#include "ModuleGameObject.h"
 #include "Transform.h"
 #include "Material.h"
 #include "Mesh.h"
@@ -33,14 +32,14 @@ void InspectorWindow::Draw()
 	ImGuiWindowFlags flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
 	ImGui::Begin("Inspector", &on, flags);
 	
-	ImGui::SetWindowPos(ImVec2((App->width / 3.0f) * 2, 20), ImGuiCond_Once);
-	ImGui::SetWindowSize(ImVec2(App->width / 3.0f, 795), ImGuiCond_Once);
+	ImGui::SetWindowPos(ImVec2((App->width / 8.0f) * 6.0f, 18), ImGuiCond_Always);
+	ImGui::SetWindowSize(ImVec2((App->width / 8.0f) * 2.0f, (App->height / 6.0f) * 4.5f), ImGuiCond_Always);
 	SDL_GetWindowSize(App->window->window, &App->width, &App->height);
 
 	selected_go = App->scene_intro->GetSelectedGO();
 	
 	if (selected_go != nullptr) {
-		
+		//LOG("%s", selected_go->GetName());
 		ImGui::Text("Model Name: %s", selected_go->GetName());
 		ImGui::Text("Model Path: %s", App->loadFBX->path.c_str());
 		if (selected_go->transform != nullptr) {
@@ -49,14 +48,17 @@ void InspectorWindow::Draw()
 
 				ImGui::Text("Position:");
 				ImGui::DragFloat3("Position", &selected_go->transform->position[0], 0.1f, 0.0f, 0.0f, "%.2f");
+				//ImGui::Text("[%f]    [%f]    [%f]", selected_go->transform->position.x, selected_go->transform->position.y, selected_go->transform->position.z);
 
 				ImGui::Text("Rotation:");
 				float3 degRotation = selected_go->transform->rotation.ToEulerXYZ();
 				degRotation = DegToRad(degRotation);
 				ImGui::DragFloat3("Position", &degRotation[0], 0.1f, 0.0f, 0.0f, "%.2f");
+				//ImGui::Text("[%f]    [%f]    [%f]", selected_go->transform->rotation.x, selected_go->transform->rotation.y, selected_go->transform->rotation.z);
 
 				ImGui::Text("Scale:");
 				ImGui::DragFloat3("Position", &selected_go->transform->scale[0], 0.1f, 0.0f, 0.0f, "%.2f");
+				//ImGui::Text("[%f]    [%f]    [%f]", selected_go->transform->scale.x, selected_go->transform->scale.y, selected_go->transform->scale.z);
 			}
 		}
 		if (selected_go->mesh != nullptr) {
@@ -69,6 +71,9 @@ void InspectorWindow::Draw()
 
 				ImGui::Text("Mesh indices: %i", selected_go->mesh->info_mesh.num_index);
 
+				ImGui::Text("Mesh normals: %f", selected_go->mesh->info_mesh.num_normals);
+
+				ImGui::Text("Mesh uvs: %f", selected_go->mesh->info_mesh.num_uvs);
 			}
 		}
 		if (selected_go->material != nullptr) {

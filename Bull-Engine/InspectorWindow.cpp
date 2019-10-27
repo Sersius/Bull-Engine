@@ -64,6 +64,7 @@ void InspectorWindow::Draw()
 			if (ImGui::CollapsingHeader("Mesh Information")) {
 				ImGui::Separator();
 				ImGui::Checkbox("Render model", &selected_go->render_model);
+				ImGui::Checkbox("Draw normals", &selected_go->mesh->draw_normals);
 				ImGui::Text("Mesh triangles: %i", selected_go->mesh->info_mesh.num_vertex / 3);
 
 				ImGui::Text("Mesh vertices: %i", selected_go->mesh->info_mesh.num_vertex);

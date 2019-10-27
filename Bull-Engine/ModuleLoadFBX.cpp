@@ -108,7 +108,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			mesh = InfoFbx();
 
 			mesh.num_vertex = new_mesh->mNumVertices;
-			mesh.vertex = new uint[mesh.num_vertex * 3];
+			mesh.vertex = new float[mesh.num_vertex * 3];
 			memcpy(mesh.vertex, new_mesh->mVertices, sizeof(float)*mesh.num_vertex * 3);
 			
 			if (new_mesh->HasFaces()) {
@@ -192,7 +192,7 @@ InfoFbx ModuleLoadFBX::LoadParShapeMesh(par_shapes_mesh* mesh)
 
 	//Vertex
 	par_mesh.num_vertex = mesh->npoints;
-	par_mesh.vertex = new uint[par_mesh.num_vertex * 3];
+	par_mesh.vertex = new float[par_mesh.num_vertex * 3];
 	memcpy(par_mesh.vertex, mesh->points, sizeof(float) * mesh->npoints * 3);
 
 	//Faces

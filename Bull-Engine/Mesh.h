@@ -14,6 +14,10 @@ public:
 	void GetMesh(char* path);
 	InfoFbx info_mesh;
 	void Draw();
+	void DrawNormals();
+public:
+	
+	bool draw_normals = false;;
 private:
 	char* path = nullptr;
 };

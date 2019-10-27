@@ -17,7 +17,7 @@ struct InfoFbx {
 
 	uint id_vertex = 0; // unique vertex in VRAM
 	uint num_vertex = 0;
-	uint* vertex = nullptr;
+	float* vertex = nullptr;
 
 	uint id_normals = 0;
 	uint num_normals = 0;

@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "ModuleLoadFBX.h"
+#include "ModuleSceneIntro.h"
 #include "ModuleGameObject.h"
 #include "Material.h"
 #include "Transform.h"
@@ -90,8 +91,6 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 	this->path = path;
 	std::string name(path);
 
-	//this->file_name = name.substr(name.find_last_of('\\') + 1);
-
 	if (node->mNumMeshes> 0) {   	
 		
 			aiMesh* new_mesh = scene->mMeshes[node->mMeshes[0]];
@@ -146,13 +145,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		
 		CreateBuffers();
 	
-		/*aiVector3D translation, scaling;
-		aiQuaternion rotation;
-		node->mTransformation.Decompose(scaling, rotation, translation);
-		float3 pos(translation.x, translation.y, translation.z);
-		float3 scale(scaling.x, scaling.y, scaling.z);
-		Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);*/
-
+	
 		aiVector3D translation;
 		aiVector3D scaling;
 		aiQuaternion rotation;
@@ -164,10 +157,6 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		float3 scale(scaling.x, scaling.y, scaling.z);
 		Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);
 
-		/*game_object->transform->position = pos;
-		game_object->transform->rotation = rot;
-		game_object->transform->scale = scale;*/
-
 		if (scene->mNumMeshes != 0)
 		{
 			childGO = App->scene_intro->CreateGameObject(game_object);
@@ -178,7 +167,6 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			childGO->transform->position = pos;
 			childGO->transform->rotation = rot;
 			childGO->transform->scale = scale;
-			//childGO->SetName(name_mesh.c_str());	
 		}
 
 		App->renderer3D->meshes.push_back(childGO->mesh);
@@ -196,8 +184,6 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 		LoadModelInfo(scene, node->mChildren[i], game_object,path);
 	}
 
-	
-	
 }
 
 InfoFbx ModuleLoadFBX::LoadParShapeMesh(par_shapes_mesh* mesh)
@@ -231,6 +217,7 @@ InfoFbx ModuleLoadFBX::LoadParShapeMesh(par_shapes_mesh* mesh)
 	childGO->CreateComponent(COMPONENT_TYPE::MESH);
 	childGO->CreateComponent(COMPONENT_TYPE::MATERIAL);
 	childGO->mesh->info_mesh = par_mesh;
+	childGO->SetName("Primitive");
 	App->renderer3D->meshes.push_back(childGO->mesh);
 	return par_mesh;
 }
@@ -257,7 +244,6 @@ bool ModuleLoadFBX::LoadTexture( char * path_texture, uint& texture_id)
 	texture_id = ilutGLBindTexImage();
 	glBindTexture(GL_TEXTURE_2D, 0);
 	ilDeleteImages(1, &id);
-
 	return true;
 }
 

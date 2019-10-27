@@ -43,6 +43,7 @@ void InspectorWindow::Draw()
 
 		ImGui::Text("Model Name: %s", selected_go->GetName());
 		ImGui::Text("Model Path: %s", App->loadFBX->path.c_str());
+		
 		if (selected_go->transform != nullptr) {
 			if (ImGui::CollapsingHeader("Transform")) {
 				ImGui::Separator();
@@ -62,7 +63,7 @@ void InspectorWindow::Draw()
 		if (selected_go->mesh != nullptr) {
 			if (ImGui::CollapsingHeader("Mesh Information")) {
 				ImGui::Separator();
-
+				ImGui::Checkbox("Render model", &selected_go->render_model);
 				ImGui::Text("Mesh triangles: %i", selected_go->mesh->info_mesh.num_vertex / 3);
 
 				ImGui::Text("Mesh vertices: %i", selected_go->mesh->info_mesh.num_vertex);

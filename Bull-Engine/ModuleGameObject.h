@@ -38,6 +38,7 @@ public:
 	Material* material = nullptr;
 	Mesh* mesh = nullptr;
 	Transform* transform = nullptr;
+	bool render_model = true;
 private:
 	std::string name;
 	GameObject* parent = nullptr;

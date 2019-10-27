@@ -6,8 +6,8 @@ A 3d game engine developed with OpenGL in c ++. This project has been done by tw
  
 ## Students
 
-- Víctor Tirado [GitHub](https:://github.com/VictorTirado)
-- Sergio Gómez [GitHub](https:://github.com/Sersius)
+- Víctor Tirado [GitHub](https://github.com/VictorTirado)
+- Sergio Gómez [GitHub](https://github.com/Sersius)
 
 # Features
 

@@ -56,7 +56,6 @@ void ConfigWindow::Draw()
 
 		if (ImGui::CollapsingHeader("Application"))
 		{
-			ImGui::Image((ImTextureID)App->loadFBX->texture_id, ImVec2(200, 200));
 			ImGui::GetMouseCursor();
 			static char eng_name[30] = "Bull Engine";
 			ImGui::InputText("App Name", eng_name, ARRAYSIZE(eng_name)); 

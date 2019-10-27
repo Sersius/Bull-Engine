@@ -104,5 +104,3 @@ void GameObject::BlitHierarchy(GameObject* root)
 	
 	
 }
-
-

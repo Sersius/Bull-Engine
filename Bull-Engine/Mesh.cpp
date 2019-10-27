@@ -82,14 +82,14 @@ void Mesh::Draw()
 }
 void Mesh::DrawNormals()
 {
-	int size = 2;
+	int size = 20;
 	glColor3f(1.0f,1.0f,1.0f);
 	
 	for (uint i = 0; i < info_mesh.num_vertex * 3; i += 3)
 	{
 		glBegin(GL_LINES);
 		glVertex3f(info_mesh.vertex[i], info_mesh.vertex[i + 1], info_mesh.vertex[i + 2]);
-		glVertex3f(info_mesh.vertex[i] + info_mesh.normals[i] * size, info_mesh.vertex[i + 1] + info_mesh.normals[i + 1]*size, info_mesh.vertex[i + 2] + info_mesh.normals[i + 2]*size);
+		glVertex3f(info_mesh.vertex[i] + info_mesh.normals[i] , info_mesh.vertex[i + 1] + info_mesh.normals[i + 1], info_mesh.vertex[i + 2] + info_mesh.normals[i + 2]);
 		glEnd();
 	}
 	glColor3f(1.0f, 1.0f, 1.0f);

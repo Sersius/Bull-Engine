@@ -1,6 +1,8 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleInput.h"
+#include "ModuleUI.h"
+#include "InspectorWindow.h"
 #include "ModuleFileSystem.h"
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_impl_opengl3.h"
@@ -145,7 +147,8 @@ update_status ModuleInput::PreUpdate(float dt)
 				}
 				else if (file_type == File_type::FILE_MATERIAL)
 				{
-					App->scene_intro->CreateGameObjectMaterial(dropped_filedir,App->scene_intro->gameobject_scene);
+					if(App->UI->inspector->selected_go)
+					App->scene_intro->CreateGameObjectMaterial(dropped_filedir,App->UI->inspector->selected_go);
 					//App->scene_intro->gameobject_scene->material->GetTexture(dropped_filedir);
 					/*for (int i = 0; i < App->scene_intro->game_objects.capacity(); i++)
 					{

@@ -192,7 +192,7 @@ void ModuleRenderer3D::Checkers()
 }
 void ModuleRenderer3D::DrawModel(InfoFbx mesh)
 {
-	glEnableClientState(GL_VERTEX_ARRAY);
+	/*glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
 	glEnable(GL_TEXTURE_2D);
@@ -218,7 +218,7 @@ void ModuleRenderer3D::DrawModel(InfoFbx mesh)
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	glBindTexture(GL_TEXTURE_2D, 0);
-	glDisable(GL_TEXTURE_2D);
+	glDisable(GL_TEXTURE_2D);*/
 }
 
 

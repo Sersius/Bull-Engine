@@ -23,7 +23,7 @@ public:
 	bool CleanUp();
 
 public:
-
+	GameObject* new_go;
 
 
 private:

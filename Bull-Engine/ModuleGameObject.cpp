@@ -51,9 +51,35 @@ Component* GameObject::CreateComponent(COMPONENT_TYPE type,char* name)
 	return _type;
 }
 
-Component* GameObject::GetComponent(COMPONENT_TYPE type, std::string name)
+Material* GameObject::GetComponentMaterial() const
 {
-	return nullptr;
+	return (Material*)GetComponent(COMPONENT_TYPE::MATERIAL);
+}
+
+Mesh * GameObject::GetComponentMesh() const
+{
+	return (Mesh*)GetComponent(COMPONENT_TYPE::MESH);
+}
+
+Transform * GameObject::GetComponentTransform() const
+{
+	return (Transform*)GetComponent(COMPONENT_TYPE::TRANSFORM);
+}
+
+Component * GameObject::GetComponent(COMPONENT_TYPE type) const
+{
+	Component* component = nullptr;
+
+	for (auto item = components.begin(); item != components.end(); item++)
+	{
+		if ((*item)->type == type)
+		{
+			component = (*item);
+			return component;
+		}
+	}
+
+	return component;
 }
 
 void GameObject::SetName(const char* name)

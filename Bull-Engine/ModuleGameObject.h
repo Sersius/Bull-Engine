@@ -30,7 +30,10 @@ public:
 	void Update(float dt);
 
 	Component* CreateComponent(COMPONENT_TYPE type, char* name="");
-	Component* GetComponent(COMPONENT_TYPE type, std::string name);
+	Material* GetComponentMaterial() const;
+	Mesh* GetComponentMesh() const;
+	Transform* GetComponentTransform() const;
+	Component* GetComponent(COMPONENT_TYPE type) const;
 	void SetName(const char* new_name);
 	const char* GetName()const;
 	void BlitHierarchy(GameObject* root);

@@ -3,6 +3,8 @@
 
 #include "Globals.h"
 
+#include "MathGeoLib/include/MathGeoLib.h"
+
 #include <vector>
 #include <string>
 
@@ -37,8 +39,10 @@ public:
 	void SetName(const char* new_name);
 	const char* GetName()const;
 	void BlitHierarchy(GameObject* root);
+	void BoundingBox();
 	
 public:
+	AABB bounding_box;
 	std::vector<GameObject*> children;
 	Material* material = nullptr;
 	Mesh* mesh = nullptr;

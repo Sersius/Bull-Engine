@@ -66,6 +66,11 @@ Transform * GameObject::GetComponentTransform() const
 	return (Transform*)GetComponent(COMPONENT_TYPE::TRANSFORM);
 }
 
+Camera * GameObject::GetComponentCamera() const
+{
+	return (Camera*)GetComponent(COMPONENT_TYPE::CAMERA);
+}
+
 Component * GameObject::GetComponent(COMPONENT_TYPE type) const
 {
 	Component* component = nullptr;

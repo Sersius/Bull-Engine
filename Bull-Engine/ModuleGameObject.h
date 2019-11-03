@@ -14,13 +14,15 @@ enum COMPONENT_TYPE
 	NONE = 0,
 	TRANSFORM,
 	MESH,
-	MATERIAL
+	MATERIAL,
+	CAMERA
 };
 
 class Component;
 class Material;
 class Mesh;
 class Transform;
+class Camera;
 
 class GameObject
 {
@@ -35,6 +37,7 @@ public:
 	Material* GetComponentMaterial() const;
 	Mesh* GetComponentMesh() const;
 	Transform* GetComponentTransform() const;
+	Camera* GetComponentCamera() const;
 	Component* GetComponent(COMPONENT_TYPE type) const;
 	void SetName(const char* new_name);
 	const char* GetName()const;

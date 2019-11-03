@@ -564,6 +564,9 @@
     <ClInclude Include="ParShapes\par_shapes.h">
       <Filter>Sources\Tools\Par_shapes</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -769,6 +772,9 @@
     </ClCompile>
     <ClCompile Include="par_shapes.cpp">
       <Filter>Sources\Tools\Par_shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Sources\Modules\Components GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

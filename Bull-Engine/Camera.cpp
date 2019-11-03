@@ -1,6 +1,6 @@
 #include "Camera.h"
 
-Camera::Camera(GameObject * parent)
+Camera::Camera(GameObject * parent) : Component(parent, COMPONENT_TYPE::MATERIAL)
 {
 }
 

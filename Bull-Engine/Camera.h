@@ -12,14 +12,24 @@ public:
 
 	void Update(float dt);
 
-	void LookAt(const float3 &Spot);
+	float GetNear() const;
+	float GetFar() const;
+	float GetFOV() const;
+	float GetApectRatio() const;
 
+	float4x4 GetViewMatrix() const;
+	float4x4 GetProjectionMatrix() const;
+
+	void SetNear(float distance);
+	void SetFar(float distance);
 	void SetFOV(float fov);
 	void SetAspectRatio(float aspect_ratio);
 
+	void LookAt(const float3 &Spot);
+
 private:
-	Frustum frustrum;
-	bool frustrum_culling;
+	Frustum frustum;
+	bool frustum_culling;
 
 };
 

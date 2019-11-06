@@ -36,6 +36,8 @@ void Mesh::GetMesh(char* path)
 
 void Mesh::Draw()
 {
+	glPushMatrix();
+	glMultMatrixf(parent->transform->GetGlobalMatrix().Transposed().ptr());
 	if (parent->render_model) {
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -77,6 +79,8 @@ void Mesh::Draw()
 		glDisableClientState(GL_VERTEX_ARRAY);
 		glBindTexture(GL_TEXTURE_2D, 0);
 		glDisable(GL_TEXTURE_2D);
+
+		glPopMatrix();
 		
 	}
 }

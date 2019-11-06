@@ -52,10 +52,12 @@ public:
 	Transform* transform = nullptr;
 	bool render_model = true;
 	bool is_primitive = false;
-private:
+
 	std::string name;
 	GameObject* parent = nullptr;
 	std::vector<Component*> components;
+private:
+	
 };
 
 #endif

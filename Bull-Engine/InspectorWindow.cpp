@@ -39,7 +39,7 @@ void InspectorWindow::Draw()
 	selected_go = App->scene_intro->GetSelectedGO();
 	
 	if (selected_go != nullptr) {
-
+		
 		ImGui::Text("Model Name: %s", selected_go->GetName());
 		ImGui::Text("Model Path: %s", App->loadFBX->path.c_str());
 		

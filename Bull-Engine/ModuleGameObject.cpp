@@ -152,7 +152,7 @@ void GameObject::BoundingBox()
 		
 		Transform* transform_box = (Transform*)GetComponentTransform();
 
-		obb.Transform(transform_box->GetMatrix());
+		obb.Transform(transform_box->GetLocalMatrix());
 
 		bounding_box = obb.MinimalEnclosingAABB();
 	}

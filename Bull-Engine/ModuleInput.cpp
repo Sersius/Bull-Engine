@@ -152,6 +152,11 @@ update_status ModuleInput::PreUpdate(float dt)
 							App->scene_intro->CreateGameObjectMaterial(dropped_filedir, App->UI->inspector->selected_go);
 						}
 					}
+					else
+					{
+						std::string output_file;
+						App->loadFBX->ImportTexture(dropped_filedir, "Library/Textures/", output_file);
+					}
 				
 				}
 				

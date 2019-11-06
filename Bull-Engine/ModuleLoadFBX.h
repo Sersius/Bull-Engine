@@ -48,6 +48,7 @@ public:
 	void CreateBuffers();
 	bool LoadTexture(char * path_texture, uint& texture_id);
 	void FocusGameObject();
+	bool ImportTexture(const char* file, const char* path, std::string& output_file);
 
 	uint texture_id;
 public:

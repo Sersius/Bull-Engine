@@ -2,6 +2,7 @@
 #define __CAMERA_H__
 
 #include "ModuleComponent.h"
+#include "Globals.h"
 
 
 class Camera : public Component
@@ -26,6 +27,8 @@ public:
 	void SetAspectRatio(float aspect_ratio);
 
 	void LookAt(const float3 &Spot);
+
+	void DebugDraw();
 
 private:
 	Frustum frustum;

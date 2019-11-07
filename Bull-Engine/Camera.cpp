@@ -1,13 +1,15 @@
 #include "Camera.h"
 
-#define ASPECT_RATIO 1.3f
+#include "Glew\include\glew.h"
+
+#define ASPECT_RATIO 1.78f
 
 Camera::Camera(GameObject * parent) : Component(parent, COMPONENT_TYPE::CAMERA)
 {
 	frustum.type = FrustumType::PerspectiveFrustum;
 
 	frustum.pos = float3::zero;
-	frustum.front = float3::unitZ;
+	frustum.front = -float3::unitZ;
 	frustum.up = float3::unitY;
 
 	frustum.nearPlaneDistance = 1.0f;
@@ -88,4 +90,20 @@ void Camera::LookAt(const float3 &Spot)
 
 	frustum.front = look_mat.MulDir(frustum.front).Normalized();
 	frustum.up = look_mat.MulDir(frustum.up).Normalized();
+}
+
+void Camera::DebugDraw()
+{
+	glBegin(GL_LINES);
+	glLineWidth(2.0f);
+	glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+
+	for (uint i = 0; i < frustum.NumEdges(); i++) {
+
+		glVertex3f(frustum.Edge(i).a.x, frustum.Edge(i).a.y, frustum.Edge(i).a.z);
+		glVertex3f(frustum.Edge(i).b.x, frustum.Edge(i).b.y, frustum.Edge(i).b.z);
+	}
+
+	glEnd();
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 }

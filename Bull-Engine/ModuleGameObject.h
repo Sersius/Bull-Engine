@@ -50,6 +50,7 @@ public:
 	Material* material = nullptr;
 	Mesh* mesh = nullptr;
 	Transform* transform = nullptr;
+	Camera* camera = nullptr;
 	bool render_model = true;
 	bool is_primitive = false;
 

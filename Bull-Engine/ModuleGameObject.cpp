@@ -7,6 +7,7 @@
 #include "Material.h"
 #include "Mesh.h"
 #include "Transform.h"
+#include "Camera.h"
 
 #include "ImGui/imgui.h"
 
@@ -47,6 +48,11 @@ Component* GameObject::CreateComponent(COMPONENT_TYPE type,char* name)
 	{
 		transform = new Transform(this);
 		_type = (Component*)transform;
+	}
+	else if (type == COMPONENT_TYPE::CAMERA)
+	{
+		camera = new Camera(this);
+		_type = (Component*)camera;
 	}
 	return _type;
 }

@@ -28,3 +28,11 @@ math::float4x4 Transform::GetGlobalMatrix() const
 	}
 	return LocalMatrix;
 }
+void Transform::SetPosition(float3 position)
+{
+	this->position = position;
+}
+void Transform::SetRotation(float3 rotation)
+{
+	this->rotation = Quat::FromEulerXYZ(rotation.x * DEGTORAD, rotation.y * DEGTORAD, rotation.z *DEGTORAD);
+}

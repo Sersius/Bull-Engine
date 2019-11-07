@@ -50,19 +50,19 @@ void InspectorWindow::Draw()
 				//ImGui::Text("Position:");
 				if (ImGui::DragFloat3("Position", &selected_go->transform->position[0], 0.1f, 0.0f, 0.0f, "%.2f"))
 				{
-
+					selected_go->transform->SetPosition(selected_go->transform->position);
 				}
 				
 				//ImGui::Text("Rotation:");
-				float3 degRotation = selected_go->transform->rotation.ToEulerXYZ();
-				degRotation = DegToRad(degRotation);
-				if (ImGui::DragFloat3("Position", &degRotation[0], 0.1f, 0.0f, 0.0f, "%.2f"))
+				float3 NewRotation = selected_go->transform->rotation.ToEulerXYZ();
+				NewRotation = (NewRotation * RADTODEG);
+				if (ImGui::DragFloat3("Rotation", &NewRotation[0], 0.1f, 0.0f, 0.0f, "%.2f"))
 				{
-
+					selected_go->transform->SetRotation(NewRotation);
 				}
 
 				//ImGui::Text("Scale:");
-				if (ImGui::DragFloat3("Position", &selected_go->transform->scale[0], 0.1f, 0.0f, 0.0f, "%.2f"))
+				if (ImGui::DragFloat3("Scale", &selected_go->transform->scale[0], 0.1f, 0.0f, 0.0f, "%.2f"))
 				{
 
 				}

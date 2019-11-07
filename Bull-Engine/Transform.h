@@ -17,7 +17,8 @@ public:
 
 	math::float4x4& GetLocalMatrix() const;
 	math::float4x4 GetGlobalMatrix() const;
-
+	void SetPosition(float3 position);
+	void SetRotation(float3 rotation);
 public:
 	math::float3 position = math::float3::zero;
 	math::Quat rotation = math::Quat::identity;

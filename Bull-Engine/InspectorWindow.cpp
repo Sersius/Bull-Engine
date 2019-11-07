@@ -47,16 +47,25 @@ void InspectorWindow::Draw()
 			if (ImGui::CollapsingHeader("Transform")) {
 				ImGui::Separator();
 
-				ImGui::Text("Position:");
-				ImGui::DragFloat3("Position", &selected_go->transform->position[0], 0.1f, 0.0f, 0.0f, "%.2f");
+				//ImGui::Text("Position:");
+				if (ImGui::DragFloat3("Position", &selected_go->transform->position[0], 0.1f, 0.0f, 0.0f, "%.2f"))
+				{
 
-				ImGui::Text("Rotation:");
+				}
+				
+				//ImGui::Text("Rotation:");
 				float3 degRotation = selected_go->transform->rotation.ToEulerXYZ();
 				degRotation = DegToRad(degRotation);
-				ImGui::DragFloat3("Position", &degRotation[0], 0.1f, 0.0f, 0.0f, "%.2f");
+				if (ImGui::DragFloat3("Position", &degRotation[0], 0.1f, 0.0f, 0.0f, "%.2f"))
+				{
 
-				ImGui::Text("Scale:");
-				ImGui::DragFloat3("Position", &selected_go->transform->scale[0], 0.1f, 0.0f, 0.0f, "%.2f");
+				}
+
+				//ImGui::Text("Scale:");
+				if (ImGui::DragFloat3("Position", &selected_go->transform->scale[0], 0.1f, 0.0f, 0.0f, "%.2f"))
+				{
+
+				}
 			}
 		}
 		if (selected_go->mesh != nullptr) {

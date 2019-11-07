@@ -49,7 +49,7 @@ public:
 	bool LoadTexture(char * path_texture, uint& texture_id);
 	void FocusGameObject();
 	bool ImportTexture(const char* file, const char* path, std::string& output_file);
-
+	void ImporterMesh(std::string & output_file, Mesh* mesh);
 	uint texture_id;
 public:
 	GameObject* game_object = new GameObject(nullptr);

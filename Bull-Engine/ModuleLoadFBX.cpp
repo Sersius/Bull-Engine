@@ -172,6 +172,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			childGO->is_primitive = false;
 		}
 
+		ImporterMesh(name, childGO->mesh);
 		App->renderer3D->meshes.push_back(childGO->mesh);
 		LOG("Mesh name: %s", name_mesh.c_str());
 		LOG("Loaded mesh with %i vertices.", mesh.num_vertex);
@@ -282,6 +283,44 @@ bool ModuleLoadFBX::ImportTexture(const char * file, const char * path, std::str
 		//RELEASE_ARRAY(data);
 	}
 	return ret;
+}
+void ModuleLoadFBX::ImporterMesh(std::string & output_file, Mesh* mesh)
+{
+	uint ranges[4] = { mesh->info_mesh.num_vertex, mesh->info_mesh.num_index,  mesh->info_mesh.num_uvs, mesh->info_mesh.num_normals };
+	uint size = sizeof(ranges) + sizeof(float) * mesh->info_mesh.num_vertex * 3 + sizeof(uint) * mesh->info_mesh.num_index + sizeof(float) *mesh->info_mesh.num_uvs * 2 + sizeof(float) *mesh->info_mesh.num_normals * 3;
+
+	char* data = new char[size]; // Allocate 
+	char* cursor = data;
+
+	uint bytes = sizeof(ranges); // First store ranges 
+	memcpy(cursor, ranges, bytes);
+	cursor += bytes; // Store indices
+
+	//Store Vertex
+	bytes = sizeof(float) *  mesh->info_mesh.num_vertex * 3;
+	memcpy(cursor, mesh->info_mesh.vertex, bytes);
+	cursor += bytes;
+
+	//Store Index
+	bytes = sizeof(uint) *  mesh->info_mesh.num_index;
+	memcpy(cursor, mesh->info_mesh.index, bytes);
+	cursor += bytes;
+
+	//Store UV'S
+	bytes = sizeof(float) *  mesh->info_mesh.num_uvs * 2;
+	memcpy(cursor, mesh->info_mesh.uvs, bytes);
+	cursor += bytes;
+
+	//Store Normals
+	bytes = sizeof(float) *  mesh->info_mesh.num_normals * 3;
+	memcpy(cursor, mesh->info_mesh.normals, bytes);
+	
+	App->fileSystem->SaveUnique(output_file, data, size, LIBRARY_MESH_FOLDER, "bakerhouse", ".bl");
+	
+
+	
+
+
 }
 
 void ModuleLoadFBX::CreateBuffers()

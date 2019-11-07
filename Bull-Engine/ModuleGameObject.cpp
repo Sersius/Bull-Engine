@@ -98,6 +98,12 @@ void GameObject::SetName(const char* name)
 	this->name = name;
 	//LOG("name: %s", name);
 }
+
+void GameObject::SetActive(bool active)
+{
+	this->active = active;
+}
+
 const char* GameObject::GetName()const
 {
 	return name.c_str();

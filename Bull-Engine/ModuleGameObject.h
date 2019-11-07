@@ -40,6 +40,7 @@ public:
 	Camera* GetComponentCamera() const;
 	Component* GetComponent(COMPONENT_TYPE type) const;
 	void SetName(const char* new_name);
+	void SetActive(bool active);
 	const char* GetName()const;
 	void BlitHierarchy(GameObject* root);
 	void BoundingBox();
@@ -58,7 +59,7 @@ public:
 	GameObject* parent = nullptr;
 	std::vector<Component*> components;
 private:
-	
+	bool active = true;
 };
 
 #endif

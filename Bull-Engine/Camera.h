@@ -4,6 +4,13 @@
 #include "ModuleComponent.h"
 #include "Globals.h"
 
+class GameObject;
+
+enum Intersection {
+	OUTSIDE = 0,
+	INSIDE,
+	INTERSECT
+};
 
 class Camera : public Component
 {
@@ -27,6 +34,9 @@ public:
 	void SetAspectRatio(float aspect_ratio);
 
 	void LookAt(const float3 &Spot);
+
+	void FrustumCulling(GameObject* gameobject);
+	int ContainsAaBox(const AABB &refbox);
 
 	void DebugDraw();
 

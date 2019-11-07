@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include "Mesh.h"
 
 #include "Glew\include\glew.h"
 
@@ -90,6 +91,69 @@ void Camera::LookAt(const float3 &Spot)
 
 	frustum.front = look_mat.MulDir(frustum.front).Normalized();
 	frustum.up = look_mat.MulDir(frustum.up).Normalized();
+}
+
+void Camera::FrustumCulling(GameObject * gameobject)
+{
+	if (!gameobject->camera) {
+		for (std::vector<GameObject*>::const_iterator it = gameobject->children.begin(); it < gameobject->children.end(); it++) {
+
+			AABB refBox = (*it)->bounding_box;
+
+			if (refBox.IsFinite() && gameobject->mesh && gameobject->mesh->info_mesh.num_vertex > 0) 
+			{
+
+				if (ContainsAaBox(refBox) == OUTSIDE)
+				{
+					gameobject->SetActive(false);
+				}
+				else
+					gameobject->SetActive(true);
+
+			}
+
+			FrustumCulling(*it);
+
+		}
+	}
+}
+
+int Camera::ContainsAaBox(const AABB & refbox)
+{
+	math::float3 vCorner[8];
+	int iTotalIn = 0;
+	refbox.GetCornerPoints(vCorner); // get the corners of the box into the vCorner array
+									 // test all 8 corners against the 6 sides
+									 // if all points are behind 1 specific plane, we are out
+									 // if we are in with all points, then we are fully in
+	math::Plane m_plane[6];
+	frustum.GetPlanes(m_plane); //{ near, far, left, right, top, bottom }.
+
+	for (int p = 0; p < 6; ++p)
+	{
+		int iInCount = 8;
+		int iPtIn = 1;
+		for (int i = 0; i < 8; ++i) 
+		{
+			// test this point against the planes
+
+			if (m_plane[p].IsOnPositiveSide(vCorner[i])) 
+			{
+				iPtIn = 0;
+				--iInCount;
+			}
+		}
+		// were all the points outside of plane p?
+		if (iInCount == 0)
+			return(OUTSIDE);
+		// check if they were all on the right side of the plane
+		iTotalIn += iPtIn;
+	}
+	// so if iTotalIn is 6, then all are inside the view
+	if (iTotalIn == 6)
+		return(INSIDE);
+	// we must be partly in then otherwise
+	return(INTERSECT);
 }
 
 void Camera::DebugDraw()

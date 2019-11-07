@@ -8,6 +8,7 @@ class Mesh : public Component
 {
 public:
 	Mesh(GameObject* parent,char* path);
+	Mesh();
 	~Mesh();
 
 	void Update(float dt);

@@ -92,7 +92,10 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 {
 	this->path = path;
 	std::string name(path);
-
+	std::string name_fbx = name.substr(name.find_first_of("/") + 1);
+	//std::string::size_type const p(base_filename.find_last_of('.'));
+	//std::string file_without_extension = base_filename.substr(0, p);
+	
 	if (node->mNumMeshes> 0) {   	
 		
 			aiMesh* new_mesh = scene->mMeshes[node->mMeshes[0]];
@@ -172,7 +175,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			childGO->is_primitive = false;
 		}
 
-		ImporterMesh(name, childGO->mesh);
+		ImporterMesh(name, childGO->mesh, name_fbx);
 		App->renderer3D->meshes.push_back(childGO->mesh);
 		LOG("Mesh name: %s", name_mesh.c_str());
 		LOG("Loaded mesh with %i vertices.", mesh.num_vertex);
@@ -284,8 +287,9 @@ bool ModuleLoadFBX::ImportTexture(const char * file, const char * path, std::str
 	}
 	return ret;
 }
-void ModuleLoadFBX::ImporterMesh(std::string & output_file, Mesh* mesh)
+void ModuleLoadFBX::ImporterMesh(std::string & output_file, Mesh* mesh, std::string name)
 {
+	//VERTEX -> INDEX -> UV'S -> NORMALS	
 	uint ranges[4] = { mesh->info_mesh.num_vertex, mesh->info_mesh.num_index,  mesh->info_mesh.num_uvs, mesh->info_mesh.num_normals };
 	uint size = sizeof(ranges) + sizeof(float) * mesh->info_mesh.num_vertex * 3 + sizeof(uint) * mesh->info_mesh.num_index + sizeof(float) *mesh->info_mesh.num_uvs * 2 + sizeof(float) *mesh->info_mesh.num_normals * 3;
 
@@ -315,12 +319,7 @@ void ModuleLoadFBX::ImporterMesh(std::string & output_file, Mesh* mesh)
 	bytes = sizeof(float) *  mesh->info_mesh.num_normals * 3;
 	memcpy(cursor, mesh->info_mesh.normals, bytes);
 	
-	App->fileSystem->SaveUnique(output_file, data, size, LIBRARY_MESH_FOLDER, "bakerhouse", ".bl");
-	
-
-	
-
-
+	App->fileSystem->SaveUnique(output_file, data, size, LIBRARY_MESH_FOLDER, name.c_str(), ".bl");
 }
 
 void ModuleLoadFBX::CreateBuffers()

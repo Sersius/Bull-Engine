@@ -1,5 +1,6 @@
 #include "Camera.h"
 #include "Mesh.h"
+#include "Application.h"
 
 #include "Glew\include\glew.h"
 
@@ -26,6 +27,13 @@ Camera::~Camera()
 
 void Camera::Update(float dt)
 {
+	if (App->scene_intro->root)
+	{
+		FrustumCulling(App->scene_intro->root);
+	}
+
+	DebugDraw();
+
 }
 
 float Camera::GetNear() const
@@ -95,9 +103,10 @@ void Camera::LookAt(const float3 &Spot)
 
 void Camera::FrustumCulling(GameObject * gameobject)
 {
-	if (!gameobject->camera) {
-		for (std::vector<GameObject*>::const_iterator it = gameobject->children.begin(); it < gameobject->children.end(); it++) {
-
+	if (!gameobject->camera) 
+	{
+		for (std::vector<GameObject*>::const_iterator it = gameobject->children.begin(); it < gameobject->children.end(); it++) 
+		{
 			AABB refBox = (*it)->bounding_box;
 
 			if (refBox.IsFinite() && gameobject->mesh && gameobject->mesh->info_mesh.num_vertex > 0) 
@@ -109,7 +118,6 @@ void Camera::FrustumCulling(GameObject * gameobject)
 				}
 				else
 					gameobject->SetActive(true);
-
 			}
 
 			FrustumCulling(*it);

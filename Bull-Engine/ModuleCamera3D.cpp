@@ -27,8 +27,6 @@ bool ModuleCamera3D::Start()
 
 	camera = App->scene_intro->CreateGameObject(App->scene_intro->root);
 
-	camera->CreateComponent(COMPONENT_TYPE::CAMERA);
-
 	return ret;
 }
 
@@ -182,8 +180,6 @@ update_status ModuleCamera3D::Update(float dt)
 
 	// Recalculate matrix -------------
 	CalculateViewMatrix();
-
-	camera->camera->DebugDraw();
 
 	return UPDATE_CONTINUE;
 }

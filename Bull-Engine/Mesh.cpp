@@ -32,6 +32,8 @@ void Mesh::GetMesh(char* path)
 {
 	App->loadFBX->LoadFbx(path);
 	this->path = path;
+
+	parent->BoundingBox();
 }
 
 void Mesh::Draw()

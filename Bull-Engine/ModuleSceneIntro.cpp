@@ -31,9 +31,13 @@ bool ModuleSceneIntro::Start()
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Models/BakerHouse.fbx");
 	gameobject_scene->children.at(0)->material->GetTexture("Textures/Baker_house.png");
 	gameobject_scene->children.at(1)->material->GetTexture("Textures/Baker_house.png");
+
+	GameObject* camera = new GameObject(root);
+	camera->CreateComponent(COMPONENT_TYPE::CAMERA);
 	
 	return ret;
 }
+
 update_status ModuleSceneIntro::PreUpdate(float dt)
 {
 	
@@ -54,14 +58,16 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 	
-	gameobject_scene;
+	root->Update(dt);
 	return UPDATE_CONTINUE;
 }
+
 GameObject* ModuleSceneIntro::CreateGameObject(GameObject* parent)
 {
 	GameObject* object = new GameObject(parent);
 	return object;
 }
+
 void ModuleSceneIntro::CreateGameObjectMesh(char* path)
 {
 	gameobject_scene = CreateGameObject(root);
@@ -72,6 +78,7 @@ void ModuleSceneIntro::CreateGameObjectMesh(char* path)
 	gameobject_scene->SetName(file_without_extension.c_str());
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH,path);
 }
+
 void ModuleSceneIntro::CreateGameObjectMaterial(char* path, GameObject* gameobject)
 {
 	gameobject->material->GetTexture(path);
@@ -83,6 +90,7 @@ void ModuleSceneIntro::CreateGameObjectMaterial(char* path, GameObject* gameobje
 	}
 
 }
+
 void ModuleSceneIntro::SetSelectedGameObject(const GameObject * target)
 {
 	selected = (GameObject*)target;

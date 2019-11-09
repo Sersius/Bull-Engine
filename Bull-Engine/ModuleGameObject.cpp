@@ -28,7 +28,12 @@ GameObject::~GameObject()
 
 void GameObject::Update(float dt)
 {
+	for (uint i = 0; i < children.size(); i++) {
+		children[i]->Update(dt);
+	}
 
+	if (camera)
+		camera->Update(dt);
 }
 
 Component* GameObject::CreateComponent(COMPONENT_TYPE type,char* name)

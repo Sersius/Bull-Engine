@@ -58,8 +58,10 @@ public:
 	std::string name;
 	GameObject* parent = nullptr;
 	std::vector<Component*> components;
-private:
 	bool active = true;
+private:
+
+
 };
 
 #endif

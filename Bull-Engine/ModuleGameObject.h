@@ -46,7 +46,8 @@ public:
 	void BoundingBox();
 	
 public:
-	AABB bounding_box;
+	math::AABB bounding_box;
+	math::OBB obb;
 	std::vector<GameObject*> children;
 	Material* material = nullptr;
 	Mesh* mesh = nullptr;

@@ -32,8 +32,9 @@ bool ModuleSceneIntro::Start()
 	gameobject_scene->children.at(0)->material->GetTexture("Textures/Baker_house.png");
 	gameobject_scene->children.at(1)->material->GetTexture("Textures/Baker_house.png");
 
-	GameObject* camera = new GameObject(root);
-	camera->CreateComponent(COMPONENT_TYPE::CAMERA);
+	camera_scene = CreateGameObject(root);
+	camera_scene->CreateComponent(COMPONENT_TYPE::CAMERA);
+	camera_scene->SetName("Camera");
 	
 	return ret;
 }

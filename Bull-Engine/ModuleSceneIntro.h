@@ -30,6 +30,7 @@ public:
 public:
 	GameObject* root = nullptr;
 	GameObject* gameobject_scene = nullptr;
+	GameObject* camera_scene = nullptr;
 	GameObject* selected = nullptr;
 	
 	

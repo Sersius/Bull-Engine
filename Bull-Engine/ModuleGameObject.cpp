@@ -158,19 +158,20 @@ void GameObject::BlitHierarchy(GameObject* root)
 
 void GameObject::BoundingBox()
 {
-	Mesh* mesh_box = (Mesh*)GetComponentMesh();
+	bounding_box.SetNegativeInfinity();
 
-	if (mesh_box != nullptr)
+	if (mesh != nullptr && transform != nullptr)
 	{
-		bounding_box.SetNegativeInfinity();
-		bounding_box.Enclose((float3*)mesh_box->info_mesh.vertex, mesh_box->info_mesh.num_vertex / 3);
+		bounding_box.Enclose((float3*)mesh->info_mesh.vertex, mesh->info_mesh.num_vertex / 3);
+	
+		obb.SetFrom(bounding_box);
+		obb.Transform(transform->GetGlobalMatrix());
 
-		OBB obb(bounding_box);
-		
-		Transform* transform_box = (Transform*)GetComponentTransform();
-
-		obb.Transform(transform_box->GetLocalMatrix());
-
-		bounding_box = obb.MinimalEnclosingAABB();
+		if(obb.IsFinite())
+			bounding_box = obb.MinimalEnclosingAABB();
 	}
+
+	for (uint i = 0; i < children.size(); ++i) {
+		children[i]->BoundingBox();
+	}	
 }

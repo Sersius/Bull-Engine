@@ -11,7 +11,7 @@ Camera::Camera(GameObject * parent) : Component(parent, COMPONENT_TYPE::CAMERA)
 	frustum.type = FrustumType::PerspectiveFrustum;
 
 	frustum.pos = float3::zero;
-	frustum.front = -float3::unitZ;
+	frustum.front = float3::unitZ;
 	frustum.up = float3::unitY;
 
 	frustum.nearPlaneDistance = 1.0f;
@@ -109,7 +109,7 @@ void Camera::FrustumCulling(GameObject * gameobject)
 		{
 			AABB refBox = (*it)->bounding_box;
 
-			if (refBox.IsFinite() && gameobject->mesh && gameobject->mesh->info_mesh.num_vertex > 0) 
+			if (refBox.IsFinite() && (*it)->mesh && (*it)->mesh->info_mesh.num_vertex > 0) 
 			{
 
 				if (ContainsAaBox(refBox) == OUTSIDE)

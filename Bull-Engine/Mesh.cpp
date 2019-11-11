@@ -34,6 +34,7 @@ void Mesh::GetMesh(char* path)
 	this->path = path;
 
 	parent->BoundingBox();
+	parent->DrawBoundingBox();
 }
 
 void Mesh::Draw()

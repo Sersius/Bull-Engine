@@ -44,6 +44,7 @@ public:
 	const char* GetName()const;
 	void BlitHierarchy(GameObject* root);
 	void BoundingBox();
+	void DrawBoundingBox();
 	
 public:
 	math::AABB bounding_box;

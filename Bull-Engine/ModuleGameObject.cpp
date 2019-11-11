@@ -34,6 +34,8 @@ void GameObject::Update(float dt)
 
 	if (camera)
 		camera->Update(dt);
+
+	DrawBoundingBox();
 }
 
 Component* GameObject::CreateComponent(COMPONENT_TYPE type,char* name)
@@ -174,4 +176,23 @@ void GameObject::BoundingBox()
 	for (uint i = 0; i < children.size(); ++i) {
 		children[i]->BoundingBox();
 	}	
+}
+
+void GameObject::DrawBoundingBox()
+{
+	glBegin(GL_LINES);
+	glColor4f(1.0f, 1.0f, 0.0f, 1.0f);
+
+	for (uint i = 0; i < bounding_box.NumEdges(); i++)
+	{
+		glVertex3f(bounding_box.Edge(i).a.x, bounding_box.Edge(i).a.y, bounding_box.Edge(i).a.z);
+		glVertex3f(bounding_box.Edge(i).b.x, bounding_box.Edge(i).b.y, bounding_box.Edge(i).b.z);
+	}
+	glEnd();
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+
+	for (uint i = 0; i < children.size(); ++i)
+	{
+		children[i]->DrawBoundingBox();
+	}
 }

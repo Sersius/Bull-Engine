@@ -114,10 +114,10 @@ void Camera::FrustumCulling(GameObject * gameobject)
 
 				if (ContainsAaBox(refBox) == OUTSIDE)
 				{
-					gameobject->SetActive(false);
+					(*it)->mesh->active = false;
 				}
 				else
-					gameobject->SetActive(true);
+					(*it)->mesh->active = true;
 			}
 
 			FrustumCulling(*it);

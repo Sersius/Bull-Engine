@@ -51,6 +51,7 @@ void InspectorWindow::Draw()
 				if (ImGui::DragFloat3("Position", &selected_go->transform->position[0], 0.1f, 0.0f, 0.0f, "%.2f"))
 				{
 					selected_go->transform->SetPosition(selected_go->transform->position);
+					selected_go->BoundingBox();
 				}
 				
 				//ImGui::Text("Rotation:");
@@ -59,6 +60,7 @@ void InspectorWindow::Draw()
 				if (ImGui::DragFloat3("Rotation", &NewRotation[0], 0.1f, 0.0f, 0.0f, "%.2f"))
 				{
 					selected_go->transform->SetRotation(NewRotation);
+					selected_go->BoundingBox();
 				}
 
 				//ImGui::Text("Scale:");

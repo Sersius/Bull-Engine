@@ -28,6 +28,7 @@ public:
 	void SetSelectedGameObject(const GameObject* target);
 	GameObject* GetSelectedGO() const;
 public:
+	std::vector<GameObject*> GameObjects;
 	GameObject* root = nullptr;
 	GameObject* gameobject_scene = nullptr;
 	GameObject* camera_scene = nullptr;

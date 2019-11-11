@@ -567,6 +567,9 @@
     <ClInclude Include="Camera.h">
       <Filter>Sources\Modules\Components GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="SerializationScene.h">
+      <Filter>Sources\Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -775,6 +778,9 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SerializationScene.cpp">
+      <Filter>Sources\Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

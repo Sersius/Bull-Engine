@@ -173,6 +173,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			childGO->transform->rotation = rot;
 			childGO->transform->scale = scale;
 			childGO->is_primitive = false;
+			
 		}
 
 		ImporterMesh(name, childGO->mesh, name_fbx);

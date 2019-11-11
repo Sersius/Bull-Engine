@@ -19,6 +19,8 @@ GameObject::GameObject(GameObject* parent)
 		parent->children.push_back(this);
 
 	CreateComponent(COMPONENT_TYPE::TRANSFORM);
+	if(App!=nullptr)
+	App->scene_intro->GameObjects.push_back(this);
 }
 
 GameObject::~GameObject()
@@ -31,7 +33,7 @@ void GameObject::Update(float dt)
 	for (uint i = 0; i < children.size(); i++) {
 		children[i]->Update(dt);
 	}
-
+	App->scene_intro->GameObjects.size();
 	if (camera)
 		camera->Update(dt);
 

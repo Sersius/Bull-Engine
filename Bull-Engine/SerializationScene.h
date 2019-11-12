@@ -16,8 +16,9 @@ public:
 
 	void Update(float dt);
 
+	
 	bool SaveScene(const char* name_scene);
-	void Save(const char* name_scene);
+	
 public:
 	
 

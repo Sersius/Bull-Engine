@@ -199,10 +199,12 @@ void GameObject::DrawBoundingBox()
 	}
 }
 
-bool GameObject::SaveInfo()
+bool GameObject::SaveInfo(SceneConfig* config)
 {
 	bool ret = false;
-
-
-	return ret;
+	SceneConfig go;
+	go.SetString("Name", name.c_str());
+	
+	config->NewArrayEntry(go);
+	return true;
 }

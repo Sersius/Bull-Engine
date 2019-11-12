@@ -19,6 +19,10 @@ public:
 	SceneConfig();
 	~SceneConfig();
 
+	void SetArray();
+	bool SetString(const char* name, const char* value = "");
+	bool NewArray(const SceneConfig &conf);
+	void Save(const char* name_scene);
 private:
 	JSON_Array*		json_array = nullptr;
 	JSON_Value*		json_root = nullptr;

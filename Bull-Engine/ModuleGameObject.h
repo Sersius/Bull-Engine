@@ -2,7 +2,7 @@
 #define __MODULEGAMEOBJECT_H__
 
 #include "Globals.h"
-
+#include "Config.h"
 #include "MathGeoLib/include/MathGeoLib.h"
 
 #include <vector>
@@ -45,7 +45,7 @@ public:
 	void BlitHierarchy(GameObject* root);
 	void BoundingBox();
 	void DrawBoundingBox();
-	bool SaveInfo();
+	bool SaveInfo(SceneConfig* config);
 public:
 	math::AABB bounding_box;
 	math::OBB obb;

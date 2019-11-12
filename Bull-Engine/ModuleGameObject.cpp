@@ -204,7 +204,7 @@ bool GameObject::SaveInfo(SceneConfig* config)
 	bool ret = false;
 	SceneConfig go;
 	go.SetString("Name", name.c_str());
-	
-	config->NewArrayEntry(go);
+	if(transform!=nullptr)
+	config->NewArray(go);
 	return true;
 }

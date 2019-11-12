@@ -176,7 +176,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			
 		}
 
-		ImporterMesh(name, childGO->mesh, name_fbx);
+		ImporterMesh(name, childGO->mesh, name_mesh);
 		App->renderer3D->meshes.push_back(childGO->mesh);
 		LOG("Mesh name: %s", name_mesh.c_str());
 		LOG("Loaded mesh with %i vertices.", mesh.num_vertex);

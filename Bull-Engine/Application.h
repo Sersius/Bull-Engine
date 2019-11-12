@@ -16,6 +16,7 @@
 
 #include <list>
 
+struct SerializationScene;
 
 class Application
 {
@@ -29,7 +30,7 @@ public:
 	ModuleUI* UI;
 	ModuleLoadFBX* loadFBX;
 	ModuleFileSystem* fileSystem;
-	//SerializationScene* serialization;
+	SerializationScene* serialization;
 
 	char* app_name;
 	const char* title;

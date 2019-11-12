@@ -6,8 +6,9 @@
 #include "Application.h"
 #include "ModuleGameObject.h"
 #include "ModuleSceneIntro.h"
+#include "Module.h"
 
-class SerializationScene 
+class SerializationScene
 {
 public:
 	SerializationScene();
@@ -16,7 +17,7 @@ public:
 	void Update(float dt);
 
 	bool SaveScene(const char* name_scene);
-	
+	void Save(const char* name_scene);
 public:
 	
 

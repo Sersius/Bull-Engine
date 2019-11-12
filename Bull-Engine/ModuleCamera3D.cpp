@@ -177,7 +177,10 @@ update_status ModuleCamera3D::Update(float dt)
 
 		Position = Reference + Z * length(Position);
 	}
-
+	if (App->input->GetKey(SDL_SCANCODE_M) == KEY_REPEAT)
+	{
+		App->serialization->SaveScene("SceneSaved");
+	}
 	// Recalculate matrix -------------
 	CalculateViewMatrix();
 

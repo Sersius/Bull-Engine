@@ -12,7 +12,7 @@ Application::Application()
 	UI = new ModuleUI(this);
 	loadFBX = new ModuleLoadFBX(this);
 	fileSystem = new ModuleFileSystem(this, ASSETS_FOLDER);
-
+	serialization = new SerializationScene();
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
 	// They will CleanUp() in reverse order

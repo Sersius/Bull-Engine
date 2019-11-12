@@ -45,7 +45,7 @@ public:
 	void BlitHierarchy(GameObject* root);
 	void BoundingBox();
 	void DrawBoundingBox();
-	
+	bool SaveInfo();
 public:
 	math::AABB bounding_box;
 	math::OBB obb;

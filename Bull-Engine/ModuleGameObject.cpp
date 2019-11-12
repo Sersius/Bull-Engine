@@ -198,3 +198,11 @@ void GameObject::DrawBoundingBox()
 		children[i]->DrawBoundingBox();
 	}
 }
+
+bool GameObject::SaveInfo()
+{
+	bool ret = false;
+
+
+	return ret;
+}

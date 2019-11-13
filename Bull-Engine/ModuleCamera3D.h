@@ -13,19 +13,14 @@ public:
 	update_status Update(float dt);
 	bool CleanUp();
 
-	void Look(const vec3 &Position, const vec3 &Reference, bool RotateAroundReference = false);
-	void LookAt(const vec3 &Spot);
-	void Move(const vec3 &Movement);
+	void Look(const float3 &Position, const float3 &Reference, bool RotateAroundReference = false);
+	void LookAt(const float3 &Spot);
+	void Move(const float3 &Movement);
 	float* GetViewMatrix();
 
-private:
-
-	void CalculateViewMatrix();
-
 public:
-	
-	vec3 X, Y, Z, Position, Reference;
-	GameObject* camera;
+
+	Camera* dummy = nullptr;
 
 private:
 

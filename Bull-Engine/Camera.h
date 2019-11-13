@@ -25,8 +25,8 @@ public:
 	float GetFOV() const;
 	float GetApectRatio() const;
 
-	float4x4 GetViewMatrix() const;
-	float4x4 GetProjectionMatrix() const;
+	float* GetViewMatrix() const;
+	float* GetProjectionMatrix() const;
 
 	void SetNear(float distance);
 	void SetFar(float distance);
@@ -40,8 +40,12 @@ public:
 
 	void DebugDraw();
 
-private:
+public:
+
 	Frustum frustum;
+
+private:
+
 	bool frustum_culling;
 
 };

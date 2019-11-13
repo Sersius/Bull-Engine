@@ -258,19 +258,19 @@ bool ModuleLoadFBX::LoadTexture( char * path_texture, uint& texture_id)
 
 void ModuleLoadFBX::FocusGameObject()
 {
-	math::AABB box(float3(0, 0, 0), float3(0, 0, 0));
-	box.Enclose((float3*)mesh.vertex, mesh.num_vertex);
+	//math::AABB box(float3(0, 0, 0), float3(0, 0, 0));
+	//box.Enclose((float3*)mesh.vertex, mesh.num_vertex);
 
-	App->camera->Reference.x = box.CenterPoint().x;
-	App->camera->Reference.y = box.CenterPoint().y;
-	App->camera->Reference.z = box.CenterPoint().z;
+	//App->camera->Reference.x = box.CenterPoint().x;
+	//App->camera->Reference.y = box.CenterPoint().y;
+	//App->camera->Reference.z = box.CenterPoint().z;
 
-	App->camera->Position.x = box.maxPoint.x * 2.0f;
-	App->camera->Position.y = box.maxPoint.y * 2.0f;
-	App->camera->Position.z = box.maxPoint.z * 2.0f;
+	//App->camera->Position.x = box.maxPoint.x * 2.0f;
+	//App->camera->Position.y = box.maxPoint.y * 2.0f;
+	//App->camera->Position.z = box.maxPoint.z * 2.0f;
 
 
-	App->camera->LookAt(App->camera->Reference);
+	//App->camera->LookAt(App->camera->Reference);
 }
 
 bool ModuleLoadFBX::ImportTexture(const char * file, const char * path, std::string & output_file)

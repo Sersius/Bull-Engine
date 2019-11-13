@@ -1,19 +1,26 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleCamera3D.h"
-#include "Camera.h"
 #include "ModuleGameObject.h"
+#include "Camera.h"
 
 ModuleCamera3D::ModuleCamera3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
-	CalculateViewMatrix();
+	//CalculateViewMatrix();
 
-	X = vec3(1.0f, 0.0f, 0.0f);
-	Y = vec3(0.0f, 1.0f, 0.0f);
-	Z = vec3(0.0f, 0.0f, 1.0f);
+	//X = vec3(1.0f, 0.0f, 0.0f);
+	//Y = vec3(0.0f, 1.0f, 0.0f);
+	//Z = vec3(0.0f, 0.0f, 1.0f);
 
-	Position = vec3(0.0f, 0.0f, 5.0f);
-	Reference = vec3(0.0f, 0.0f, 0.0f);
+	//Position = vec3(0.0f, 0.0f, 5.0f);
+	//Reference = vec3(0.0f, 0.0f, 0.0f);
+
+	//Dummy camera
+	dummy = new Camera(nullptr);
+	dummy->SetNear(0.1f);
+	dummy->SetFar(1000.0f);
+	Move({ 5.0f, 5.0f, 5.0f });
+	LookAt({ 0.0f, 0.0f, 0.0f });
 }
 
 ModuleCamera3D::~ModuleCamera3D()
@@ -24,8 +31,6 @@ bool ModuleCamera3D::Start()
 {
 	LOG("Setting up the camera");
 	bool ret = true;
-
-	camera = App->scene_intro->CreateGameObject(App->scene_intro->root);
 
 	return ret;
 }
@@ -44,9 +49,10 @@ update_status ModuleCamera3D::Update(float dt)
 	// Implement a debug camera with keys and mouse
 	// Now we can make this movememnt frame rate independant!
 
-	vec3 newPos(0,0,0);
-	float speed = 3.0f * dt;
-	float wheelSpeed = 3.0f;
+	float3 newPos(0,0,0);
+	float speed = 2.5f * dt;
+	float wheel_speed = 3.0f;
+	float sensibility = 0.25f * dt;
 
 	if(App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
 		speed = 6.0f * dt;
@@ -56,48 +62,38 @@ update_status ModuleCamera3D::Update(float dt)
 		int dx = -App->input->GetMouseXMotion();
 		int dy = -App->input->GetMouseYMotion();
 
-		float Sensitivity = 0.25f;
-
-		Position -= Reference;
-
 		if (dx != 0)
 		{
-			float DeltaX = (float)dx * Sensitivity;
+			Quat quat = Quat::RotateY(dx * sensibility);
 
-			X = rotate(X, DeltaX, vec3(0.0f, 1.0f, 0.0f));
-			Y = rotate(Y, DeltaX, vec3(0.0f, 1.0f, 0.0f));
-			Z = rotate(Z, DeltaX, vec3(0.0f, 1.0f, 0.0f));
+			dummy->frustum.up = quat.Mul(dummy->frustum.up).Normalized();
+			dummy->frustum.front = quat.Mul(dummy->frustum.front).Normalized();
 		}
 
 		if (dy != 0)
 		{
-			float DeltaY = (float)dy * Sensitivity;
+			Quat quat = Quat::RotateAxisAngle(dummy->frustum.WorldRight(), dy * sensibility);
+			float3 up = quat.Mul(dummy->frustum.up).Normalized();
 
-			Y = rotate(Y, DeltaY, X);
-			Z = rotate(Z, DeltaY, X);
-
-			if (Y.y < 0.0f)
-			{
-				Z = vec3(0.0f, Z.y > 0.0f ? 1.0f : -1.0f, 0.0f);
-				Y = cross(Z, X);
+			if (up.y > 0.0f) {
+				dummy->frustum.up = up;
+				dummy->frustum.front = quat.Mul(dummy->frustum.front).Normalized();
 			}
 		}
 
-		Position = Reference + Z * length(Position);
 	}
 	//FREE LOOK
 	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT) {
 		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) newPos.y += speed;
 		if (App->input->GetKey(SDL_SCANCODE_E) == KEY_REPEAT) newPos.y -= speed;
 
-		if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos -= Z * speed;
-		if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos += Z * speed;
+		if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos += dummy->frustum.front * speed;
+		if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos -= dummy->frustum.front * speed;
 
-		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= X * speed;
-		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += X * speed;
+		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= dummy->frustum.WorldRight() * speed;
+		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += dummy->frustum.WorldRight() * speed;
 
-		Position += newPos;
-		Reference += newPos;
+		Move(newPos);
 	}
 
 	//FOCUS ON SELECTED
@@ -107,40 +103,21 @@ update_status ModuleCamera3D::Update(float dt)
 	}
 
 	//MOUSE WHEEL
-	if (App->input->GetMouseZ() == 1)
+	if (App->input->GetMouseZ())
 	{
-		newPos -= Z * wheelSpeed * 3 * dt;
-		Position += newPos;
-		Reference += newPos;
+		newPos += dummy->frustum.front * wheel_speed * App->input->GetMouseZ();
+		Move(newPos);
+	}
 
-	}
-	else if (App->input->GetMouseZ() == -1)
-	{
-		newPos += Z * wheelSpeed * 3 * dt;
-		Position += newPos;
-		Reference += newPos;
-	}
 	if (App->input->GetMouseButton(SDL_BUTTON_MIDDLE) == KEY_REPEAT)
 	{
-		if (App->input->GetMouseXMotion() > 0)
-		{
-			newPos -= X * (App->input->GetMouseXMotion()  * speed);
-		}
-		if (App->input->GetMouseXMotion() < 0)
-		{
-			newPos -= X * (App->input->GetMouseXMotion()  * speed);
-		}
-		if (App->input->GetMouseYMotion() > 0)
-		{
-			newPos += Y * (App->input->GetMouseYMotion()  * speed);
-		}
-		if (App->input->GetMouseYMotion() < 0)
-		{
-			newPos += Y * (App->input->GetMouseYMotion() * speed);
-		}
+		int dx = -App->input->GetMouseXMotion();
+		int dy = App->input->GetMouseYMotion();
 
-		Position += newPos;
-		Reference += newPos;
+		newPos += dummy->frustum.WorldRight() * dx * sensibility;
+		newPos += dummy->frustum.up * dy *  sensibility;
+
+		dummy->frustum.Translate(newPos);
 	}
 	// ROTATE 
 	if(App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT)
@@ -148,95 +125,60 @@ update_status ModuleCamera3D::Update(float dt)
 		int dx = -App->input->GetMouseXMotion();
 		int dy = -App->input->GetMouseYMotion();
 
-		float Sensitivity = 0.25f;
-
-		Position -= Reference;
-
-		if(dx != 0)
+		if (dx != 0)
 		{
-			float DeltaX = (float)dx * Sensitivity;
+			Quat quat = Quat::RotateY(dx * sensibility);
 
-			X = rotate(X, DeltaX, vec3(0.0f, 1.0f, 0.0f));
-			Y = rotate(Y, DeltaX, vec3(0.0f, 1.0f, 0.0f));
-			Z = rotate(Z, DeltaX, vec3(0.0f, 1.0f, 0.0f));
+			dummy->frustum.up = quat.Mul(dummy->frustum.up).Normalized();
+			dummy->frustum.front = quat.Mul(dummy->frustum.front).Normalized();
 		}
 
-		if(dy != 0)
+		if (dy != 0)
 		{
-			float DeltaY = (float)dy * Sensitivity;
+			Quat quat = Quat::RotateAxisAngle(dummy->frustum.WorldRight(), dy * sensibility);
+			float3 up = quat.Mul(dummy->frustum.up).Normalized();
 
-			Y = rotate(Y, DeltaY, X);
-			Z = rotate(Z, DeltaY, X);
-
-			if(Y.y < 0.0f)
-			{
-				Z = vec3(0.0f, Z.y > 0.0f ? 1.0f : -1.0f, 0.0f);
-				Y = cross(Z, X);
+			if (up.y > 0.0f) {
+				dummy->frustum.up = up;
+				dummy->frustum.front = quat.Mul(dummy->frustum.front).Normalized();
 			}
 		}
-
-		Position = Reference + Z * length(Position);
 	}
 	if (App->input->GetKey(SDL_SCANCODE_M) == KEY_REPEAT)
 	{
 		App->serialization->SaveScene("SceneSaved");
 	}
-	// Recalculate matrix -------------
-	CalculateViewMatrix();
 
 	return UPDATE_CONTINUE;
 }
 
 // -----------------------------------------------------------------
-void ModuleCamera3D::Look(const vec3 &Position, const vec3 &Reference, bool RotateAroundReference)
+void ModuleCamera3D::Look(const float3 &Position, const float3 &Reference, bool RotateAroundReference)
 {
-	this->Position = Position;
-	this->Reference = Reference;
-
-	Z = normalize(Position - Reference);
-	X = normalize(cross(vec3(0.0f, 1.0f, 0.0f), Z));
-	Y = cross(Z, X);
-
-	if(!RotateAroundReference)
-	{
-		this->Reference = this->Position;
-		this->Position += Z * 0.05f;
-	}
-
-	CalculateViewMatrix();
+	dummy->frustum.pos = Position;
+	LookAt(Reference);
 }
 
 // -----------------------------------------------------------------
-void ModuleCamera3D::LookAt( const vec3 &Spot)
+void ModuleCamera3D::LookAt(const float3 &Spot)
 {
-	Reference = Spot;
+	math::float3 Z = -(dummy->frustum.pos - Spot).Normalized();
+	math::float3 X = math::Cross(math::float3(0.0f, 1.0f, 0.0f), Z).Normalized();
+	math::float3 Y = math::Cross(Z, X);
 
-	Z = normalize(Position - Reference);
-	X = normalize(cross(vec3(0.0f, 1.0f, 0.0f), Z));
-	Y = cross(Z, X);
-
-	CalculateViewMatrix();
+	dummy->frustum.front = Z;
+	dummy->frustum.up = Y;
 }
 
 
 // -----------------------------------------------------------------
-void ModuleCamera3D::Move(const vec3 &Movement)
+void ModuleCamera3D::Move(const float3 &Movement)
 {
-	Position += Movement;
-	Reference += Movement;
-
-	CalculateViewMatrix();
+	dummy->frustum.Translate(Movement);
 }
 
 // -----------------------------------------------------------------
 float* ModuleCamera3D::GetViewMatrix()
 {
 	return &ViewMatrix;
-}
-
-// -----------------------------------------------------------------
-void ModuleCamera3D::CalculateViewMatrix()
-{
-	ViewMatrix = mat4x4(X.x, Y.x, Z.x, 0.0f, X.y, Y.y, Z.y, 0.0f, X.z, Y.z, Z.z, 0.0f, -dot(X, Position), -dot(Y, Position), -dot(Z, Position), 1.0f);
-	ViewMatrixInverse = inverse(ViewMatrix);
 }

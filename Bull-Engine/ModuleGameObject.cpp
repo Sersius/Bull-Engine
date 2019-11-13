@@ -182,6 +182,15 @@ void GameObject::BoundingBox()
 	}	
 }
 
+math::AABB GameObject::GetAABB()
+{
+	math::AABB aux_box(float3(0, 0, 0), float3(0, 0, 0));
+
+	aux_box = App->scene_intro->selected->bounding_box;
+
+	return aux_box;
+}
+
 void GameObject::DrawBoundingBox()
 {
 	glBegin(GL_LINES);

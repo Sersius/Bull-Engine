@@ -6,6 +6,7 @@
 #include "Material.h"
 #include "Transform.h"
 #include "Mesh.h"
+#include "Camera.h"
 
 #include "Glew/include/glew.h" 
 #include "Assimp/include/cimport.h"
@@ -258,19 +259,20 @@ bool ModuleLoadFBX::LoadTexture( char * path_texture, uint& texture_id)
 
 void ModuleLoadFBX::FocusGameObject()
 {
-	//math::AABB box(float3(0, 0, 0), float3(0, 0, 0));
-	//box.Enclose((float3*)mesh.vertex, mesh.num_vertex);
+	if (App->scene_intro->selected != nullptr)
+	{
+		if (App->scene_intro->selected->mesh != nullptr && App->scene_intro->selected->transform != nullptr)
+		{
+			AABB aux_box = App->scene_intro->selected->GetAABB();
 
-	//App->camera->Reference.x = box.CenterPoint().x;
-	//App->camera->Reference.y = box.CenterPoint().y;
-	//App->camera->Reference.z = box.CenterPoint().z;
+			float3 reference = aux_box.CenterPoint();
 
-	//App->camera->Position.x = box.maxPoint.x * 2.0f;
-	//App->camera->Position.y = box.maxPoint.y * 2.0f;
-	//App->camera->Position.z = box.maxPoint.z * 2.0f;
+			float3 position = aux_box.CenterPoint() + aux_box.maxPoint;
 
-
-	//App->camera->LookAt(App->camera->Reference);
+			App->camera->dummy->frustum.pos = position;
+			App->camera->LookAt(reference);
+		}
+	}
 }
 
 bool ModuleLoadFBX::ImportTexture(const char * file, const char * path, std::string & output_file)

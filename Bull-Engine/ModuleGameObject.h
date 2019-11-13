@@ -45,6 +45,7 @@ public:
 	const char* GetName()const;
 	void BlitHierarchy(GameObject* root);
 	void BoundingBox();
+	math::AABB GetAABB();
 	void DrawBoundingBox();
 	void SaveInfoGameObject(GameObject* go, JSON_Array* json_array);
 	uint GenRandomNumber();

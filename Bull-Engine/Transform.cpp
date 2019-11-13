@@ -44,10 +44,16 @@ void Transform::SaveTransform(JSON_Array* componentsObj)
 
 	json_object_set_number(componentObj, "Type:", this->type);
 
-	json_object_set_value(componentObj, "Position", component);
+	//json_object_set_value(componentObj, "Position", component);
 	json_object_set_number(componentObj, "PositionX", position.x);
 	json_object_set_number(componentObj, "PositionY", position.y);
 	json_object_set_number(componentObj, "PositionZ", position.z);
+	json_object_set_number(componentObj, "RotationX", rotation.x);
+	json_object_set_number(componentObj, "RotationY", rotation.y);
+	json_object_set_number(componentObj, "RotationZ", rotation.z);
+	json_object_set_number(componentObj, "ScaleX", scale.x);
+	json_object_set_number(componentObj, "ScaleY", scale.x);
+	json_object_set_number(componentObj, "ScaleZ", scale.x);
 
 	json_array_append_value(componentsObj, component);
 }

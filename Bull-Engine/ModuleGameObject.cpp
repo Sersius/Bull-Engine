@@ -222,7 +222,7 @@ void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 		json_object_set_number(object_json, "Parent UUID:", go->parent->uuid);
 
 	//COMPONENTS INFO
-	JSON_Value* components = json_value_init_object();
+	JSON_Value* components = json_value_init_array();
 	JSON_Array* componentsObj = json_value_get_array(components);
 
 	if (go->transform != nullptr)

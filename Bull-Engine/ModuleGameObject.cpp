@@ -166,7 +166,7 @@ void GameObject::BoundingBox()
 
 	if (mesh != nullptr && transform != nullptr)
 	{
-		bounding_box.Enclose((float3*)mesh->info_mesh.vertex, mesh->info_mesh.num_vertex / 3);
+		bounding_box.Enclose((float3*)mesh->info_mesh.vertex, mesh->info_mesh.num_vertex);
 	
 		obb.SetFrom(bounding_box);
 		obb.Transform(transform->GetGlobalMatrix());

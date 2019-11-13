@@ -199,12 +199,24 @@ void GameObject::DrawBoundingBox()
 	}
 }
 
-bool GameObject::SaveInfo(SceneConfig* config)
+void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 {
-	bool ret = false;
-	SceneConfig go;
-	go.SetString("Name", name.c_str());
-	if(transform!=nullptr)
-	config->NewArray(go);
-	return true;
+	//BASIC INFO
+	JSON_Value* value_json = json_value_init_object();
+	JSON_Object* object_json = json_value_get_object(value_json);
+	
+	json_object_set_string(object_json, "Name:", go->name.c_str());
+
+	//COMPONENTS INFO
+	JSON_Value* components = json_value_init_object();
+	JSON_Array* componentsObj = json_value_get_array(components);
+
+	if (go->transform != nullptr)
+		go->transform->SaveTransform(componentsObj);
+
+	json_object_set_value(object_json, "Components:", components);
+
+	json_array_append_value(json_array, value_json);
 }
+
+

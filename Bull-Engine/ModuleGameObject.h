@@ -45,7 +45,7 @@ public:
 	void BlitHierarchy(GameObject* root);
 	void BoundingBox();
 	void DrawBoundingBox();
-	bool SaveInfo(SceneConfig* config);
+	void SaveInfoGameObject(GameObject* go, JSON_Array* json_array);
 public:
 	math::AABB bounding_box;
 	math::OBB obb;

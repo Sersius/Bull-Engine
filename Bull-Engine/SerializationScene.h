@@ -3,10 +3,13 @@
 
 
 #include <vector>
+#include "Globals.h"
 #include "Application.h"
 #include "ModuleGameObject.h"
 #include "ModuleSceneIntro.h"
 #include "Module.h"
+
+#include "JSON/parson.h"
 
 class SerializationScene
 {
@@ -18,7 +21,7 @@ public:
 
 	
 	bool SaveScene(const char* name_scene);
-	
+	bool SaveGameObjects(JSON_Array* json_array);
 public:
 	
 

@@ -1,14 +1,18 @@
 [
     {
-        "Name": "BakerHouse"
+        "Name:": "BakerHouse",
+        "Components:": {}
     },
     {
-        "Name": "Chimney"
+        "Name:": "Chimney",
+        "Components:": {}
     },
     {
-        "Name": "Baker_house"
+        "Name:": "Baker_house",
+        "Components:": {}
     },
     {
-        "Name": "Camera"
+        "Name:": "Camera",
+        "Components:": {}
     }
 ]

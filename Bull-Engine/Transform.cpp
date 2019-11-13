@@ -36,3 +36,18 @@ void Transform::SetRotation(float3 rotation)
 {
 	this->rotation = Quat::FromEulerXYZ(rotation.x * DEGTORAD, rotation.y * DEGTORAD, rotation.z *DEGTORAD);
 }
+
+void Transform::SaveTransform(JSON_Array* componentsObj)
+{
+	JSON_Value* component = json_value_init_object();
+	JSON_Object* componentObj = json_value_get_object(component);
+
+	json_object_set_number(componentObj, "Type:", this->type);
+
+	json_object_set_value(componentObj, "Position", component);
+	json_object_set_number(componentObj, "PositionX", position.x);
+	json_object_set_number(componentObj, "PositionY", position.y);
+	json_object_set_number(componentObj, "PositionZ", position.z);
+
+	json_array_append_value(componentsObj, component);
+}

@@ -9,6 +9,7 @@
 #include "Transform.h"
 #include "Material.h"
 #include "Mesh.h"
+#include "Camera.h"
 
 #include "ImGui/imgui_impl_opengl3.h"
 #include "ImGui/imgui_impl_sdl.h"
@@ -130,10 +131,11 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 	glLoadIdentity();
 
 	glMatrixMode(GL_MODELVIEW);
-	glLoadMatrixf(App->camera->GetViewMatrix());
+	glLoadMatrixf(App->camera->dummy->GetViewMatrix());
 
 	// light 0 on cam pos
-	lights[0].SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z);
+	float3 dummy_pos = App->camera->dummy->frustum.pos;
+	lights[0].SetPos(dummy_pos.x, dummy_pos.y, dummy_pos.z);
 
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();

@@ -56,18 +56,20 @@ float Camera::GetApectRatio() const
 	return frustum.AspectRatio();
 }
 
-float4x4 Camera::GetViewMatrix() const
+float* Camera::GetViewMatrix() const
 {
 	math::float4x4 matrix = frustum.ViewMatrix();
+	matrix.Transpose();
 
-	return 	matrix.Transposed();
+	return (float*)matrix.v;
 }
 
-float4x4 Camera::GetProjectionMatrix() const
+float* Camera::GetProjectionMatrix() const
 {
 	math::float4x4 matrix = frustum.ProjectionMatrix();
+	matrix.Transpose();
 
-	return 	matrix.Transposed();
+	return (float*)matrix.v;
 }
 
 void Camera::SetNear(float distance)

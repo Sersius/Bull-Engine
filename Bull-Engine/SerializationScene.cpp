@@ -33,7 +33,7 @@ bool SerializationScene::SaveScene(const char* scene_name)
 
 
 bool SerializationScene::SaveGameObjects(JSON_Array* json_array) {
-	for (std::vector<GameObject*>::const_iterator iterator = App->scene_intro->GameObjects.begin() + 2; iterator != App->scene_intro->GameObjects.end(); iterator++)
+	for (std::vector<GameObject*>::const_iterator iterator = App->scene_intro->GameObjects.begin() + 1; iterator != App->scene_intro->GameObjects.end(); iterator++)
 	{
 		(*iterator)->SaveInfoGameObject((*iterator),json_array);
 

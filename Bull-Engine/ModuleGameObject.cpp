@@ -10,6 +10,7 @@
 #include "Camera.h"
 
 #include "ImGui/imgui.h"
+#include <random>
 
 GameObject::GameObject(GameObject* parent)
 {
@@ -18,6 +19,7 @@ GameObject::GameObject(GameObject* parent)
 	if (parent != nullptr)
 		parent->children.push_back(this);
 
+	uuid = GenRandomNumber();
 	CreateComponent(COMPONENT_TYPE::TRANSFORM);
 	if(App!=nullptr)
 	App->scene_intro->GameObjects.push_back(this);
@@ -206,6 +208,9 @@ void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 	JSON_Object* object_json = json_value_get_object(value_json);
 	
 	json_object_set_string(object_json, "Name:", go->name.c_str());
+	json_object_set_number(object_json, "UUID:", go->uuid);
+	if(go->parent!=nullptr)
+		json_object_set_number(object_json, "Parent UUID:", go->parent->uuid);
 
 	//COMPONENTS INFO
 	JSON_Value* components = json_value_init_object();
@@ -219,4 +224,13 @@ void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 	json_array_append_value(json_array, value_json);
 }
 
+uint GameObject::GenRandomNumber()
+{
+	uint number = 0;
+	std::random_device rd;
+	std::mt19937_64 eng(rd());
+	std::uniform_int_distribution<uint> distr;
+	number = distr(eng);
 
+	return number;
+}

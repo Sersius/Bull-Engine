@@ -1,18 +1,26 @@
 [
     {
         "Name:": "BakerHouse",
+        "UUID:": 33908424,
+        "Parent UUID:": 992732891,
         "Components:": {}
     },
     {
         "Name:": "Chimney",
+        "UUID:": 2581925238,
+        "Parent UUID:": 33908424,
         "Components:": {}
     },
     {
         "Name:": "Baker_house",
+        "UUID:": 553889607,
+        "Parent UUID:": 33908424,
         "Components:": {}
     },
     {
         "Name:": "Camera",
+        "UUID:": 3219094188,
+        "Parent UUID:": 992732891,
         "Components:": {}
     }
 ]

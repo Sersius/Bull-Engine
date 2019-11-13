@@ -5,6 +5,7 @@
 #include "Config.h"
 #include "MathGeoLib/include/MathGeoLib.h"
 
+
 #include <vector>
 #include <string>
 
@@ -46,6 +47,9 @@ public:
 	void BoundingBox();
 	void DrawBoundingBox();
 	void SaveInfoGameObject(GameObject* go, JSON_Array* json_array);
+	uint GenRandomNumber();
+	
+
 public:
 	math::AABB bounding_box;
 	math::OBB obb;
@@ -56,6 +60,7 @@ public:
 	Camera* camera = nullptr;
 	bool render_model = true;
 	bool is_primitive = false;
+	uint uuid = 0;
 
 	std::string name;
 	GameObject* parent = nullptr;

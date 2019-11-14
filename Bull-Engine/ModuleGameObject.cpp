@@ -49,21 +49,25 @@ Component* GameObject::CreateComponent(COMPONENT_TYPE type,char* name)
 	{
 		material = new Material(this);
 		_type = material;
+		components.push_back(material);
 	}
 	else if (type == COMPONENT_TYPE::MESH)
 	{
 		mesh = new Mesh(this,name);
 		_type = mesh;
+		components.push_back(mesh);
 	}
 	else if (type == COMPONENT_TYPE::TRANSFORM)
 	{
 		transform = new Transform(this);
 		_type = (Component*)transform;
+		components.push_back((Component*)transform);
 	}
 	else if (type == COMPONENT_TYPE::CAMERA)
 	{
 		camera = new Camera(this);
 		_type = (Component*)camera;
+		components.push_back(camera);
 	}
 	return _type;
 }

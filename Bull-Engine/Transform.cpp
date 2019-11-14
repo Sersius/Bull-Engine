@@ -1,6 +1,8 @@
 #include "Transform.h"
 #include "ModuleLoadFBX.h"
 #include "Application.h"
+#include "Camera.h"
+#include "InspectorWindow.h"
 Transform::Transform(GameObject* parent) : Component(parent, COMPONENT_TYPE::TRANSFORM)
 {}
 
@@ -31,10 +33,14 @@ math::float4x4 Transform::GetGlobalMatrix() const
 void Transform::SetPosition(float3 position)
 {
 	this->position = position;
+	if (parent->GetComponentCamera() != nullptr) {
+		parent->GetComponentCamera()->frustum.pos = position;
+	}
 }
 void Transform::SetRotation(float3 rotation)
 {
 	this->rotation = Quat::FromEulerXYZ(rotation.x * DEGTORAD, rotation.y * DEGTORAD, rotation.z *DEGTORAD);
+	
 }
 
 void Transform::SaveTransform(JSON_Array* componentsObj)

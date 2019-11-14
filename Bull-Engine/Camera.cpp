@@ -17,7 +17,7 @@ Camera::Camera(GameObject * parent) : Component(parent, COMPONENT_TYPE::CAMERA)
 	frustum.nearPlaneDistance = 1.0f;
 	frustum.farPlaneDistance = 100.0f;
 	frustum.verticalFov = math::DegToRad(60.0f);
-
+	
 	SetAspectRatio(ASPECT_RATIO);
 }
 

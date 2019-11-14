@@ -278,6 +278,10 @@ void ModuleLoadFBX::FocusGameObject()
 bool ModuleLoadFBX::ImportTexture(const char * file, const char * path, std::string & output_file)
 {
 	bool ret = false;
+	std::string name(file);
+	std::string name_texture = name.substr(name.find_last_of("\\") + 1);
+	std::string::size_type const p(name_texture.find_last_of('.'));
+	std::string file_without_extension = name_texture.substr(0, p);
 	ILuint size;
 	ILubyte *data;
 	ilSetInteger(IL_DXTC_FORMAT, IL_DXT5);// To pick a specific DXT compression use
@@ -285,7 +289,7 @@ bool ModuleLoadFBX::ImportTexture(const char * file, const char * path, std::str
 	if (size > 0) {
 		data = new ILubyte[size]; // allocate data buffer
 		if (ilSaveL(IL_DDS, data, size) > 0) // Save to buffer with the ilSaveIL function
-			ret = App->fileSystem->SaveUnique(output_file, data, size, LIBRARY_TEXTURES_FOLDER, "texture", "dds");
+			ret = App->fileSystem->SaveUnique(output_file, data, size, LIBRARY_TEXTURES_FOLDER, file_without_extension.c_str(), ".dds");
 		//RELEASE_ARRAY(data);
 	}
 	return ret;

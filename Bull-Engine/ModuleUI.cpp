@@ -8,6 +8,7 @@
 #include "AddWindow.h"
 #include "HierarchyWindow.h"
 #include "InspectorWindow.h"
+#include "SaveLoadWindow.h"
 
 #include "Psapi.h"
 #include "MathGeoLib/include/MathGeoLib.h"
@@ -27,6 +28,7 @@ ModuleUI ::ModuleUI(Application* app, bool start_enabled) : Module(app, start_en
 	windows.push_back(add = new AddWindow());
 	windows.push_back(hierarchy = new HierarchyWindow());
 	windows.push_back(inspector = new InspectorWindow());
+	windows.push_back(save_load = new SaveLoadWindow());
 }
 
 ModuleUI::~ModuleUI()
@@ -52,7 +54,7 @@ update_status ModuleUI::PreUpdate(float dt)
 
 bool ModuleUI::CleanUp()
 {
-	for (int i = 0; i < windows.capacity()-1; i++)
+	for (int i = 0; i < windows.size(); i++)
 	{
 		windows[i]->~Window();
 	}
@@ -72,7 +74,7 @@ update_status ModuleUI::Update(float dt)
 	{
 		if (ImGui::BeginMenu("Menu"))
 		{
-			if (ImGui::MenuItem("Save","Coming soon")) {}
+			if (ImGui::MenuItem("Save")) { save_load->on = !save_load->on; }
 			if (ImGui::MenuItem("Load", "Coming soon")) {}
 			ImGui::Separator();
 			if (ImGui::MenuItem("Exit", "Escape")) { return UPDATE_STOP; }
@@ -105,7 +107,7 @@ update_status ModuleUI::Update(float dt)
 		ImGui::EndMainMenuBar();
 	}
 
-	for (int i = 0; i < windows.capacity(); i++)
+	for (int i = 0; i < windows.size(); i++)
 	{
 		if (windows[i]->IsActivated())
 			windows[i]->Draw();

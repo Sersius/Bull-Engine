@@ -1,8 +1,8 @@
 [
     {
         "Name:": "BakerHouse",
-        "UUID:": 2545844068,
-        "Parent UUID:": 2954611261,
+        "UUID:": 4027612466,
+        "Parent UUID:": 3785508486,
         "Components:": [
             {
                 "Type:": 1,
@@ -20,8 +20,8 @@
     },
     {
         "Name:": "Chimney",
-        "UUID:": 2111066763,
-        "Parent UUID:": 2545844068,
+        "UUID:": 208224136,
+        "Parent UUID:": 4027612466,
         "Components:": [
             {
                 "Type:": 1,
@@ -39,8 +39,8 @@
     },
     {
         "Name:": "Baker_house",
-        "UUID:": 169796902,
-        "Parent UUID:": 2545844068,
+        "UUID:": 2603738503,
+        "Parent UUID:": 4027612466,
         "Components:": [
             {
                 "Type:": 1,
@@ -58,13 +58,13 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 3419174528,
-        "Parent UUID:": 2954611261,
+        "UUID:": 3854428192,
+        "Parent UUID:": 3785508486,
         "Components:": [
             {
                 "Type:": 1,
-                "PositionX": 2.9000000953674316,
-                "PositionY": -5.5,
+                "PositionX": 0,
+                "PositionY": 0,
                 "PositionZ": 0,
                 "RotationX": 0,
                 "RotationY": 0,

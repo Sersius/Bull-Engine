@@ -573,6 +573,9 @@
     <ClInclude Include="Config.h">
       <Filter>Sources\Tools</Filter>
     </ClInclude>
+    <ClInclude Include="SaveLoadWindow.h">
+      <Filter>Sources\Modules\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -787,6 +790,9 @@
     </ClCompile>
     <ClCompile Include="Config.cpp">
       <Filter>Sources\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveLoadWindow.cpp">
+      <Filter>Sources\Modules\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

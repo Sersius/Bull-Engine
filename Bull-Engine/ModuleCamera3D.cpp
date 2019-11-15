@@ -135,9 +135,26 @@ update_status ModuleCamera3D::Update(float dt)
 			}
 		}
 	}
+
 	if (App->input->GetKey(SDL_SCANCODE_M) == KEY_REPEAT)
 	{
 		App->serialization->SaveScene("SceneSaved");
+	}
+
+	if (!ImGui::GetIO().WantCaptureMouse) {
+		if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) == KEY_IDLE)
+		{
+			float width = (float)App->window->screen_surface->w;
+			float height = (float)App->window->screen_surface->h;
+
+			int mouse_x = App->input->GetMouseX();
+			int mouse_y = App->input->GetMouseY();
+
+			float mouse_x_norm = -(1.0f - (float(mouse_x) * 2.0f) / width);
+			float mouse_y_norm = 1.0f - (float(mouse_y) * 2.0f) / height;
+
+			picking = dummy->frustum.UnProjectLineSegment(mouse_x_norm, mouse_y_norm);
+		}
 	}
 
 	return UPDATE_CONTINUE;

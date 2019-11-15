@@ -19,10 +19,10 @@ public:
 	float* GetViewMatrix();
 
 public:
-
 	Camera* dummy = nullptr;
 
 private:
-
 	mat4x4 ViewMatrix, ViewMatrixInverse;
+	LineSegment picking;
+
 };

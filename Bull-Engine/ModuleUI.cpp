@@ -9,6 +9,7 @@
 #include "HierarchyWindow.h"
 #include "InspectorWindow.h"
 #include "SaveLoadWindow.h"
+#include "TimeManagementWindow.h"
 
 #include "Psapi.h"
 #include "MathGeoLib/include/MathGeoLib.h"
@@ -29,6 +30,7 @@ ModuleUI ::ModuleUI(Application* app, bool start_enabled) : Module(app, start_en
 	windows.push_back(hierarchy = new HierarchyWindow());
 	windows.push_back(inspector = new InspectorWindow());
 	windows.push_back(save_load = new SaveLoadWindow());
+	windows.push_back(time_management = new TimeManagementWindow());
 }
 
 ModuleUI::~ModuleUI()

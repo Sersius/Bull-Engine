@@ -14,7 +14,7 @@
     <ProjectGuid>{746CC4C3-787F-4B0E-AA66-E388FE3FF4F6}</ProjectGuid>
     <RootNamespace>SDLGame</RootNamespace>
     <ProjectName>Bull-Engine</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -244,6 +244,7 @@
     <ClInclude Include="ParShapes\par_shapes.h" />
     <ClInclude Include="SaveLoadWindow.h" />
     <ClInclude Include="SerializationScene.h" />
+    <ClInclude Include="TimeManagementWindow.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="Primitive.h" />
@@ -318,6 +319,7 @@
     <ClCompile Include="par_shapes.cpp" />
     <ClCompile Include="SaveLoadWindow.cpp" />
     <ClCompile Include="SerializationScene.cpp" />
+    <ClCompile Include="TimeManagementWindow.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="Primitive.cpp" />

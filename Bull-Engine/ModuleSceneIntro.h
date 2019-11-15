@@ -33,6 +33,8 @@ public:
 	GameObject* gameobject_scene = nullptr;
 	GameObject* camera_scene = nullptr;
 	GameObject* selected = nullptr;
+
+	bool game_running = false;
 	
 	
 };

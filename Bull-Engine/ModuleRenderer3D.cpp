@@ -132,7 +132,10 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadMatrixf(App->camera->dummy->GetViewMatrix());
-
+	if(App->scene_intro->game_running == true)
+	{
+		glLoadMatrixf(App->scene_intro->camera_scene->GetComponentCamera()->GetViewMatrix());
+	}
 	// light 0 on cam pos
 	float3 dummy_pos = App->camera->dummy->frustum.pos;
 	lights[0].SetPos(dummy_pos.x, dummy_pos.y, dummy_pos.z);

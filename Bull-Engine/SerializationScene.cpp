@@ -40,3 +40,8 @@ bool SerializationScene::SaveGameObjects(JSON_Array* json_array) {
 	}
 	return true;
 }
+
+bool SerializationScene::LoadScene()
+{
+	return true;
+}

@@ -16,6 +16,7 @@ class AddWindow;
 class HierarchyWindow;
 class InspectorWindow;
 class SaveLoadWindow;
+class TimeManagementWindow;
 
 class ModuleUI: public Module
 {
@@ -38,6 +39,7 @@ public:
 	HierarchyWindow* hierarchy = nullptr;
 	InspectorWindow* inspector = nullptr;
 	SaveLoadWindow* save_load = nullptr;
+	TimeManagementWindow* time_management = nullptr;
 };
 
 #endif 

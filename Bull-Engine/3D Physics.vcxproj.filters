@@ -576,6 +576,9 @@
     <ClInclude Include="SaveLoadWindow.h">
       <Filter>Sources\Modules\UI</Filter>
     </ClInclude>
+    <ClInclude Include="TimeManagementWindow.h">
+      <Filter>Sources\Modules\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -792,6 +795,9 @@
       <Filter>Sources\Tools</Filter>
     </ClCompile>
     <ClCompile Include="SaveLoadWindow.cpp">
+      <Filter>Sources\Modules\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManagementWindow.cpp">
       <Filter>Sources\Modules\UI</Filter>
     </ClCompile>
   </ItemGroup>

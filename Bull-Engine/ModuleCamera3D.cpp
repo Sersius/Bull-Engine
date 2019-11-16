@@ -154,6 +154,17 @@ update_status ModuleCamera3D::Update(float dt)
 			float mouse_y_norm = 1.0f - (float(mouse_y) * 2.0f) / height;
 
 			picking = dummy->frustum.UnProjectLineSegment(mouse_x_norm, mouse_y_norm);
+			GameObject* near_go = nullptr;
+			GameObject* root_go = App->scene_intro->root;
+			float min_dist = inf;
+			std::vector<GameObject*> all_go_touched;
+
+			for (int i = 0; i < root_go->children.size(); ++i) {
+				TestRayWithAABB(picking, near_go, root_go->children[i], min_dist, all_go_touched);
+			}
+
+			if (near_go)
+				App->scene_intro->SetSelectedGameObject(near_go);
 		}
 	}
 
@@ -189,4 +200,27 @@ void ModuleCamera3D::Move(const float3 &Movement)
 float* ModuleCamera3D::GetViewMatrix()
 {
 	return &ViewMatrix;
+}
+
+void ModuleCamera3D::TestRayWithAABB(LineSegment ray, GameObject* &posible_go, GameObject* all_posible_go, float &distance, std::vector<GameObject*> &all_go_touched)
+{
+	if (all_posible_go->bounding_box.IsFinite())
+	{
+		float dist_hit, far_dist_hit;
+
+		if (ray.Intersects(all_posible_go->bounding_box, dist_hit, far_dist_hit))
+		{
+			all_go_touched.push_back(all_posible_go);
+
+			if (dist_hit < distance)
+			{
+				posible_go = all_posible_go;
+				distance = dist_hit;
+			}
+		}
+	}
+
+	for (int i = 0; i < all_posible_go->children.size(); ++i) {
+		TestRayWithAABB(ray, posible_go, all_posible_go->children[i], distance, all_go_touched);
+	}
 }

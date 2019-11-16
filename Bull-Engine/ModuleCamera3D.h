@@ -18,6 +18,8 @@ public:
 	void Move(const float3 &Movement);
 	float* GetViewMatrix();
 
+	void TestRayWithAABB(LineSegment ray, GameObject* &posible_go, GameObject* all_posible_go, float &distance, std::vector<GameObject*> &all_go_touched);
+
 public:
 	Camera* dummy = nullptr;
 

@@ -27,6 +27,8 @@ public:
 	void CreateGameObjectMaterial(char* path,GameObject* gameobject);
 	void SetSelectedGameObject(const GameObject* target);
 	GameObject* GetSelectedGO() const;
+
+	
 public:
 	std::vector<GameObject*> GameObjects;
 	GameObject* root = nullptr;

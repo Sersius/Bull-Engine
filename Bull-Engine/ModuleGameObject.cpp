@@ -249,3 +249,21 @@ uint GameObject::GenRandomNumber()
 
 	return number;
 }
+void GameObject::DeleteScene()
+{
+	for (std::vector<Component*>::const_iterator iterator = components.begin(); iterator != components.end(); iterator++)
+	{
+		delete (*iterator);
+	}
+	for (std::vector<GameObject*>::const_iterator iterator = children.begin(); iterator != children.end(); iterator++)
+	{
+		delete (*iterator);
+	}
+}
+
+void GameObject::LoadInfoGambeObject(JSON_Object* obj)
+{
+	SetName(json_object_get_string(obj, "Name:"));
+	uuid = json_object_get_number(obj, "UUID:");
+
+}

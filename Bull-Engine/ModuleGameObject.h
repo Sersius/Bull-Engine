@@ -49,7 +49,8 @@ public:
 	void DrawBoundingBox();
 	void SaveInfoGameObject(GameObject* go, JSON_Array* json_array);
 	uint GenRandomNumber();
-	
+	void DeleteScene();
+	void LoadInfoGambeObject(JSON_Object* obj);
 
 public:
 	math::AABB bounding_box;

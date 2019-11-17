@@ -1,8 +1,8 @@
 [
     {
         "Name:": "BakerHouse",
-        "UUID:": 1525806802,
-        "Parent UUID:": 143405958,
+        "UUID:": 1369192000,
+        "Parent UUID:": 621440356,
         "Components:": [
             {
                 "Type:": 1,
@@ -24,8 +24,8 @@
     },
     {
         "Name:": "Chimney",
-        "UUID:": 717669807,
-        "Parent UUID:": 1525806802,
+        "UUID:": 3433965623,
+        "Parent UUID:": 1369192000,
         "Components:": [
             {
                 "Type:": 1,
@@ -47,8 +47,8 @@
     },
     {
         "Name:": "Baker_house",
-        "UUID:": 4088926143,
-        "Parent UUID:": 1525806802,
+        "UUID:": 1979060304,
+        "Parent UUID:": 1369192000,
         "Components:": [
             {
                 "Type:": 1,
@@ -70,8 +70,8 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 1963352647,
-        "Parent UUID:": 143405958,
+        "UUID:": 1183501230,
+        "Parent UUID:": 621440356,
         "Components:": [
             {
                 "Type:": 1,
@@ -84,6 +84,52 @@
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
+            }
+        ]
+    },
+    {
+        "Name:": "Japanese_Temple",
+        "UUID:": 2485378410,
+        "Parent UUID:": 621440356,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 18.700000762939453,
+                "RotationX": 0,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 0.0099999997764825821,
+                "ScaleY": 0.0099999997764825821,
+                "ScaleZ": 0.0099999997764825821
+            },
+            {
+                "Type:": 2,
+                "path": "C:\\Users\\Usuario\\Documents\\GitHub\\Bull-Engine\\Bull-Engine\\Game\\Models\\Japanese_Temple.fbx"
+            }
+        ]
+    },
+    {
+        "Name:": "Japanese_Shrine",
+        "UUID:": 643473552,
+        "Parent UUID:": 2485378410,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0.7071068286895752,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 100,
+                "ScaleY": 100,
+                "ScaleZ": 100
+            },
+            {
+                "Type:": 2,
+                "path": "C:\\Users\\Usuario\\Documents\\GitHub\\Bull-Engine\\Bull-Engine\\Game\\Models\\Japanese_Temple.fbx"
             }
         ]
     }

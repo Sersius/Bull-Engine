@@ -105,25 +105,27 @@ void Camera::LookAt(const float3 &Spot)
 
 void Camera::FrustumCulling(GameObject * gameobject)
 {
-	if (!gameobject->camera) 
-	{
-		for (std::vector<GameObject*>::const_iterator it = gameobject->children.begin(); it < gameobject->children.end(); it++) 
+	if (gameobject) {
+		if (!gameobject->camera)
 		{
-			AABB refBox = (*it)->bounding_box;
-
-			if (refBox.IsFinite() && (*it)->mesh && (*it)->mesh->info_mesh.num_vertex > 0) 
+			for (std::vector<GameObject*>::const_iterator it = gameobject->children.begin(); it < gameobject->children.end(); it++)
 			{
+				AABB refBox = (*it)->bounding_box;
 
-				if (ContainsAaBox(refBox) == OUTSIDE)
+				if (refBox.IsFinite() && (*it)->mesh && (*it)->mesh->info_mesh.num_vertex > 0)
 				{
-					(*it)->mesh->active = false;
+
+					if (ContainsAaBox(refBox) == OUTSIDE)
+					{
+						(*it)->mesh->active = false;
+					}
+					else
+						(*it)->mesh->active = true;
 				}
-				else
-					(*it)->mesh->active = true;
+
+				FrustumCulling(*it);
+
 			}
-
-			FrustumCulling(*it);
-
 		}
 	}
 }

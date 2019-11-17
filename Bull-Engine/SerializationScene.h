@@ -22,7 +22,7 @@ public:
 	
 	bool SaveScene(const char* name_scene);
 	bool SaveGameObjects(JSON_Array* json_array);
-	bool LoadScene();
+	bool LoadScene(const char* name_scene);
 public:
 	
 

@@ -41,7 +41,24 @@ bool SerializationScene::SaveGameObjects(JSON_Array* json_array) {
 	return true;
 }
 
-bool SerializationScene::LoadScene()
+bool SerializationScene::LoadScene(const char* name_scene)
 {
+	App->scene_intro->root->DeleteScene();
+	
+	JSON_Value* scene = json_parse_file(name_scene);
+	JSON_Array* Array = json_value_get_array(scene);
+	JSON_Object* obj = nullptr;
+	
+	App->scene_intro->root = App->scene_intro->CreateGameObject(nullptr);
+	App->scene_intro->root->SetName("Root");
+
+	int size = json_array_get_count(Array);
+
+	for (int i = 0; i < size; i++)
+	{
+		obj = json_array_get_object(Array, i);
+		GameObject* go = App->scene_intro->CreateGameObject(App->scene_intro->root);
+		go->LoadInfoGambeObject(obj);
+	}
 	return true;
 }

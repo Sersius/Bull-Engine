@@ -1,0 +1,90 @@
+[
+    {
+        "Name:": "BakerHouse",
+        "UUID:": 1525806802,
+        "Parent UUID:": 143405958,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": 0,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
+            },
+            {
+                "Type:": 2,
+                "path": "Models\/BakerHouse.fbx"
+            }
+        ]
+    },
+    {
+        "Name:": "Chimney",
+        "UUID:": 717669807,
+        "Parent UUID:": 1525806802,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0.7071068286895752,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 100,
+                "ScaleY": 100,
+                "ScaleZ": 100
+            },
+            {
+                "Type:": 2,
+                "path": "Models\/BakerHouse.fbx"
+            }
+        ]
+    },
+    {
+        "Name:": "Baker_house",
+        "UUID:": 4088926143,
+        "Parent UUID:": 1525806802,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0.7071068286895752,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 100,
+                "ScaleY": 100,
+                "ScaleZ": 100
+            },
+            {
+                "Type:": 2,
+                "path": "Models\/BakerHouse.fbx"
+            }
+        ]
+    },
+    {
+        "Name:": "Camera",
+        "UUID:": 1963352647,
+        "Parent UUID:": 143405958,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": 0,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
+            }
+        ]
+    }
+]

@@ -16,11 +16,13 @@ public:
 	InfoFbx info_mesh;
 	void Draw();
 	void DrawNormals();
+	void SaveMesh(JSON_Array* componentsObj);
 public:
 	
 	bool draw_normals = false;;
+	const char* path = nullptr;
 private:
-	char* path = nullptr;
+	
 };
 
 #endif

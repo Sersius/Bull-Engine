@@ -231,6 +231,8 @@ void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 
 	if (go->transform != nullptr)
 		go->transform->SaveTransform(componentsObj);
+	if (go->mesh != nullptr)
+		go->mesh->SaveMesh(componentsObj);
 
 	json_object_set_value(object_json, "Components:", components);
 

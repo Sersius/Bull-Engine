@@ -17,6 +17,9 @@ Mesh::Mesh(GameObject* parent,char* path) : Component(parent, COMPONENT_TYPE::ME
 {
 	GetMesh(path);
 }
+Mesh::Mesh() : Component(parent, COMPONENT_TYPE::MESH), path(path)
+{
+}
 
 Mesh::~Mesh()
 {
@@ -32,6 +35,7 @@ void Mesh::GetMesh(char* path)
 {
 	App->loadFBX->LoadFbx(path);
 	this->path = path;
+	
 
 	parent->BoundingBox();
 	parent->DrawBoundingBox();
@@ -102,4 +106,14 @@ void Mesh::DrawNormals()
 		glEnd();
 	}
 	glColor3f(1.0f, 1.0f, 1.0f);
+}
+void Mesh::SaveMesh(JSON_Array* componentsObj)
+{
+	JSON_Value* component = json_value_init_object();
+	JSON_Object* componentObj = json_value_get_object(component);
+
+	json_object_set_number(componentObj, "Type:", this->type);
+	json_object_set_string(componentObj, "path", path);
+
+	json_array_append_value(componentsObj, component);
 }

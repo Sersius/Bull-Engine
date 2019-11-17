@@ -168,6 +168,7 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 			childGO = App->scene_intro->CreateGameObject(game_object);
 			childGO->CreateComponent(COMPONENT_TYPE::MESH);
 			childGO->mesh->info_mesh = mesh;
+			childGO->mesh->path = path;
 			childGO->material = game_object->material;
 			childGO->SetName(name_mesh.c_str());
 			childGO->transform->position = pos;
@@ -328,45 +329,45 @@ void ModuleLoadFBX::ImporterMesh(std::string & output_file, Mesh* mesh, std::str
 	
 	App->fileSystem->SaveUnique(output_file, data, size, LIBRARY_MESH_FOLDER, name.c_str(), ".bl");
 }
-//Mesh* ModuleLoadFBX::LoadMesh(const void * buffer)
-//{
-//	Mesh* ret = new Mesh;
-//	char* cursor = (char*)buffer;
-//	//VERTEX -> INDEX -> UV'S -> NORMALS	
-//	uint ranges[4];
-//	uint bytes = sizeof(ranges);
-//	memcpy(ranges, cursor, bytes);
-//	cursor += bytes;
-//
-//	ret->info_mesh.num_vertex = ranges[0];
-//	ret->info_mesh.num_index = ranges[1];
-//	ret->info_mesh.num_uvs = ranges[2];
-//	ret->info_mesh.num_normals = ranges[3];
-//
-//	//Load Vertices
-//	bytes = sizeof(float) * ret->info_mesh.num_vertex * 3;
-//	ret->info_mesh.vertex = new float[ret->info_mesh.num_vertex * 3];
-//	memcpy(ret->info_mesh.vertex, cursor, bytes);
-//
-//	// Load indices
-//	cursor += bytes;
-//	bytes = sizeof(uint) * ret->info_mesh.num_index;
-//	ret->info_mesh.index = new uint[ret->info_mesh.num_index];
-//	memcpy(ret->info_mesh.index, cursor, bytes);
-//
-//	//Load UV's
-//	cursor += bytes;
-//	bytes = sizeof(float) * ret->info_mesh.num_uvs * 2;
-//	ret->info_mesh.uvs = new float[ret->info_mesh.num_uvs * 2];
-//	memcpy(ret->info_mesh.uvs, cursor, bytes);
-//	//Load Normals
-//	cursor += bytes;
-//	bytes = sizeof(float) * ret->info_mesh.num_normals * 3;
-//	ret->info_mesh.normals = new float[ret->info_mesh.num_normals * 3];
-//	memcpy(ret->info_mesh.normals, cursor, bytes);
-//
-//	return ret;
-//}
+Mesh* ModuleLoadFBX::LoadMesh(const void * buffer)
+{
+	Mesh* ret = new Mesh;
+	char* cursor = (char*)buffer;
+	//VERTEX -> INDEX -> UV'S -> NORMALS	
+	uint ranges[4];
+	uint bytes = sizeof(ranges);
+	memcpy(ranges, cursor, bytes);
+	cursor += bytes;
+
+	ret->info_mesh.num_vertex = ranges[0];
+	ret->info_mesh.num_index = ranges[1];
+	ret->info_mesh.num_uvs = ranges[2];
+	ret->info_mesh.num_normals = ranges[3];
+
+	//Load Vertices
+	bytes = sizeof(float) * ret->info_mesh.num_vertex * 3;
+	ret->info_mesh.vertex = new float[ret->info_mesh.num_vertex * 3];
+	memcpy(ret->info_mesh.vertex, cursor, bytes);
+
+	// Load indices
+	cursor += bytes;
+	bytes = sizeof(uint) * ret->info_mesh.num_index;
+	ret->info_mesh.index = new uint[ret->info_mesh.num_index];
+	memcpy(ret->info_mesh.index, cursor, bytes);
+
+	//Load UV's
+	cursor += bytes;
+	bytes = sizeof(float) * ret->info_mesh.num_uvs * 2;
+	ret->info_mesh.uvs = new float[ret->info_mesh.num_uvs * 2];
+	memcpy(ret->info_mesh.uvs, cursor, bytes);
+	//Load Normals
+	cursor += bytes;
+	bytes = sizeof(float) * ret->info_mesh.num_normals * 3;
+	ret->info_mesh.normals = new float[ret->info_mesh.num_normals * 3];
+	memcpy(ret->info_mesh.normals, cursor, bytes);
+
+	return ret;
+}
 void ModuleLoadFBX::CreateBuffers()
 {
 	glGenBuffers(1, (GLuint*) &(mesh.id_vertex));

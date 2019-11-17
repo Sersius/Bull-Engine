@@ -251,14 +251,10 @@ uint GameObject::GenRandomNumber()
 }
 void GameObject::DeleteScene()
 {
-	for (std::vector<Component*>::const_iterator iterator = components.begin(); iterator != components.end(); iterator++)
-	{
-		delete (*iterator);
-	}
-	for (std::vector<GameObject*>::const_iterator iterator = children.begin(); iterator != children.end(); iterator++)
-	{
-		delete (*iterator);
-	}
+	App->scene_intro->GameObjects.clear();
+	App->renderer3D->meshes.clear();
+	components.clear();
+	children.clear();
 }
 
 void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)

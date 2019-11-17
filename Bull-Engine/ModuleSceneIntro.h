@@ -27,7 +27,8 @@ public:
 	void CreateGameObjectMaterial(char* path,GameObject* gameobject);
 	void SetSelectedGameObject(const GameObject* target);
 	GameObject* GetSelectedGO() const;
-
+	bool want_to_load = false;
+	bool want_to_save = false;
 	
 public:
 	std::vector<GameObject*> GameObjects;

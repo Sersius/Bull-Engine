@@ -154,6 +154,10 @@ update_status ModuleRenderer3D::PostUpdate(float dt)
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	
 	SDL_GL_SwapWindow(App->window->window);
+	if (App->scene_intro->want_to_load == true) {
+		App->scene_intro->want_to_load = false;
+		App->serialization->LoadScene("Scene_1.json");
+	}
 	return UPDATE_CONTINUE;
 }
 

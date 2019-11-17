@@ -63,3 +63,17 @@ void Transform::SaveTransform(JSON_Array* componentsObj)
 
 	json_array_append_value(componentsObj, component);
 }
+
+void Transform::LoadTransform(JSON_Object* obj)
+{
+	position.x = json_object_get_number(obj, "PositionX");
+	position.y = json_object_get_number(obj, "PositionY");
+	position.z = json_object_get_number(obj, "PositionZ");
+	rotation.x = json_object_get_number(obj, "RotationX");
+	rotation.y = json_object_get_number(obj, "RotationY");
+	rotation.z = json_object_get_number(obj, "RotationZ");
+	scale.x = json_object_get_number(obj, "ScaleX");
+	scale.y = json_object_get_number(obj, "ScaleY");
+	scale.z = json_object_get_number(obj, "ScaleZ");
+	
+}

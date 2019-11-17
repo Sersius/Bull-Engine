@@ -232,7 +232,7 @@ void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 	if (go->transform != nullptr)
 		go->transform->SaveTransform(componentsObj);
 	if (go->mesh != nullptr)
-		go->mesh->SaveMesh(componentsObj);
+		//go->mesh->SaveMeshInfo(componentsObj);
 
 	json_object_set_value(object_json, "Components:", components);
 
@@ -265,5 +265,35 @@ void GameObject::LoadInfoGambeObject(JSON_Object* obj)
 {
 	SetName(json_object_get_string(obj, "Name:"));
 	uuid = json_object_get_number(obj, "UUID:");
+
+
+	JSON_Array* Array = json_object_get_array(obj, "Components:");
+	JSON_Object* type;
+	int size = json_array_get_count(Array);
+
+	for (int i = 0; i < size; i++)
+	{
+		type = json_array_get_object(Array, i);
+		int num_type = json_object_get_number(type, "Type:");
+
+		if (num_type == 1) {
+			CreateComponent(COMPONENT_TYPE::TRANSFORM);
+			transform->LoadTransform(type);
+
+		}
+		else if (num_type == 2)
+		{
+			CreateComponent(COMPONENT_TYPE::MESH);
+			//mesh->LoadMeshInfo(type);
+		}
+		else if (num_type == 3)
+		{
+			CreateComponent(COMPONENT_TYPE::MATERIAL);
+		}
+		else if (num_type == 4)
+		{
+			CreateComponent(COMPONENT_TYPE::CAMERA);
+		}
+	}
 
 }

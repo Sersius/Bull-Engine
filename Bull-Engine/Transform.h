@@ -20,6 +20,7 @@ public:
 	void SetPosition(float3 position);
 	void SetRotation(float3 rotation);
 	void SaveTransform(JSON_Array* componentsObj);
+	void LoadTransform(JSON_Object* obj);
 public:
 	math::float3 position = math::float3::zero;
 	math::Quat rotation = math::Quat::identity;

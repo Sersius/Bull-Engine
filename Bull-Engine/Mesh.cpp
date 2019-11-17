@@ -49,16 +49,18 @@ void Mesh::Draw()
 		if (parent->render_model) {
 			glEnableClientState(GL_VERTEX_ARRAY);
 			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
+			
 			if (parent) {
-				if (parent->material->draw_texture == true) {
-					glEnable(GL_TEXTURE_2D);
-					glBindTexture(GL_TEXTURE_2D, parent->material->id);
-				}
-				if (parent->material->draw_checkers == true)
-				{
-					App->renderer3D->Checkers();
-					glBindTexture(GL_TEXTURE_2D, App->renderer3D->ImageName);
+				if (parent->material) {
+					if (parent->material->draw_texture == true) {
+						glEnable(GL_TEXTURE_2D);
+						glBindTexture(GL_TEXTURE_2D, parent->material->id);
+					}
+					if (parent->material->draw_checkers == true)
+					{
+						App->renderer3D->Checkers();
+						glBindTexture(GL_TEXTURE_2D, App->renderer3D->ImageName);
+					}
 				}
 				if (parent->mesh->draw_normals)
 				{
@@ -113,7 +115,27 @@ void Mesh::SaveMesh(JSON_Array* componentsObj)
 	JSON_Object* componentObj = json_value_get_object(component);
 
 	json_object_set_number(componentObj, "Type:", this->type);
+	json_object_set_boolean(componentObj, "Active:", parent->mesh->active);
 	json_object_set_string(componentObj, "path", path);
+	json_object_set_string(componentObj, "path_file_format", final_path.c_str());
 
 	json_array_append_value(componentsObj, component);
+}
+
+void Mesh::LoadMesh(JSON_Object* obj)
+{
+	Mesh* mesh = new Mesh();
+	//final_path = json_object_get_string(obj, "path_file_format");
+	int format;
+	format = json_object_get_number(obj, "Active:");
+	if (format == 0)
+		parent->mesh->active = true;
+	else
+		active = true;
+	std::string name(final_path);
+	std::string name_fbx = name.substr(name.find_first_of("/") + 1);
+	//std::string::size_type const p(base_filename.find_last_of('.'));
+	//std::string file_without_extension = base_filename.substr(0, p);
+	if(final_path.compare("")==true)
+		mesh = App->loadFBX->ImportMesh(final_path.c_str());
 }

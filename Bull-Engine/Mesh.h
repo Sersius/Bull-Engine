@@ -17,8 +17,10 @@ public:
 	void Draw();
 	void DrawNormals();
 	void SaveMesh(JSON_Array* componentsObj);
+	void LoadMesh(JSON_Object* obj);
 public:
-	
+	bool active = true;
+	std::string final_path;
 	bool draw_normals = false;;
 	const char* path = nullptr;
 private:

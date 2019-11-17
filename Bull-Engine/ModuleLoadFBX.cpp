@@ -328,6 +328,7 @@ void ModuleLoadFBX::ImporterMesh(std::string & output_file, Mesh* mesh, std::str
 	memcpy(cursor, mesh->info_mesh.normals, bytes);
 	
 	App->fileSystem->SaveUnique(output_file, data, size, LIBRARY_MESH_FOLDER, name.c_str(), ".bl");
+	mesh->final_path = output_file.c_str();
 }
 Mesh* ModuleLoadFBX::LoadMesh(const void * buffer)
 {
@@ -365,7 +366,7 @@ Mesh* ModuleLoadFBX::LoadMesh(const void * buffer)
 	bytes = sizeof(float) * ret->info_mesh.num_normals * 3;
 	ret->info_mesh.normals = new float[ret->info_mesh.num_normals * 3];
 	memcpy(ret->info_mesh.normals, cursor, bytes);
-
+	CreateBuffers();
 	return ret;
 }
 void ModuleLoadFBX::CreateBuffers()
@@ -385,4 +386,15 @@ void ModuleLoadFBX::CreateBuffers()
 	glGenBuffers(1, (GLuint*)&(mesh.id_normals));
 	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_normals);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * mesh.num_normals, mesh.normals, GL_STATIC_DRAW);
+}
+Mesh* ModuleLoadFBX::ImportMesh(const char* path)
+{
+	Mesh* ret = nullptr;
+	char* buffer;
+	uint size = App->fileSystem->Load(path, &buffer);
+	if (size > 0)
+	{
+		ret = LoadMesh(buffer);	
+	}
+	return ret;
 }

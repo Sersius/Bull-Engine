@@ -140,7 +140,7 @@ update_status ModuleCamera3D::Update(float dt)
 	{
 		App->serialization->SaveScene("SceneSaved");
 	}
-	if (App->input->GetKey(SDL_SCANCODE_P) == KEY_REPEAT)
+	if (App->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
 	{
 		App->serialization->LoadScene("Scene_1.json");
 	}

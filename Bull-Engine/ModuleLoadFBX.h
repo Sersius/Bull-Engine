@@ -51,7 +51,7 @@ public:
 	bool ImportTexture(const char* file, const char* path, std::string& output_file);
 	void ImporterMesh(std::string & output_file, Mesh* mesh, std::string name);
 	Mesh* LoadMesh(const void * buffer);
-
+	Mesh* ImportMesh(const char* path);
 	uint texture_id;
 public:
 	GameObject* game_object = new GameObject(nullptr);

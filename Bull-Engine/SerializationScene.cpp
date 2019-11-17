@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "SerializationScene.h"
+#include "Mesh.h"
 
 
 
@@ -58,7 +59,8 @@ bool SerializationScene::LoadScene(const char* name_scene)
 	{
 		obj = json_array_get_object(Array, i);
 		GameObject* go = App->scene_intro->CreateGameObject(App->scene_intro->root);
-		go->LoadInfoGambeObject(obj);
+		go->LoadInfoGambeObject(obj,go);
+
 	}
 	return true;
 }

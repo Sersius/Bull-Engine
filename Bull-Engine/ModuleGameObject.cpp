@@ -232,7 +232,7 @@ void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 	if (go->transform != nullptr)
 		go->transform->SaveTransform(componentsObj);
 	if (go->mesh != nullptr)
-		//go->mesh->SaveMeshInfo(componentsObj);
+		go->mesh->SaveMesh(componentsObj);
 
 	json_object_set_value(object_json, "Components:", components);
 
@@ -261,7 +261,7 @@ void GameObject::DeleteScene()
 	}
 }
 
-void GameObject::LoadInfoGambeObject(JSON_Object* obj)
+void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)
 {
 	SetName(json_object_get_string(obj, "Name:"));
 	uuid = json_object_get_number(obj, "UUID:");
@@ -278,13 +278,14 @@ void GameObject::LoadInfoGambeObject(JSON_Object* obj)
 
 		if (num_type == 1) {
 			CreateComponent(COMPONENT_TYPE::TRANSFORM);
-			transform->LoadTransform(type);
+			go->transform->LoadTransform(type);
 
 		}
 		else if (num_type == 2)
 		{
 			CreateComponent(COMPONENT_TYPE::MESH);
-			//mesh->LoadMeshInfo(type);
+			go->mesh->LoadMesh(type);
+			//App->renderer3D->meshes.push_back(mesh);
 		}
 		else if (num_type == 3)
 		{

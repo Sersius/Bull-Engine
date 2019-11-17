@@ -18,7 +18,7 @@ public:
 
 public:
 	COMPONENT_TYPE type;
-	bool active = true;
+	
 	GameObject* parent;
 };
 

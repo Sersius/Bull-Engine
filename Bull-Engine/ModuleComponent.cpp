@@ -16,12 +16,12 @@ void Component::Update(float dt)
 
 }
 
-void Component::SetEnable(bool set)
-{
-	active = set;
-}
-
-bool Component::GetEnabled()
-{
-	return active;
-}
+//void Component::SetEnable(bool set)
+//{
+//	active = set;
+//}
+//
+//bool Component::GetEnabled()
+//{
+//	return active;
+//}

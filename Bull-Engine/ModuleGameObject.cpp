@@ -131,6 +131,10 @@ void GameObject::BlitHierarchy(GameObject* root)
 		flag += ImGuiTreeNodeFlags_::ImGuiTreeNodeFlags_Leaf;
 	char name_str[250];
 	sprintf_s(name_str, 250, "%s##%i", root->name.c_str());
+
+	if (root == App->scene_intro->selected)
+		flag |= ImGuiTreeNodeFlags_Selected;
+
 	if (ImGui::TreeNodeEx(name_str,flag))
 	{
 		if (ImGui::IsItemHovered())

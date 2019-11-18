@@ -50,8 +50,8 @@ public:
 	void FocusGameObject();
 	bool ImportTexture(const char* file, const char* path, std::string& output_file);
 	void ImporterMesh(std::string & output_file, Mesh* mesh, std::string name);
-	Mesh* LoadMesh(const void * buffer);
-	Mesh* ImportMesh(const char* path);
+	bool LoadMesh(const void * buffer,GameObject* go);
+	bool ImportMesh(const char* path,GameObject* go);
 	uint texture_id;
 public:
 	GameObject* game_object = new GameObject(nullptr);

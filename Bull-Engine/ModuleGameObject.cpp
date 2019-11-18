@@ -273,14 +273,13 @@ void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)
 		int num_type = json_object_get_number(type, "Type:");
 
 		if (num_type == 1) {
-			CreateComponent(COMPONENT_TYPE::TRANSFORM);
 			go->transform->LoadTransform(type);
 
 		}
 		else if (num_type == 2)
 		{
-			CreateComponent(COMPONENT_TYPE::MESH);
-			go->mesh->LoadMesh(type);
+			go->CreateComponent(COMPONENT_TYPE::MESH);
+			go->mesh->LoadMesh(type,go);
 			//App->renderer3D->meshes.push_back(mesh);
 		}
 		else if (num_type == 3)

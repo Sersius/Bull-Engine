@@ -306,6 +306,7 @@ void ModuleLoadFBX::ImporterMesh(std::string & output_file, Mesh* mesh, std::str
 
 	uint bytes = sizeof(ranges); // First store ranges 
 	memcpy(cursor, ranges, bytes);
+
 	cursor += bytes; // Store indices
 
 	//Store Vertex
@@ -330,9 +331,9 @@ void ModuleLoadFBX::ImporterMesh(std::string & output_file, Mesh* mesh, std::str
 	App->fileSystem->SaveUnique(output_file, data, size, LIBRARY_MESH_FOLDER, name.c_str(), ".bl");
 	mesh->final_path = output_file.c_str();
 }
-Mesh* ModuleLoadFBX::LoadMesh(const void * buffer)
+bool ModuleLoadFBX::LoadMesh(const void * buffer, GameObject* go)
 {
-	Mesh* ret = new Mesh;
+	//Mesh* ret = new Mesh;
 	char* cursor = (char*)buffer;
 	//VERTEX -> INDEX -> UV'S -> NORMALS	
 	uint ranges[4];
@@ -340,34 +341,34 @@ Mesh* ModuleLoadFBX::LoadMesh(const void * buffer)
 	memcpy(ranges, cursor, bytes);
 	cursor += bytes;
 
-	ret->info_mesh.num_vertex = ranges[0];
-	ret->info_mesh.num_index = ranges[1];
-	ret->info_mesh.num_uvs = ranges[2];
-	ret->info_mesh.num_normals = ranges[3];
+	go->mesh->info_mesh.num_vertex = ranges[0];
+	go->mesh->info_mesh.num_index = ranges[1];
+	go->mesh->info_mesh.num_uvs = ranges[2];
+	go->mesh->info_mesh.num_normals = ranges[3];
 
 	//Load Vertices
-	bytes = sizeof(float) * ret->info_mesh.num_vertex * 3;
-	ret->info_mesh.vertex = new float[ret->info_mesh.num_vertex * 3];
-	memcpy(ret->info_mesh.vertex, cursor, bytes);
+	bytes = sizeof(float) * go->mesh->info_mesh.num_vertex * 3;
+	go->mesh->info_mesh.vertex = new float[go->mesh->info_mesh.num_vertex * 3];
+	memcpy(go->mesh->info_mesh.vertex, cursor, bytes);
 
 	// Load indices
 	cursor += bytes;
-	bytes = sizeof(uint) * ret->info_mesh.num_index;
-	ret->info_mesh.index = new uint[ret->info_mesh.num_index];
-	memcpy(ret->info_mesh.index, cursor, bytes);
+	bytes = sizeof(uint) * go->mesh->info_mesh.num_index;
+	go->mesh->info_mesh.index = new uint[go->mesh->info_mesh.num_index];
+	memcpy(go->mesh->info_mesh.index, cursor, bytes);
 
 	//Load UV's
 	cursor += bytes;
-	bytes = sizeof(float) * ret->info_mesh.num_uvs * 2;
-	ret->info_mesh.uvs = new float[ret->info_mesh.num_uvs * 2];
-	memcpy(ret->info_mesh.uvs, cursor, bytes);
+	bytes = sizeof(float) * go->mesh->info_mesh.num_uvs * 2;
+	go->mesh->info_mesh.uvs = new float[go->mesh->info_mesh.num_uvs * 2];
+	memcpy(go->mesh->info_mesh.uvs, cursor, bytes);
 	//Load Normals
 	cursor += bytes;
-	bytes = sizeof(float) * ret->info_mesh.num_normals * 3;
-	ret->info_mesh.normals = new float[ret->info_mesh.num_normals * 3];
-	memcpy(ret->info_mesh.normals, cursor, bytes);
+	bytes = sizeof(float) * go->mesh->info_mesh.num_normals * 3;
+	go->mesh->info_mesh.normals = new float[go->mesh->info_mesh.num_normals * 3];
+	memcpy(go->mesh->info_mesh.normals, cursor, bytes);
 	CreateBuffers();
-	return ret;
+	return true;
 }
 void ModuleLoadFBX::CreateBuffers()
 {
@@ -387,14 +388,14 @@ void ModuleLoadFBX::CreateBuffers()
 	glBindBuffer(GL_ARRAY_BUFFER, mesh.id_normals);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 3 * mesh.num_normals, mesh.normals, GL_STATIC_DRAW);
 }
-Mesh* ModuleLoadFBX::ImportMesh(const char* path)
+bool ModuleLoadFBX::ImportMesh(const char* path,GameObject* go)
 {
-	Mesh* ret = nullptr;
+	//Mesh* ret = nullptr;
 	char* buffer;
 	uint size = App->fileSystem->Load(path, &buffer);
 	if (size > 0)
 	{
-		ret = LoadMesh(buffer);	
+		 LoadMesh(buffer,go);	
 	}
-	return ret;
+	return true;
 }

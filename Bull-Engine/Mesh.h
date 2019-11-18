@@ -17,7 +17,7 @@ public:
 	void Draw();
 	void DrawNormals();
 	void SaveMesh(JSON_Array* componentsObj);
-	void LoadMesh(JSON_Object* obj);
+	void LoadMesh(JSON_Object* obj, GameObject* go);
 public:
 	bool active = true;
 	std::string final_path;

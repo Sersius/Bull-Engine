@@ -28,9 +28,9 @@ bool ModuleSceneIntro::Start()
 	
 	gameobject_scene = CreateGameObject(root);
 	gameobject_scene->SetName("BakerHouse");
-	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Models/BakerHouse.fbx");
-	gameobject_scene->children.at(0)->material->GetTexture("Textures/Baker_house.png");
-	gameobject_scene->children.at(1)->material->GetTexture("Textures/Baker_house.png");
+	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Library/Models/BakerHouse.fbx");
+	gameobject_scene->children.at(0)->material->GetTexture("Library/Textures/Baker_house.png");
+	gameobject_scene->children.at(1)->material->GetTexture("Library/Textures/Baker_house.png");
 
 	camera_scene = CreateGameObject(root);
 	camera_scene->CreateComponent(COMPONENT_TYPE::CAMERA);

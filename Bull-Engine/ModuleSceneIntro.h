@@ -26,6 +26,7 @@ public:
 	void CreateGameObjectMesh(char* path);
 	void CreateGameObjectMaterial(char* path,GameObject* gameobject);
 	void SetSelectedGameObject(const GameObject* target);
+	void UnselectGameObject();
 	GameObject* GetSelectedGO() const;
 	bool want_to_load = false;
 	bool want_to_save = false;

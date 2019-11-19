@@ -95,6 +95,15 @@ void ModuleSceneIntro::CreateGameObjectMaterial(char* path, GameObject* gameobje
 void ModuleSceneIntro::SetSelectedGameObject(const GameObject * target)
 {
 	selected = (GameObject*)target;
+	selected->is_selected = true;
+}
+
+void ModuleSceneIntro::UnselectGameObject()
+{
+	if (selected)
+		selected->is_selected = false;
+	selected = nullptr;
+
 }
 
 GameObject * ModuleSceneIntro::GetSelectedGO() const

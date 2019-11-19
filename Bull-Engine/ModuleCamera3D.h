@@ -20,6 +20,7 @@ public:
 
 	void TestRayWithAABB(LineSegment ray, GameObject* &posible_go, GameObject* all_posible_go, float &distance, std::vector<GameObject*> &all_go_touched);
 
+	bool TestRayWithTriangles(std::vector<GameObject*> &all_go_touched, LineSegment ray, GameObject* &posible_go);
 public:
 	Camera* dummy = nullptr;
 

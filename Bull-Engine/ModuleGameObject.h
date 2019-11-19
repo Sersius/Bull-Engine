@@ -70,6 +70,8 @@ public:
 	
 	std::vector<Component*> components;
 	bool active = true;
+
+	bool is_selected = false;
 private:
 
 

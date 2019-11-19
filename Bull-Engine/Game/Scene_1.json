@@ -1,8 +1,8 @@
 [
     {
         "Name:": "BakerHouse",
-        "UUID:": 308980488,
-        "Parent UUID:": 1123643750,
+        "UUID:": 2621652954,
+        "Parent UUID:": 3929670197,
         "Components:": [
             {
                 "Type:": 1,
@@ -30,8 +30,8 @@
     },
     {
         "Name:": "Chimney",
-        "UUID:": 3477331896,
-        "Parent UUID:": 308980488,
+        "UUID:": 2106486094,
+        "Parent UUID:": 2621652954,
         "Components:": [
             {
                 "Type:": 1,
@@ -51,7 +51,7 @@
                 "id_vertex:": 1,
                 "id_normals:": 4,
                 "id_uv:": 3,
-                "Active:": true,
+                "Active:": false,
                 "path": "Models\/BakerHouse.fbx",
                 "path_file_format": "\/library\/meshes\/chimney.bl"
             }
@@ -59,8 +59,8 @@
     },
     {
         "Name:": "Baker_house",
-        "UUID:": 2608250887,
-        "Parent UUID:": 308980488,
+        "UUID:": 2950574365,
+        "Parent UUID:": 2621652954,
         "Components:": [
             {
                 "Type:": 1,
@@ -80,7 +80,7 @@
                 "id_vertex:": 5,
                 "id_normals:": 8,
                 "id_uv:": 7,
-                "Active:": true,
+                "Active:": false,
                 "path": "Models\/BakerHouse.fbx",
                 "path_file_format": "\/library\/meshes\/baker_house.bl"
             }
@@ -88,8 +88,8 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 4047437102,
-        "Parent UUID:": 1123643750,
+        "UUID:": 3920724508,
+        "Parent UUID:": 3929670197,
         "Components:": [
             {
                 "Type:": 1,

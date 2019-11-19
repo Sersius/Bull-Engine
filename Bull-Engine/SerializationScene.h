@@ -23,6 +23,7 @@ public:
 	bool SaveScene(const char* name_scene);
 	bool SaveGameObjects(JSON_Array* json_array);
 	bool LoadScene(const char* name_scene);
+	void GetHierarchy(GameObject* go);
 public:
 	
 

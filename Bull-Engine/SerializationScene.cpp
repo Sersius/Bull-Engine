@@ -62,5 +62,23 @@ bool SerializationScene::LoadScene(const char* name_scene)
 		go->LoadInfoGambeObject(obj,go);
 
 	}
+	for (std::vector<GameObject*>::iterator iterator = App->scene_intro->GameObjects.begin()+1; iterator != App->scene_intro->GameObjects.end(); ++iterator) {
+
+		GetHierarchy((*iterator));
+	}
 	return true;
+}
+
+void SerializationScene::GetHierarchy(GameObject* go)
+{
+	
+		for (std::vector<GameObject*>::const_iterator iterator = App->scene_intro->GameObjects.begin() + 1; iterator != App->scene_intro->GameObjects.end(); ++iterator)
+		{
+				if ((*iterator)->uuid_parent == go->uuid)
+				{
+					(*iterator)->parent = go;
+					go->children.push_back((*iterator));
+				}
+		}
+	
 }

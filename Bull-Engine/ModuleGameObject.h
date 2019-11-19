@@ -63,6 +63,7 @@ public:
 	bool render_model = true;
 	bool is_primitive = false;
 	uint uuid = 0;
+	uint uuid_parent = 0;
 
 	std::string name;
 	GameObject* parent = nullptr;

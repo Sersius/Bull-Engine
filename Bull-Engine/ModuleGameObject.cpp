@@ -265,7 +265,7 @@ void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)
 {
 	SetName(json_object_get_string(obj, "Name:"));
 	uuid = json_object_get_number(obj, "UUID:");
-
+	go->uuid_parent = json_object_get_number(obj, "Parent UUID:");
 
 	JSON_Array* Array = json_object_get_array(obj, "Components:");
 	JSON_Object* type;

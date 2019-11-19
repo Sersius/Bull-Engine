@@ -7,6 +7,7 @@
 #include "Transform.h"
 #include "Material.h"
 #include "Mesh.h"
+#include "Camera.h"
 
 #include "imGUI/imgui.h"
 
@@ -106,6 +107,24 @@ void InspectorWindow::Draw()
 				}
 				else {
 					ImGui::Image((ImTextureID)selected_go->material->id, ImVec2(200, 200));
+				}
+			}
+		}
+		if (selected_go->camera != nullptr) {
+			if (ImGui::CollapsingHeader("Camera")) {
+				ImGui::Separator();
+
+				float near_dis = selected_go->camera->GetNear();
+				if (ImGui::DragFloat("Near Plane", &near_dis, 0.1f, 0.1f, 1000.0f)) {
+					selected_go->camera->SetNear(near_dis);
+				}
+				float far_dis = selected_go->camera->GetFar();
+				if (ImGui::DragFloat("Far Plane", &far_dis, 0.1f, 25.f, 1000.0f)) {
+					selected_go->camera->SetFar(far_dis);
+				}
+				float fov = selected_go->camera->GetFOV();
+				if (ImGui::SliderFloat("Field of View", &fov, 1.0f, 179.0f)) {
+					selected_go->camera->SetFOV(fov);
 				}
 			}
 		}

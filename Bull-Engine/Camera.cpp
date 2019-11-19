@@ -30,14 +30,10 @@ void Camera::Update(float dt)
 	if (App->scene_intro->game_running == true) {
 		if (App->scene_intro->root)
 		{
-
-			FrustumCulling(App->scene_intro->root);
-		
+			FrustumCulling(App->scene_intro->root);		
+		}
 	}
-}
-
 	DebugDraw();
-
 }
 
 float Camera::GetNear() const

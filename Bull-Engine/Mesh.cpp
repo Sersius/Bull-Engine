@@ -112,33 +112,29 @@ void Mesh::DrawNormals()
 void Mesh::SaveMesh(JSON_Array* componentsObj)
 {
 	JSON_Value* component = json_value_init_object();
-	JSON_Object* componentObj = json_value_get_object(component);
+	JSON_Object* componentGO = json_value_get_object(component);
 
-	json_object_set_number(componentObj, "Type:", this->type);
-	json_object_set_number(componentObj, "id_index:", parent->mesh->info_mesh.id_index);
-	json_object_set_number(componentObj, "id_vertex:", parent->mesh->info_mesh.id_vertex);
-	json_object_set_number(componentObj, "id_normals:", parent->mesh->info_mesh.id_normals);
-	json_object_set_number(componentObj, "id_uv:", parent->mesh->info_mesh.id_uvs);
-	json_object_set_boolean(componentObj, "Active:", parent->mesh->active);
-	json_object_set_string(componentObj, "path", path);
-	json_object_set_string(componentObj, "path_file_format", final_path.c_str());
+	json_object_set_number(componentGO, "Type:", this->type);
+	json_object_set_number(componentGO, "id_index:", parent->mesh->info_mesh.id_index);
+	json_object_set_number(componentGO, "id_vertex:", parent->mesh->info_mesh.id_vertex);
+	json_object_set_number(componentGO, "id_normals:", parent->mesh->info_mesh.id_normals);
+	json_object_set_number(componentGO, "id_uv:", parent->mesh->info_mesh.id_uvs);
+	json_object_set_boolean(componentGO, "Active:", parent->mesh->active);
+	json_object_set_string(componentGO, "path", path);
+	json_object_set_string(componentGO, "path_file_format", final_path.c_str());
 
 	json_array_append_value(componentsObj, component);
 }
 
 void Mesh::LoadMesh(JSON_Object* obj, GameObject* go)
 {
-	Mesh* mesh = new Mesh();
-	final_path = json_object_get_string(obj, "path_file_format");
+	go->mesh->final_path = json_object_get_string(obj, "path_file_format");
 	go->mesh->info_mesh.id_index = json_object_get_number(obj, "id_index:");
 	go->mesh->info_mesh.id_vertex = json_object_get_number(obj, "id_vertex:");
 	go->mesh->info_mesh.id_normals = json_object_get_number(obj, "id_normals:");
 	go->mesh->info_mesh.id_uvs = json_object_get_number(obj, "id_uv:");
-	active = json_object_get_boolean(obj, "Active:");
-	std::string name(final_path);
-	std::string name_fbx = name.substr(name.find_first_of("/") + 1);
-	//std::string::size_type const p(base_filename.find_last_of('.'));
-	//std::string file_without_extension = base_filename.substr(0, p);
+	go->active = json_object_get_boolean(obj, "Active:");
+
 	if (final_path.compare("") == true) {
 		App->loadFBX->ImportMesh(final_path.c_str(),go);
 		App->renderer3D->meshes.push_back(go->mesh);

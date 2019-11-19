@@ -218,6 +218,16 @@ void GameObject::DrawBoundingBox()
 	}
 }
 
+uint GameObject::GenRandomNumber()
+{
+	uint number = 0;
+	std::random_device rd;
+	std::mt19937_64 eng(rd());
+	std::uniform_int_distribution<uint> distr;
+	number = distr(eng);
+
+	return number;
+}
 void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 {
 	//BASIC INFO
@@ -231,44 +241,27 @@ void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 
 	//COMPONENTS INFO
 	JSON_Value* components = json_value_init_array();
-	JSON_Array* componentsObj = json_value_get_array(components);
+	JSON_Array* componentsGO = json_value_get_array(components);
 
 	if (go->transform != nullptr)
-		go->transform->SaveTransform(componentsObj);
+		go->transform->SaveTransform(componentsGO);
 	if (go->mesh != nullptr)
-		go->mesh->SaveMesh(componentsObj);
+		go->mesh->SaveMesh(componentsGO);
 	if (go->material != nullptr)
-		go->material->SaveMaterial(componentsObj);
+		go->material->SaveMaterial(componentsGO);
 
 	json_object_set_value(object_json, "Components:", components);
-
 	json_array_append_value(json_array, value_json);
-}
-
-uint GameObject::GenRandomNumber()
-{
-	uint number = 0;
-	std::random_device rd;
-	std::mt19937_64 eng(rd());
-	std::uniform_int_distribution<uint> distr;
-	number = distr(eng);
-
-	return number;
-}
-void GameObject::DeleteScene()
-{
-	App->scene_intro->GameObjects.clear();
-	App->renderer3D->meshes.clear();
-	components.clear();
-	children.clear();
 }
 
 void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)
 {
-	SetName(json_object_get_string(obj, "Name:"));
-	uuid = json_object_get_number(obj, "UUID:");
+	//BASIC INFO
+	go->SetName(json_object_get_string(obj, "Name:"));
+	go->uuid = json_object_get_number(obj, "UUID:");
 	go->uuid_parent = json_object_get_number(obj, "Parent UUID:");
 
+	//COMPONENTS INFO
 	JSON_Array* Array = json_object_get_array(obj, "Components:");
 	JSON_Object* type;
 	int size = json_array_get_count(Array);
@@ -277,16 +270,13 @@ void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)
 	{
 		type = json_array_get_object(Array, i);
 		int num_type = json_object_get_number(type, "Type:");
-
 		if (num_type == 1) {
 			go->transform->LoadTransform(type);
-
 		}
 		else if (num_type == 2)
 		{
 			go->CreateComponent(COMPONENT_TYPE::MESH);
 			go->mesh->LoadMesh(type,go);
-			//App->renderer3D->meshes.push_back(mesh);
 		}
 		else if (num_type == 3)
 		{
@@ -299,4 +289,12 @@ void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)
 		}
 	}
 
+}
+
+void GameObject::DeleteScene()
+{
+	App->scene_intro->GameObjects.clear();
+	App->renderer3D->meshes.clear();
+	components.clear();
+	children.clear();
 }

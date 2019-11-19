@@ -17,8 +17,10 @@ public:
 
 	math::float4x4& GetLocalMatrix() const;
 	math::float4x4 GetGlobalMatrix() const;
+
 	void SetPosition(float3 position);
 	void SetRotation(float3 rotation);
+
 	void SaveTransform(JSON_Array* componentsObj);
 	void LoadTransform(JSON_Object* obj);
 public:

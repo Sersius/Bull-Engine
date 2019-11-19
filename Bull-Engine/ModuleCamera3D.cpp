@@ -142,12 +142,7 @@ update_status ModuleCamera3D::Update(float dt)
 	}
 	if (App->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
 	{
-		App->scene_intro->want_to_load = true;
-		//App->serialization->LoadScene("Scene_1.json");
-	}
-	if (App->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN)
-	{
-		dummy->GetViewMatrix();
+		App->serialization->LoadScene("Scene_1.json");
 	}
 	
 	if (!ImGui::GetIO().WantCaptureMouse) {

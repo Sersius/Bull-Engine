@@ -11,9 +11,10 @@ public:
 	Mesh();
 	~Mesh();
 
+	InfoFbx info_mesh;
+
 	void Update(float dt);
 	void GetMesh(char* path);
-	InfoFbx info_mesh;
 	void Draw();
 	void DrawNormals();
 	void SaveMesh(JSON_Array* componentsObj);

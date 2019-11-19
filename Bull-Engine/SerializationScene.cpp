@@ -23,13 +23,22 @@ bool SerializationScene::SaveScene(const char* scene_name)
 	JSON_Value* json_value = json_value_init_array();
 	JSON_Array* json_array = json_value_get_array(json_value);
 
-	SaveGameObjects(json_array);
-	
-	std::string extension = ".json";
-	std::string final_name = scene_name + extension;
-	
-	json_serialize_to_file_pretty(json_value, final_name.c_str());
-	return ret;
+	ret = SaveGameObjects(json_array);
+	if(ret == true)
+	{
+		LOG("Scene saved correctly!");
+		
+		std::string extension = ".json";
+		std::string final_name = scene_name + extension;
+		json_serialize_to_file_pretty(json_value, final_name.c_str());
+		return ret;
+	}
+	else
+	{
+		LOG("Error saving scene")
+		return ret;
+	}
+		
 }
 
 
@@ -42,7 +51,7 @@ bool SerializationScene::SaveGameObjects(JSON_Array* json_array) {
 	return true;
 }
 
-bool SerializationScene::LoadScene(const char* name_scene)
+void SerializationScene::LoadScene(const char* name_scene)
 {
 	App->scene_intro->root->DeleteScene();
 	
@@ -66,7 +75,7 @@ bool SerializationScene::LoadScene(const char* name_scene)
 
 		GetHierarchy((*iterator));
 	}
-	return true;
+	LOG("%s loaded correctly",name_scene);
 }
 
 void SerializationScene::GetHierarchy(GameObject* go)

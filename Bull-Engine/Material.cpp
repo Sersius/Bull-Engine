@@ -23,3 +23,21 @@ void Material::GetTexture(char* texture_path)
 	this->texture_path = texture_path;
 	
 }
+
+void Material::SaveMaterial(JSON_Array* componentsObj)
+{
+	JSON_Value* component = json_value_init_object();
+	JSON_Object* componentObj = json_value_get_object(component);
+	json_object_set_number(componentObj, "Type:", this->type);
+	json_object_set_string(componentObj, "texture_path",texture_path);
+
+	json_array_append_value(componentsObj, component);
+}
+
+void Material::LoadTexture(JSON_Object* obj, GameObject* go)
+{
+	json_object_get_number(obj, "Type:");
+	go->material->texture_path = json_object_get_string(obj, "texture_path");
+	if (go->material->texture_path != nullptr)
+		GetTexture((char*)texture_path);
+}

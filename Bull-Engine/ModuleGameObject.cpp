@@ -237,6 +237,8 @@ void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 		go->transform->SaveTransform(componentsObj);
 	if (go->mesh != nullptr)
 		go->mesh->SaveMesh(componentsObj);
+	if (go->material != nullptr)
+		go->material->SaveMaterial(componentsObj);
 
 	json_object_set_value(object_json, "Components:", components);
 
@@ -289,6 +291,7 @@ void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)
 		else if (num_type == 3)
 		{
 			CreateComponent(COMPONENT_TYPE::MATERIAL);
+			go->material->LoadTexture(type, go);
 		}
 		else if (num_type == 4)
 		{

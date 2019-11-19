@@ -16,8 +16,10 @@ public:
 	uint id = 0;
 	bool draw_texture = true;
 	bool draw_checkers = false;
+	void SaveMaterial(JSON_Array* componentsObj);
+	void LoadTexture(JSON_Object* obj, GameObject* go);
 private:
-	char* texture_path; 
+	const char* texture_path; 
 
 };
 

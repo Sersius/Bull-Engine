@@ -56,7 +56,7 @@ update_status ModuleCamera3D::Update(float dt)
 		if (dx != 0)
 		{
 			Quat quat = Quat::RotateY(dx * sensibility);
-
+			
 			dummy->frustum.up = quat.Mul(dummy->frustum.up).Normalized();
 			dummy->frustum.front = quat.Mul(dummy->frustum.front).Normalized();
 		}
@@ -145,7 +145,11 @@ update_status ModuleCamera3D::Update(float dt)
 		App->scene_intro->want_to_load = true;
 		//App->serialization->LoadScene("Scene_1.json");
 	}
-
+	if (App->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN)
+	{
+		dummy->GetViewMatrix();
+	}
+	
 	if (!ImGui::GetIO().WantCaptureMouse) {
 		if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) == KEY_IDLE)
 		{

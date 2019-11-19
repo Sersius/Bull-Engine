@@ -31,6 +31,7 @@ void TimeManagementWindow::Draw()
 	ImGui::Begin("Time Manager", &on, ImGuiWindowFlags_NoTitleBar);
 	if (ImGui::Button("Play"))
 	{
+		App->serialization->SaveScene("Autosave");
 		App->scene_intro->game_running = true;
 	}
 	ImGui::SameLine();
@@ -50,6 +51,7 @@ void TimeManagementWindow::Draw()
 	if (ImGui::Button("Stop"))
 	{
 		App->scene_intro->game_running = false;
+		App->serialization->LoadScene("Autosave.json");
 	}
 
 	ImGui::End();

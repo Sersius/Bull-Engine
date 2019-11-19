@@ -131,10 +131,19 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 	glLoadIdentity();
 
 	glMatrixMode(GL_MODELVIEW);
-	glLoadMatrixf(App->camera->dummy->GetViewMatrix());
+	if(App->scene_intro->game_running == false)
+		glLoadMatrixf(App->camera->dummy->GetViewMatrix());
 	if(App->scene_intro->game_running == true)
 	{
-		glLoadMatrixf(App->scene_intro->camera_scene->GetComponentCamera()->GetViewMatrix());
+		if(editor_camera_in_game==false)
+			glLoadMatrixf(App->scene_intro->camera_scene->GetComponentCamera()->GetViewMatrix());
+		if (App->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN)
+		{
+			editor_camera_in_game = true;
+			
+		}
+		if (editor_camera_in_game == true)
+			glLoadMatrixf(App->camera->dummy->GetViewMatrix());
 	}
 	// light 0 on cam pos
 	float3 dummy_pos = App->camera->dummy->frustum.pos;

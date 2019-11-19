@@ -34,5 +34,6 @@ public:
 	mat3x3 NormalMatrix;
 	mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
 	bool wireframe = false;
+	bool editor_camera_in_game = false;
 	uint ImageName=0;
 };

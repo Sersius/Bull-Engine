@@ -296,9 +296,11 @@ bool ModuleLoadFBX::ImportTexture(const char * file, const char * path, std::str
 		size = ilSaveL(IL_DDS, NULL, 0); // Get the size of the data buffer
 		if (size > 0) {
 			data = new ILubyte[size]; // allocate data buffer
-			if (ilSaveL(IL_DDS, data, size) > 0) // Save to buffer with the ilSaveIL function
+
+			if (ilSaveL(IL_DDS, data, size) > 0) {
 				ret = App->fileSystem->SaveUnique(output_file, data, size, LIBRARY_TEXTURES_FOLDER, file_without_extension.c_str(), ".dds");
-			//RELEASE_ARRAY(data);
+				delete data;
+			}
 		}
 	}
 	return ret;
@@ -341,7 +343,6 @@ void ModuleLoadFBX::ImporterMesh(std::string & output_file, Mesh* mesh, std::str
 }
 bool ModuleLoadFBX::LoadMesh(const void * buffer, GameObject* go)
 {
-	//Mesh* ret = new Mesh;
 	char* cursor = (char*)buffer;
 	//VERTEX -> INDEX -> UV'S -> NORMALS	
 	uint ranges[4];
@@ -375,7 +376,8 @@ bool ModuleLoadFBX::LoadMesh(const void * buffer, GameObject* go)
 	bytes = sizeof(float) * go->mesh->info_mesh.num_normals * 3;
 	go->mesh->info_mesh.normals = new float[go->mesh->info_mesh.num_normals * 3];
 	memcpy(go->mesh->info_mesh.normals, cursor, bytes);
-	CreateBuffers();
+
+	//CreateBuffers();
 	return true;
 }
 void ModuleLoadFBX::CreateBuffers()
@@ -398,7 +400,6 @@ void ModuleLoadFBX::CreateBuffers()
 }
 bool ModuleLoadFBX::ImportMesh(const char* path,GameObject* go)
 {
-	//Mesh* ret = nullptr;
 	char* buffer;
 	uint size = App->fileSystem->Load(path, &buffer);
 	if (size > 0)

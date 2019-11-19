@@ -131,20 +131,8 @@ update_status ModuleRenderer3D::PreUpdate(float dt)
 	glLoadIdentity();
 
 	glMatrixMode(GL_MODELVIEW);
-	if(App->scene_intro->game_running == false)
-		glLoadMatrixf(App->camera->dummy->GetViewMatrix());
-	if(App->scene_intro->game_running == true)
-	{
-		if(editor_camera_in_game==false)
-			glLoadMatrixf(App->scene_intro->camera_scene->GetComponentCamera()->GetViewMatrix());
-		if (App->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN)
-		{
-			editor_camera_in_game = true;
-			
-		}
-		if (editor_camera_in_game == true)
-			glLoadMatrixf(App->camera->dummy->GetViewMatrix());
-	}
+	SetCamera();
+	
 	// light 0 on cam pos
 	float3 dummy_pos = App->camera->dummy->frustum.pos;
 	lights[0].SetPos(dummy_pos.x, dummy_pos.y, dummy_pos.z);
@@ -222,4 +210,22 @@ void ModuleRenderer3D::OnResize(int width, int height)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+}
+
+void ModuleRenderer3D::SetCamera()
+{
+	if (App->scene_intro->game_running == false)
+		glLoadMatrixf(App->camera->dummy->GetViewMatrix());
+	if (App->scene_intro->game_running == true)
+	{
+		if (editor_camera_in_game == false)
+			glLoadMatrixf(App->scene_intro->camera_scene->GetComponentCamera()->GetViewMatrix());
+		if (App->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN)
+		{
+			editor_camera_in_game = true;
+
+		}
+		if (editor_camera_in_game == true)
+			glLoadMatrixf(App->camera->dummy->GetViewMatrix());
+	}
 }

@@ -46,20 +46,18 @@ void Transform::SetRotation(float3 rotation)
 void Transform::SaveTransform(JSON_Array* componentsObj)
 {
 	JSON_Value* component = json_value_init_object();
-	JSON_Object* componentObj = json_value_get_object(component);
+	JSON_Object* componentGO = json_value_get_object(component);
 
-	json_object_set_number(componentObj, "Type:", this->type);
-
-	//json_object_set_value(componentObj, "Position", component);
-	json_object_set_number(componentObj, "PositionX", position.x);
-	json_object_set_number(componentObj, "PositionY", position.y);
-	json_object_set_number(componentObj, "PositionZ", position.z);
-	json_object_set_number(componentObj, "RotationX", rotation.x);
-	json_object_set_number(componentObj, "RotationY", rotation.y);
-	json_object_set_number(componentObj, "RotationZ", rotation.z);
-	json_object_set_number(componentObj, "ScaleX", scale.x);
-	json_object_set_number(componentObj, "ScaleY", scale.x);
-	json_object_set_number(componentObj, "ScaleZ", scale.x);
+	json_object_set_number(componentGO, "Type:", this->type);
+	json_object_set_number(componentGO, "PositionX", position.x);
+	json_object_set_number(componentGO, "PositionY", position.y);
+	json_object_set_number(componentGO, "PositionZ", position.z);
+	json_object_set_number(componentGO, "RotationX", rotation.x);
+	json_object_set_number(componentGO, "RotationY", rotation.y);
+	json_object_set_number(componentGO, "RotationZ", rotation.z);
+	json_object_set_number(componentGO, "ScaleX", scale.x);
+	json_object_set_number(componentGO, "ScaleY", scale.y);
+	json_object_set_number(componentGO, "ScaleZ", scale.z);
 
 	json_array_append_value(componentsObj, component);
 }
@@ -74,6 +72,5 @@ void Transform::LoadTransform(JSON_Object* obj)
 	rotation.z = json_object_get_number(obj, "RotationZ");
 	scale.x = json_object_get_number(obj, "ScaleX");
 	scale.y = json_object_get_number(obj, "ScaleY");
-	scale.z = json_object_get_number(obj, "ScaleZ");
-	
+	scale.z = json_object_get_number(obj, "ScaleZ");	
 }

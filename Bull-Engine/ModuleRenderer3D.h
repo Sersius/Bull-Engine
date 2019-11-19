@@ -27,6 +27,7 @@ public:
 	void Checkers();
 	void OnResize(int width, int height);
 	void RendererSettings(int enum_, bool type_render);
+	void SetCamera();
 public:
 	std::vector<Mesh*> meshes;
 	Light lights[MAX_LIGHTS];

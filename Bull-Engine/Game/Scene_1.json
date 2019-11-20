@@ -1,17 +1,17 @@
 [
     {
         "Name:": "Street environment_V01",
-        "UUID:": 477590107,
-        "Parent UUID:": 3312644900,
+        "UUID:": 1483568976,
+        "Parent UUID:": 1966744102,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 0,
                 "PositionY": 0,
                 "PositionZ": 0,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0,
+                "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -34,17 +34,17 @@
     },
     {
         "Name:": "City_building_004",
-        "UUID:": 2307472784,
-        "Parent UUID:": 477590107,
+        "UUID:": 2952951083,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": -41.47589111328125,
                 "PositionY": 21.01409912109375,
                 "PositionZ": 0,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0,
+                "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -67,17 +67,17 @@
     },
     {
         "Name:": "City_building_001",
-        "UUID:": 2426294025,
-        "Parent UUID:": 477590107,
+        "UUID:": 5392459,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 17.707164764404297,
                 "PositionY": 20.053276062011719,
                 "PositionZ": 2.1210729528320371e-07,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0,
+                "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -100,17 +100,17 @@
     },
     {
         "Name:": "City_building_007",
-        "UUID:": 2065003770,
-        "Parent UUID:": 477590107,
+        "UUID:": 548607238,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 16.010492324829102,
                 "PositionY": 37.4932861328125,
                 "PositionZ": -1.5106878663573298e-06,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0,
+                "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -133,17 +133,17 @@
     },
     {
         "Name:": "City_building_008",
-        "UUID:": 834061356,
-        "Parent UUID:": 477590107,
+        "UUID:": 719723348,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 40.979995727539063,
                 "PositionY": 18.270824432373047,
                 "PositionZ": -2.0522466002148576e-06,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0.70710676908493042,
+                "RotationZ": 90,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -164,83 +164,21 @@
             }
         ]
     },
-    {
-        "Name:": "Line002",
-        "UUID:": 3582749765,
-        "Parent UUID:": 477590107,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": -2.1597719192504883,
-                "PositionY": 1.8538382053375244,
-                "PositionZ": 0,
-                "RotationX": 0,
-                "RotationY": 0,
-                "RotationZ": -0.70710676908493042,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            },
-            {
-                "Type:": 2,
-                "id_index:": 18,
-                "id_vertex:": 17,
-                "id_normals:": 20,
-                "id_uv:": 19,
-                "Active:": true,
-                "path": "Library\/Models\/Street environment_V01.fbx",
-                "path_file_format": "\/library\/meshes\/line002.bl"
-            },
-            {
-                "Type:": 3
-            }
-        ]
-    },
-    {
-        "Name:": "Plane001",
-        "UUID:": 2630783615,
-        "Parent UUID:": 477590107,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": -0.02860260009765625,
-                "PositionY": 0.026032090187072754,
-                "PositionZ": 0,
-                "RotationX": 0,
-                "RotationY": 0,
-                "RotationZ": 0,
-                "ScaleX": 0.99663525819778442,
-                "ScaleY": 0.97061645984649658,
-                "ScaleZ": 0.99663525819778442
-            },
-            {
-                "Type:": 2,
-                "id_index:": 22,
-                "id_vertex:": 21,
-                "id_normals:": 24,
-                "id_uv:": 23,
-                "Active:": true,
-                "path": "Library\/Models\/Street environment_V01.fbx",
-                "path_file_format": "\/library\/meshes\/plane001.bl"
-            },
-            {
-                "Type:": 3
-            }
-        ]
-    },
+   
+   
     {
         "Name:": "City_building_010",
-        "UUID:": 1501324770,
-        "Parent UUID:": 477590107,
+        "UUID:": 1020265167,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 25.154010772705078,
                 "PositionY": -39.153720855712891,
                 "PositionZ": 8.5538641769744572e-07,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0.70710676908493042,
+                "RotationZ": 90,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -263,17 +201,17 @@
     },
     {
         "Name:": "City_building_011",
-        "UUID:": 2934803545,
-        "Parent UUID:": 477590107,
+        "UUID:": 3258571301,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 30.134540557861328,
                 "PositionY": 37.4932861328125,
                 "PositionZ": -1.5106878663573298e-06,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0,
+                "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -296,17 +234,17 @@
     },
     {
         "Name:": "City_building_013",
-        "UUID:": 2897937114,
-        "Parent UUID:": 477590107,
+        "UUID:": 2674821333,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": -42.288055419921875,
                 "PositionY": 33.201576232910156,
                 "PositionZ": 5.0146070407208754e-07,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0.70710676908493042,
+                "RotationZ": 90,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -329,17 +267,17 @@
     },
     {
         "Name:": "City_building_014",
-        "UUID:": 3703095173,
-        "Parent UUID:": 477590107,
+        "UUID:": 1471425420,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": -19.439706802368164,
                 "PositionY": 32.061729431152344,
                 "PositionZ": 0,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 1,
+                "RotationZ": -180,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -362,17 +300,17 @@
     },
     {
         "Name:": "City_building_016",
-        "UUID:": 1915135721,
-        "Parent UUID:": 477590107,
+        "UUID:": 3404454200,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 34.270423889160156,
                 "PositionY": -41.972747802734375,
                 "PositionZ": 8.5538641769744572e-07,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 1,
+                "RotationZ": -180,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -395,17 +333,17 @@
     },
     {
         "Name:": "City_building_017",
-        "UUID:": 3197602852,
-        "Parent UUID:": 477590107,
+        "UUID:": 884212191,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 44.260082244873047,
                 "PositionY": -39.153720855712891,
                 "PositionZ": 8.5538641769744572e-07,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0.70710676908493042,
+                "RotationZ": 90,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -428,17 +366,17 @@
     },
     {
         "Name:": "City_building_022",
-        "UUID:": 3626284666,
-        "Parent UUID:": 477590107,
+        "UUID:": 3359999242,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": -20.831323623657227,
                 "PositionY": -27.426488876342773,
                 "PositionZ": 0,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 1,
+                "RotationZ": 179.99998474121094,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -461,17 +399,17 @@
     },
     {
         "Name:": "City_building_023",
-        "UUID:": 3828148507,
-        "Parent UUID:": 477590107,
+        "UUID:": 3571361083,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 42.130641937255859,
                 "PositionY": 37.4932861328125,
                 "PositionZ": -1.5106878663573298e-06,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0,
+                "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -494,17 +432,17 @@
     },
     {
         "Name:": "City_building_024",
-        "UUID:": 3683485840,
-        "Parent UUID:": 477590107,
+        "UUID:": 218027048,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": -20.572771072387695,
                 "PositionY": 43.060829162597656,
                 "PositionZ": -0.069194458425045013,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 1,
+                "RotationZ": 180,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -527,17 +465,17 @@
     },
     {
         "Name:": "City_building_026",
-        "UUID:": 3527917967,
-        "Parent UUID:": 477590107,
+        "UUID:": 1425671763,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 31.51188850402832,
                 "PositionY": -16.446016311645508,
                 "PositionZ": 0,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 1,
+                "RotationZ": 180,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -560,17 +498,17 @@
     },
     {
         "Name:": "City_building_028",
-        "UUID:": 2482288722,
-        "Parent UUID:": 477590107,
+        "UUID:": 2611374616,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 13.38798999786377,
                 "PositionY": -33.755039215087891,
                 "PositionZ": -9.3834518111179932e-07,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0,
+                "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -591,42 +529,11 @@
             }
         ]
     },
-    {
-        "Name:": "Object010",
-        "UUID:": 3397838046,
-        "Parent UUID:": 477590107,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": -2.5033531188964844,
-                "PositionY": 15.800846099853516,
-                "PositionZ": 0,
-                "RotationX": 0,
-                "RotationY": 0,
-                "RotationZ": 0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            },
-            {
-                "Type:": 2,
-                "id_index:": 70,
-                "id_vertex:": 69,
-                "id_normals:": 72,
-                "id_uv:": 71,
-                "Active:": true,
-                "path": "Library\/Models\/Street environment_V01.fbx",
-                "path_file_format": "\/library\/meshes\/object010.bl"
-            },
-            {
-                "Type:": 3
-            }
-        ]
-    },
+  
     {
         "Name:": "City_building_030",
-        "UUID:": 3371864687,
-        "Parent UUID:": 477590107,
+        "UUID:": 3292271369,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
@@ -635,7 +542,7 @@
                 "PositionZ": -9.3834518111179932e-07,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -0.70710676908493042,
+                "RotationZ": -90,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -658,8 +565,8 @@
     },
     {
         "Name:": "City_building_031",
-        "UUID:": 3169175374,
-        "Parent UUID:": 477590107,
+        "UUID:": 3391769783,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
@@ -668,7 +575,7 @@
                 "PositionZ": -9.3834518111179932e-07,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -0.70710676908493042,
+                "RotationZ": -90,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -691,17 +598,17 @@
     },
     {
         "Name:": "City_building_032",
-        "UUID:": 1890953502,
-        "Parent UUID:": 477590107,
+        "UUID:": 2469303489,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": -29.478403091430664,
                 "PositionY": 21.01409912109375,
                 "PositionZ": 0,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0,
+                "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -724,17 +631,17 @@
     },
     {
         "Name:": "City_building_033",
-        "UUID:": 399153253,
-        "Parent UUID:": 477590107,
+        "UUID:": 3274476756,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": -32.361495971679688,
                 "PositionY": 42.37042236328125,
                 "PositionZ": 5.0146070407208754e-07,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0,
+                "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -757,8 +664,8 @@
     },
     {
         "Name:": "City_building_034",
-        "UUID:": 1767561628,
-        "Parent UUID:": 477590107,
+        "UUID:": 4097466365,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
@@ -767,7 +674,7 @@
                 "PositionZ": 0,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -0.7071068286895752,
+                "RotationZ": -90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -790,17 +697,17 @@
     },
     {
         "Name:": "City_building_035",
-        "UUID:": 3462209842,
-        "Parent UUID:": 477590107,
+        "UUID:": 107699111,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 13.38798999786377,
                 "PositionY": -40.802516937255859,
                 "PositionZ": -9.3834518111179932e-07,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0,
+                "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -823,8 +730,8 @@
     },
     {
         "Name:": "City_building_036",
-        "UUID:": 2903834919,
-        "Parent UUID:": 477590107,
+        "UUID:": 362960833,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
@@ -833,7 +740,7 @@
                 "PositionZ": 5.0146070407208754e-07,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -0.70710676908493042,
+                "RotationZ": -90,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -856,17 +763,17 @@
     },
     {
         "Name:": "City_building_037",
-        "UUID:": 216497589,
-        "Parent UUID:": 477590107,
+        "UUID:": 656316910,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": -20.317693710327148,
                 "PositionY": -16.163608551025391,
                 "PositionZ": 0,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 1,
+                "RotationZ": 179.99998474121094,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -889,8 +796,8 @@
     },
     {
         "Name:": "City_building_038",
-        "UUID:": 375061940,
-        "Parent UUID:": 477590107,
+        "UUID:": 2301303354,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
@@ -899,7 +806,7 @@
                 "PositionZ": 0,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -0.7071068286895752,
+                "RotationZ": -90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -922,8 +829,8 @@
     },
     {
         "Name:": "City_building_039",
-        "UUID:": 1456592589,
-        "Parent UUID:": 477590107,
+        "UUID:": 2873394239,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
@@ -932,7 +839,7 @@
                 "PositionZ": -9.3834518111179932e-07,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -0.70710676908493042,
+                "RotationZ": -90,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -955,8 +862,8 @@
     },
     {
         "Name:": "City_building_040",
-        "UUID:": 1050913533,
-        "Parent UUID:": 477590107,
+        "UUID:": 836784865,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
@@ -965,7 +872,7 @@
                 "PositionZ": -9.3834518111179932e-07,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -0.70710676908493042,
+                "RotationZ": -90,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -988,17 +895,17 @@
     },
     {
         "Name:": "City_building_041",
-        "UUID:": 97518857,
-        "Parent UUID:": 477590107,
+        "UUID:": 3921110712,
+        "Parent UUID:": 1483568976,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 30.695278167724609,
                 "PositionY": 21.612646102905273,
                 "PositionZ": 2.1210729528320371e-07,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0.70710676908493042,
+                "RotationZ": 90,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -1021,17 +928,17 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 3686770642,
-        "Parent UUID:": 3312644900,
+        "UUID:": 3648614086,
+        "Parent UUID:": 1966744102,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 0,
                 "PositionY": 0,
                 "PositionZ": 0,
-                "RotationX": 0,
+                "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 0,
+                "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1

@@ -48,13 +48,16 @@ void Transform::SaveTransform(JSON_Array* componentsObj)
 	JSON_Value* component = json_value_init_object();
 	JSON_Object* componentGO = json_value_get_object(component);
 
+	float3 NewRotation = this->rotation.ToEulerXYZ();
+	NewRotation = (NewRotation * RADTODEG);
+
 	json_object_set_number(componentGO, "Type:", this->type);
 	json_object_set_number(componentGO, "PositionX", position.x);
 	json_object_set_number(componentGO, "PositionY", position.y);
 	json_object_set_number(componentGO, "PositionZ", position.z);
-	json_object_set_number(componentGO, "RotationX", rotation.x);
-	json_object_set_number(componentGO, "RotationY", rotation.y);
-	json_object_set_number(componentGO, "RotationZ", rotation.z);
+	json_object_set_number(componentGO, "RotationX", NewRotation.x);
+	json_object_set_number(componentGO, "RotationY", NewRotation.y);
+	json_object_set_number(componentGO, "RotationZ", NewRotation.z);
 	json_object_set_number(componentGO, "ScaleX", scale.x);
 	json_object_set_number(componentGO, "ScaleY", scale.y);
 	json_object_set_number(componentGO, "ScaleZ", scale.z);
@@ -64,13 +67,17 @@ void Transform::SaveTransform(JSON_Array* componentsObj)
 
 void Transform::LoadTransform(JSON_Object* obj)
 {
+
+	float3 Rotation;
 	position.x = json_object_get_number(obj, "PositionX");
 	position.y = json_object_get_number(obj, "PositionY");
 	position.z = json_object_get_number(obj, "PositionZ");
-	rotation.x = json_object_get_number(obj, "RotationX");
-	rotation.y = json_object_get_number(obj, "RotationY");
-	rotation.z = json_object_get_number(obj, "RotationZ");
+	Rotation.x = json_object_get_number(obj, "RotationX");
+	Rotation.y = json_object_get_number(obj, "RotationY");
+	Rotation.z = json_object_get_number(obj, "RotationZ");
 	scale.x = json_object_get_number(obj, "ScaleX");
 	scale.y = json_object_get_number(obj, "ScaleY");
 	scale.z = json_object_get_number(obj, "ScaleZ");	
+
+	rotation = Quat::FromEulerXYZ(Rotation.x * DEGTORAD, Rotation.y * DEGTORAD, Rotation.z *DEGTORAD);
 }

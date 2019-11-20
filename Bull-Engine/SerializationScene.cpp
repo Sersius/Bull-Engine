@@ -71,10 +71,10 @@ void SerializationScene::LoadScene(const char* name_scene)
 		go->LoadInfoGambeObject(obj,go);
 
 	}
-	/*for (std::vector<GameObject*>::iterator iterator = App->scene_intro->GameObjects.begin()+1; iterator != App->scene_intro->GameObjects.end(); ++iterator) {
+	for (std::vector<GameObject*>::iterator iterator = App->scene_intro->GameObjects.begin()+1; iterator != App->scene_intro->GameObjects.end(); ++iterator) {
 
 		GetHierarchy((*iterator));
-	}*/
+	}
 	LOG("%s loaded correctly",name_scene);
 }
 

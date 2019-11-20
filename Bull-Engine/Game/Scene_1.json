@@ -1,107 +1,8 @@
 [
     {
-        "Name:": "BakerHouse",
-        "UUID:": 1466584843,
-        "Parent UUID:": 4054905731,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": -2.9000000953674316,
-                "RotationX": 0.7071068286895752,
-                "RotationY": 0,
-                "RotationZ": 0,
-                "ScaleX": 0.0099999997764825821,
-                "ScaleY": 0.0099999997764825821,
-                "ScaleZ": 0.0099999997764825821
-            },
-            {
-                "Type:": 2,
-                "id_index:": 0,
-                "id_vertex:": 0,
-                "id_normals:": 0,
-                "id_uv:": 0,
-                "Active:": true,
-                "path": "Library\/Models\/BakerHouse.fbx",
-                "path_file_format": ""
-            },
-            {
-                "Type:": 3,
-                "texture_path": "Library\/Textures\/Baker_house.png"
-            }
-        ]
-    },
-    {
-        "Name:": "Chimney",
-        "UUID:": 184965399,
-        "Parent UUID:": 1466584843,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0.7071068286895752,
-                "RotationY": 0,
-                "RotationZ": 0,
-                "ScaleX": 100,
-                "ScaleY": 100,
-                "ScaleZ": 100
-            },
-            {
-                "Type:": 2,
-                "id_index:": 2,
-                "id_vertex:": 1,
-                "id_normals:": 4,
-                "id_uv:": 3,
-                "Active:": true,
-                "path": "Library\/Models\/BakerHouse.fbx",
-                "path_file_format": "\/library\/meshes\/chimney.bl"
-            },
-            {
-                "Type:": 3,
-                "texture_path": "Library\/Textures\/Baker_house.png"
-            }
-        ]
-    },
-    {
-        "Name:": "Baker_house",
-        "UUID:": 3905711900,
-        "Parent UUID:": 1466584843,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0.7071068286895752,
-                "RotationY": 0,
-                "RotationZ": 0,
-                "ScaleX": 100,
-                "ScaleY": 100,
-                "ScaleZ": 100
-            },
-            {
-                "Type:": 2,
-                "id_index:": 6,
-                "id_vertex:": 5,
-                "id_normals:": 8,
-                "id_uv:": 7,
-                "Active:": true,
-                "path": "Library\/Models\/BakerHouse.fbx",
-                "path_file_format": "\/library\/meshes\/baker_house.bl"
-            },
-            {
-                "Type:": 3,
-                "texture_path": "Library\/Textures\/Baker_house.png"
-            }
-        ]
-    },
-    {
-        "Name:": "Camera",
-        "UUID:": 3822829759,
-        "Parent UUID:": 4054905731,
+        "Name:": "",
+        "UUID:": 2213382336,
+        "Parent UUID:": 2211642739,
         "Components:": [
             {
                 "Type:": 1,
@@ -114,6 +15,185 @@
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
+            }
+        ]
+    },
+    {
+        "Name:": "Camera",
+        "UUID:": 1026051490,
+        "Parent UUID:": 2211642739,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": 0,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
+            }
+        ]
+    },
+    {
+        "Name:": "Draenei",
+        "UUID:": 2519254369,
+        "Parent UUID:": 2211642739,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": 0,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
+            },
+            {
+                "Type:": 2,
+                "id_index:": 0,
+                "id_vertex:": 0,
+                "id_normals:": 0,
+                "id_uv:": 0,
+                "Active:": true,
+                "path": "C:\\Users\\Usuario\\Documents\\GitHub\\Bull-Engine\\Bull-Engine\\Game\\Library\\Models\\Draenei.fbx",
+                "path_file_format": ""
+            },
+            {
+                "Type:": 3
+            }
+        ]
+    },
+    {
+        "Name:": "new.010",
+        "UUID:": 13727505,
+        "Parent UUID:": 2519254369,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0.7071068286895752,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 100,
+                "ScaleY": 100,
+                "ScaleZ": 100
+            },
+            {
+                "Type:": 2,
+                "id_index:": 4,
+                "id_vertex:": 3,
+                "id_normals:": 6,
+                "id_uv:": 5,
+                "Active:": true,
+                "path": "C:\\Users\\Usuario\\Documents\\GitHub\\Bull-Engine\\Bull-Engine\\Game\\Library\\Models\\Draenei.fbx",
+                "path_file_format": "\/library\/meshes\/new.010.bl"
+            },
+            {
+                "Type:": 3
+            }
+        ]
+    },
+    {
+        "Name:": "Group9161",
+        "UUID:": 2145583214,
+        "Parent UUID:": 2519254369,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": 0,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 100,
+                "ScaleY": 100,
+                "ScaleZ": 100
+            },
+            {
+                "Type:": 2,
+                "id_index:": 8,
+                "id_vertex:": 7,
+                "id_normals:": 10,
+                "id_uv:": 9,
+                "Active:": true,
+                "path": "C:\\Users\\Usuario\\Documents\\GitHub\\Bull-Engine\\Bull-Engine\\Game\\Library\\Models\\Draenei.fbx",
+                "path_file_format": "\/library\/meshes\/group9161.bl"
+            },
+            {
+                "Type:": 3
+            }
+        ]
+    },
+    {
+        "Name:": "new.013",
+        "UUID:": 3596331037,
+        "Parent UUID:": 2519254369,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 705.5887451171875,
+                "PositionZ": -82.476547241210938,
+                "RotationX": -0.7071068286895752,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 202.6060791015625,
+                "ScaleY": 202.6060791015625,
+                "ScaleZ": 202.6060791015625
+            },
+            {
+                "Type:": 2,
+                "id_index:": 12,
+                "id_vertex:": 11,
+                "id_normals:": 14,
+                "id_uv:": 13,
+                "Active:": true,
+                "path": "C:\\Users\\Usuario\\Documents\\GitHub\\Bull-Engine\\Bull-Engine\\Game\\Library\\Models\\Draenei.fbx",
+                "path_file_format": "\/library\/meshes\/new.013.bl"
+            },
+            {
+                "Type:": 3
+            }
+        ]
+    },
+    {
+        "Name:": "new.020",
+        "UUID:": 2118236391,
+        "Parent UUID:": 2519254369,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0.7071068286895752,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 100,
+                "ScaleY": 100,
+                "ScaleZ": 100
+            },
+            {
+                "Type:": 2,
+                "id_index:": 16,
+                "id_vertex:": 15,
+                "id_normals:": 18,
+                "id_uv:": 17,
+                "Active:": true,
+                "path": "C:\\Users\\Usuario\\Documents\\GitHub\\Bull-Engine\\Bull-Engine\\Game\\Library\\Models\\Draenei.fbx",
+                "path_file_format": "\/library\/meshes\/new.020.bl"
+            },
+            {
+                "Type:": 3
             }
         ]
     }

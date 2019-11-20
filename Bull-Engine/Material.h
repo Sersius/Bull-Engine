@@ -19,7 +19,7 @@ public:
 	void SaveMaterial(JSON_Array* componentsObj);
 	void LoadTexture(JSON_Object* obj, GameObject* go);
 private:
-	const char* texture_path; 
+	const char* texture_path = nullptr; 
 
 };
 

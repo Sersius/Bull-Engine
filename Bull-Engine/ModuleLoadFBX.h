@@ -46,7 +46,7 @@ public:
 	void LoadModelInfo(const aiScene* scene, aiNode* node, GameObject* game_object,const char* path);
 	InfoFbx LoadParShapeMesh(par_shapes_mesh* mesh);
 	void CreateBuffers();
-	bool LoadTexture(char * path_texture, uint& texture_id);
+	bool LoadTexture(std::string path_texture, uint& texture_id);
 	void FocusGameObject();
 	bool ImportTexture(const char* file, const char* path, std::string& output_file);
 	void ImporterMesh(std::string & output_file, Mesh* mesh, std::string name);

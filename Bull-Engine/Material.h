@@ -11,15 +11,16 @@ public:
 	~Material();
 
 	void Update(float dt);
-	void GetTexture(char* texture_path);
+	void GetTexture(std::string texture_path);
 
 	uint id = 0;
 	bool draw_texture = true;
 	bool draw_checkers = false;
 	void SaveMaterial(JSON_Array* componentsObj);
 	void LoadTexture(JSON_Object* obj, GameObject* go);
+	std::string texture_path ="";
 private:
-	const char* texture_path = nullptr; 
+	
 
 };
 

@@ -94,8 +94,6 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 	this->path = path;
 	std::string name(path);
 	std::string name_fbx = name.substr(name.find_first_of("/") + 1);
-	//std::string::size_type const p(base_filename.find_last_of('.'));
-	//std::string file_without_extension = base_filename.substr(0, p);
 	
 	if (node->mNumMeshes> 0) {   	
 		
@@ -109,6 +107,8 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 				material->GetTexture(aiTextureType_DIFFUSE, 0, &path);
 				texture_path = path.data;
 				game_object->CreateComponent(COMPONENT_TYPE::MATERIAL);
+				game_object->material->GetTexture(texture_path.c_str());
+			
 			}
 			name_mesh =  node->mName.C_Str();
 			mesh = InfoFbx();
@@ -233,14 +233,14 @@ InfoFbx ModuleLoadFBX::LoadParShapeMesh(par_shapes_mesh* mesh)
 	return par_mesh;
 }
 
-bool ModuleLoadFBX::LoadTexture( char * path_texture, uint& texture_id)
+bool ModuleLoadFBX::LoadTexture(std::string path_texture, uint& texture_id)
 {
 	uint id = 0;
 
 	ilGenImages(1, &id);
 	ilBindImage(id);
 
-	if(ilLoad(IL_TYPE_UNKNOWN, path_texture))
+	if(ilLoad(IL_TYPE_UNKNOWN, path_texture.c_str()))
 	{
 		LOG("Texture loaded correctly");
 	}

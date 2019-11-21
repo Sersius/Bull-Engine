@@ -150,14 +150,17 @@ update_status ModuleCamera3D::Update(float dt)
 	if (!ImGui::GetIO().WantCaptureMouse) {
 		if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) == KEY_IDLE)
 		{
-			float width = (float)App->window->screen_surface->w;
-			float height = (float)App->window->screen_surface->h;
+			float width = (float)App->width;
+			float height = (float)App->height;
 
 			int mouse_x = App->input->GetMouseX();
 			int mouse_y = App->input->GetMouseY();
 
-			float mouse_x_norm = -(1.0f - (float(mouse_x) * 2.0f) / width);
-			float mouse_y_norm = 1.0f - (float(mouse_y) * 2.0f) / height;
+			float mouse_x_norm = -(1.0f - ((float)mouse_x * 2.0f) / width);
+			float mouse_y_norm = 1.0f - ((float)mouse_y * 2.0f) / height;
+
+			//mouse_x_norm = (mouse_x_norm - 0.5) / 0.5;
+			//mouse_y_norm = -(mouse_y_norm - 0.5) / 0.5;
 
 			picking = dummy->frustum.UnProjectLineSegment(mouse_x_norm, mouse_y_norm);
 
@@ -180,6 +183,8 @@ update_status ModuleCamera3D::Update(float dt)
 				App->scene_intro->UnselectGameObject();
 		}
 	}
+
+	DrawDebugRay();
 
 	return UPDATE_CONTINUE;
 }
@@ -207,12 +212,6 @@ void ModuleCamera3D::LookAt(const float3 &Spot)
 void ModuleCamera3D::Move(const float3 &Movement)
 {
 	dummy->frustum.Translate(Movement);
-}
-
-// -----------------------------------------------------------------
-float* ModuleCamera3D::GetViewMatrix()
-{
-	return &ViewMatrix;
 }
 
 void ModuleCamera3D::TestRayWithAABB(LineSegment ray, GameObject* &posible_go, GameObject* all_posible_go, float &distance, std::vector<GameObject*> &all_go_touched)
@@ -289,4 +288,20 @@ bool ModuleCamera3D::TestRayWithTriangles(std::vector<GameObject*>& all_go_touch
 	}
 
 	return ret;
+}
+
+void ModuleCamera3D::DrawDebugRay()
+{
+	glColor4f(1, 0, 0, 1);
+
+	//Between-planes right
+	GLfloat pointA[3] = { picking.a.x, picking.a.y, picking.a.z };
+	GLfloat pointB[3] = { picking.b.x, picking.b.y, picking.b.z };
+
+	glBegin(GL_LINES);
+	glVertex3fv(pointA);
+	glVertex3fv(pointB);
+	glEnd();
+
+	glColor4f(1, 1, 1, 1);
 }

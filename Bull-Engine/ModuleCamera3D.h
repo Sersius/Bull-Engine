@@ -16,11 +16,12 @@ public:
 	void Look(const float3 &Position, const float3 &Reference, bool RotateAroundReference = false);
 	void LookAt(const float3 &Spot);
 	void Move(const float3 &Movement);
-	float* GetViewMatrix();
 
 	void TestRayWithAABB(LineSegment ray, GameObject* &posible_go, GameObject* all_posible_go, float &distance, std::vector<GameObject*> &all_go_touched);
-
 	bool TestRayWithTriangles(std::vector<GameObject*> &all_go_touched, LineSegment ray, GameObject* &posible_go);
+
+	void DrawDebugRay();
+
 public:
 	Camera* dummy = nullptr;
 

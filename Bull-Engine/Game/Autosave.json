@@ -1,8 +1,144 @@
 [
     {
+        "Name:": "Root",
+        "UUID:": 2661629811,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0,
+                "RotationY": 0,
+                "RotationZ": -0,
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
+            }
+        ]
+    },
+    {
+        "Name:": "Root",
+        "UUID:": 202433127,
+        "Parent UUID:": 2661629811,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0,
+                "RotationY": 0,
+                "RotationZ": -0,
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
+            }
+        ]
+    },
+    {
+        "Name:": "Street environment_V01",
+        "UUID:": 968774777,
+        "Parent UUID:": 202433127,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 4.6999998092651367,
+                "RotationX": 90.000007629394531,
+                "RotationY": 0,
+                "RotationZ": -0,
+                "ScaleX": 0.0099999997764825821,
+                "ScaleY": 0.0099999997764825821,
+                "ScaleZ": 0.0099999997764825821
+            },
+            {
+                "Type:": 2,
+                "id_index:": 0,
+                "id_vertex:": 0,
+                "id_normals:": 0,
+                "id_uv:": 0,
+                "Active:": true,
+                "path": "",
+                "path_file_format": ""
+            },
+            {
+                "Type:": 3,
+                "texture_path": "Baker_house.png"
+            }
+        ]
+    },
+    {
+        "Name:": "Chimney",
+        "UUID:": 3072250688,
+        "Parent UUID:": 968774777,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -90.000007629394531,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 100,
+                "ScaleY": 100,
+                "ScaleZ": 100
+            },
+            {
+                "Type:": 2,
+                "id_index:": 2,
+                "id_vertex:": 1,
+                "id_normals:": 4,
+                "id_uv:": 3,
+                "Active:": true,
+                "path": "",
+                "path_file_format": "\/library\/meshes\/chimney.bl"
+            },
+            {
+                "Type:": 3,
+                "texture_path": "Baker_house.png"
+            }
+        ]
+    },
+    {
+        "Name:": "Baker_house",
+        "UUID:": 187827729,
+        "Parent UUID:": 968774777,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -90.000007629394531,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 100,
+                "ScaleY": 100,
+                "ScaleZ": 100
+            },
+            {
+                "Type:": 2,
+                "id_index:": 6,
+                "id_vertex:": 5,
+                "id_normals:": 8,
+                "id_uv:": 7,
+                "Active:": true,
+                "path": "",
+                "path_file_format": "\/library\/meshes\/baker_house.bl"
+            },
+            {
+                "Type:": 3,
+                "texture_path": "Baker_house.png"
+            }
+        ]
+    },
+    {
         "Name:": "Camera",
-        "UUID:": 2589171626,
-        "Parent UUID:": 3378375624,
+        "UUID:": 3247369772,
+        "Parent UUID:": 202433127,
         "Components:": [
             {
                 "Type:": 1,

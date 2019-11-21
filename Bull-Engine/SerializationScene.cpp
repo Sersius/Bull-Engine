@@ -43,7 +43,7 @@ bool SerializationScene::SaveScene(const char* scene_name)
 
 
 bool SerializationScene::SaveGameObjects(JSON_Array* json_array) {
-	for (std::vector<GameObject*>::const_iterator iterator = App->scene_intro->GameObjects.begin() + 1; iterator != App->scene_intro->GameObjects.end(); iterator++)
+	for (std::vector<GameObject*>::const_iterator iterator = App->scene_intro->GameObjects.begin(); iterator != App->scene_intro->GameObjects.end(); iterator++)
 	{
 		(*iterator)->SaveInfoGameObject((*iterator),json_array);
 
@@ -69,11 +69,15 @@ void SerializationScene::LoadScene(const char* name_scene)
 		obj = json_array_get_object(Array, i);
 		GameObject* go = App->scene_intro->CreateGameObject(App->scene_intro->root);
 		go->LoadInfoGambeObject(obj,go);
-
+		//App->scene_intro->root->children.clear();
 	}
-	for (std::vector<GameObject*>::iterator iterator = App->scene_intro->GameObjects.begin()+1; iterator != App->scene_intro->GameObjects.end(); ++iterator) {
+	for (std::vector<GameObject*>::iterator iterator = App->scene_intro->GameObjects.begin(); iterator != App->scene_intro->GameObjects.end(); ++iterator) {
 
 		GetHierarchy((*iterator));
+		if ((*iterator)->name.compare("Root") == false)
+		{
+			App->scene_intro->root = (*iterator);
+		}
 	}
 	for (std::vector<GameObject*>::iterator iterator = App->scene_intro->GameObjects.begin() + 1; iterator != App->scene_intro->GameObjects.end(); ++iterator) {
 
@@ -89,7 +93,7 @@ void SerializationScene::LoadScene(const char* name_scene)
 void SerializationScene::GetHierarchy(GameObject* go)
 {
 	
-		for (std::vector<GameObject*>::const_iterator iterator = App->scene_intro->GameObjects.begin() + 1; iterator != App->scene_intro->GameObjects.end(); ++iterator)
+		for (std::vector<GameObject*>::const_iterator iterator = App->scene_intro->GameObjects.begin() +1 ; iterator != App->scene_intro->GameObjects.end(); ++iterator)
 		{
 				if ((*iterator)->uuid_parent == go->uuid)
 				{

@@ -27,7 +27,6 @@ GameObject::GameObject(GameObject* parent)
 
 GameObject::~GameObject()
 {
-
 }
 
 void GameObject::Update(float dt)
@@ -249,6 +248,8 @@ void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 		go->mesh->SaveMesh(componentsGO);
 	if (go->material != nullptr && go->material->texture_path.empty() == false)
 		go->material->SaveMaterial(componentsGO);
+	if (go->camera != nullptr)
+		go->camera->SaveCamera(componentsGO);
 
 	json_object_set_value(object_json, "Components:", components);
 	json_array_append_value(json_array, value_json);
@@ -286,6 +287,7 @@ void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)
 		else if (num_type == 4)
 		{
 			CreateComponent(COMPONENT_TYPE::CAMERA);
+			go->camera->LoadCamera(type, go);
 		}
 	}
 
@@ -293,6 +295,7 @@ void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)
 
 void GameObject::DeleteScene()
 {
+	App->scene_intro->camera_scene = nullptr;
 	App->scene_intro->GameObjects.clear();
 	App->renderer3D->meshes.clear();
 	components.clear();

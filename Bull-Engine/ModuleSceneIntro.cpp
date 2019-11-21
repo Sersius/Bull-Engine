@@ -26,9 +26,9 @@ bool ModuleSceneIntro::Start()
 	root = CreateGameObject(nullptr);
 	root->SetName("Root");
 	
-	gameobject_scene = CreateGameObject(root);
-	gameobject_scene->SetName("Street environment_V01");
-	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Library/Models/Street environment_V01.fbx");
+	//gameobject_scene = CreateGameObject(root);
+	//gameobject_scene->SetName("Street environment_V01");
+	//gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Library/Models/Street environment_V01.fbx");
 	//gameobject_scene->children.at(0)->material->GetTexture("Library/Textures/Baker_house.png");
 	//gameobject_scene->children.at(1)->material->GetTexture("Library/Textures/Baker_house.png");
 
@@ -58,7 +58,7 @@ update_status ModuleSceneIntro::Update(float dt)
 	PlaneG p(0, 1, 0, 0);
 	p.axis = true;
 	p.Render();
-	
+	GameObjects;
 	root->Update(dt);
 	return UPDATE_CONTINUE;
 }

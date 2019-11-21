@@ -39,7 +39,8 @@ public:
 	int ContainsAaBox(const AABB &refbox);
 
 	void DebugDraw();
-
+	void SaveCamera(JSON_Array* componentsObj);
+	void LoadCamera(JSON_Object* obj, GameObject* go);
 public:
 
 	Frustum frustum;

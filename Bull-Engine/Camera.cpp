@@ -23,7 +23,10 @@ Camera::Camera(GameObject * parent) : Component(parent, COMPONENT_TYPE::CAMERA)
 
 Camera::~Camera()
 {
+	if (parent)
+		parent->camera = nullptr;
 }
+
 
 void Camera::Update(float dt)
 {
@@ -182,4 +185,31 @@ void Camera::DebugDraw()
 
 	glEnd();
 	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+}
+
+void Camera::SaveCamera(JSON_Array* componentsObj)
+{
+	JSON_Value* component = json_value_init_object();
+	JSON_Object* componentObj = json_value_get_object(component);
+
+	json_object_set_number(componentObj, "Type:", this->type);
+		
+	json_object_set_number(componentObj, "Near Distance:", frustum.nearPlaneDistance);
+	json_object_set_number(componentObj, "Far Distance:", frustum.farPlaneDistance);
+	json_object_set_number(componentObj, "Frustum Vertical FOV:", frustum.verticalFov);
+	json_object_set_number(componentObj, "Frustum Horizontal FOV:", frustum.horizontalFov);
+	
+
+
+	json_array_append_value(componentsObj, component);
+
+}
+
+void Camera::LoadCamera(JSON_Object* obj, GameObject* go)
+{
+	go->camera->frustum.nearPlaneDistance = json_object_get_number(obj, "Near Distance:");
+	go->camera->frustum.farPlaneDistance = json_object_get_number(obj, "Far Distance:");
+	go->camera->frustum.verticalFov = json_object_get_number(obj, "Frustum Vertical FOV:");
+	go->camera->frustum.horizontalFov = json_object_get_number(obj, "Frustum Horizontal FOV:");
+
 }

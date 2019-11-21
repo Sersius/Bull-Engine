@@ -54,7 +54,7 @@ bool SerializationScene::SaveGameObjects(JSON_Array* json_array) {
 void SerializationScene::LoadScene(const char* name_scene)
 {
 	App->scene_intro->root->DeleteScene();
-	
+
 	JSON_Value* scene = json_parse_file(name_scene);
 	JSON_Array* Array = json_value_get_array(scene);
 	JSON_Object* obj = nullptr;
@@ -74,6 +74,14 @@ void SerializationScene::LoadScene(const char* name_scene)
 	for (std::vector<GameObject*>::iterator iterator = App->scene_intro->GameObjects.begin()+1; iterator != App->scene_intro->GameObjects.end(); ++iterator) {
 
 		GetHierarchy((*iterator));
+	}
+	for (std::vector<GameObject*>::iterator iterator = App->scene_intro->GameObjects.begin() + 1; iterator != App->scene_intro->GameObjects.end(); ++iterator) {
+
+		if ((*iterator)->name.compare("Camera") == false) {
+			App->scene_intro->camera_scene = (*iterator);
+			//(*iterator) = nullptr;
+		}
+
 	}
 	LOG("%s loaded correctly",name_scene);
 }

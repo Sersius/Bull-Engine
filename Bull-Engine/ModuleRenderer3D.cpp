@@ -222,7 +222,7 @@ void ModuleRenderer3D::SetCamera()
 			glLoadMatrixf(App->scene_intro->camera_scene->GetComponentCamera()->GetViewMatrix());
 		if (App->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN)
 		{
-			editor_camera_in_game = true;
+			editor_camera_in_game = !editor_camera_in_game;
 
 		}
 		if (editor_camera_in_game == true)

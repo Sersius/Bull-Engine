@@ -23,12 +23,14 @@ math::float4x4& Transform::GetLocalMatrix() const
 
 math::float4x4 Transform::GetGlobalMatrix() const
 {
-	float4x4 LocalMatrix = GetLocalMatrix();
+	float4x4 local_matrix = GetLocalMatrix();
 	if (parent->parent != nullptr)
 	{
-		return parent->parent->transform->GetGlobalMatrix()* (LocalMatrix);
+		float4x4 global_matrix = float4x4::identity;
+		global_matrix = parent->parent->GetComponentTransform()->GetGlobalMatrix();
+		return global_matrix * local_matrix;
 	}
-	return LocalMatrix;
+	return local_matrix;
 }
 
 void Transform::SetPosition(float3 position)
@@ -38,31 +40,26 @@ void Transform::SetPosition(float3 position)
 		parent->GetComponentCamera()->frustum.pos = position;
 	}
 }
+
 void Transform::SetRotation(float3 rotation)
 {
-	this->rotation = Quat::FromEulerXYZ(rotation.x * DEGTORAD, rotation.y * DEGTORAD, rotation.z *DEGTORAD);
-	
+	this->rotation = Quat::FromEulerXYZ(rotation.x * DEGTORAD, rotation.y * DEGTORAD, rotation.z *DEGTORAD);	
 }
 
-void Transform::SetMatrixFromGlobal(math::float4x4 pipo)
+void Transform::SetMatrixFromGlobal(float4x4 &global_matrix)
 {
 	float4x4 matrix;
 
 	if (parent->parent != nullptr) {
 		float4x4 parent_matrix = parent->parent->GetComponentTransform()->GetGlobalMatrix();
 		parent_matrix = parent_matrix.Inverted();
-		matrix = parent_matrix * pipo;
+		matrix = parent_matrix * global_matrix;
 	}
 	else
-		matrix = pipo;
+		matrix = global_matrix;
 
+	transform_matrix.Set(GetGlobalMatrix());
 	matrix.Decompose(position, rotation, scale);
-
-	this->position = position;
-	this->scale = scale;
-	this->rotation = rotation;
-
-	GetLocalMatrix();
 }
 
 void Transform::SaveTransform(JSON_Array* componentsObj)

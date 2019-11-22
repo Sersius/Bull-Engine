@@ -6,6 +6,8 @@
 #include "Transform.h"
 #include "Camera.h"
 
+#include "ImGuizmo/ImGuizmo.h"
+
 ModuleCamera3D::ModuleCamera3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	//Dummy camera
@@ -138,7 +140,7 @@ update_status ModuleCamera3D::Update(float dt)
 		}
 	}
 	
-	if (!ImGui::GetIO().WantCaptureMouse) {
+	if (!ImGui::GetIO().WantCaptureMouse && !ImGuizmo::IsOver()) {
 		if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) == KEY_IDLE)
 		{
 			float width = (float)App->width;
@@ -149,9 +151,6 @@ update_status ModuleCamera3D::Update(float dt)
 
 			float mouse_x_norm = -(1.0f - ((float)mouse_x * 2.0f) / width);
 			float mouse_y_norm = 1.0f - ((float)mouse_y * 2.0f) / height;
-
-			//mouse_x_norm = (mouse_x_norm - 0.5) / 0.5;
-			//mouse_y_norm = -(mouse_y_norm - 0.5) / 0.5;
 
 			picking = dummy->frustum.UnProjectLineSegment(mouse_x_norm, mouse_y_norm);
 

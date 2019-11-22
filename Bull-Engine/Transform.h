@@ -21,7 +21,7 @@ public:
 	void SetPosition(float3 position);
 	void SetRotation(float3 rotation);
 
-	void SetMatrixFromGlobal(math::float4x4 pipo);
+	void SetMatrixFromGlobal(float4x4 &global_matrix);
 
 	void SaveTransform(JSON_Array* componentsObj);
 	void LoadTransform(JSON_Object* obj);

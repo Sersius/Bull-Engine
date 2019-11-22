@@ -68,7 +68,7 @@ void InspectorWindow::Draw()
 				//ImGui::Text("Scale:");
 				if (ImGui::DragFloat3("Scale", &selected_go->transform->scale[0], 0.1f, 0.0f, 0.0f, "%.2f"))
 				{
-
+					selected_go->BoundingBox();
 				}
 			}
 			Guizmo(selected_go);
@@ -142,7 +142,6 @@ void InspectorWindow::Guizmo(GameObject * selected)
 	static ImGuizmo::OPERATION guizmoOperation(ImGuizmo::TRANSLATE);
 	static ImGuizmo::MODE guizmoMode(ImGuizmo::WORLD);
 
-	//Swap between guizmos mode using scancodes or uibuttons
 	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN) {
 		guizmoOperation = ImGuizmo::TRANSLATE;
 	}
@@ -167,15 +166,16 @@ void InspectorWindow::Guizmo(GameObject * selected)
 	ImGuiIO& io = ImGui::GetIO();
 	ImGuizmo::SetRect(0, 0, io.DisplaySize.x, io.DisplaySize.y);
 
-	float4x4 matrix = selected_go->GetComponentTransform()->GetGlobalMatrix().Transposed();
-	Transform* trans = selected_go->GetComponentTransform();
+	float4x4 matrix = selected->GetComponentTransform()->GetGlobalMatrix().Transposed();
+	Transform* trans = selected->GetComponentTransform();
 
-	ImGuizmo::Manipulate((float*)App->camera->dummy->GetViewMatrix(), (float*)App->camera->dummy->GetProjectionMatrix(), guizmoOperation, guizmoMode, (float*)&matrix);
+	ImGuizmo::Manipulate(App->camera->dummy->GetViewMatrix().ptr(), App->camera->dummy->GetProjectionMatrix().ptr(), guizmoOperation, guizmoMode, matrix.ptr());
 
 	if (ImGuizmo::IsUsing())
 	{
 		matrix = matrix.Transposed();
-		selected_go->GetComponentTransform()->SetMatrixFromGlobal(matrix);
+		selected->GetComponentTransform()->SetMatrixFromGlobal(matrix);
+		selected_go->BoundingBox();
 	}
 
 }

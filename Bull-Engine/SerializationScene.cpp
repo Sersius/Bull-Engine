@@ -1,6 +1,8 @@
 #include "Application.h"
 #include "SerializationScene.h"
 #include "Mesh.h"
+#include "ModuleUI.h"
+#include "InspectorWindow.h"
 
 
 
@@ -26,11 +28,15 @@ bool SerializationScene::SaveScene(const char* scene_name)
 	ret = SaveGameObjects(json_array);
 	if(ret == true)
 	{
-		LOG("Scene saved correctly!");
-		
 		std::string extension = ".json";
 		std::string final_name = scene_name + extension;
-		json_serialize_to_file_pretty(json_value, final_name.c_str());
+	
+		final_path = (destination + final_name).c_str();
+		json_serialize_to_file_pretty(json_value, final_path.c_str());
+
+		LOG("Scene saved correctly!");
+		LOG("Saved in: %s", final_path.c_str());
+		
 		return ret;
 	}
 	else
@@ -53,9 +59,10 @@ bool SerializationScene::SaveGameObjects(JSON_Array* json_array) {
 
 void SerializationScene::LoadScene(const char* name_scene)
 {
+	
 	App->scene_intro->root->DeleteScene();
-
-	JSON_Value* scene = json_parse_file(name_scene);
+	final_path = destination + name_scene;
+	JSON_Value* scene = json_parse_file(final_path.c_str());
 	JSON_Array* Array = json_value_get_array(scene);
 	JSON_Object* obj = nullptr;
 	

@@ -9,7 +9,8 @@
 #include "Mesh.h"
 #include "Camera.h"
 
-#include "imGUI/imgui.h"
+#include "ImGui/imgui.h"
+#include "ImGuizmo/ImGuizmo.h"
 
 InspectorWindow::InspectorWindow() : Window()
 {
@@ -70,6 +71,7 @@ void InspectorWindow::Draw()
 
 				}
 			}
+			Guizmo(selected_go);
 		}
 		if (selected_go->mesh != nullptr) {
 			if (ImGui::CollapsingHeader("Mesh Information")) {
@@ -131,4 +133,49 @@ void InspectorWindow::Draw()
 	}
 
 	ImGui::End();
+}
+
+void InspectorWindow::Guizmo(GameObject * selected)
+{
+	ImGuizmo::Enable(true);
+
+	static ImGuizmo::OPERATION guizmoOperation(ImGuizmo::TRANSLATE);
+	static ImGuizmo::MODE guizmoMode(ImGuizmo::WORLD);
+
+	//Swap between guizmos mode using scancodes or uibuttons
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN) {
+		guizmoOperation = ImGuizmo::TRANSLATE;
+	}
+	if (App->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN) {
+		guizmoOperation = ImGuizmo::ROTATE;
+	}
+	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN) {
+		guizmoOperation = ImGuizmo::SCALE;
+	}
+	if (ImGui::RadioButton("Translate", guizmoOperation == ImGuizmo::TRANSLATE)) {
+		guizmoOperation = ImGuizmo::TRANSLATE;
+	}
+	ImGui::SameLine();
+	if (ImGui::RadioButton("Rotate", guizmoOperation == ImGuizmo::ROTATE)) {
+		guizmoOperation = ImGuizmo::ROTATE;
+	}
+	ImGui::SameLine();
+	if (ImGui::RadioButton("Scale", guizmoOperation == ImGuizmo::SCALE)) {
+		guizmoOperation = ImGuizmo::SCALE;
+	}
+
+	ImGuiIO& io = ImGui::GetIO();
+	ImGuizmo::SetRect(0, 0, io.DisplaySize.x, io.DisplaySize.y);
+
+	float4x4 matrix = selected_go->GetComponentTransform()->GetGlobalMatrix().Transposed();
+	Transform* trans = selected_go->GetComponentTransform();
+
+	ImGuizmo::Manipulate((float*)App->camera->dummy->GetViewMatrix(), (float*)App->camera->dummy->GetProjectionMatrix(), guizmoOperation, guizmoMode, (float*)&matrix);
+
+	if (ImGuizmo::IsUsing())
+	{
+		matrix = matrix.Transposed();
+		selected_go->GetComponentTransform()->SetMatrixFromGlobal(matrix);
+	}
+
 }

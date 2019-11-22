@@ -18,6 +18,8 @@ public:
 	bool Start();
 	void Draw();
 
+	void Guizmo(GameObject* selected_go);
+
 public:
 	GameObject* selected_go = nullptr;
 

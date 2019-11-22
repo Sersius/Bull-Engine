@@ -30,6 +30,7 @@ math::float4x4 Transform::GetGlobalMatrix() const
 	}
 	return LocalMatrix;
 }
+
 void Transform::SetPosition(float3 position)
 {
 	this->position = position;
@@ -41,6 +42,27 @@ void Transform::SetRotation(float3 rotation)
 {
 	this->rotation = Quat::FromEulerXYZ(rotation.x * DEGTORAD, rotation.y * DEGTORAD, rotation.z *DEGTORAD);
 	
+}
+
+void Transform::SetMatrixFromGlobal(math::float4x4 pipo)
+{
+	float4x4 matrix;
+
+	if (parent->parent != nullptr) {
+		float4x4 parent_matrix = parent->parent->GetComponentTransform()->GetGlobalMatrix();
+		parent_matrix = parent_matrix.Inverted();
+		matrix = parent_matrix * pipo;
+	}
+	else
+		matrix = pipo;
+
+	matrix.Decompose(position, rotation, scale);
+
+	this->position = position;
+	this->scale = scale;
+	this->rotation = rotation;
+
+	GetLocalMatrix();
 }
 
 void Transform::SaveTransform(JSON_Array* componentsObj)

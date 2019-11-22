@@ -1,7 +1,7 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 3565530905,
+        "UUID:": 2622129529,
         "Components:": [
             {
                 "Type:": 1,
@@ -19,8 +19,8 @@
     },
     {
         "Name:": "Street environment_V01",
-        "UUID:": 2592362773,
-        "Parent UUID:": 3565530905,
+        "UUID:": 934444871,
+        "Parent UUID:": 2622129529,
         "Components:": [
             {
                 "Type:": 1,
@@ -52,8 +52,8 @@
     },
     {
         "Name:": "Chimney",
-        "UUID:": 2440865528,
-        "Parent UUID:": 2592362773,
+        "UUID:": 3136812747,
+        "Parent UUID:": 934444871,
         "Components:": [
             {
                 "Type:": 1,
@@ -85,8 +85,8 @@
     },
     {
         "Name:": "Baker_house",
-        "UUID:": 1702335148,
-        "Parent UUID:": 2592362773,
+        "UUID:": 2506670773,
+        "Parent UUID:": 934444871,
         "Components:": [
             {
                 "Type:": 1,
@@ -118,8 +118,8 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 1462907148,
-        "Parent UUID:": 3565530905,
+        "UUID:": 1282844968,
+        "Parent UUID:": 2622129529,
         "Components:": [
             {
                 "Type:": 1,

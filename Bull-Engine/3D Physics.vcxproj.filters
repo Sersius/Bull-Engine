@@ -573,10 +573,13 @@
     <ClInclude Include="Config.h">
       <Filter>Sources\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="SaveLoadWindow.h">
+    <ClInclude Include="TimeManagementWindow.h">
       <Filter>Sources\Modules\UI</Filter>
     </ClInclude>
-    <ClInclude Include="TimeManagementWindow.h">
+    <ClInclude Include="SaveWindow.h">
+      <Filter>Sources\Modules\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadWindow.h">
       <Filter>Sources\Modules\UI</Filter>
     </ClInclude>
   </ItemGroup>
@@ -794,10 +797,13 @@
     <ClCompile Include="Config.cpp">
       <Filter>Sources\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="SaveLoadWindow.cpp">
+    <ClCompile Include="TimeManagementWindow.cpp">
       <Filter>Sources\Modules\UI</Filter>
     </ClCompile>
-    <ClCompile Include="TimeManagementWindow.cpp">
+    <ClCompile Include="SaveWindow.cpp">
+      <Filter>Sources\Modules\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadWindow.cpp">
       <Filter>Sources\Modules\UI</Filter>
     </ClCompile>
   </ItemGroup>

@@ -168,6 +168,7 @@
     <ClInclude Include="InspectorWindow.h" />
     <ClInclude Include="JSON\parson.h" />
     <ClInclude Include="Light.h" />
+    <ClInclude Include="LoadWindow.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MathGeoLib\include\Algorithm\Random\LCG.h" />
     <ClInclude Include="MathGeoLib\include\Geometry\AABB.h" />
@@ -242,7 +243,7 @@
     <ClInclude Include="ModuleUI.h" />
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="ParShapes\par_shapes.h" />
-    <ClInclude Include="SaveLoadWindow.h" />
+    <ClInclude Include="SaveWindow.h" />
     <ClInclude Include="SerializationScene.h" />
     <ClInclude Include="TimeManagementWindow.h" />
     <ClInclude Include="Transform.h" />
@@ -270,6 +271,7 @@
     <ClCompile Include="InspectorWindow.cpp" />
     <ClCompile Include="JSON\parson.c" />
     <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LoadWindow.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MathGeoLib\include\Algorithm\Random\LCG.cpp" />
     <ClCompile Include="MathGeoLib\include\Geometry\AABB.cpp" />
@@ -317,7 +319,7 @@
     <ClCompile Include="ModuleUI.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="par_shapes.cpp" />
-    <ClCompile Include="SaveLoadWindow.cpp" />
+    <ClCompile Include="SaveWindow.cpp" />
     <ClCompile Include="SerializationScene.cpp" />
     <ClCompile Include="TimeManagementWindow.cpp" />
     <ClCompile Include="Transform.cpp" />

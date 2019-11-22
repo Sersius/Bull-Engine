@@ -15,7 +15,8 @@ class ConsoleWindow;
 class AddWindow;
 class HierarchyWindow;
 class InspectorWindow;
-class SaveLoadWindow;
+class SaveWindow;
+class LoadWindow;
 class TimeManagementWindow;
 
 class ModuleUI: public Module
@@ -38,8 +39,9 @@ public:
 	AddWindow* add = nullptr;
 	HierarchyWindow* hierarchy = nullptr;
 	InspectorWindow* inspector = nullptr;
-	SaveLoadWindow* save_load = nullptr;
+	SaveWindow* save = nullptr;
 	TimeManagementWindow* time_management = nullptr;
+	LoadWindow* load = nullptr;
 };
 
 #endif 

@@ -61,7 +61,9 @@ void SerializationScene::LoadScene(const char* name_scene)
 {
 	
 	App->scene_intro->root->DeleteScene();
-	final_path = destination + name_scene;
+	std::string extension = ".json";
+	std::string final_name = name_scene + extension;
+	final_path = destination + final_name;
 	JSON_Value* scene = json_parse_file(final_path.c_str());
 	JSON_Array* Array = json_value_get_array(scene);
 	JSON_Object* obj = nullptr;

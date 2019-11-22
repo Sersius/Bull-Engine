@@ -1,5 +1,5 @@
-#ifndef __SAVELOADWINDOW_H__
-#define __SAVELOADWINDOW_H__
+#ifndef __SAVEWINDOW_H__
+#define __SAVEWINDOW_H__
 #include "Window.h"
 
 #include "SDL/include/SDL.h"
@@ -9,17 +9,17 @@
 #include <vector>
 
 
-class SaveLoadWindow : public Window
+class SaveWindow : public Window
 {
 public:
-	SaveLoadWindow();
-	~SaveLoadWindow();
+	SaveWindow();
+	~SaveWindow();
 
 	bool Start();
 	void Draw();
 
 public:
-	//GameObject* selected_go = nullptr;
+	
 
 private:
 

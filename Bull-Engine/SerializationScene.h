@@ -24,7 +24,8 @@ public:
 	void LoadScene(const char* name_scene);
 	void GetHierarchy(GameObject* go);
 public:
-	
+	std::string destination = ASSETS_SCENE_FOLDER;
+	std::string final_path;
 
 };
 

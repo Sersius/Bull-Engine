@@ -137,15 +137,6 @@ update_status ModuleCamera3D::Update(float dt)
 			}
 		}
 	}
-
-	if (App->input->GetKey(SDL_SCANCODE_M) == KEY_REPEAT)
-	{
-		App->serialization->SaveScene("SceneSaved");
-	}
-	if (App->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
-	{
-		App->serialization->LoadScene("Scene_1.json");
-	}
 	
 	if (!ImGui::GetIO().WantCaptureMouse) {
 		if (App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_LALT) == KEY_IDLE)

@@ -1,45 +1,7 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 3615153813,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            }
-        ]
-    },
-    {
-        "Name:": "Root",
-        "UUID:": 2661629811,
-        "Parent UUID:": 3615153813,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            }
-        ]
-    },
-    {
-        "Name:": "Root",
-        "UUID:": 202433127,
-        "Parent UUID:": 2661629811,
+        "UUID:": 2622129529,
         "Components:": [
             {
                 "Type:": 1,
@@ -57,20 +19,20 @@
     },
     {
         "Name:": "Street environment_V01",
-        "UUID:": 968774777,
-        "Parent UUID:": 202433127,
+        "UUID:": 934444871,
+        "Parent UUID:": 2622129529,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 0,
                 "PositionY": 0,
-                "PositionZ": 4.6999998092651367,
-                "RotationX": 90.000007629394531,
+                "PositionZ": 0,
+                "RotationX": -0,
                 "RotationY": 0,
                 "RotationZ": -0,
-                "ScaleX": 0.0099999997764825821,
-                "ScaleY": 0.0099999997764825821,
-                "ScaleZ": 0.0099999997764825821
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
             },
             {
                 "Type:": 2,
@@ -79,7 +41,7 @@
                 "id_normals:": 0,
                 "id_uv:": 0,
                 "Active:": true,
-                "path": "",
+                "path": "Library\/Models\/BakerHouse.fbx",
                 "path_file_format": ""
             },
             {
@@ -90,8 +52,8 @@
     },
     {
         "Name:": "Chimney",
-        "UUID:": 3072250688,
-        "Parent UUID:": 968774777,
+        "UUID:": 3136812747,
+        "Parent UUID:": 934444871,
         "Components:": [
             {
                 "Type:": 1,
@@ -112,7 +74,7 @@
                 "id_normals:": 4,
                 "id_uv:": 3,
                 "Active:": true,
-                "path": "",
+                "path": "Library\/Models\/BakerHouse.fbx",
                 "path_file_format": "\/library\/meshes\/chimney.bl"
             },
             {
@@ -123,8 +85,8 @@
     },
     {
         "Name:": "Baker_house",
-        "UUID:": 187827729,
-        "Parent UUID:": 968774777,
+        "UUID:": 2506670773,
+        "Parent UUID:": 934444871,
         "Components:": [
             {
                 "Type:": 1,
@@ -145,7 +107,7 @@
                 "id_normals:": 8,
                 "id_uv:": 7,
                 "Active:": true,
-                "path": "",
+                "path": "Library\/Models\/BakerHouse.fbx",
                 "path_file_format": "\/library\/meshes\/baker_house.bl"
             },
             {
@@ -156,8 +118,8 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 3247369772,
-        "Parent UUID:": 202433127,
+        "UUID:": 1282844968,
+        "Parent UUID:": 2622129529,
         "Components:": [
             {
                 "Type:": 1,

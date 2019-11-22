@@ -8,7 +8,8 @@
 #include "AddWindow.h"
 #include "HierarchyWindow.h"
 #include "InspectorWindow.h"
-#include "SaveLoadWindow.h"
+#include "SaveWindow.h"
+#include "LoadWindow.h"
 #include "TimeManagementWindow.h"
 
 #include "Psapi.h"
@@ -30,7 +31,8 @@ ModuleUI ::ModuleUI(Application* app, bool start_enabled) : Module(app, start_en
 	windows.push_back(add = new AddWindow());
 	windows.push_back(hierarchy = new HierarchyWindow());
 	windows.push_back(inspector = new InspectorWindow());
-	windows.push_back(save_load = new SaveLoadWindow());
+	windows.push_back(save = new SaveWindow());
+	windows.push_back(load = new LoadWindow());
 	windows.push_back(time_management = new TimeManagementWindow());
 }
 
@@ -78,8 +80,8 @@ update_status ModuleUI::Update(float dt)
 	{
 		if (ImGui::BeginMenu("Menu"))
 		{
-			if (ImGui::MenuItem("Save")) { save_load->on = !save_load->on; }
-			if (ImGui::MenuItem("Load", "Coming soon")) {}
+			if (ImGui::MenuItem("Save")) { save->on = !save->on; }
+			if (ImGui::MenuItem("Load")) { load->on = !load->on; }
 			ImGui::Separator();
 			if (ImGui::MenuItem("Exit", "Escape")) { return UPDATE_STOP; }
 			ImGui::EndMenu();

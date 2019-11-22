@@ -8,6 +8,7 @@
 #include <stdio.h>
 #define VERSION "0.4-alpha"
 #define ASSETS_FOLDER "/Assets/"
+#define ASSETS_SCENE_FOLDER "Assets/Scenes/"
 #define SETTINGS_FOLDER "/Settings/"
 #define LIBRARY_FOLDER "/Library/"
 #define LIBRARY_AUDIO_FOLDER "/Library/Audio/"

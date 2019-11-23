@@ -18,6 +18,7 @@ class InspectorWindow;
 class SaveWindow;
 class LoadWindow;
 class TimeManagementWindow;
+class ResourcesWindow;
 
 class ModuleUI: public Module
 {
@@ -42,6 +43,7 @@ public:
 	SaveWindow* save = nullptr;
 	TimeManagementWindow* time_management = nullptr;
 	LoadWindow* load = nullptr;
+	ResourcesWindow* resources = nullptr;
 };
 
 #endif 

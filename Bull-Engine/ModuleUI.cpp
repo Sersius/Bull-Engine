@@ -11,6 +11,7 @@
 #include "SaveWindow.h"
 #include "LoadWindow.h"
 #include "TimeManagementWindow.h"
+#include "ResourcesWindow.h"
 
 #include "Psapi.h"
 #include "MathGeoLib/include/MathGeoLib.h"
@@ -34,6 +35,7 @@ ModuleUI ::ModuleUI(Application* app, bool start_enabled) : Module(app, start_en
 	windows.push_back(save = new SaveWindow());
 	windows.push_back(load = new LoadWindow());
 	windows.push_back(time_management = new TimeManagementWindow());
+	windows.push_back(resources = new ResourcesWindow());
 }
 
 ModuleUI::~ModuleUI()
@@ -92,6 +94,7 @@ update_status ModuleUI::Update(float dt)
 			if (ImGui::Checkbox("Inspector", &inspector->on));
 			if (ImGui::Checkbox("Hierarchy", &hierarchy->on));
 			if (ImGui::Checkbox("Console", &console->on));
+			if (ImGui::Checkbox("Assets", &resources->on));
 	
 			ImGui::EndMenu();
 		}

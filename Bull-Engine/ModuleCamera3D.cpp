@@ -52,7 +52,7 @@ update_status ModuleCamera3D::Update(float dt)
 	if(App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
 		speed = 6.0f * dt;
 
-	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
+	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT && !ImGui::GetIO().WantCaptureMouse)
 	{
 		int dx = -App->input->GetMouseXMotion();
 		int dy = -App->input->GetMouseYMotion();
@@ -78,7 +78,7 @@ update_status ModuleCamera3D::Update(float dt)
 
 	}
 	//FREE LOOK
-	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT) {
+	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT && !ImGui::GetIO().WantCaptureMouse) {
 		if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT) newPos.y += speed;
 		if (App->input->GetKey(SDL_SCANCODE_E) == KEY_REPEAT) newPos.y -= speed;
 
@@ -92,19 +92,19 @@ update_status ModuleCamera3D::Update(float dt)
 	}
 
 	//FOCUS ON SELECTED
-	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN && !ImGui::GetIO().WantCaptureMouse)
 	{
 		App->loadFBX->FocusGameObject();
 	}
 
 	//MOUSE WHEEL
-	if (App->input->GetMouseZ())
+	if (App->input->GetMouseZ() && !ImGui::GetIO().WantCaptureMouse)
 	{
 		newPos += dummy->frustum.front * wheel_speed * App->input->GetMouseZ();
 		Move(newPos);
 	}
 
-	if (App->input->GetMouseButton(SDL_BUTTON_MIDDLE) == KEY_REPEAT)
+	if (App->input->GetMouseButton(SDL_BUTTON_MIDDLE) == KEY_REPEAT && !ImGui::GetIO().WantCaptureMouse)
 	{
 		int dx = -App->input->GetMouseXMotion();
 		int dy = App->input->GetMouseYMotion();
@@ -115,7 +115,7 @@ update_status ModuleCamera3D::Update(float dt)
 		dummy->frustum.Translate(newPos);
 	}
 	// ROTATE 
-	if(App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT)
+	if(App->input->GetMouseButton(SDL_BUTTON_LEFT) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT && !ImGui::GetIO().WantCaptureMouse)
 	{
 		int dx = -App->input->GetMouseXMotion();
 		int dy = -App->input->GetMouseYMotion();

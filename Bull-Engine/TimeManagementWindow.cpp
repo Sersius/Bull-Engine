@@ -22,16 +22,12 @@ bool TimeManagementWindow::Start()
 	return ret;
 }
 
-
-
-
-
 void TimeManagementWindow::Draw()
 {
 	ImGui::Begin("Time Manager", &on,ImGuiWindowFlags_HorizontalScrollbar |ImGuiWindowFlags_NoMove |ImGuiWindowFlags_NoTitleBar |ImGuiWindowFlags_NoResize |ImGuiWindowFlags_NoCollapse);
 
-	ImGui::SetWindowPos({ (250.0f*App->window->width) / 1280, 20.0f });
-	ImGui::SetWindowSize(ImVec2(700, 70), ImGuiCond_Always);
+	ImGui::SetWindowPos(ImVec2((App->width / 8.0f) * 1.5f, 18.0f), ImGuiCond_Always);
+	ImGui::SetWindowSize(ImVec2((App->width / 8.0f) * 4.5f, 60), ImGuiCond_Always);
 	//ImGui::Begin("Time Manager", &on, ImGuiWindowFlags_NoTitleBar);
 	if (ImGui::Button("Play"))
 	{

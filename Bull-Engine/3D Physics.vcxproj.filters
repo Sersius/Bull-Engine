@@ -591,6 +591,9 @@
     <ClInclude Include="TimerInGame.h">
       <Filter>Sources\Tools</Filter>
     </ClInclude>
+    <ClInclude Include="ResourcesWindow.h">
+      <Filter>Sources\Modules\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -820,6 +823,9 @@
     </ClCompile>
     <ClCompile Include="TimerInGame.cpp">
       <Filter>Sources\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourcesWindow.cpp">
+      <Filter>Sources\Modules\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

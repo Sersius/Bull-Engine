@@ -1,7 +1,7 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 4051135597,
+        "UUID:": 2590292196,
         "Components:": [
             {
                 "Type:": 1,
@@ -19,12 +19,12 @@
     },
     {
         "Name:": "Root",
-        "UUID:": 3142424189,
-        "Parent UUID:": 4051135597,
+        "UUID:": 2669911556,
+        "Parent UUID:": 2590292196,
         "Components:": [
             {
                 "Type:": 1,
-                "PositionX": 0,
+                "PositionX": -1.0747785568237305,
                 "PositionY": 0,
                 "PositionZ": 0,
                 "RotationX": -0,
@@ -38,12 +38,12 @@
     },
     {
         "Name:": "Street environment_V01",
-        "UUID:": 958797203,
-        "Parent UUID:": 3142424189,
+        "UUID:": 1729748174,
+        "Parent UUID:": 2669911556,
         "Components:": [
             {
                 "Type:": 1,
-                "PositionX": 0,
+                "PositionX": -11.5,
                 "PositionY": 0,
                 "PositionZ": 0,
                 "RotationX": -0,
@@ -71,8 +71,8 @@
     },
     {
         "Name:": "Chimney",
-        "UUID:": 577106883,
-        "Parent UUID:": 958797203,
+        "UUID:": 3832875162,
+        "Parent UUID:": 1729748174,
         "Components:": [
             {
                 "Type:": 1,
@@ -104,8 +104,8 @@
     },
     {
         "Name:": "Baker_house",
-        "UUID:": 4258757471,
-        "Parent UUID:": 958797203,
+        "UUID:": 3021778022,
+        "Parent UUID:": 1729748174,
         "Components:": [
             {
                 "Type:": 1,
@@ -137,8 +137,8 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 2281050683,
-        "Parent UUID:": 3142424189,
+        "UUID:": 2416122079,
+        "Parent UUID:": 2669911556,
         "Components:": [
             {
                 "Type:": 1,

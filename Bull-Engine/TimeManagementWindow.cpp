@@ -28,7 +28,11 @@ bool TimeManagementWindow::Start()
 
 void TimeManagementWindow::Draw()
 {
-	ImGui::Begin("Time Manager", &on, ImGuiWindowFlags_NoTitleBar);
+	ImGui::Begin("Time Manager", &on,ImGuiWindowFlags_HorizontalScrollbar |ImGuiWindowFlags_NoMove |ImGuiWindowFlags_NoTitleBar |ImGuiWindowFlags_NoResize |ImGuiWindowFlags_NoCollapse);
+
+	ImGui::SetWindowPos({ (250.0f*App->window->width) / 1280, 20.0f });
+	ImGui::SetWindowSize(ImVec2(700, 70), ImGuiCond_Always);
+	//ImGui::Begin("Time Manager", &on, ImGuiWindowFlags_NoTitleBar);
 	if (ImGui::Button("Play"))
 	{
 		App->serialization->SaveScene("Autosave");
@@ -55,13 +59,14 @@ void TimeManagementWindow::Draw()
 		App->scene_intro->game_running = false;
 		App->serialization->LoadScene("Autosave");
 	}
-
+	ImGui::SameLine();
 	if (App->scene_intro->game_running == true) {
 		if (ImGui::Button("Change camera"))
 		{
 			App->renderer3D->editor_camera_in_game = !App->renderer3D->editor_camera_in_game;
 		}
 	}
+	ImGui::SameLine();
 	if (ImGui::SliderFloat("TimeScale", &TimeScale, 0.0f, 2.0f))
 	{
 		App->scene_intro->timer_in_game.time_scale = TimeScale;

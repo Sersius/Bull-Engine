@@ -2,6 +2,7 @@
 #include "Module.h"
 #include "Globals.h"
 #include "Primitive.h"
+#include "TimerInGame.h"
 #include "ModuleGameObject.h"
 
 #include <vector>
@@ -37,6 +38,7 @@ public:
 	GameObject* gameobject_scene = nullptr;
 	GameObject* camera_scene = nullptr;
 	GameObject* selected = nullptr;
+	TimerInGame timer_in_game;
 
 	bool game_running = false;
 	

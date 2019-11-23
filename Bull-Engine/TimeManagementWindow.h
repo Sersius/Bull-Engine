@@ -16,5 +16,7 @@ public:
 	bool Start();
 	void Draw();
 
+public:
+	float TimeScale = 1.0f;
 };
 #endif

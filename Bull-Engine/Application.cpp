@@ -158,3 +158,7 @@ float Application::GetFPS()
 {
 	return last_FPS;
 }
+float Application::GetDT() const
+{
+	return dt;
+}

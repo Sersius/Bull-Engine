@@ -57,7 +57,7 @@ public:
 
 	float GetMS();
 	float GetFPS();
-
+	float GetDT() const;
 private:
 
 	void AddModule(Module* mod);

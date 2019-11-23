@@ -41,7 +41,7 @@ bool ModuleSceneIntro::Start()
 
 update_status ModuleSceneIntro::PreUpdate(float dt)
 {
-	
+	timer_in_game.UpdateTimer();
 	return(UPDATE_CONTINUE);
 }
 

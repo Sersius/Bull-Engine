@@ -59,7 +59,7 @@ bool SerializationScene::SaveGameObjects(JSON_Array* json_array) {
 
 void SerializationScene::LoadScene(const char* name_scene)
 {
-	
+	App->scene_intro->UnselectGameObject();
 	App->scene_intro->root->DeleteScene();
 	std::string extension = ".json";
 	std::string final_name = name_scene + extension;

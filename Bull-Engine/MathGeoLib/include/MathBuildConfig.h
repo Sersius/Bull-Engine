@@ -21,12 +21,10 @@
 #define WIN32
 #endif
 
-// Ric
 // Warning disabled ---
 #pragma warning( disable : 4577 ) // Warning that exceptions are disabled
 #pragma warning( disable : 4530 ) // Warning that exceptions are disabled
 #define MATH_SILENT_ASSUME
-#define MATH_BULLET_INTEROP
 // ---
 
 // Disable STL exceptions
@@ -123,7 +121,7 @@
 #endif
 
 // Uncomment to specify the SIMD instruction set level in use.
-#define MATH_AVX
+//#define MATH_AVX
 //#define MATH_SSE41
 //#define MATH_SSE3
 //#define MATH_SSE2

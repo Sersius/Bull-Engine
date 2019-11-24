@@ -49,14 +49,12 @@ void InspectorWindow::Draw()
 			if (ImGui::CollapsingHeader("Transform")) {
 				ImGui::Separator();
 
-				//ImGui::Text("Position:");
 				if (ImGui::DragFloat3("Position", &selected_go->transform->position[0], 0.1f, 0.0f, 0.0f, "%.2f"))
 				{
 					selected_go->transform->SetPosition(selected_go->transform->position);
 					selected_go->BoundingBox();
 				}
 				
-				//ImGui::Text("Rotation:");
 				float3 NewRotation = selected_go->transform->rotation.ToEulerXYZ();
 				NewRotation = (NewRotation * RADTODEG);
 				if (ImGui::DragFloat3("Rotation", &NewRotation[0], 0.1f, 0.0f, 0.0f, "%.2f"))
@@ -65,7 +63,6 @@ void InspectorWindow::Draw()
 					selected_go->BoundingBox();
 				}
 
-				//ImGui::Text("Scale:");
 				if (ImGui::DragFloat3("Scale", &selected_go->transform->scale[0], 0.1f, 0.0f, 0.0f, "%.2f"))
 				{
 					selected_go->BoundingBox();
@@ -137,7 +134,6 @@ void InspectorWindow::Draw()
 
 void InspectorWindow::Guizmo(GameObject * selected)
 {
-	if (selected->name.compare("Root") == true) {
 		ImGuizmo::Enable(true);
 
 		static ImGuizmo::OPERATION guizmoOperation(ImGuizmo::TRANSLATE);
@@ -178,6 +174,6 @@ void InspectorWindow::Guizmo(GameObject * selected)
 			selected->GetComponentTransform()->SetMatrixFromGlobal(matrix);
 			selected_go->BoundingBox();
 		}
-	}
+	
 
 }

@@ -9,6 +9,33 @@ struct SDL_RWops;
 int close_sdl_rwops(SDL_RWops *rw);
 
 struct aiFileIO;
+
+struct File
+{
+	File() {}
+	File(char* name, int64_t last_mod) { this->name = name;	this->last_mod = last_mod; }
+
+	~File() {}
+
+	std::string name;
+	std::string path;
+	int64_t last_mod = 0;
+
+};
+
+struct Directory
+{
+	Directory() {}
+	Directory(char* name) { this->name = name; }
+
+	~Directory() {}
+
+	std::string name;
+	std::vector<Directory> dir_vec;
+	std::vector<File> file_vec;
+
+};
+
 enum File_type
 {
 	FILE_NONE = 0,
@@ -37,7 +64,7 @@ public:
 	bool Exists(const char* file) const;
 	bool IsDirectory(const char* file) const;
 	void CreateDirectory(const char* directory);
-	void DiscoverFiles(const char* directory, std::vector<std::string>& file_list, std::vector<std::string>& dir_list) const;
+	void DiscoverFiles(const char* directory);
 	bool CopyFromOutsideFS(const char* full_path, const char* destination);
 	bool Copy(const char* source, const char* destination);
 	void SplitFilePath(const char* full_path, std::string* path, std::string* file = nullptr, std::string* extension = nullptr) const;
@@ -67,11 +94,13 @@ private:
 
 	void CreateAssimpIO();
 	
+public:
+	uint resource_num = 0u;
+	Directory* resources = nullptr;
 
 private:
 
 	aiFileIO* AssimpIO = nullptr;
-	
 };
 
 #endif // __MODULEFILESYSTEM_H__

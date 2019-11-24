@@ -51,6 +51,9 @@ ModuleFileSystem::ModuleFileSystem(Application* app, bool start_enabled, const c
 	// Generate IO interfaces
 	CreateAssimpIO();
 
+	resources = new Directory(ASSETS_FOLDER);
+
+	DiscoverFiles(ASSETS_FOLDER);
 }
 
 // Destructor
@@ -119,21 +122,40 @@ void ModuleFileSystem::CreateDirectory(const char* directory)
 	PHYSFS_mkdir(directory);
 }
 
-void ModuleFileSystem::DiscoverFiles(const char* directory, vector<string> & file_list, vector<string> & dir_list) const
+void ModuleFileSystem::DiscoverFiles(const char* directory)
 {
-	char **rc = PHYSFS_enumerateFiles(directory);
-	char **i;
+	string resource_dir(directory);
+	resource_dir.append("/");
 
-	string dir(directory);
+	char **rc = PHYSFS_enumerateFiles(resource_dir.c_str());
 
-	for (i = rc; *i != nullptr; i++)
+	string dir = resource_dir.c_str();
+
+	for (char** i = rc; *i != nullptr; i++)
 	{
-		if (PHYSFS_isDirectory((dir + *i).c_str()))
-			dir_list.push_back(*i);
-		else
-			file_list.push_back(*i);
-	}
+		if (IsDirectory((dir + *i).c_str()))
+		{
+			string aux_dir = resource_dir;
+			aux_dir.append(*i);
 
+			Directory new_dir(*i);
+			resources->dir_vec.push_back(new_dir);
+
+			DiscoverFiles(aux_dir.c_str());
+
+			resource_num++;
+		}
+		else
+		{
+			File new_resource(*i, PHYSFS_getLastModTime((dir + *i).c_str()));
+			new_resource.path = dir;
+
+			if (dir.compare("/Assets//") == 0)
+				resources->file_vec.push_back(new_resource);
+			else
+				resources->dir_vec[resource_num].file_vec.push_back(new_resource);
+		}
+	}
 	PHYSFS_freeList(rc);
 }
 

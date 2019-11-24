@@ -15,6 +15,7 @@ public:
 
 	bool Start();
 	void Draw();
+	void DrawResources(Directory* directory);
 
 };
 

@@ -155,7 +155,7 @@ update_status ModuleInput::PreUpdate(float dt)
 					else
 					{
 						std::string output_file;
-						App->loadFBX->ImportTexture(dropped_filedir, "Library/Textures/", output_file);
+						App->loadFBX->ImportTexture(dropped_filedir, "Assets/Textures/", output_file);
 					}
 				
 				}

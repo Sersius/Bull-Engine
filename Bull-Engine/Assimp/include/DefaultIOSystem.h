@@ -75,7 +75,7 @@ public:
     /** @brief get the file name of a full filepath
      * example: /tmp/archive.tar.gz -> archive.tar.gz
      */
-    static std::string fileName( const std::string &path );
+    static std::string texture_path( const std::string &path );
 
     /** @brief get the complete base name of a full filepath
      * example: /tmp/archive.tar.gz -> archive.tar

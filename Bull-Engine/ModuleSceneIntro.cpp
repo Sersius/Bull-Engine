@@ -28,7 +28,7 @@ bool ModuleSceneIntro::Start()
 	
 	gameobject_scene = CreateGameObject(root);
 	gameobject_scene->SetName("Street environment_V01");
-	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Library/Models/BakerHouse.fbx");
+	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Assets/Models/BakerHouse.fbx");
 	//gameobject_scene->children.at(0)->material->GetTexture("Library/Textures/Baker_house.png");
 	//gameobject_scene->children.at(1)->material->GetTexture("Library/Textures/Baker_house.png");
 

@@ -9,6 +9,22 @@ A 3d game engine developed with OpenGL in c ++. This project has been done by tw
 - Víctor Tirado [GitHub](https://github.com/VictorTirado)
 - Sergio Gómez [GitHub](https://github.com/Sersius)
 
+### Contribution
+
+- Víctor Tirado
+  - Hierarchy
+  - Serialization
+  - File format
+  - Time manager
+  - Inspector
+  
+- Sergio Gómez
+  - Frustum culling
+  - Camera component
+  - "Assets" window
+  - Mouse picking
+  - Inspector
+
 # Features
 
 - Configuration options (Application, window, hardware and add primitives).
@@ -16,6 +32,14 @@ A 3d game engine developed with OpenGL in c ++. This project has been done by tw
 - Console with LOG control.
 - Drag & Drop to load and visualization of geometry and textures.
 - Hierachy Panel where you can see all the GameObjects.
+- GameObjects can be picked from the world using the mouse.
+- Camera is a component with FOV that can be modified.
+- Application/Scene window can be resized and the rendering window adapts to the new aspect ratio.
+- All meshes use a bounding volume (AABB).
+- Frustum Culling.
+- Scene is serialized.
+- Start/Pause/Stop Game mode.
+- Can open scenes from Assets on the editor.
 
 # Camera controls
 

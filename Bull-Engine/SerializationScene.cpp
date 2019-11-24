@@ -61,8 +61,21 @@ void SerializationScene::LoadScene(const char* name_scene)
 {
 	App->scene_intro->UnselectGameObject();
 	App->scene_intro->root->DeleteScene();
-	std::string extension = ".json";
-	std::string final_name = name_scene + extension;
+
+	std::string extension;
+	extension = name_scene;
+	uint type = extension.find_last_of(".");
+	if (type != std::string::npos)
+		extension = extension.substr(type);
+
+	std::string final_name;
+	std::string aux_extension = ".json";
+
+	if(extension == aux_extension)
+		final_name = name_scene;
+	else
+		final_name = name_scene + aux_extension;
+
 	final_path = destination + final_name;
 	JSON_Value* scene = json_parse_file(final_path.c_str());
 	JSON_Array* Array = json_value_get_array(scene);

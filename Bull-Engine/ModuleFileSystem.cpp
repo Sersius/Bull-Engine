@@ -150,7 +150,7 @@ void ModuleFileSystem::DiscoverFiles(const char* directory)
 			File new_resource(*i, PHYSFS_getLastModTime((dir + *i).c_str()));
 			new_resource.path = dir;
 
-			if (dir.compare("/Assets//") == 0)
+			if (dir.compare("/Assets/") == 0)
 				resources->file_vec.push_back(new_resource);
 			else
 				resources->dir_vec[resource_num].file_vec.push_back(new_resource);

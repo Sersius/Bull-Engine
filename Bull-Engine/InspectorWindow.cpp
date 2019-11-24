@@ -76,7 +76,7 @@ void InspectorWindow::Draw()
 		if (selected_go->mesh != nullptr) {
 			if (ImGui::CollapsingHeader("Mesh Information")) {
 				ImGui::Separator();
-				ImGui::Checkbox("Render model", &selected_go->render_model);
+
 				if (selected_go->mesh->info_mesh.num_uvs > 0) {
 					ImGui::Checkbox("Draw normals", &selected_go->mesh->draw_normals);
 				}
@@ -119,14 +119,17 @@ void InspectorWindow::Draw()
 				float near_dis = selected_go->camera->GetNear();
 				if (ImGui::DragFloat("Near Plane", &near_dis, 0.1f, 0.1f, 1000.0f)) {
 					selected_go->camera->SetNear(near_dis);
+					App->renderer3D->RecalculateProjectionMatrix();
 				}
 				float far_dis = selected_go->camera->GetFar();
 				if (ImGui::DragFloat("Far Plane", &far_dis, 0.1f, 25.f, 1000.0f)) {
 					selected_go->camera->SetFar(far_dis);
+					App->renderer3D->RecalculateProjectionMatrix();
 				}
 				float fov = selected_go->camera->GetFOV();
 				if (ImGui::SliderFloat("Field of View", &fov, 1.0f, 179.0f)) {
 					selected_go->camera->SetFOV(fov);
+					App->renderer3D->RecalculateProjectionMatrix();
 				}
 			}
 		}
@@ -167,7 +170,6 @@ void InspectorWindow::Guizmo(GameObject * selected)
 	ImGuizmo::SetRect(0, 0, io.DisplaySize.x, io.DisplaySize.y);
 
 	float4x4 matrix = selected->GetComponentTransform()->GetGlobalMatrix().Transposed();
-	Transform* trans = selected->GetComponentTransform();
 
 	ImGuizmo::Manipulate(App->camera->dummy->GetViewMatrix().ptr(), App->camera->dummy->GetProjectionMatrix().ptr(), guizmoOperation, guizmoMode, matrix.ptr());
 
@@ -176,6 +178,7 @@ void InspectorWindow::Guizmo(GameObject * selected)
 		matrix = matrix.Transposed();
 		selected->GetComponentTransform()->SetMatrixFromGlobal(matrix);
 		selected_go->BoundingBox();
+		selected_go->camera->DebugDraw();
 	}
 
 }

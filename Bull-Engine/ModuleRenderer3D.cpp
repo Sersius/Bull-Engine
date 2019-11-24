@@ -214,6 +214,17 @@ void ModuleRenderer3D::OnResize(int width, int height)
 	glLoadIdentity();
 }
 
+void ModuleRenderer3D::RecalculateProjectionMatrix()
+{
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+	glLoadMatrixf((float*)App->scene_intro->camera_scene->camera->GetProjectionMatrix().v);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+}
+
 void ModuleRenderer3D::SetCamera()
 {
 	if (App->scene_intro->game_running == false)

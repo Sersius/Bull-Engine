@@ -51,7 +51,7 @@ float Camera::GetFar() const
 
 float Camera::GetFOV() const
 {
-	return math::RadToDeg(frustum.verticalFov);
+	return frustum.verticalFov * RADTODEG;
 }
 
 float Camera::GetApectRatio() const
@@ -75,18 +75,25 @@ float4x4 Camera::GetProjectionMatrix() const
 
 void Camera::SetNear(float distance)
 {
-	frustum.nearPlaneDistance = distance;
+	if (distance > 0.0f && distance < frustum.farPlaneDistance)
+	{
+		frustum.nearPlaneDistance = distance;
+	}
 }
 
 void Camera::SetFar(float distance)
 {
-	frustum.farPlaneDistance = distance;
+	if (distance > 0.0f && distance > frustum.nearPlaneDistance)
+	{
+		frustum.farPlaneDistance = distance;
+	}
 }
 
 void Camera::SetFOV(float fov)
 {
+	float aspect_ratio = frustum.AspectRatio();
 	frustum.verticalFov = fov * DEGTORAD;
-	frustum.horizontalFov = 2.0f * atanf(ASPECT_RATIO * tanf(frustum.verticalFov / 2.0f));
+	SetAspectRatio(aspect_ratio);
 }
 
 void Camera::SetAspectRatio(float aspect_ratio)
@@ -185,7 +192,7 @@ void Camera::DebugDraw()
 	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
-void Camera::SaveCamera(JSON_Array* componentsObj)
+void Camera::SaveCamera(JSON_Array* componentsObj) const
 {
 	JSON_Value* component = json_value_init_object();
 	JSON_Object* componentObj = json_value_get_object(component);

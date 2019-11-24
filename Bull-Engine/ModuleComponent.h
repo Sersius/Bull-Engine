@@ -13,9 +13,6 @@ public:
 
 	void Update(float dt);
 
-	void SetEnable(bool set);
-	bool GetEnabled();
-
 public:
 	COMPONENT_TYPE type;
 	

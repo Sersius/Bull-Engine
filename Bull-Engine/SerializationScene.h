@@ -20,9 +20,9 @@ public:
 	void Update(float dt);
 
 	bool SaveScene(const char* name_scene);
-	bool SaveGameObjects(JSON_Array* json_array);
+	bool SaveGameObjects(JSON_Array* json_array) const;
 	void LoadScene(const char* name_scene);
-	void GetHierarchy(GameObject* go);
+	void GetHierarchy(GameObject* go) const;
 public:
 	std::string destination = ASSETS_SCENE_FOLDER;
 	std::string final_path;

@@ -62,7 +62,7 @@ void Transform::SetMatrixFromGlobal(float4x4 &global_matrix)
 	matrix.Decompose(position, rotation, scale);
 }
 
-void Transform::SaveTransform(JSON_Array* componentsObj)
+void Transform::SaveTransform(JSON_Array* componentsObj) const
 {
 	JSON_Value* component = json_value_init_object();
 	JSON_Object* componentGO = json_value_get_object(component);

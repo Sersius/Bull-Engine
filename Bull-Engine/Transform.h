@@ -23,7 +23,7 @@ public:
 
 	void SetMatrixFromGlobal(float4x4 &global_matrix);
 
-	void SaveTransform(JSON_Array* componentsObj);
+	void SaveTransform(JSON_Array* componentsObj) const;
 	void LoadTransform(JSON_Object* obj);
 public:
 	math::float3 position = math::float3::zero;

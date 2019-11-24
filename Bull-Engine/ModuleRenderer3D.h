@@ -26,6 +26,7 @@ public:
 
 	void Checkers();
 	void OnResize(int width, int height);
+	void RecalculateProjectionMatrix();
 	void RendererSettings(int enum_, bool type_render);
 	void SetCamera();
 public:

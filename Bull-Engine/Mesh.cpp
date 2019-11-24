@@ -109,7 +109,7 @@ void Mesh::DrawNormals()
 	}
 	glColor3f(1.0f, 1.0f, 1.0f);
 }
-void Mesh::SaveMesh(JSON_Array* componentsObj)
+void Mesh::SaveMesh(JSON_Array* componentsObj) const
 {
 	JSON_Value* component = json_value_init_object();
 	JSON_Object* componentGO = json_value_get_object(component);

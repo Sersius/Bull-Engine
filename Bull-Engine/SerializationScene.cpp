@@ -14,11 +14,6 @@ SerializationScene::~SerializationScene()
 
 }
 
-//void SerializationScene::Update(float dt)
-//{
-//
-//}
-
 bool SerializationScene::SaveScene(const char* scene_name)
 {
 	bool ret = false;
@@ -48,11 +43,11 @@ bool SerializationScene::SaveScene(const char* scene_name)
 }
 
 
-bool SerializationScene::SaveGameObjects(JSON_Array* json_array) {
+bool SerializationScene::SaveGameObjects(JSON_Array* json_array) const
+{
 	for (std::vector<GameObject*>::const_iterator iterator = App->scene_intro->GameObjects.begin(); iterator != App->scene_intro->GameObjects.end(); iterator++)
 	{
 		(*iterator)->SaveInfoGameObject((*iterator),json_array);
-
 	}
 	return true;
 }
@@ -93,6 +88,7 @@ void SerializationScene::LoadScene(const char* name_scene)
 		go->LoadInfoGambeObject(obj,go);
 		//App->scene_intro->root->children.clear();
 	}
+
 	for (std::vector<GameObject*>::iterator iterator = App->scene_intro->GameObjects.begin(); iterator != App->scene_intro->GameObjects.end(); ++iterator) {
 
 		GetHierarchy((*iterator));
@@ -101,27 +97,25 @@ void SerializationScene::LoadScene(const char* name_scene)
 			App->scene_intro->root = (*iterator);
 		}
 	}
+
 	for (std::vector<GameObject*>::iterator iterator = App->scene_intro->GameObjects.begin() + 1; iterator != App->scene_intro->GameObjects.end(); ++iterator) {
 
 		if ((*iterator)->name.compare("Camera") == false) {
 			App->scene_intro->camera_scene = (*iterator);
-			//(*iterator) = nullptr;
 		}
 
 	}
 	LOG("%s loaded correctly",name_scene);
 }
 
-void SerializationScene::GetHierarchy(GameObject* go)
-{
-	
-		for (std::vector<GameObject*>::const_iterator iterator = App->scene_intro->GameObjects.begin() +1 ; iterator != App->scene_intro->GameObjects.end(); ++iterator)
+void SerializationScene::GetHierarchy(GameObject* go) const
+{	
+	for (std::vector<GameObject*>::const_iterator iterator = App->scene_intro->GameObjects.begin() +1 ; iterator != App->scene_intro->GameObjects.end(); ++iterator)
+	{
+		if ((*iterator)->uuid_parent == go->uuid)
 		{
-				if ((*iterator)->uuid_parent == go->uuid)
-				{
-					(*iterator)->parent = go;
-					go->children.push_back((*iterator));
-				}
+			(*iterator)->parent = go;
+			go->children.push_back((*iterator));
 		}
-	
+	}	
 }

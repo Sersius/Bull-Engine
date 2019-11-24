@@ -39,7 +39,7 @@ public:
 	int ContainsAaBox(const AABB &refbox);
 
 	void DebugDraw();
-	void SaveCamera(JSON_Array* componentsObj);
+	void SaveCamera(JSON_Array* componentsObj) const;
 	void LoadCamera(JSON_Object* obj, GameObject* go);
 public:
 

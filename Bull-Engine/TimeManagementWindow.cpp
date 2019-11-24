@@ -60,6 +60,7 @@ void TimeManagementWindow::Draw()
 		LOG("Game Mode OFF");
 		App->scene_intro->game_running = false;
 		App->serialization->LoadScene("Autosave");
+		App->renderer3D->RecalculateProjectionMatrix();
 	}
 	ImGui::SameLine();
 	if (App->scene_intro->game_running == true) {

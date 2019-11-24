@@ -1,0 +1,199 @@
+[
+    {
+        "Name:": "Root",
+        "UUID:": 3217651741,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0,
+                "RotationY": 0,
+                "RotationZ": -0,
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
+            }
+        ]
+    },
+    {
+        "Name:": "Draenei",
+        "UUID:": 2151440799,
+        "Parent UUID:": 3217651741,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0,
+                "RotationY": 0,
+                "RotationZ": -0,
+                "ScaleX": 0.0099999997764825821,
+                "ScaleY": 0.0099999997764825821,
+                "ScaleZ": 0.0099999997764825821
+            },
+            {
+                "Type:": 2,
+                "id_index:": 0,
+                "id_vertex:": 0,
+                "id_normals:": 0,
+                "id_uv:": 0,
+                "Active:": true,
+                "path": "Assets\/Models\/Draenei.fbx",
+                "path_file_format": ""
+            },
+            {
+                "Type:": 3,
+                "texture_path": "Draenei"
+            }
+        ]
+    },
+    {
+        "Name:": "new.010",
+        "UUID:": 3427909269,
+        "Parent UUID:": 2151440799,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -90.000007629394531,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 100,
+                "ScaleY": 100,
+                "ScaleZ": 100
+            },
+            {
+                "Type:": 2,
+                "id_index:": 2,
+                "id_vertex:": 1,
+                "id_normals:": 4,
+                "id_uv:": 3,
+                "Active:": true,
+                "path": "Assets\/Models\/Draenei.fbx",
+                "path_file_format": "\/library\/meshes\/new.010.bl"
+            }
+        ]
+    },
+    {
+        "Name:": "Group9161",
+        "UUID:": 2579210096,
+        "Parent UUID:": 2151440799,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0,
+                "RotationY": 0,
+                "RotationZ": -0,
+                "ScaleX": 100,
+                "ScaleY": 100,
+                "ScaleZ": 100
+            },
+            {
+                "Type:": 2,
+                "id_index:": 6,
+                "id_vertex:": 5,
+                "id_normals:": 8,
+                "id_uv:": 7,
+                "Active:": true,
+                "path": "Assets\/Models\/Draenei.fbx",
+                "path_file_format": "\/library\/meshes\/group9161.bl"
+            }
+        ]
+    },
+    {
+        "Name:": "new.013",
+        "UUID:": 3533293539,
+        "Parent UUID:": 2151440799,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 705.5887451171875,
+                "PositionZ": -82.476547241210938,
+                "RotationX": -90.000007629394531,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 202.6060791015625,
+                "ScaleY": 202.6060791015625,
+                "ScaleZ": 202.6060791015625
+            },
+            {
+                "Type:": 2,
+                "id_index:": 10,
+                "id_vertex:": 9,
+                "id_normals:": 12,
+                "id_uv:": 11,
+                "Active:": true,
+                "path": "Assets\/Models\/Draenei.fbx",
+                "path_file_format": "\/library\/meshes\/new.013.bl"
+            }
+        ]
+    },
+    {
+        "Name:": "new.020",
+        "UUID:": 1942618666,
+        "Parent UUID:": 2151440799,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -90.000007629394531,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 100,
+                "ScaleY": 100,
+                "ScaleZ": 100
+            },
+            {
+                "Type:": 2,
+                "id_index:": 14,
+                "id_vertex:": 13,
+                "id_normals:": 16,
+                "id_uv:": 15,
+                "Active:": true,
+                "path": "Assets\/Models\/Draenei.fbx",
+                "path_file_format": "\/library\/meshes\/new.020.bl"
+            },
+            {
+                "Type:": 3,
+                "texture_path": "Draenei"
+            }
+        ]
+    },
+    {
+        "Name:": "Camera",
+        "UUID:": 1601526989,
+        "Parent UUID:": 3217651741,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 4.5,
+                "PositionZ": -10,
+                "RotationX": -0,
+                "RotationY": 0,
+                "RotationZ": -0,
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
+            },
+            {
+                "Type:": 4,
+                "Near Distance:": 1,
+                "Far Distance:": 100,
+                "Frustum Vertical FOV:": 1.0471975803375244,
+                "Frustum Horizontal FOV:": 1.5981001853942871
+            }
+        ]
+    }
+]

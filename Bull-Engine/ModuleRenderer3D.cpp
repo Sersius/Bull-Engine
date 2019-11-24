@@ -219,7 +219,10 @@ void ModuleRenderer3D::RecalculateProjectionMatrix()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	glLoadMatrixf((float*)App->scene_intro->camera_scene->camera->GetProjectionMatrix().v);
+	if(App->scene_intro->game_running == false)
+		glLoadMatrixf((float*)App->camera->dummy->GetProjectionMatrix().v);
+	else
+		glLoadMatrixf((float*)App->scene_intro->camera_scene->camera->GetProjectionMatrix().v);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -229,15 +232,11 @@ void ModuleRenderer3D::SetCamera()
 {
 	if (App->scene_intro->game_running == false)
 		glLoadMatrixf(App->camera->dummy->GetViewMatrix().ptr());
-	if (App->scene_intro->game_running == true)
+	else 
 	{
 		if (editor_camera_in_game == false)
 			glLoadMatrixf(App->scene_intro->camera_scene->GetComponentCamera()->GetViewMatrix().ptr());
-		if (App->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN)
-		{
-			editor_camera_in_game = !editor_camera_in_game;
-		}
-		if (editor_camera_in_game == true)
-			glLoadMatrixf(App->camera->dummy->GetViewMatrix().ptr());
+		else
+			glLoadMatrixf(App->camera->dummy->GetViewMatrix().ptr());	
 	}
 }

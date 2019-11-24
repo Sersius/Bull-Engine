@@ -26,7 +26,7 @@ void Material::GetTexture(std::string texture_path)
 	else {
 		texture_path = texture_path.substr(texture_path.find_last_of("\\") + 1);
 		std::string::size_type const p(texture_path.find_last_of('.'));
-		texture_path = texture_path.substr(0, p);
+		 texture_path = texture_path.substr(0, p);
 	}
 	/*if (file_ >= 0)
 		texture_path = texture_path.s(0, file_);*/

@@ -31,6 +31,7 @@ bool InspectorWindow::Start()
 
 void InspectorWindow::Draw()
 {
+	
 	ImGuiWindowFlags flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
 	ImGui::Begin("Inspector", &on, flags);
 	
@@ -39,7 +40,6 @@ void InspectorWindow::Draw()
 	SDL_GetWindowSize(App->window->window, &App->width, &App->height);
 
 	selected_go = App->scene_intro->GetSelectedGO();
-	
 	if (selected_go != nullptr) {
 		
 		ImGui::Text("Model Name: %s", selected_go->GetName());
@@ -49,14 +49,12 @@ void InspectorWindow::Draw()
 			if (ImGui::CollapsingHeader("Transform")) {
 				ImGui::Separator();
 
-				//ImGui::Text("Position:");
 				if (ImGui::DragFloat3("Position", &selected_go->transform->position[0], 0.1f, 0.0f, 0.0f, "%.2f"))
 				{
 					selected_go->transform->SetPosition(selected_go->transform->position);
 					selected_go->BoundingBox();
 				}
 				
-				//ImGui::Text("Rotation:");
 				float3 NewRotation = selected_go->transform->rotation.ToEulerXYZ();
 				NewRotation = (NewRotation * RADTODEG);
 				if (ImGui::DragFloat3("Rotation", &NewRotation[0], 0.1f, 0.0f, 0.0f, "%.2f"))
@@ -65,7 +63,6 @@ void InspectorWindow::Draw()
 					selected_go->BoundingBox();
 				}
 
-				//ImGui::Text("Scale:");
 				if (ImGui::DragFloat3("Scale", &selected_go->transform->scale[0], 0.1f, 0.0f, 0.0f, "%.2f"))
 				{
 					selected_go->BoundingBox();
@@ -178,7 +175,6 @@ void InspectorWindow::Guizmo(GameObject * selected)
 		matrix = matrix.Transposed();
 		selected->GetComponentTransform()->SetMatrixFromGlobal(matrix);
 		selected_go->BoundingBox();
-		selected_go->camera->DebugDraw();
 	}
 
 }

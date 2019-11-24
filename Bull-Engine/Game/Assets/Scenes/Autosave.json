@@ -1,7 +1,26 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 2456077313,
+        "UUID:": 125434719,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0,
+                "RotationY": 0,
+                "RotationZ": -0,
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
+            }
+        ]
+    },
+    {
+        "Name:": "Root",
+        "UUID:": 3273924082,
+        "Parent UUID:": 125434719,
         "Components:": [
             {
                 "Type:": 1,
@@ -19,8 +38,8 @@
     },
     {
         "Name:": "Street environment_V01",
-        "UUID:": 73351248,
-        "Parent UUID:": 2456077313,
+        "UUID:": 3826886274,
+        "Parent UUID:": 3273924082,
         "Components:": [
             {
                 "Type:": 1,
@@ -41,7 +60,7 @@
                 "id_normals:": 0,
                 "id_uv:": 0,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": ""
             },
             {
@@ -52,8 +71,8 @@
     },
     {
         "Name:": "City_building_004",
-        "UUID:": 994905922,
-        "Parent UUID:": 73351248,
+        "UUID:": 4164392295,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -74,7 +93,7 @@
                 "id_normals:": 4,
                 "id_uv:": 3,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_004.bl"
             },
             {
@@ -85,8 +104,8 @@
     },
     {
         "Name:": "City_building_001",
-        "UUID:": 3426234870,
-        "Parent UUID:": 73351248,
+        "UUID:": 870686123,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -107,7 +126,7 @@
                 "id_normals:": 8,
                 "id_uv:": 7,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_001.bl"
             },
             {
@@ -118,8 +137,8 @@
     },
     {
         "Name:": "City_building_007",
-        "UUID:": 2146698466,
-        "Parent UUID:": 73351248,
+        "UUID:": 4041032813,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -140,7 +159,7 @@
                 "id_normals:": 12,
                 "id_uv:": 11,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_007.bl"
             },
             {
@@ -151,8 +170,8 @@
     },
     {
         "Name:": "City_building_008",
-        "UUID:": 2077777543,
-        "Parent UUID:": 73351248,
+        "UUID:": 1296125346,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -161,7 +180,7 @@
                 "PositionZ": -2.0522466002148576e-06,
                 "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 90,
+                "RotationZ": 90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -173,7 +192,7 @@
                 "id_normals:": 16,
                 "id_uv:": 15,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_008.bl"
             },
             {
@@ -184,8 +203,8 @@
     },
     {
         "Name:": "Line002",
-        "UUID:": 2277463377,
-        "Parent UUID:": 73351248,
+        "UUID:": 3000898964,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -194,7 +213,7 @@
                 "PositionZ": 0,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -90,
+                "RotationZ": -90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -206,15 +225,15 @@
                 "id_normals:": 20,
                 "id_uv:": 19,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/line002.bl"
             }
         ]
     },
     {
         "Name:": "Plane001",
-        "UUID:": 3496883868,
-        "Parent UUID:": 73351248,
+        "UUID:": 3626232459,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -235,15 +254,15 @@
                 "id_normals:": 24,
                 "id_uv:": 23,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/plane001.bl"
             }
         ]
     },
     {
         "Name:": "City_building_010",
-        "UUID:": 619151336,
-        "Parent UUID:": 73351248,
+        "UUID:": 2249445950,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -252,7 +271,7 @@
                 "PositionZ": 8.5538641769744572e-07,
                 "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 90,
+                "RotationZ": 90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -264,7 +283,7 @@
                 "id_normals:": 28,
                 "id_uv:": 27,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_010.bl"
             },
             {
@@ -275,8 +294,8 @@
     },
     {
         "Name:": "City_building_011",
-        "UUID:": 966349134,
-        "Parent UUID:": 73351248,
+        "UUID:": 2766322394,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -297,7 +316,7 @@
                 "id_normals:": 32,
                 "id_uv:": 31,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_011.bl"
             },
             {
@@ -308,8 +327,8 @@
     },
     {
         "Name:": "City_building_013",
-        "UUID:": 802244871,
-        "Parent UUID:": 73351248,
+        "UUID:": 933248837,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -318,7 +337,7 @@
                 "PositionZ": 5.0146070407208754e-07,
                 "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 90,
+                "RotationZ": 90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -330,7 +349,7 @@
                 "id_normals:": 36,
                 "id_uv:": 35,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_013.bl"
             },
             {
@@ -341,8 +360,8 @@
     },
     {
         "Name:": "City_building_014",
-        "UUID:": 1509903970,
-        "Parent UUID:": 73351248,
+        "UUID:": 1855734564,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -350,8 +369,8 @@
                 "PositionY": 32.061729431152344,
                 "PositionZ": 0,
                 "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -180,
+                "RotationY": -0,
+                "RotationZ": 180,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -363,7 +382,7 @@
                 "id_normals:": 40,
                 "id_uv:": 39,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_014.bl"
             },
             {
@@ -374,8 +393,8 @@
     },
     {
         "Name:": "City_building_016",
-        "UUID:": 3903391570,
-        "Parent UUID:": 73351248,
+        "UUID:": 2393375251,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -383,8 +402,8 @@
                 "PositionY": -41.972747802734375,
                 "PositionZ": 8.5538641769744572e-07,
                 "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -180,
+                "RotationY": -0,
+                "RotationZ": 180,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -396,7 +415,7 @@
                 "id_normals:": 44,
                 "id_uv:": 43,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_016.bl"
             },
             {
@@ -407,8 +426,8 @@
     },
     {
         "Name:": "City_building_017",
-        "UUID:": 2779665778,
-        "Parent UUID:": 73351248,
+        "UUID:": 2318102177,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -417,7 +436,7 @@
                 "PositionZ": 8.5538641769744572e-07,
                 "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 90,
+                "RotationZ": 90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -429,7 +448,7 @@
                 "id_normals:": 48,
                 "id_uv:": 47,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_017.bl"
             },
             {
@@ -440,8 +459,8 @@
     },
     {
         "Name:": "City_building_022",
-        "UUID:": 3559700469,
-        "Parent UUID:": 73351248,
+        "UUID:": 27664412,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -462,7 +481,7 @@
                 "id_normals:": 52,
                 "id_uv:": 51,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_022.bl"
             },
             {
@@ -473,8 +492,8 @@
     },
     {
         "Name:": "City_building_023",
-        "UUID:": 358877565,
-        "Parent UUID:": 73351248,
+        "UUID:": 2257472252,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -495,7 +514,7 @@
                 "id_normals:": 56,
                 "id_uv:": 55,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_023.bl"
             },
             {
@@ -506,8 +525,8 @@
     },
     {
         "Name:": "City_building_024",
-        "UUID:": 1332638961,
-        "Parent UUID:": 73351248,
+        "UUID:": 761512856,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -516,7 +535,7 @@
                 "PositionZ": -0.069194458425045013,
                 "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 180,
+                "RotationZ": -180,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -528,7 +547,7 @@
                 "id_normals:": 60,
                 "id_uv:": 59,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_024.bl"
             },
             {
@@ -539,8 +558,8 @@
     },
     {
         "Name:": "City_building_026",
-        "UUID:": 785514890,
-        "Parent UUID:": 73351248,
+        "UUID:": 486120055,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -549,7 +568,7 @@
                 "PositionZ": 0,
                 "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 180,
+                "RotationZ": -180,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -561,7 +580,7 @@
                 "id_normals:": 64,
                 "id_uv:": 63,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_026.bl"
             },
             {
@@ -572,8 +591,8 @@
     },
     {
         "Name:": "City_building_028",
-        "UUID:": 2887377087,
-        "Parent UUID:": 73351248,
+        "UUID:": 3069449027,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -594,7 +613,7 @@
                 "id_normals:": 68,
                 "id_uv:": 67,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_028.bl"
             },
             {
@@ -605,8 +624,8 @@
     },
     {
         "Name:": "Object010",
-        "UUID:": 2234059636,
-        "Parent UUID:": 73351248,
+        "UUID:": 539471692,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -627,15 +646,15 @@
                 "id_normals:": 72,
                 "id_uv:": 71,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/object010.bl"
             }
         ]
     },
     {
         "Name:": "City_building_030",
-        "UUID:": 1043590438,
-        "Parent UUID:": 73351248,
+        "UUID:": 991126593,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -644,7 +663,7 @@
                 "PositionZ": -9.3834518111179932e-07,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -90,
+                "RotationZ": -90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -656,7 +675,7 @@
                 "id_normals:": 76,
                 "id_uv:": 75,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_030.bl"
             },
             {
@@ -667,8 +686,8 @@
     },
     {
         "Name:": "City_building_031",
-        "UUID:": 956803203,
-        "Parent UUID:": 73351248,
+        "UUID:": 328465701,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -677,7 +696,7 @@
                 "PositionZ": -9.3834518111179932e-07,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -90,
+                "RotationZ": -90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -689,7 +708,7 @@
                 "id_normals:": 80,
                 "id_uv:": 79,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_031.bl"
             },
             {
@@ -700,8 +719,8 @@
     },
     {
         "Name:": "City_building_032",
-        "UUID:": 2116505103,
-        "Parent UUID:": 73351248,
+        "UUID:": 266460755,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -722,7 +741,7 @@
                 "id_normals:": 84,
                 "id_uv:": 83,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_032.bl"
             },
             {
@@ -733,8 +752,8 @@
     },
     {
         "Name:": "City_building_033",
-        "UUID:": 3318010772,
-        "Parent UUID:": 73351248,
+        "UUID:": 1454582146,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -755,7 +774,7 @@
                 "id_normals:": 88,
                 "id_uv:": 87,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_033.bl"
             },
             {
@@ -766,8 +785,8 @@
     },
     {
         "Name:": "City_building_034",
-        "UUID:": 3246815052,
-        "Parent UUID:": 73351248,
+        "UUID:": 3862025823,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -788,7 +807,7 @@
                 "id_normals:": 92,
                 "id_uv:": 91,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_034.bl"
             },
             {
@@ -799,8 +818,8 @@
     },
     {
         "Name:": "City_building_035",
-        "UUID:": 1410303742,
-        "Parent UUID:": 73351248,
+        "UUID:": 908984934,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -821,7 +840,7 @@
                 "id_normals:": 96,
                 "id_uv:": 95,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_035.bl"
             },
             {
@@ -832,8 +851,8 @@
     },
     {
         "Name:": "City_building_036",
-        "UUID:": 1159886295,
-        "Parent UUID:": 73351248,
+        "UUID:": 1339362736,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -842,7 +861,7 @@
                 "PositionZ": 5.0146070407208754e-07,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -90,
+                "RotationZ": -90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -854,7 +873,7 @@
                 "id_normals:": 100,
                 "id_uv:": 99,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_036.bl"
             },
             {
@@ -865,8 +884,8 @@
     },
     {
         "Name:": "City_building_037",
-        "UUID:": 3754761003,
-        "Parent UUID:": 73351248,
+        "UUID:": 3090011617,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -887,7 +906,7 @@
                 "id_normals:": 104,
                 "id_uv:": 103,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_037.bl"
             },
             {
@@ -898,8 +917,8 @@
     },
     {
         "Name:": "City_building_038",
-        "UUID:": 1692359850,
-        "Parent UUID:": 73351248,
+        "UUID:": 947856416,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -920,7 +939,7 @@
                 "id_normals:": 108,
                 "id_uv:": 107,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_038.bl"
             },
             {
@@ -931,8 +950,8 @@
     },
     {
         "Name:": "City_building_039",
-        "UUID:": 2435963242,
-        "Parent UUID:": 73351248,
+        "UUID:": 213380752,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -941,7 +960,7 @@
                 "PositionZ": -9.3834518111179932e-07,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -90,
+                "RotationZ": -90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -953,7 +972,7 @@
                 "id_normals:": 112,
                 "id_uv:": 111,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_039.bl"
             },
             {
@@ -964,8 +983,8 @@
     },
     {
         "Name:": "City_building_040",
-        "UUID:": 3660755629,
-        "Parent UUID:": 73351248,
+        "UUID:": 3913337330,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -974,7 +993,7 @@
                 "PositionZ": -9.3834518111179932e-07,
                 "RotationX": 0,
                 "RotationY": 0,
-                "RotationZ": -90,
+                "RotationZ": -90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -986,7 +1005,7 @@
                 "id_normals:": 116,
                 "id_uv:": 115,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_040.bl"
             },
             {
@@ -997,8 +1016,8 @@
     },
     {
         "Name:": "City_building_041",
-        "UUID:": 2354179891,
-        "Parent UUID:": 73351248,
+        "UUID:": 1495156957,
+        "Parent UUID:": 3826886274,
         "Components:": [
             {
                 "Type:": 1,
@@ -1007,7 +1026,7 @@
                 "PositionZ": 2.1210729528320371e-07,
                 "RotationX": -0,
                 "RotationY": 0,
-                "RotationZ": 90,
+                "RotationZ": 90.000007629394531,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
@@ -1019,7 +1038,7 @@
                 "id_normals:": 120,
                 "id_uv:": 119,
                 "Active:": true,
-                "path": "Assets\/Models\/Street environment_V01.fbx",
+                "path": "",
                 "path_file_format": "\/library\/meshes\/city_building_041.bl"
             },
             {
@@ -1030,8 +1049,8 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 4143811304,
-        "Parent UUID:": 2456077313,
+        "UUID:": 883799480,
+        "Parent UUID:": 3273924082,
         "Components:": [
             {
                 "Type:": 1,
@@ -1049,8 +1068,8 @@
                 "Type:": 4,
                 "Near Distance:": 1,
                 "Far Distance:": 100,
-                "Frustum Vertical FOV:": 1.0471975803375244,
-                "Frustum Horizontal FOV:": 1.5981001853942871
+                "Frustum Vertical FOV:": 0.30569440126419067,
+                "Frustum Horizontal FOV:": 0.53525704145431519
             }
         ]
     }

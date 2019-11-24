@@ -1,7 +1,7 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 994832089,
+        "UUID:": 376279663,
         "Components:": [
             {
                 "Type:": 1,
@@ -19,20 +19,20 @@
     },
     {
         "Name:": "Street environment_V01",
-        "UUID:": 1571693631,
-        "Parent UUID:": 994832089,
+        "UUID:": 4130233333,
+        "Parent UUID:": 376279663,
         "Components:": [
             {
                 "Type:": 1,
                 "PositionX": 0,
                 "PositionY": 0,
-                "PositionZ": 3.1774055957794189,
-                "RotationX": 90.679229736328125,
+                "PositionZ": 3.902559757232666,
+                "RotationX": 90.000007629394531,
                 "RotationY": 0,
                 "RotationZ": -0,
-                "ScaleX": 0.0045600002631545067,
-                "ScaleY": 0.0045600226148962975,
-                "ScaleZ": 0.0045600226148962975
+                "ScaleX": 0.0099999997764825821,
+                "ScaleY": 0.009999995119869709,
+                "ScaleZ": 0.009999995119869709
             },
             {
                 "Type:": 2,
@@ -46,14 +46,14 @@
             },
             {
                 "Type:": 3,
-                "texture_path": "Baker_house.png"
+                "texture_path": "Baker_house"
             }
         ]
     },
     {
         "Name:": "Chimney",
-        "UUID:": 3579307793,
-        "Parent UUID:": 1571693631,
+        "UUID:": 129791919,
+        "Parent UUID:": 4130233333,
         "Components:": [
             {
                 "Type:": 1,
@@ -79,14 +79,14 @@
             },
             {
                 "Type:": 3,
-                "texture_path": "Baker_house.png"
+                "texture_path": "Baker_house"
             }
         ]
     },
     {
         "Name:": "Baker_house",
-        "UUID:": 825652388,
-        "Parent UUID:": 1571693631,
+        "UUID:": 4035014350,
+        "Parent UUID:": 4130233333,
         "Components:": [
             {
                 "Type:": 1,
@@ -112,14 +112,14 @@
             },
             {
                 "Type:": 3,
-                "texture_path": "Baker_house.png"
+                "texture_path": "Baker_house"
             }
         ]
     },
     {
         "Name:": "Camera",
-        "UUID:": 2289843984,
-        "Parent UUID:": 994832089,
+        "UUID:": 99374083,
+        "Parent UUID:": 376279663,
         "Components:": [
             {
                 "Type:": 1,

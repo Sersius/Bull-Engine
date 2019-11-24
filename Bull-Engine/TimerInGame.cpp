@@ -20,13 +20,13 @@ void TimerInGame::UpdateTimer()
 	if (App->scene_intro->game_running == false) {
 		time = 0.0f;
 	}
-	else if (App->scene_intro->game_running == true) {
+	else if (App->scene_intro->game_running == true &&App->scene_intro->timer_in_game.paused == false) {
 		time += real_dt * time_scale;
 		dt = real_dt * time_scale;
+	}
 
-	/*case GAME_STATE::PAUSE:
-		deltaTime = 0.0f;*/
-
-
+	if (App->scene_intro->timer_in_game.paused == true)
+	{
+		time = time;
 	}
 }

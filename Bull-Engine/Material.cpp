@@ -20,7 +20,19 @@ void Material::Update(float dt)
 void Material::GetTexture(std::string texture_path)
 {
 	std::string destination = "Library/Textures/";
-	std::string final_path = (destination + texture_path).c_str();
+	int fileExtPos = texture_path.find_last_of(".");
+	if (fileExtPos <= 15)
+		texture_path = texture_path.substr(0, fileExtPos);
+	else {
+		texture_path = texture_path.substr(texture_path.find_last_of("\\") + 1);
+		std::string::size_type const p(texture_path.find_last_of('.'));
+		texture_path = texture_path.substr(0, p);
+	}
+	/*if (file_ >= 0)
+		texture_path = texture_path.s(0, file_);*/
+	std::string new_extension = ".dds";
+	std::string final_path_texture = (texture_path + new_extension).c_str();
+	std::string final_path = (destination + final_path_texture).c_str();
 	App->loadFBX->LoadTexture(final_path.c_str(),id);
 	this->texture_path = texture_path.c_str();
 	

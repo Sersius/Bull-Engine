@@ -39,7 +39,6 @@ bool ModuleLoadFBX::Start()
 	struct aiLogStream stream;
 	stream = aiGetPredefinedLogStream(aiDefaultLogStream_DEBUGGER, nullptr);
 	aiAttachLogStream(&stream);
-	//LoadTexture("Baker_house.png");
 
 	ilInit();
 	iluInit();
@@ -106,6 +105,8 @@ void ModuleLoadFBX::LoadModelInfo(const aiScene* scene, aiNode* node,GameObject*
 				aiString path;
 				material->GetTexture(aiTextureType_DIFFUSE, 0, &path);
 				texture_path = path.data;
+				std::string output_file;
+				ImportTexture(texture_path.c_str(), "Assets/Textures/", output_file);
 				game_object->CreateComponent(COMPONENT_TYPE::MATERIAL);
 				game_object->material->GetTexture(texture_path.c_str());
 			

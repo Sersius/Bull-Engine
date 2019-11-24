@@ -31,6 +31,7 @@ bool InspectorWindow::Start()
 
 void InspectorWindow::Draw()
 {
+	
 	ImGuiWindowFlags flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
 	ImGui::Begin("Inspector", &on, flags);
 	
@@ -39,7 +40,6 @@ void InspectorWindow::Draw()
 	SDL_GetWindowSize(App->window->window, &App->width, &App->height);
 
 	selected_go = App->scene_intro->GetSelectedGO();
-	
 	if (selected_go != nullptr) {
 		
 		ImGui::Text("Model Name: %s", selected_go->GetName());
@@ -137,45 +137,47 @@ void InspectorWindow::Draw()
 
 void InspectorWindow::Guizmo(GameObject * selected)
 {
-	ImGuizmo::Enable(true);
+	if (selected->name.compare("Root") == true) {
+		ImGuizmo::Enable(true);
 
-	static ImGuizmo::OPERATION guizmoOperation(ImGuizmo::TRANSLATE);
-	static ImGuizmo::MODE guizmoMode(ImGuizmo::WORLD);
+		static ImGuizmo::OPERATION guizmoOperation(ImGuizmo::TRANSLATE);
+		static ImGuizmo::MODE guizmoMode(ImGuizmo::WORLD);
 
-	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN) {
-		guizmoOperation = ImGuizmo::TRANSLATE;
-	}
-	if (App->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN) {
-		guizmoOperation = ImGuizmo::ROTATE;
-	}
-	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN) {
-		guizmoOperation = ImGuizmo::SCALE;
-	}
-	if (ImGui::RadioButton("Translate", guizmoOperation == ImGuizmo::TRANSLATE)) {
-		guizmoOperation = ImGuizmo::TRANSLATE;
-	}
-	ImGui::SameLine();
-	if (ImGui::RadioButton("Rotate", guizmoOperation == ImGuizmo::ROTATE)) {
-		guizmoOperation = ImGuizmo::ROTATE;
-	}
-	ImGui::SameLine();
-	if (ImGui::RadioButton("Scale", guizmoOperation == ImGuizmo::SCALE)) {
-		guizmoOperation = ImGuizmo::SCALE;
-	}
+		if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN) {
+			guizmoOperation = ImGuizmo::TRANSLATE;
+		}
+		if (App->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN) {
+			guizmoOperation = ImGuizmo::ROTATE;
+		}
+		if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN) {
+			guizmoOperation = ImGuizmo::SCALE;
+		}
+		if (ImGui::RadioButton("Translate", guizmoOperation == ImGuizmo::TRANSLATE)) {
+			guizmoOperation = ImGuizmo::TRANSLATE;
+		}
+		ImGui::SameLine();
+		if (ImGui::RadioButton("Rotate", guizmoOperation == ImGuizmo::ROTATE)) {
+			guizmoOperation = ImGuizmo::ROTATE;
+		}
+		ImGui::SameLine();
+		if (ImGui::RadioButton("Scale", guizmoOperation == ImGuizmo::SCALE)) {
+			guizmoOperation = ImGuizmo::SCALE;
+		}
 
-	ImGuiIO& io = ImGui::GetIO();
-	ImGuizmo::SetRect(0, 0, io.DisplaySize.x, io.DisplaySize.y);
+		ImGuiIO& io = ImGui::GetIO();
+		ImGuizmo::SetRect(0, 0, io.DisplaySize.x, io.DisplaySize.y);
 
-	float4x4 matrix = selected->GetComponentTransform()->GetGlobalMatrix().Transposed();
-	Transform* trans = selected->GetComponentTransform();
+		float4x4 matrix = selected->GetComponentTransform()->GetGlobalMatrix().Transposed();
+		Transform* trans = selected->GetComponentTransform();
 
-	ImGuizmo::Manipulate(App->camera->dummy->GetViewMatrix().ptr(), App->camera->dummy->GetProjectionMatrix().ptr(), guizmoOperation, guizmoMode, matrix.ptr());
+		ImGuizmo::Manipulate(App->camera->dummy->GetViewMatrix().ptr(), App->camera->dummy->GetProjectionMatrix().ptr(), guizmoOperation, guizmoMode, matrix.ptr());
 
-	if (ImGuizmo::IsUsing())
-	{
-		matrix = matrix.Transposed();
-		selected->GetComponentTransform()->SetMatrixFromGlobal(matrix);
-		selected_go->BoundingBox();
+		if (ImGuizmo::IsUsing())
+		{
+			matrix = matrix.Transposed();
+			selected->GetComponentTransform()->SetMatrixFromGlobal(matrix);
+			selected_go->BoundingBox();
+		}
 	}
 
 }

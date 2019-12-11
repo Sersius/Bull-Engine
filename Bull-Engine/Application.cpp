@@ -12,6 +12,7 @@ Application::Application()
 	UI = new ModuleUI(this);
 	loadFBX = new ModuleLoadFBX(this);
 	fileSystem = new ModuleFileSystem(this, ASSETS_FOLDER);
+	audio = new ModuleAudio(this);
 	serialization = new SerializationScene();
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -23,7 +24,7 @@ Application::Application()
 	AddModule(input);
 	AddModule(fileSystem);
 	AddModule(loadFBX);
-
+	AddModule(audio);
 	
 	// Scenes
 	AddModule(scene_intro);

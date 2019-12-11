@@ -12,6 +12,7 @@
 #include "ModuleUI.h"
 #include "ModuleLoadFBX.h"
 #include "ModuleFileSystem.h"
+#include "ModuleAudio.h"
 #include "SerializationScene.h"
 
 #include <list>
@@ -30,6 +31,7 @@ public:
 	ModuleUI* UI;
 	ModuleLoadFBX* loadFBX;
 	ModuleFileSystem* fileSystem;
+	ModuleAudio* audio;
 	SerializationScene* serialization;
 
 	char* app_name;

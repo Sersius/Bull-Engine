@@ -10,7 +10,6 @@
 #include "Camera.h"
 
 #include "ImGui/imgui.h"
-#include <random>
 
 GameObject::GameObject(GameObject* parent)
 {
@@ -19,7 +18,7 @@ GameObject::GameObject(GameObject* parent)
 	if (parent != nullptr)
 		parent->children.push_back(this);
 
-	uuid = GenRandomNumber();
+	uuid = App->GenRandomNumber();
 	CreateComponent(COMPONENT_TYPE::TRANSFORM);
 	if(App!=nullptr)
 	App->scene_intro->GameObjects.push_back(this);
@@ -204,16 +203,6 @@ void GameObject::DrawBoundingBox()
 	}
 }
 
-uint GameObject::GenRandomNumber()
-{
-	uint number = 0;
-	std::random_device rd;
-	std::mt19937_64 eng(rd());
-	std::uniform_int_distribution<uint> distr;
-	number = distr(eng);
-
-	return number;
-}
 void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 {
 	//BASIC INFO

@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "JSON/parson.h"
+#include <random>
 
 Application::Application()
 {
@@ -162,4 +163,15 @@ float Application::GetFPS()
 float Application::GetDT() const
 {
 	return dt;
+}
+
+uint Application::GenRandomNumber()
+{
+		uint number = 0;
+		std::random_device rd;
+		std::mt19937_64 eng(rd());
+		std::uniform_int_distribution<uint> distr;
+		number = distr(eng);
+
+		return number;
 }

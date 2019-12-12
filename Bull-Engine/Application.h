@@ -60,6 +60,7 @@ public:
 	float GetMS();
 	float GetFPS();
 	float GetDT() const;
+	uint GenRandomNumber();
 private:
 
 	void AddModule(Module* mod);

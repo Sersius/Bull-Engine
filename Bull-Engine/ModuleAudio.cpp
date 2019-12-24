@@ -12,7 +12,7 @@ bool ModuleAudio::Start()
 {
 	// Init wwise and audio banks
 	WwiseT::InitSoundEngine();
-	WwiseT::LoadBank("Bank.bnk");
+	WwiseT::LoadBank("New_SoundBank.bnk");
 	
 	source = App->audio->CreateSoundEmitter("Emitter");
 	SetListener(source);
@@ -24,7 +24,7 @@ bool ModuleAudio::Start()
 
 update_status ModuleAudio::Update(float dt)
 {
-	source->PlayEventByName("background_tracks");
+	source->PlayEventByName("Play");
 	return UPDATE_CONTINUE;
 }
 

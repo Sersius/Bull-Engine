@@ -8,6 +8,7 @@
 #include "Mesh.h"
 #include "Transform.h"
 #include "Camera.h"
+#include "AudioEmitter.h"
 
 #include "ImGui/imgui.h"
 
@@ -36,6 +37,8 @@ void GameObject::Update(float dt)
 	App->scene_intro->GameObjects.size();
 	if (camera)
 		camera->Update(dt);
+	if (audio_emitter)
+		audio_emitter->Update(dt);
 
 	DrawBoundingBox();
 }
@@ -66,6 +69,12 @@ Component* GameObject::CreateComponent(COMPONENT_TYPE type,char* name)
 		camera = new Camera(this);
 		_type = (Component*)camera;
 		components.push_back(camera);
+	}
+	else if (type == COMPONENT_TYPE::AUDIO_EMITTER)
+	{
+		audio_emitter = new AudioEmitter(this);
+		_type = (Component*)audio_emitter;
+		components.push_back(audio_emitter);
 	}
 	return _type;
 }

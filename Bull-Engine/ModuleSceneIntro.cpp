@@ -27,7 +27,8 @@ bool ModuleSceneIntro::Start()
 	root->SetName("Root");
 	
 	gameobject_scene = CreateGameObject(root);
-	//gameobject_scene->SetName("Street environment_V01");
+	gameobject_scene->SetName("Empty");
+	gameobject_scene->CreateComponent(COMPONENT_TYPE::AUDIO_EMITTER);
 	//gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Assets/Models/Street environment_V01.fbx");
 
 	camera_scene = CreateGameObject(root);

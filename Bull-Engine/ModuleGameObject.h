@@ -16,7 +16,8 @@ enum COMPONENT_TYPE
 	TRANSFORM,
 	MESH,
 	MATERIAL,
-	CAMERA
+	CAMERA,
+	AUDIO_EMITTER
 };
 
 class Component;
@@ -24,6 +25,7 @@ class Material;
 class Mesh;
 class Transform;
 class Camera;
+class AudioEmitter;
 
 class GameObject
 {
@@ -59,6 +61,7 @@ public:
 	Mesh* mesh = nullptr;
 	Transform* transform = nullptr;
 	Camera* camera = nullptr;
+	AudioEmitter* audio_emitter = nullptr;
 	bool render_model = true;
 	bool is_primitive = false;
 	uint uuid = 0;

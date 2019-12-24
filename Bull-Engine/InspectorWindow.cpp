@@ -8,6 +8,7 @@
 #include "Material.h"
 #include "Mesh.h"
 #include "Camera.h"
+#include "AudioEmitter.h"
 
 #include "ImGui/imgui.h"
 #include "ImGuizmo/ImGuizmo.h"
@@ -130,6 +131,17 @@ void InspectorWindow::Draw()
 					selected_go->camera->SetFOV(fov);
 					if (App->scene_intro->game_running == true && App->renderer3D->editor_camera_in_game == false)
 						App->renderer3D->RecalculateProjectionMatrix();
+				}
+			}
+		}
+		if (selected_go->audio_emitter != nullptr)
+		{
+			if (ImGui::CollapsingHeader("Audio Emitter"))
+			{
+				ImGui::Separator();
+				if (ImGui::SliderFloat("Volume", &selected_go->audio_emitter->volume, 0, 10)) {
+					selected_go->audio_emitter->ChangeVolume(selected_go->audio_emitter->volume);
+						
 				}
 			}
 		}

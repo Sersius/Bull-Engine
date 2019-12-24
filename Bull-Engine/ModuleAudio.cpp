@@ -14,17 +14,15 @@ bool ModuleAudio::Start()
 	WwiseT::InitSoundEngine();
 	WwiseT::LoadBank("New_SoundBank.bnk");
 	
-	source = App->audio->CreateSoundEmitter("Emitter");
-	SetListener(source);
-	
-	
-	
+	//source = App->audio->CreateSoundEmitter("Emitter");
+	//SetListener(source);
+
 	return true;
 }
 
 update_status ModuleAudio::Update(float dt)
 {
-	source->PlayEventByName("Play");
+	
 	return UPDATE_CONTINUE;
 }
 

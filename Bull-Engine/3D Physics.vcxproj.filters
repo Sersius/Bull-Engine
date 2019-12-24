@@ -885,6 +885,9 @@
     <ClInclude Include="AK\SoundEngine\Platforms\SSE\AkSimd.h">
       <Filter>Sources\Tools\Wwise\AK\SoundEngine\Platform\SSE</Filter>
     </ClInclude>
+    <ClInclude Include="AudioEmitter.h">
+      <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -1141,6 +1144,9 @@
     </ClCompile>
     <ClCompile Include="AK\Win32\stdafx.cpp">
       <Filter>Sources\Tools\Wwise\AK\WIN32</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioEmitter.cpp">
+      <Filter>Sources\Modules\Components GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

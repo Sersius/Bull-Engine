@@ -146,6 +146,9 @@ void InspectorWindow::Draw()
 		{
 			if (ImGui::CollapsingHeader("Audio Emitter"))
 			{
+				if (ImGui::Checkbox("Mute", &selected_go->audio_emitter->mute)) {
+					selected_go->audio_emitter->Mute(selected_go->audio_emitter->mute);
+				}
 				ImGui::Separator();
 				/*if (ImGui::SliderFloat("Volume", &selected_go->audio_emitter->volume, 0, 10)) {
 					selected_go->audio_emitter->ChangeVolume(selected_go->audio_emitter->volume);	

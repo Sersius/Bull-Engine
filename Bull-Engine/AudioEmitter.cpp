@@ -9,14 +9,14 @@ AudioEmitter::AudioEmitter(GameObject * parent) : Component(parent, COMPONENT_TY
 	source = App->audio->CreateSoundEmitter("Emitter");
 	//App->audio->audio_sources.push_back(this);
 	//timer.Start();
-	
+	source->PlayEventByName("Play");
 }
 
 
 void AudioEmitter::Update(float dt)
 {
 	DebugDraw();
-	source->PlayEventByName("Play");
+	
 
 }
 
@@ -77,5 +77,15 @@ void AudioEmitter::ChangePitch(float new_pitch)
 {
 	volume = new_pitch;
 	source->SetPitch(new_pitch);
+
+}
+
+void AudioEmitter::Mute(bool mute)
+{
+	this->mute = mute;
+	if (mute == true)
+		source->SetVolume(0);
+	else if (mute == false)
+		source->SetVolume(volume);
 
 }

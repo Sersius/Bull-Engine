@@ -5,6 +5,7 @@
 #include "ModuleWindow.h"
 #include "imGUI/imgui.h"
 
+
 TimeManagementWindow::TimeManagementWindow() : Window()
 {
 	on = true;
@@ -32,6 +33,7 @@ void TimeManagementWindow::Draw()
 	
 	if (ImGui::Button("Play"))
 	{
+		
 		LOG("Game Mode ON");
 		App->serialization->SaveScene("Autosave");
 		App->scene_intro->game_running = true;

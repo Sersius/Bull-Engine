@@ -9,8 +9,7 @@ AudioEmitter::AudioEmitter(GameObject * parent) : Component(parent, COMPONENT_TY
 	source = App->audio->CreateSoundEmitter("Emitter");
 	//App->audio->audio_sources.push_back(this);
 	//timer.Start();
-	WwiseT::AudioSource* listener;
-	App->audio->SetListener(source);
+	
 }
 
 
@@ -72,5 +71,11 @@ void AudioEmitter::ChangeVolume(float new_volume)
 {
 	volume = new_volume;
 	source->SetVolume(new_volume);
+
+}
+void AudioEmitter::ChangePitch(float new_pitch)
+{
+	volume = new_pitch;
+	source->SetPitch(new_pitch);
 
 }

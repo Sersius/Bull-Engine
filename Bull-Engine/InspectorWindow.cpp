@@ -9,6 +9,7 @@
 #include "Mesh.h"
 #include "Camera.h"
 #include "AudioEmitter.h"
+#include "AudioListener.h"
 
 #include "ImGui/imgui.h"
 #include "ImGuizmo/ImGuizmo.h"
@@ -134,17 +135,29 @@ void InspectorWindow::Draw()
 				}
 			}
 		}
+		if (selected_go->audio_listener != nullptr)
+		{
+			if (ImGui::CollapsingHeader("Audio Listener"))
+			{
+
+			}
+		}
 		if (selected_go->audio_emitter != nullptr)
 		{
 			if (ImGui::CollapsingHeader("Audio Emitter"))
 			{
 				ImGui::Separator();
-				if (ImGui::SliderFloat("Volume", &selected_go->audio_emitter->volume, 0, 10)) {
-					selected_go->audio_emitter->ChangeVolume(selected_go->audio_emitter->volume);
-						
+				/*if (ImGui::SliderFloat("Volume", &selected_go->audio_emitter->volume, 0, 10)) {
+					selected_go->audio_emitter->ChangeVolume(selected_go->audio_emitter->volume);	
+				}*/
+				ImGui::Separator();
+				if (ImGui::SliderFloat("Pitch", &selected_go->audio_emitter->pitch, 0, 15)) {
+					selected_go->audio_emitter->ChangePitch(selected_go->audio_emitter->pitch);
+
 				}
 			}
 		}
+		
 	}
 
 	ImGui::End();

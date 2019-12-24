@@ -888,6 +888,9 @@
     <ClInclude Include="AudioEmitter.h">
       <Filter>Sources\Modules\Components GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="AudioListener.h">
+      <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -1146,6 +1149,9 @@
       <Filter>Sources\Tools\Wwise\AK\WIN32</Filter>
     </ClCompile>
     <ClCompile Include="AudioEmitter.cpp">
+      <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioListener.cpp">
       <Filter>Sources\Modules\Components GameObject</Filter>
     </ClCompile>
   </ItemGroup>

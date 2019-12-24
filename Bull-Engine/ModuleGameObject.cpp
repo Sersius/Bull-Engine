@@ -9,6 +9,7 @@
 #include "Transform.h"
 #include "Camera.h"
 #include "AudioEmitter.h"
+#include "AudioListener.h"
 
 #include "ImGui/imgui.h"
 
@@ -75,6 +76,12 @@ Component* GameObject::CreateComponent(COMPONENT_TYPE type,char* name)
 		audio_emitter = new AudioEmitter(this);
 		_type = (Component*)audio_emitter;
 		components.push_back(audio_emitter);
+	}
+	else if (type == COMPONENT_TYPE::AUDIO_LISTENER)
+	{
+		audio_listener = new AudioListener(this);
+		_type = (Component*)audio_listener;
+		components.push_back(audio_listener);
 	}
 	return _type;
 }

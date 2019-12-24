@@ -14,12 +14,14 @@ public:
 
 	void Update(float dt);
 	void ChangeVolume(float new_volume);
+	void ChangePitch(float new_pitch);
 	void DebugDraw();
 
 public:
 	WwiseT::AudioSource* source;
 	math::OBB cube;
 	float volume = 1.0f;
+	float pitch = 1.0f;
 
 	
 	

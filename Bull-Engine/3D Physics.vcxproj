@@ -226,6 +226,7 @@
     <ClInclude Include="Assimp\include\Vertex.h" />
     <ClInclude Include="Assimp\include\XMLTools.h" />
     <ClInclude Include="AudioEmitter.h" />
+    <ClInclude Include="AudioListener.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Config.h" />
@@ -344,6 +345,7 @@
     <ClCompile Include="AK\Win32\stdafx.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="AudioEmitter.cpp" />
+    <ClCompile Include="AudioListener.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Config.cpp" />

@@ -1,7 +1,7 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 1749807812,
+        "UUID:": 1123385503,
         "Components:": [
             {
                 "Type:": 1,
@@ -19,8 +19,8 @@
     },
     {
         "Name:": "Empty",
-        "UUID:": 2841652413,
-        "Parent UUID:": 1749807812,
+        "UUID:": 2418476669,
+        "Parent UUID:": 1123385503,
         "Components:": [
             {
                 "Type:": 1,
@@ -38,8 +38,8 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 1785480799,
-        "Parent UUID:": 1749807812,
+        "UUID:": 1377837626,
+        "Parent UUID:": 1123385503,
         "Components:": [
             {
                 "Type:": 1,

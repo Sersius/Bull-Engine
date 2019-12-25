@@ -4,6 +4,7 @@
 #include "ModuleComponent.h"
 #include "Globals.h"
 #include "WwiseT.h"
+#include "Timer.h"
 
 class AudioEmitter : public Component
 {
@@ -26,10 +27,11 @@ public:
 	math::OBB cube;
 	float volume = 1.0f;
 	float pitch = 1.0f;
-	float time_to_swap = 30.0f;
+	float time_to_swap = 20.0f;
+	int current_state = 2;
 	bool mute = false;
 	bool mono = false;
-
+	Timer timer;
 	
 	
 

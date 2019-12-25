@@ -12,7 +12,7 @@ bool ModuleAudio::Start()
 {
 	// Init wwise and audio banks
 	WwiseT::InitSoundEngine();
-	WwiseT::LoadBank("New_SoundBank.bnk");
+	WwiseT::LoadBank("Assignment3.bnk");
 	
 	//source = App->audio->CreateSoundEmitter("Emitter");
 	//SetListener(source);

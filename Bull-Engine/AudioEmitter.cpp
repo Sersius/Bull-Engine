@@ -91,7 +91,22 @@ void AudioEmitter::Mute(bool mute)
 
 }
 
+void AudioEmitter::ChangeTimeToSwap(float new_time)
+{
+	time_to_swap = new_time;
+}
+void AudioEmitter::Mono(bool mono)
+{
+	this->mono = mono;
+	if (mono == true)
+		source->SetMono();
+	else if (mono == false)
+		source->SetStereo();
+}
+
 void AudioEmitter::StartSound()
 {
-	source->PlayEventByName("Play");
+	source->PlayEventByName("train");
+	source->SetMono();
 }
+

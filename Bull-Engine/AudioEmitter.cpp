@@ -115,9 +115,9 @@ void AudioEmitter::Mono(bool mono)
 		source->SetStereo();
 }
 
-void AudioEmitter::StartSound()
+void AudioEmitter::StartSound(const char* name)
 {
-	source->PlayEventByName("BGmusic");
+	source->PlayEventByName(name);
 	timer.Start();
 	source->SetMono();
 }

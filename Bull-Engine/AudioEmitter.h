@@ -20,7 +20,7 @@ public:
 	void ChangeTimeToSwap(float new_time);
 	void Mono(bool mono);
 	void DebugDraw();
-	void StartSound();
+	void StartSound(const char* name);
 
 public:
 	WwiseT::AudioSource* source;

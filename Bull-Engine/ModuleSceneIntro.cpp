@@ -6,6 +6,7 @@
 
 #include "Material.h"
 #include "Mesh.h"
+#include "AudioEmitter.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -27,11 +28,17 @@ bool ModuleSceneIntro::Start()
 	root->SetName("Root");
 	
 	gameobject_scene = CreateGameObject(root);
-	gameobject_scene->SetName("Empty");
+	gameobject_scene->SetName("Source/Listener");
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::AUDIO_EMITTER);
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::AUDIO_LISTENER);
+	//gameobject_scene->audio_emitter->StartSound("BGmusic");
 	//gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Assets/Models/Street environment_V01.fbx");
 
+	GOPath = CreateGameObject(root);
+	GOPath->SetName("SourceMove");
+	GOPath->CreateComponent(COMPONENT_TYPE::AUDIO_EMITTER);
+	GOPath->audio_emitter->StartSound("train");
+	
 	camera_scene = CreateGameObject(root);
 	camera_scene->CreateComponent(COMPONENT_TYPE::CAMERA);
 	camera_scene->SetName("Camera");
@@ -60,6 +67,7 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.Render();
 	GameObjects;
 	root->Update(dt);
+	GOPath->MoveGO();
 	return UPDATE_CONTINUE;
 }
 

@@ -38,7 +38,7 @@ void TimeManagementWindow::Draw()
 		App->serialization->SaveScene("Autosave");
 		App->scene_intro->game_running = true;
 		if(App->scene_intro->gameobject_scene->audio_emitter!=nullptr)
-			App->scene_intro->gameobject_scene->audio_emitter->StartSound();
+			App->scene_intro->gameobject_scene->audio_emitter->StartSound("BGmusic");
 		
 	}
 	ImGui::SameLine();
@@ -58,7 +58,7 @@ void TimeManagementWindow::Draw()
 			LOG("Game Mode STOPPED");
 			App->scene_intro->timer_in_game.paused = false;
 			if (App->scene_intro->gameobject_scene->audio_emitter != nullptr)
-				App->scene_intro->gameobject_scene->audio_emitter->StartSound();
+				App->scene_intro->gameobject_scene->audio_emitter->StartSound("BGmusic");
 		}
 	}
 	ImGui::SameLine();

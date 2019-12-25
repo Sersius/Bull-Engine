@@ -36,6 +36,7 @@ public:
 	std::vector<GameObject*> GameObjects;
 	GameObject* root = nullptr;
 	GameObject* gameobject_scene = nullptr;
+	GameObject* GOPath = nullptr;
 	GameObject* camera_scene = nullptr;
 	GameObject* selected = nullptr;
 	TimerInGame timer_in_game;

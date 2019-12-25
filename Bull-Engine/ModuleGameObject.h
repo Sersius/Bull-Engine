@@ -54,7 +54,7 @@ public:
 	void SaveInfoGameObject(GameObject* go, JSON_Array* json_array);
 	void DeleteScene();
 	void LoadInfoGambeObject(JSON_Object* obj, GameObject* go);
-
+	void MoveGO();
 public:
 	math::AABB bounding_box;
 	math::OBB obb;
@@ -69,7 +69,8 @@ public:
 	bool is_primitive = false;
 	uint uuid = 0;
 	uint uuid_parent = 0;
-
+	bool go_left = false;
+	bool go_right = true;
 	std::string name;
 	GameObject* parent = nullptr;
 	

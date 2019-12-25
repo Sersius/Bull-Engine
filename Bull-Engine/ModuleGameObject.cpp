@@ -293,3 +293,68 @@ void GameObject::DeleteScene()
 	components.clear();
 	children.clear();
 }
+
+void GameObject::MoveGO()
+{
+	math::float3 curr_pos = parent->GetComponentTransform()->position;
+	
+	float x = 0.0f;
+	float y = 0.0f;
+	float z = 0.0f;
+	if (parent->GetComponentTransform()->position.x <= 10) {
+		math::float3 move = math::float3(parent->GetComponentTransform()->position.x += 0.1f, y, z);
+		parent->GetComponentTransform()->SetPosition(move);
+
+	}
+	if (parent->GetComponentTransform()->position.x == 10) {
+		go_right = false;
+		go_left = true;
+
+	}
+	else if (go_left == true)
+	{
+		math::float3 move = math::float3(parent->GetComponentTransform()->position.x -= 0.1f, y, z);
+		parent->GetComponentTransform()->SetPosition(move);
+	}
+
+	/*if (go_right == true)
+	{
+		if(parent->GetComponentTransform()->position.x<10){}
+		parent->GetComponentTransform()->position.x += 0.1f;
+		
+		move += curr_pos;
+		parent->GetComponentTransform()->SetPosition(move);
+		go_right = false;
+		go_left = true;
+	}*/
+	else if (parent->GetComponentTransform()->position.x > -10 && go_left ==true)
+	{
+		parent->GetComponentTransform()->position.x += 0.1f;
+		math::float3 move = math::float3(parent->GetComponentTransform()->position.x -= 0.1f, y, z);
+		move += curr_pos;
+		parent->GetComponentTransform()->SetPosition(move);
+		go_right = true;
+		go_left = false;
+	}
+	/*if (going_a == true) {
+		if (curr_pos.x < pos_a.x) {
+			x += velocity * dt;
+		}
+		else {
+			going_a = false;
+			going_b = true;
+		}
+	}
+	else {
+		if (curr_pos.x > pos_b.x) {
+			x -= velocity * dt;
+		}
+		else {
+			going_a = true;
+			going_b = false;
+		}
+	}*/
+
+	
+	
+}

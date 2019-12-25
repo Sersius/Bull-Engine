@@ -8,7 +8,7 @@ AudioEmitter::AudioEmitter(GameObject * parent) : Component(parent, COMPONENT_TY
 {
 	source = App->audio->CreateSoundEmitter("Emitter");
 	//App->audio->audio_sources.push_back(this);
-	timer.Start();
+	
 
 	
 }
@@ -19,14 +19,14 @@ void AudioEmitter::Update(float dt)
 	DebugDraw();
 	
 	if (timer.Read() / 1000 >= time_to_swap) {
-		if (current_state == 1) {
+		if (song == 1) {
 			source->ChangeState("swap_music", "state2");
-			current_state = 2;
+			song = 2;
 			timer.Start();
 		}
 		else {
 			source->ChangeState("swap_music", "state1");
-			current_state = 1;
+			song = 1;
 			timer.Start();
 		}
 	}
@@ -117,7 +117,8 @@ void AudioEmitter::Mono(bool mono)
 
 void AudioEmitter::StartSound()
 {
-	source->PlayEventByName("background_tracks");
+	source->PlayEventByName("BGmusic");
+	timer.Start();
 	source->SetMono();
 }
 

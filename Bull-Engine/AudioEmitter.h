@@ -25,10 +25,11 @@ public:
 public:
 	WwiseT::AudioSource* source;
 	math::OBB cube;
+	std::string audio_name;
 	float volume = 1.0f;
 	float pitch = 1.0f;
-	float time_to_swap = 20.0f;
-	int current_state = 2;
+	float time_to_swap = 30.0f;
+	int song = 2;
 	bool mute = false;
 	bool mono = false;
 	Timer timer;

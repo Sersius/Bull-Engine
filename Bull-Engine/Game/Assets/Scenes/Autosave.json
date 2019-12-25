@@ -1,7 +1,7 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 2305506083,
+        "UUID:": 2192414476,
         "Components:": [
             {
                 "Type:": 1,
@@ -18,9 +18,28 @@
         ]
     },
     {
-        "Name:": "",
-        "UUID:": 3266904228,
-        "Parent UUID:": 2305506083,
+        "Name:": "Root",
+        "UUID:": 2010803776,
+        "Parent UUID:": 2192414476,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -0,
+                "RotationY": 0,
+                "RotationZ": -0,
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
+            }
+        ]
+    },
+    {
+        "Name:": "Empty",
+        "UUID:": 3494184364,
+        "Parent UUID:": 2010803776,
         "Components:": [
             {
                 "Type:": 1,
@@ -38,8 +57,8 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 2839169004,
-        "Parent UUID:": 2305506083,
+        "UUID:": 466606888,
+        "Parent UUID:": 2010803776,
         "Components:": [
             {
                 "Type:": 1,

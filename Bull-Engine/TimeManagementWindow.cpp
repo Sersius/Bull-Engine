@@ -3,6 +3,7 @@
 #include "ModuleGameObject.h"
 #include "Globals.h"
 #include "ModuleWindow.h"
+#include "AudioEmitter.h"
 #include "imGUI/imgui.h"
 
 
@@ -33,10 +34,11 @@ void TimeManagementWindow::Draw()
 	
 	if (ImGui::Button("Play"))
 	{
-		
 		LOG("Game Mode ON");
 		App->serialization->SaveScene("Autosave");
 		App->scene_intro->game_running = true;
+		if(App->scene_intro->gameobject_scene->audio_emitter!=nullptr)
+			App->scene_intro->gameobject_scene->audio_emitter->StartSound();
 		
 	}
 	ImGui::SameLine();
@@ -46,6 +48,7 @@ void TimeManagementWindow::Draw()
 			LOG("Game Mode PAUSED");
 			App->scene_intro->timer_in_game.paused = true;
 			App->scene_intro->timer_in_game.time = App->scene_intro->timer_in_game.time;
+			App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("Play");
 		}
 	}
 	
@@ -54,6 +57,8 @@ void TimeManagementWindow::Draw()
 		{
 			LOG("Game Mode STOPPED");
 			App->scene_intro->timer_in_game.paused = false;
+			if (App->scene_intro->gameobject_scene->audio_emitter != nullptr)
+				App->scene_intro->gameobject_scene->audio_emitter->StartSound();
 		}
 	}
 	ImGui::SameLine();
@@ -63,6 +68,7 @@ void TimeManagementWindow::Draw()
 		App->scene_intro->game_running = false;
 		App->serialization->LoadScene("Autosave");
 		App->renderer3D->RecalculateProjectionMatrix();
+		App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("Play");
 	}
 	ImGui::SameLine();
 	if (App->scene_intro->game_running == true) {

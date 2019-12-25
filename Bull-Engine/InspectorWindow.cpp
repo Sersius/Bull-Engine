@@ -150,10 +150,9 @@ void InspectorWindow::Draw()
 					selected_go->audio_emitter->Mute(selected_go->audio_emitter->mute);
 				}
 				ImGui::Separator();
-				/*if (ImGui::SliderFloat("Volume", &selected_go->audio_emitter->volume, 0, 10)) {
+				if (ImGui::SliderFloat("Volume", &selected_go->audio_emitter->volume, 0, 10)) {
 					selected_go->audio_emitter->ChangeVolume(selected_go->audio_emitter->volume);	
-				}*/
-				ImGui::Separator();
+				}
 				if (ImGui::SliderFloat("Pitch", &selected_go->audio_emitter->pitch, 0, 15)) {
 					selected_go->audio_emitter->ChangePitch(selected_go->audio_emitter->pitch);
 

@@ -9,7 +9,8 @@ AudioEmitter::AudioEmitter(GameObject * parent) : Component(parent, COMPONENT_TY
 	source = App->audio->CreateSoundEmitter("Emitter");
 	//App->audio->audio_sources.push_back(this);
 	//timer.Start();
-	source->PlayEventByName("Play");
+
+	
 }
 
 
@@ -88,4 +89,9 @@ void AudioEmitter::Mute(bool mute)
 	else if (mute == false)
 		source->SetVolume(volume);
 
+}
+
+void AudioEmitter::StartSound()
+{
+	source->PlayEventByName("Play");
 }

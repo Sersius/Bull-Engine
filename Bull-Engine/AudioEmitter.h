@@ -17,7 +17,7 @@ public:
 	void ChangePitch(float new_pitch);
 	void Mute(bool mute);
 	void DebugDraw();
-
+	void StartSound();
 
 public:
 	WwiseT::AudioSource* source;

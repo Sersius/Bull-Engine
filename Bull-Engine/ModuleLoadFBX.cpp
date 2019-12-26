@@ -68,7 +68,7 @@ update_status ModuleLoadFBX::Update(float dt)
 	return UPDATE_CONTINUE;
 }
 
-bool ModuleLoadFBX::LoadFbx(const char* path)
+bool ModuleLoadFBX::LoadFbx(const char* path,GameObject*go)
 {
 	const aiScene* scene = aiImportFile(path, aiProcessPreset_TargetRealtime_MaxQuality);
 	if (scene != nullptr && scene->HasMeshes()) {
@@ -77,7 +77,8 @@ bool ModuleLoadFBX::LoadFbx(const char* path)
 		for (int i = 0; i < rootNode->mNumChildren; ++i)
 		{
 			
-			LoadModelInfo(scene,rootNode->mChildren[i],App->scene_intro->gameobject_scene, path);
+				LoadModelInfo(scene,rootNode->mChildren[i], go, path);
+			
 		}
 		return true;
 	}

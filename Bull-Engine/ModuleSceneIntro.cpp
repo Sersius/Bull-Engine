@@ -6,6 +6,7 @@
 
 #include "Material.h"
 #include "Mesh.h"
+#include "Transform.h"
 #include "AudioEmitter.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
@@ -22,7 +23,7 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 	glewInit();
 
-	App->camera->Move(float3(1.0f, 1.0f, 0.0f));
+	App->camera->Move(float3(0.0f, 10.0f, 30.0f));
 	App->camera->LookAt(float3(0, 0, 0));
 	root = CreateGameObject(nullptr);
 	root->SetName("Root");
@@ -31,14 +32,21 @@ bool ModuleSceneIntro::Start()
 	gameobject_scene->SetName("Source/Listener");
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::AUDIO_EMITTER);
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::AUDIO_LISTENER);
+	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH,"Assets/Models/Sphere.fbx");
+	
 	//gameobject_scene->audio_emitter->StartSound("BGmusic");
 	//gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Assets/Models/Street environment_V01.fbx");
 
 	GOPath = CreateGameObject(root);
 	GOPath->SetName("SourceMove");
 	GOPath->CreateComponent(COMPONENT_TYPE::AUDIO_EMITTER);
+	GOPath->CreateComponent(COMPONENT_TYPE::MESH, "Assets/Models/Sphere.fbx");
+	GOPath->transform->position.x = 3.0f;
+	GOPath->transform->position.y = 0.0f;
+	GOPath->transform->position.z = 3.0f;
 	GOPath->audio_emitter->mono = true;
 	GOPath->audio_emitter->StartSound("Rain");
+	
 	
 	camera_scene = CreateGameObject(root);
 	camera_scene->CreateComponent(COMPONENT_TYPE::CAMERA);
@@ -68,7 +76,8 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.Render();
 	GameObjects;
 	root->Update(dt);
-	GOPath->MoveGO();
+	LOG("%i", gameobject_scene->children.capacity());
+	//GOPath->MoveGO();
 	return UPDATE_CONTINUE;
 }
 

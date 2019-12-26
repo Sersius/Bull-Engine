@@ -42,7 +42,7 @@ public:
 	update_status Update(float dt);
 	update_status PreUpdate(float dt);
 	bool CleanUp();
-	bool LoadFbx(const char* path);
+	bool LoadFbx(const char* path,GameObject* go);
 	void LoadModelInfo(const aiScene* scene, aiNode* node, GameObject* game_object,const char* path);
 	InfoFbx LoadParShapeMesh(par_shapes_mesh* mesh);
 	void CreateBuffers();

@@ -33,7 +33,7 @@ void Mesh::Update(float dt)
 
 void Mesh::GetMesh(char* path)
 {
-	App->loadFBX->LoadFbx(path);
+	App->loadFBX->LoadFbx(path,parent);
 	this->path = path;
 	
 

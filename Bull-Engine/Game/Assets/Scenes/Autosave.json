@@ -1,11 +1,11 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 3044394306,
+        "UUID:": 1176571331,
         "Components:": [
             {
                 "Type:": 1,
-                "PositionX": 10.000001907348633,
+                "PositionX": 0,
                 "PositionY": 0,
                 "PositionZ": 0,
                 "RotationX": -0,
@@ -19,46 +19,124 @@
     },
     {
         "Name:": "Source\/Listener",
-        "UUID:": 2316265612,
-        "Parent UUID:": 3044394306,
+        "UUID:": 558821373,
+        "Parent UUID:": 1176571331,
         "Components:": [
             {
                 "Type:": 1,
-                "PositionX": 0,
+                "PositionX": -4.5263328552246094,
                 "PositionY": 0,
-                "PositionZ": 0,
+                "PositionZ": 3.8416194915771484,
                 "RotationX": -0,
                 "RotationY": 0,
                 "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
+            },
+            {
+                "Type:": 2,
+                "id_index:": 0,
+                "id_vertex:": 0,
+                "id_normals:": 0,
+                "id_uv:": 0,
+                "Active:": true,
+                "path": "Assets\/Models\/Sphere.fbx",
+                "path_file_format": ""
+            }
+        ]
+    },
+    {
+        "Name:": "Sphere",
+        "UUID:": 618677075,
+        "Parent UUID:": 558821373,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -90.000007629394531,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 0.10000000149011612,
+                "ScaleY": 0.10000000149011612,
+                "ScaleZ": 0.10000000149011612
+            },
+            {
+                "Type:": 2,
+                "id_index:": 2,
+                "id_vertex:": 1,
+                "id_normals:": 4,
+                "id_uv:": 3,
+                "Active:": true,
+                "path": "Assets\/Models\/Sphere.fbx",
+                "path_file_format": "\/library\/meshes\/sphere.bl"
             }
         ]
     },
     {
         "Name:": "SourceMove",
-        "UUID:": 1540214551,
-        "Parent UUID:": 3044394306,
+        "UUID:": 2940537414,
+        "Parent UUID:": 1176571331,
         "Components:": [
             {
                 "Type:": 1,
-                "PositionX": 0,
+                "PositionX": -0.0031586885452270508,
                 "PositionY": 0,
-                "PositionZ": 0,
+                "PositionZ": 8.7227296829223633,
                 "RotationX": -0,
                 "RotationY": 0,
                 "RotationZ": -0,
                 "ScaleX": 1,
                 "ScaleY": 1,
                 "ScaleZ": 1
+            },
+            {
+                "Type:": 2,
+                "id_index:": 0,
+                "id_vertex:": 0,
+                "id_normals:": 0,
+                "id_uv:": 0,
+                "Active:": true,
+                "path": "Assets\/Models\/Sphere.fbx",
+                "path_file_format": ""
+            }
+        ]
+    },
+    {
+        "Name:": "Sphere",
+        "UUID:": 1940151528,
+        "Parent UUID:": 2940537414,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 0,
+                "RotationX": -90.000007629394531,
+                "RotationY": 0,
+                "RotationZ": 0,
+                "ScaleX": 0.10000000149011612,
+                "ScaleY": 0.10000000149011612,
+                "ScaleZ": 0.10000000149011612
+            },
+            {
+                "Type:": 2,
+                "id_index:": 6,
+                "id_vertex:": 5,
+                "id_normals:": 8,
+                "id_uv:": 7,
+                "Active:": true,
+                "path": "Assets\/Models\/Sphere.fbx",
+                "path_file_format": "\/library\/meshes\/sphere.bl"
             }
         ]
     },
     {
         "Name:": "Camera",
-        "UUID:": 3861365854,
-        "Parent UUID:": 3044394306,
+        "UUID:": 1040336688,
+        "Parent UUID:": 1176571331,
         "Components:": [
             {
                 "Type:": 1,

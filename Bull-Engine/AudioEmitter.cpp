@@ -17,7 +17,7 @@ AudioEmitter::AudioEmitter(GameObject * parent) : Component(parent, COMPONENT_TY
 void AudioEmitter::Update(float dt)
 {
 	UpdateSourcePos();
-	DebugDraw();
+	//DebugDraw();
 	
 	if (timer.Read() / 1000 >= time_to_swap) {
 		if (song == 1) {

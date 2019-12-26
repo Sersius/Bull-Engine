@@ -296,7 +296,7 @@ void GameObject::DeleteScene()
 
 void GameObject::MoveGO()
 {
-	math::float3 curr_pos = parent->GetComponentTransform()->position;
+	/*math::float3 curr_pos = parent->GetComponentTransform()->position;
 	
 	float x = 0.0f;
 	float y = 0.0f;
@@ -315,7 +315,7 @@ void GameObject::MoveGO()
 	{
 		math::float3 move = math::float3(parent->GetComponentTransform()->position.x -= 0.1f, y, z);
 		parent->GetComponentTransform()->SetPosition(move);
-	}
+	}*/
 
 	/*if (go_right == true)
 	{
@@ -327,7 +327,7 @@ void GameObject::MoveGO()
 		go_right = false;
 		go_left = true;
 	}*/
-	else if (parent->GetComponentTransform()->position.x > -10 && go_left ==true)
+	/*else if (parent->GetComponentTransform()->position.x > -10 && go_left ==true)
 	{
 		parent->GetComponentTransform()->position.x += 0.1f;
 		math::float3 move = math::float3(parent->GetComponentTransform()->position.x -= 0.1f, y, z);
@@ -335,7 +335,7 @@ void GameObject::MoveGO()
 		parent->GetComponentTransform()->SetPosition(move);
 		go_right = true;
 		go_left = false;
-	}
+	}*/
 	/*if (going_a == true) {
 		if (curr_pos.x < pos_a.x) {
 			x += velocity * dt;

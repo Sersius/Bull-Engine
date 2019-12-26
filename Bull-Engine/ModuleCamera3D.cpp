@@ -14,8 +14,8 @@ ModuleCamera3D::ModuleCamera3D(Application* app, bool start_enabled) : Module(ap
 	dummy = new Camera(nullptr);
 	dummy->SetNear(0.1f);
 	dummy->SetFar(1000.0f);
-	Move({ 5.0f, 5.0f, 5.0f });
-	LookAt({ 0.0f, 0.0f, 0.0f });
+	Move({ 0.0f, 0.0f, 0.0f });
+	LookAt({ 1.0f, 0.0f, 0.0f });
 }
 
 ModuleCamera3D::~ModuleCamera3D()
@@ -43,7 +43,7 @@ update_status ModuleCamera3D::Update(float dt)
 {
 	// Implement a debug camera with keys and mouse
 	// Now we can make this movememnt frame rate independant!
-
+	
 	float3 newPos(0,0,0);
 	float speed = 2.5f * dt;
 	float wheel_speed = 3.0f;
@@ -87,7 +87,6 @@ update_status ModuleCamera3D::Update(float dt)
 
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= dummy->frustum.WorldRight() * speed;
 		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += dummy->frustum.WorldRight() * speed;
-
 		Move(newPos);
 	}
 

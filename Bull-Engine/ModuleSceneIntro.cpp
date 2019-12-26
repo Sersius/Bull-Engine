@@ -14,7 +14,9 @@ ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Modul
 }
 
 ModuleSceneIntro::~ModuleSceneIntro()
-{}
+{
+	WwiseT::CloseSoundEngine();
+}
 
 // Load assets
 bool ModuleSceneIntro::Start()

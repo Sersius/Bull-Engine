@@ -1,178 +1,7 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 2676278411,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            }
-        ]
-    },
-    {
-        "Name:": "Root",
-        "UUID:": 3707926707,
-        "Parent UUID:": 2676278411,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            }
-        ]
-    },
-    {
-        "Name:": "Root",
-        "UUID:": 1889667796,
-        "Parent UUID:": 3707926707,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            }
-        ]
-    },
-    {
-        "Name:": "Root",
-        "UUID:": 1859339505,
-        "Parent UUID:": 1889667796,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            }
-        ]
-    },
-    {
-        "Name:": "Root",
-        "UUID:": 242758410,
-        "Parent UUID:": 1859339505,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            }
-        ]
-    },
-    {
-        "Name:": "Root",
-        "UUID:": 873597550,
-        "Parent UUID:": 242758410,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            }
-        ]
-    },
-    {
-        "Name:": "Root",
-        "UUID:": 3236925064,
-        "Parent UUID:": 873597550,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            }
-        ]
-    },
-    {
-        "Name:": "Root",
-        "UUID:": 2903311204,
-        "Parent UUID:": 3236925064,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            }
-        ]
-    },
-    {
-        "Name:": "Root",
-        "UUID:": 3777036797,
-        "Parent UUID:": 2903311204,
-        "Components:": [
-            {
-                "Type:": 1,
-                "PositionX": 0,
-                "PositionY": 0,
-                "PositionZ": 0,
-                "RotationX": -0,
-                "RotationY": 0,
-                "RotationZ": -0,
-                "ScaleX": 1,
-                "ScaleY": 1,
-                "ScaleZ": 1
-            }
-        ]
-    },
-    {
-        "Name:": "Root",
-        "UUID:": 3558562234,
-        "Parent UUID:": 3777036797,
+        "UUID:": 1201103988,
         "Components:": [
             {
                 "Type:": 1,
@@ -190,8 +19,8 @@
     },
     {
         "Name:": "Source\/Listener",
-        "UUID:": 3972366348,
-        "Parent UUID:": 3558562234,
+        "UUID:": 261826613,
+        "Parent UUID:": 1201103988,
         "Components:": [
             {
                 "Type:": 1,
@@ -212,7 +41,7 @@
                 "id_normals:": 0,
                 "id_uv:": 0,
                 "Active:": true,
-                "path": "",
+                "path": "Assets\/Models\/Sphere.fbx",
                 "path_file_format": ""
             },
             {
@@ -232,8 +61,8 @@
     },
     {
         "Name:": "Sphere",
-        "UUID:": 2591738874,
-        "Parent UUID:": 3972366348,
+        "UUID:": 1867328609,
+        "Parent UUID:": 261826613,
         "Components:": [
             {
                 "Type:": 1,
@@ -254,15 +83,15 @@
                 "id_normals:": 4,
                 "id_uv:": 3,
                 "Active:": true,
-                "path": "",
+                "path": "Assets\/Models\/Sphere.fbx",
                 "path_file_format": "\/library\/meshes\/sphere.bl"
             }
         ]
     },
     {
         "Name:": "SourceMove",
-        "UUID:": 1213702960,
-        "Parent UUID:": 3558562234,
+        "UUID:": 227592517,
+        "Parent UUID:": 1201103988,
         "Components:": [
             {
                 "Type:": 1,
@@ -283,7 +112,7 @@
                 "id_normals:": 0,
                 "id_uv:": 0,
                 "Active:": true,
-                "path": "",
+                "path": "Assets\/Models\/Sphere.fbx",
                 "path_file_format": ""
             },
             {
@@ -300,8 +129,8 @@
     },
     {
         "Name:": "Sphere",
-        "UUID:": 3039332981,
-        "Parent UUID:": 1213702960,
+        "UUID:": 3069241277,
+        "Parent UUID:": 227592517,
         "Components:": [
             {
                 "Type:": 1,
@@ -322,15 +151,15 @@
                 "id_normals:": 8,
                 "id_uv:": 7,
                 "Active:": true,
-                "path": "",
+                "path": "Assets\/Models\/Sphere.fbx",
                 "path_file_format": "\/library\/meshes\/sphere.bl"
             }
         ]
     },
     {
         "Name:": "Camera",
-        "UUID:": 2569657527,
-        "Parent UUID:": 3558562234,
+        "UUID:": 1414675987,
+        "Parent UUID:": 1201103988,
         "Components:": [
             {
                 "Type:": 1,

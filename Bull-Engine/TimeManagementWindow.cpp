@@ -37,8 +37,11 @@ void TimeManagementWindow::Draw()
 		LOG("Game Mode ON");
 		App->serialization->SaveScene("Autosave");
 		App->scene_intro->game_running = true;
-		if(App->scene_intro->gameobject_scene->audio_emitter!=nullptr)
+		if (App->scene_intro->gameobject_scene->audio_emitter != nullptr)
 			App->scene_intro->gameobject_scene->audio_emitter->StartSound("BGmusic");
+		if (App->scene_intro->GOPath->audio_emitter != nullptr) 
+			App->scene_intro->GOPath->audio_emitter->StartSound("Rain");
+		
 		
 	}
 	ImGui::SameLine();
@@ -48,7 +51,8 @@ void TimeManagementWindow::Draw()
 			LOG("Game Mode PAUSED");
 			App->scene_intro->timer_in_game.paused = true;
 			App->scene_intro->timer_in_game.time = App->scene_intro->timer_in_game.time;
-			App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("Play");
+			App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("BGmusic");
+			App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("Rain");
 		}
 	}
 	
@@ -58,7 +62,9 @@ void TimeManagementWindow::Draw()
 			LOG("Game Mode STOPPED");
 			App->scene_intro->timer_in_game.paused = false;
 			if (App->scene_intro->gameobject_scene->audio_emitter != nullptr)
-				App->scene_intro->gameobject_scene->audio_emitter->StartSound("BGmusic");
+				App->scene_intro->gameobject_scene->audio_emitter->source->ResumeEventByName("BGmusic");
+			if (App->scene_intro->GOPath->audio_emitter != nullptr)
+				App->scene_intro->GOPath->audio_emitter->source->ResumeEventByName("Rain");
 		}
 	}
 	ImGui::SameLine();
@@ -68,7 +74,8 @@ void TimeManagementWindow::Draw()
 		App->scene_intro->game_running = false;
 		App->serialization->LoadScene("Autosave");
 		App->renderer3D->RecalculateProjectionMatrix();
-		App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("Play");
+		App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("BGmusic");
+		App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("Rain");
 	}
 	ImGui::SameLine();
 	if (App->scene_intro->game_running == true) {

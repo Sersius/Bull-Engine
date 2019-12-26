@@ -44,8 +44,8 @@ bool ModuleSceneIntro::Start()
 	GOPath->transform->position.x = 3.0f;
 	GOPath->transform->position.y = 0.0f;
 	GOPath->transform->position.z = 3.0f;
-	GOPath->audio_emitter->mono = true;
-	GOPath->audio_emitter->StartSound("Rain");
+	//GOPath->audio_emitter->mono = true;
+	//GOPath->audio_emitter->StartSound("Rain");
 	
 	
 	camera_scene = CreateGameObject(root);

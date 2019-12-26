@@ -37,10 +37,11 @@ void TimeManagementWindow::Draw()
 		LOG("Game Mode ON");
 		App->serialization->SaveScene("Autosave");
 		App->scene_intro->game_running = true;
-		if (App->scene_intro->gameobject_scene->audio_emitter != nullptr)
+		/*if (App->scene_intro->gameobject_scene->audio_emitter != nullptr)
 			App->scene_intro->gameobject_scene->audio_emitter->StartSound("BGmusic");
 		if (App->scene_intro->GOPath->audio_emitter != nullptr) 
-			App->scene_intro->GOPath->audio_emitter->StartSound("Rain");
+			App->scene_intro->GOPath->audio_emitter->StartSound("Rain");*/
+		App->audio->PlayOnAwake();
 		
 		
 	}
@@ -51,8 +52,9 @@ void TimeManagementWindow::Draw()
 			LOG("Game Mode PAUSED");
 			App->scene_intro->timer_in_game.paused = true;
 			App->scene_intro->timer_in_game.time = App->scene_intro->timer_in_game.time;
-			App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("BGmusic");
-			App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("Rain");
+			/*App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("BGmusic");
+			App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("Rain");*/
+			App->audio->Pause();
 		}
 	}
 	
@@ -61,10 +63,11 @@ void TimeManagementWindow::Draw()
 		{
 			LOG("Game Mode STOPPED");
 			App->scene_intro->timer_in_game.paused = false;
-			if (App->scene_intro->gameobject_scene->audio_emitter != nullptr)
+			/*if (App->scene_intro->gameobject_scene->audio_emitter != nullptr)
 				App->scene_intro->gameobject_scene->audio_emitter->source->ResumeEventByName("BGmusic");
 			if (App->scene_intro->GOPath->audio_emitter != nullptr)
-				App->scene_intro->GOPath->audio_emitter->source->ResumeEventByName("Rain");
+				App->scene_intro->GOPath->audio_emitter->source->ResumeEventByName("Rain");*/
+			App->audio->Resume();
 		}
 	}
 	ImGui::SameLine();

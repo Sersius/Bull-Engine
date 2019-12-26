@@ -7,7 +7,7 @@
 AudioEmitter::AudioEmitter(GameObject * parent) : Component(parent, COMPONENT_TYPE::AUDIO_EMITTER)
 {
 	source = App->audio->CreateSoundEmitter("Emitter");
-	//App->audio->audio_sources.push_back(this);
+	App->audio->audios.push_back(this);
 
 }
 

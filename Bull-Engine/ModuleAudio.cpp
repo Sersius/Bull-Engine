@@ -1,6 +1,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleAudio.h"
+#include "AudioEmitter.h"
 
 ModuleAudio::ModuleAudio(Application* app, bool start_enabled) : Module(app, start_enabled)
 {}
@@ -53,30 +54,51 @@ uint ModuleAudio::GetListenerID() const
 
 void ModuleAudio::PlayOnAwake() const
 {
-	//source.
-	/*std::list<CompAudioSource*>::const_iterator iterator;
-	for (iterator = App->audio->audio_sources.begin(); iterator != App->audio->audio_sources.end(); ++iterator)
+	
+	std::list<AudioEmitter*>::const_iterator iterator;
+	for (iterator = audios.begin(); iterator != App->audio->audios.end(); ++iterator)
 	{
-		if (iterator._Ptr->_Myval->GetPlayOnAwake() == true)
-		{
-			iterator._Ptr->_Myval->PlayAudio();
-		}
-	}*/
+		
+			iterator._Ptr->_Myval->StartSound("BGmusic");
+			iterator._Ptr->_Myval->StartSound("Rain");
+		
+	}
 }
 
 void ModuleAudio::Stop() const
 {
-	WwiseT::StopAllEvents();
+	std::list<AudioEmitter*>::const_iterator iterator;
+	for (iterator = audios.begin(); iterator != App->audio->audios.end(); ++iterator)
+	{
+
+		iterator._Ptr->_Myval->source->StopEventByName("BGmusic");
+		iterator._Ptr->_Myval->source->StopEventByName("Rain");
+
+	}
 }
 
 void ModuleAudio::Pause() const
 {
-	WwiseT::PauseAll();
+	std::list<AudioEmitter*>::const_iterator iterator;
+	for (iterator = audios.begin(); iterator != App->audio->audios.end(); ++iterator)
+	{
+
+		iterator._Ptr->_Myval->source->PauseEventByName("BGmusic");
+		iterator._Ptr->_Myval->source->PauseEventByName("Rain");
+
+	}
 }
 
 void ModuleAudio::Resume() const
 {
-	WwiseT::ResumeAll();
+	std::list<AudioEmitter*>::const_iterator iterator;
+	for (iterator = audios.begin(); iterator != App->audio->audios.end(); ++iterator)
+	{
+
+		iterator._Ptr->_Myval->source->ResumeEventByName("BGmusic");
+		iterator._Ptr->_Myval->source->ResumeEventByName("Rain");
+
+	}
 }
 
 void ModuleAudio::SetListener(WwiseT::AudioSource* new_listener)

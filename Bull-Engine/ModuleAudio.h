@@ -5,6 +5,8 @@
 #include "Globals.h"
 #include "WwiseT.h"
 
+#include <list>
+
 class ModuleAudio : public Module
 {
 public:
@@ -31,7 +33,8 @@ private:
 	WwiseT::AudioSource* listener;
 	WwiseT::AudioSource* source;
 public:
-	//std::list<CompAudioSource*> audio_sources;
+	std::list<AudioEmitter*> audios;
+	
 };
 
 #endif // __ModuleAudio_H__

@@ -1,7 +1,7 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 1887205792,
+        "UUID:": 3295077316,
         "Components:": [
             {
                 "Type:": 1,
@@ -19,8 +19,8 @@
     },
     {
         "Name:": "Root",
-        "UUID:": 719396840,
-        "Parent UUID:": 1887205792,
+        "UUID:": 2800525340,
+        "Parent UUID:": 3295077316,
         "Components:": [
             {
                 "Type:": 1,
@@ -38,8 +38,8 @@
     },
     {
         "Name:": "Source\/Listener",
-        "UUID:": 3717911472,
-        "Parent UUID:": 719396840,
+        "UUID:": 4116848805,
+        "Parent UUID:": 2800525340,
         "Components:": [
             {
                 "Type:": 1,
@@ -79,8 +79,8 @@
     },
     {
         "Name:": "Sphere",
-        "UUID:": 1054318820,
-        "Parent UUID:": 3717911472,
+        "UUID:": 3522893094,
+        "Parent UUID:": 4116848805,
         "Components:": [
             {
                 "Type:": 1,
@@ -108,8 +108,8 @@
     },
     {
         "Name:": "SourceMove",
-        "UUID:": 697142574,
-        "Parent UUID:": 719396840,
+        "UUID:": 4070447631,
+        "Parent UUID:": 2800525340,
         "Components:": [
             {
                 "Type:": 1,
@@ -146,8 +146,8 @@
     },
     {
         "Name:": "Sphere",
-        "UUID:": 4082571561,
-        "Parent UUID:": 697142574,
+        "UUID:": 1247741643,
+        "Parent UUID:": 4070447631,
         "Components:": [
             {
                 "Type:": 1,
@@ -175,8 +175,8 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 174908190,
-        "Parent UUID:": 719396840,
+        "UUID:": 1260190757,
+        "Parent UUID:": 2800525340,
         "Components:": [
             {
                 "Type:": 1,

@@ -14,6 +14,7 @@ public:
 	~AudioListener();
 	void Update(float dt);
 	void UpdateListenerPos();
+	void SaveListener(JSON_Array* componentsObj) const;
 
 
 public:

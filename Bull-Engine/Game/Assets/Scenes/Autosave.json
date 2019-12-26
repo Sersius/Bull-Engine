@@ -1,7 +1,7 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 2451976869,
+        "UUID:": 1887205792,
         "Components:": [
             {
                 "Type:": 1,
@@ -19,8 +19,8 @@
     },
     {
         "Name:": "Root",
-        "UUID:": 2633531935,
-        "Parent UUID:": 2451976869,
+        "UUID:": 719396840,
+        "Parent UUID:": 1887205792,
         "Components:": [
             {
                 "Type:": 1,
@@ -38,8 +38,8 @@
     },
     {
         "Name:": "Source\/Listener",
-        "UUID:": 3932587464,
-        "Parent UUID:": 2633531935,
+        "UUID:": 3717911472,
+        "Parent UUID:": 719396840,
         "Components:": [
             {
                 "Type:": 1,
@@ -62,13 +62,25 @@
                 "Active:": true,
                 "path": "",
                 "path_file_format": ""
+            },
+            {
+                "Type:": 6
+            },
+            {
+                "Type:": 5,
+                "Volume:": 1,
+                "Pitch:": 1,
+                "TimeToSwap:": 30,
+                "Song:": 2,
+                "Mute:": false,
+                "Mono:": false
             }
         ]
     },
     {
         "Name:": "Sphere",
-        "UUID:": 1071772272,
-        "Parent UUID:": 3932587464,
+        "UUID:": 1054318820,
+        "Parent UUID:": 3717911472,
         "Components:": [
             {
                 "Type:": 1,
@@ -96,8 +108,8 @@
     },
     {
         "Name:": "SourceMove",
-        "UUID:": 4189107220,
-        "Parent UUID:": 2633531935,
+        "UUID:": 697142574,
+        "Parent UUID:": 719396840,
         "Components:": [
             {
                 "Type:": 1,
@@ -120,13 +132,22 @@
                 "Active:": true,
                 "path": "",
                 "path_file_format": ""
+            },
+            {
+                "Type:": 5,
+                "Volume:": 1,
+                "Pitch:": 1,
+                "TimeToSwap:": 30,
+                "Song:": 2,
+                "Mute:": false,
+                "Mono:": false
             }
         ]
     },
     {
         "Name:": "Sphere",
-        "UUID:": 2836201385,
-        "Parent UUID:": 4189107220,
+        "UUID:": 4082571561,
+        "Parent UUID:": 697142574,
         "Components:": [
             {
                 "Type:": 1,
@@ -154,8 +175,8 @@
     },
     {
         "Name:": "Camera",
-        "UUID:": 3808748833,
-        "Parent UUID:": 2633531935,
+        "UUID:": 174908190,
+        "Parent UUID:": 719396840,
         "Components:": [
             {
                 "Type:": 1,

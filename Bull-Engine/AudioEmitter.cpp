@@ -8,16 +8,14 @@ AudioEmitter::AudioEmitter(GameObject * parent) : Component(parent, COMPONENT_TY
 {
 	source = App->audio->CreateSoundEmitter("Emitter");
 	//App->audio->audio_sources.push_back(this);
-	
 
-	
 }
 
 
 void AudioEmitter::Update(float dt)
 {
 	UpdateSourcePos();
-	//DebugDraw();
+	
 	
 	if (timer.Read() / 1000 >= time_to_swap) {
 		if (song == 1) {
@@ -33,51 +31,9 @@ void AudioEmitter::Update(float dt)
 	}
 }
 
-void AudioEmitter::DebugDraw() {
-
-	
-	cube.pos = parent->GetComponentTransform()->position;
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	glBegin(GL_QUADS);
-	glLineWidth(5.0f);
-	glColor3f(2.0f, 2.0f, 2.0f);
-
-	float3 vertices[8];
-	cube.GetCornerPoints(vertices);
-
-	glVertex3fv((GLfloat*)&vertices[1]);
-	glVertex3fv((GLfloat*)&vertices[5]);
-	glVertex3fv((GLfloat*)&vertices[7]);
-	glVertex3fv((GLfloat*)&vertices[3]);
-
-	glVertex3fv((GLfloat*)&vertices[4]);
-	glVertex3fv((GLfloat*)&vertices[0]);
-	glVertex3fv((GLfloat*)&vertices[2]);
-	glVertex3fv((GLfloat*)&vertices[6]);
-
-	glVertex3fv((GLfloat*)&vertices[5]);
-	glVertex3fv((GLfloat*)&vertices[4]);
-	glVertex3fv((GLfloat*)&vertices[6]);
-	glVertex3fv((GLfloat*)&vertices[7]);
-
-	glVertex3fv((GLfloat*)&vertices[0]);
-	glVertex3fv((GLfloat*)&vertices[1]);
-	glVertex3fv((GLfloat*)&vertices[3]);
-	glVertex3fv((GLfloat*)&vertices[2]);
-
-	glVertex3fv((GLfloat*)&vertices[3]);
-	glVertex3fv((GLfloat*)&vertices[7]);
-	glVertex3fv((GLfloat*)&vertices[6]);
-	glVertex3fv((GLfloat*)&vertices[2]);
-
-	glVertex3fv((GLfloat*)&vertices[0]);
-	glVertex3fv((GLfloat*)&vertices[4]);
-	glVertex3fv((GLfloat*)&vertices[5]);
-	glVertex3fv((GLfloat*)&vertices[1]);
-
-	glColor4f(1.f, 1.f, 1.f, 1.f);
-	glEnd();
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+AudioEmitter::~AudioEmitter()
+{
+	RELEASE(source);
 }
 
 void AudioEmitter::ChangeVolume(float new_volume)
@@ -118,6 +74,7 @@ void AudioEmitter::Mono(bool mono)
 
 void AudioEmitter::StartSound(const char* name)
 {
+	source->StopEventByName(name);
 	source->PlayEventByName(name);
 	timer.Start();
 	source->SetMono();
@@ -137,3 +94,34 @@ void AudioEmitter::UpdateSourcePos()
 	}
 }
 
+void AudioEmitter::SaveEmitter(JSON_Array* componentsObj) const
+{
+	JSON_Value* component = json_value_init_object();
+	JSON_Object* componentObj = json_value_get_object(component);
+	json_object_set_number(componentObj, "Type:", this->type);
+	json_object_set_number(componentObj, "Volume:", this->volume);
+	json_object_set_number(componentObj, "Pitch:", this->pitch);
+	json_object_set_number(componentObj, "TimeToSwap:", this->time_to_swap);
+	json_object_set_number(componentObj, "Song:", this->song);
+	json_object_set_boolean(componentObj, "Mute:", this->mute);
+	json_object_set_boolean(componentObj, "Mono:", this->mono);
+
+	json_array_append_value(componentsObj, component);
+}
+void AudioEmitter::LoadEmitter(JSON_Object* obj, GameObject* go)
+{
+	App->scene_intro->gameobject_scene->audio_emitter == nullptr;
+	App->scene_intro->GOPath->audio_emitter == nullptr;
+	go->audio_emitter->volume = json_object_get_number(obj, "Volume:");
+	go->audio_emitter->pitch = json_object_get_number(obj, "Pitch:");
+	go->audio_emitter->time_to_swap = json_object_get_number(obj, "TimeToSwap:");
+	go->audio_emitter->song = json_object_get_number(obj, "Song:");
+	go->audio_emitter->mute = json_object_get_boolean(obj, "Mute:");
+	go->audio_emitter->mono = json_object_get_boolean(obj, "Mono:");
+
+	if(App->scene_intro->gameobject_scene->audio_emitter == nullptr)
+		go->audio_emitter = App->scene_intro->gameobject_scene->audio_emitter;
+	if (App->scene_intro->GOPath->audio_emitter == nullptr && App->scene_intro->gameobject_scene->audio_emitter != nullptr)
+		go->audio_emitter = App->scene_intro->GOPath->audio_emitter;
+	
+}

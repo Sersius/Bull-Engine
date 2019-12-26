@@ -242,6 +242,10 @@ void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 		go->material->SaveMaterial(componentsGO);
 	if (go->camera != nullptr)
 		go->camera->SaveCamera(componentsGO);
+	if (go->audio_listener != nullptr)
+		go->audio_listener->SaveListener(componentsGO);
+	if (go->audio_emitter != nullptr)
+		go->audio_emitter->SaveEmitter(componentsGO);
 
 	json_object_set_value(object_json, "Components:", components);
 	json_array_append_value(json_array, value_json);
@@ -280,6 +284,16 @@ void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)
 		{
 			CreateComponent(COMPONENT_TYPE::CAMERA);
 			go->camera->LoadCamera(type, go);
+		}
+		else if (num_type == 6)
+		{
+			CreateComponent(COMPONENT_TYPE::AUDIO_LISTENER);
+
+		}
+		else if (num_type == 5)
+		{
+			CreateComponent(COMPONENT_TYPE::AUDIO_EMITTER);
+			go->audio_emitter->LoadEmitter(type, go);
 		}
 	}
 

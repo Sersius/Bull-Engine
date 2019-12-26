@@ -74,8 +74,10 @@ void TimeManagementWindow::Draw()
 		App->scene_intro->game_running = false;
 		App->serialization->LoadScene("Autosave");
 		App->renderer3D->RecalculateProjectionMatrix();
-		App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("BGmusic");
-		App->scene_intro->gameobject_scene->audio_emitter->source->PauseEventByName("Rain");
+		App->scene_intro->gameobject_scene->audio_emitter = nullptr;
+		App->scene_intro->GOPath->audio_emitter = nullptr;
+		App->audio->Stop();
+
 	}
 	ImGui::SameLine();
 	if (App->scene_intro->game_running == true) {

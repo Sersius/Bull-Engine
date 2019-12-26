@@ -21,7 +21,7 @@ public:
 	void Mono(bool mono);
 	void DebugDraw();
 	void StartSound(const char* name);
-
+	void UpdateSourcePos();
 public:
 	WwiseT::AudioSource* source;
 	math::OBB cube;

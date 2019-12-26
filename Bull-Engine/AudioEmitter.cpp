@@ -16,6 +16,7 @@ AudioEmitter::AudioEmitter(GameObject * parent) : Component(parent, COMPONENT_TY
 
 void AudioEmitter::Update(float dt)
 {
+	UpdateSourcePos();
 	DebugDraw();
 	
 	if (timer.Read() / 1000 >= time_to_swap) {
@@ -120,5 +121,19 @@ void AudioEmitter::StartSound(const char* name)
 	source->PlayEventByName(name);
 	timer.Start();
 	source->SetMono();
+}
+
+void AudioEmitter::UpdateSourcePos()
+{
+	Transform* transformation = parent->GetComponentTransform();
+
+	if (transformation != nullptr)
+	{
+		math::Quat rot = transformation->rotation;
+
+		math::float3 vector_pos = transformation->position;
+
+		source->SetSourcePos(vector_pos.x, vector_pos.y, vector_pos.z, 0, 0, 1, 0, 1, 0);
+	}
 }
 

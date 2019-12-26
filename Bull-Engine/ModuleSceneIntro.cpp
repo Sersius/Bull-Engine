@@ -37,7 +37,8 @@ bool ModuleSceneIntro::Start()
 	GOPath = CreateGameObject(root);
 	GOPath->SetName("SourceMove");
 	GOPath->CreateComponent(COMPONENT_TYPE::AUDIO_EMITTER);
-	GOPath->audio_emitter->StartSound("train");
+	GOPath->audio_emitter->mono = true;
+	GOPath->audio_emitter->StartSound("Rain");
 	
 	camera_scene = CreateGameObject(root);
 	camera_scene->CreateComponent(COMPONENT_TYPE::CAMERA);

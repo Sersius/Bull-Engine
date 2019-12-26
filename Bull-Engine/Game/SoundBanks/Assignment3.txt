@@ -1,6 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	1038839729	BGmusic			\Default Work Unit\BGmusic	
-	3412057565	train			\Default Work Unit\train	
+	2043403999	Rain			\Default Work Unit\Rain	
 
 State Group	ID	Name			Wwise Object Path	Notes
 	128914588	swap_music			\Default Work Unit\swap_music	
@@ -14,15 +14,8 @@ Custom State	ID	Name	State Group	Owner		Notes
 	318566368	state1	swap_music	\Actor-Mixer Hierarchy\Default Work Unit\First_Song		
 	799778657	state2	swap_music	\Actor-Mixer Hierarchy\Default Work Unit\Second_Song		
 
-Game Parameter	ID	Name			Wwise Object Path	Notes
-	1879753049	PanLeft			\Default Work Unit\PanLeft	
-	1908158473	Pitch			\Default Work Unit\Pitch	
-	2223055028	LowPassFilter			\Default Work Unit\LowPassFilter	
-	2647461264	HighPassFilter			\Default Work Unit\HighPassFilter	
-	4071927180	PanRight			\Default Work Unit\PanRight	
-
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	466288458	Second_Song	C:\Users\Usuario\Desktop\SoundBanks\Assignment3_2017v\.cache\Windows\SFX\Second_Song_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Second_Song		34593636
-	496129679	train	C:\Users\Usuario\Desktop\SoundBanks\Assignment3_2017v\.cache\Windows\SFX\train_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\train		2029888
+	479300062	walking-in-snow-1	C:\Users\Usuario\Desktop\SoundBanks\Assignment3_2017v\.cache\Windows\SFX\walking-in-snow-1_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\walking-in-snow-1		3416128
 	525630324	First_Song	C:\Users\Usuario\Desktop\SoundBanks\Assignment3_2017v\.cache\Windows\SFX\First_Song_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\First_Song		34351684
 

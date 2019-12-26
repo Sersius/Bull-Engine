@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="128">
 	<RootPaths>
-		<ProjectRoot>D:\Documentos\WwiseProjects\Assignment3_2017v\</ProjectRoot>
-		<SourceFilesRoot>D:\Documentos\WwiseProjects\Assignment3_2017v\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Proyectos GitHub\PalmGine-3D\3D Engine\Game\SoundBanks\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Usuario\Desktop\SoundBanks\Assignment3_2017v\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Usuario\Desktop\SoundBanks\Assignment3_2017v\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Usuario\Desktop\SoundBanks\Assignment3_2017v\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Documentos\WwiseProjects\Assignment3_2017v\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Usuario\Desktop\SoundBanks\Assignment3_2017v\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -21,26 +21,21 @@
 			<ShortName>Assignment3</ShortName>
 			<Path>Assignment3.bnk</Path>
 			<IncludedEvents>
-				<Event Id="1467305928" Name="background_tracks" ObjectPath="\Events\Default Work Unit\background_tracks"/>
-				<Event Id="2607198564" Name="music_TheDillards_Dooley" ObjectPath="\Events\Default Work Unit\music_TheDillards_Dooley"/>
-				<Event Id="3585407402" Name="music_TheGrowlers_GoingGetsTuff" ObjectPath="\Events\Default Work Unit\music_TheGrowlers_GoingGetsTuff"/>
-				<Event Id="3864097025" Name="Pause_All" ObjectPath="\Events\Default Work Unit\Pause_All"/>
-				<Event Id="3679762312" Name="Resume_All" ObjectPath="\Events\Default Work Unit\Resume_All"/>
-				<Event Id="452547817" Name="Stop_All" ObjectPath="\Events\Default Work Unit\Stop_All"/>
-				<Event Id="3412057565" Name="train" ObjectPath="\Events\Default Work Unit\train"/>
+				<Event Id="1038839729" Name="BGmusic" ObjectPath="\Events\Default Work Unit\BGmusic"/>
+				<Event Id="2043403999" Name="Rain" ObjectPath="\Events\Default Work Unit\Rain"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="5030772" Language="SFX">
-					<ShortName>The Growlers-Going Gets Tuff.wav</ShortName>
-					<Path>SFX\The Growlers-Going Gets Tuff_F17FB28C.wem</Path>
+				<File Id="466288458" Language="SFX">
+					<ShortName>Second_Song.wav</ShortName>
+					<Path>SFX\Second_Song_F17FB28C.wem</Path>
 				</File>
-				<File Id="352902853" Language="SFX">
-					<ShortName>The Dillards - Dooley.wav</ShortName>
-					<Path>SFX\The Dillards - Dooley_F17FB28C.wem</Path>
+				<File Id="479300062" Language="SFX">
+					<ShortName>walking-in-snow-1.wav</ShortName>
+					<Path>SFX\walking-in-snow-1_F17FB28C.wem</Path>
 				</File>
-				<File Id="496129679" Language="SFX">
-					<ShortName>train.wav</ShortName>
-					<Path>SFX\train_F17FB28C.wem</Path>
+				<File Id="525630324" Language="SFX">
+					<ShortName>First_Song.wav</ShortName>
+					<Path>SFX\First_Song_F17FB28C.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

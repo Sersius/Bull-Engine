@@ -23,7 +23,7 @@ bool ModuleAudio::Start()
 
 update_status ModuleAudio::Update(float dt)
 {
-	
+	LOG("%i", App->audio->audios.size());
 	return UPDATE_CONTINUE;
 }
 
@@ -35,33 +35,23 @@ update_status ModuleAudio::PostUpdate(float dt)
 
 bool ModuleAudio::CleanUp()
 {
-	//audio_sources.clear();
-	//event_list.clear();
+	audios.clear();
 	return true;
 }
 
 WwiseT::AudioSource * ModuleAudio::CreateSoundEmitter(const char * name)
 {
 	WwiseT::AudioSource* ret = WwiseT::CreateAudSource(name);
-	//event_list.push_back(ret);
 	return ret;
 }
 
-uint ModuleAudio::GetListenerID() const
-{
-	return listener->GetID();
-}
-
-void ModuleAudio::PlayOnAwake() const
+void ModuleAudio::Play() const
 {
 	
 	std::list<AudioEmitter*>::const_iterator iterator;
 	for (iterator = audios.begin(); iterator != App->audio->audios.end(); ++iterator)
-	{
-		
-			iterator._Ptr->_Myval->StartSound("BGmusic");
-			iterator._Ptr->_Myval->StartSound("Rain");
-		
+	{	
+			iterator._Ptr->_Myval->StartSound();
 	}
 }
 

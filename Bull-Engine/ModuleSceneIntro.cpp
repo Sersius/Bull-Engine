@@ -33,6 +33,7 @@ bool ModuleSceneIntro::Start()
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::AUDIO_EMITTER);
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::AUDIO_LISTENER);
 	gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH,"Assets/Models/Sphere.fbx");
+	gameobject_scene->audio_emitter->audio_name = "BGmusic";
 	
 	//gameobject_scene->audio_emitter->StartSound("BGmusic");
 	//gameobject_scene->CreateComponent(COMPONENT_TYPE::MESH, "Assets/Models/Street environment_V01.fbx");
@@ -44,6 +45,7 @@ bool ModuleSceneIntro::Start()
 	GOPath->transform->position.x = 3.0f;
 	GOPath->transform->position.y = 0.0f;
 	GOPath->transform->position.z = 3.0f;
+	GOPath->audio_emitter->audio_name = "Rain";
 	//GOPath->audio_emitter->mono = true;
 	//GOPath->audio_emitter->StartSound("Rain");
 	
@@ -76,8 +78,6 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.Render();
 	GameObjects;
 	root->Update(dt);
-	LOG("%i", gameobject_scene->children.capacity());
-	//GOPath->MoveGO();
 	return UPDATE_CONTINUE;
 }
 

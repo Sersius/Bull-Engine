@@ -41,7 +41,7 @@ void TimeManagementWindow::Draw()
 			App->scene_intro->gameobject_scene->audio_emitter->StartSound("BGmusic");
 		if (App->scene_intro->GOPath->audio_emitter != nullptr) 
 			App->scene_intro->GOPath->audio_emitter->StartSound("Rain");*/
-		App->audio->PlayOnAwake();
+		App->audio->Play();
 		
 		
 	}
@@ -80,7 +80,7 @@ void TimeManagementWindow::Draw()
 		App->scene_intro->gameobject_scene->audio_emitter = nullptr;
 		App->scene_intro->GOPath->audio_emitter = nullptr;
 		App->audio->Stop();
-
+		//App->audio->CleanUp();
 	}
 	ImGui::SameLine();
 	if (App->scene_intro->game_running == true) {

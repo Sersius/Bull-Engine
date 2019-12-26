@@ -17,17 +17,13 @@ public:
 	update_status PostUpdate(float dt);
 	bool CleanUp();
 
-	// Set listener
-	WwiseT::AudioSource* CreateSoundEmitter(const char * name);
-	uint GetListenerID()const;
-
 	// Utils
-	void PlayOnAwake()const;
+	void Play()const;
 	void Stop()const;
 	void Pause()const;
 	void Resume()const;
 	void SetListener(WwiseT::AudioSource* new_listener);
-
+	WwiseT::AudioSource* CreateSoundEmitter(const char * name);
 private:
 	//std::list<WwiseT::AudioSource*> event_list;
 	WwiseT::AudioSource* listener;

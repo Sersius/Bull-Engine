@@ -36,6 +36,7 @@ AudioEmitter::~AudioEmitter()
 	RELEASE(source);
 }
 
+
 void AudioEmitter::ChangeVolume(float new_volume)
 {
 	volume = new_volume;
@@ -72,12 +73,12 @@ void AudioEmitter::Mono(bool mono)
 		source->SetStereo();
 }
 
-void AudioEmitter::StartSound(const char* name)
+void AudioEmitter::StartSound()
 {
-	source->StopEventByName(name);
-	source->PlayEventByName(name);
+	
+	source->PlayEventByName(audio_name.c_str());
 	timer.Start();
-	source->SetMono();
+	
 }
 
 void AudioEmitter::UpdateSourcePos()
@@ -105,6 +106,8 @@ void AudioEmitter::SaveEmitter(JSON_Array* componentsObj) const
 	json_object_set_number(componentObj, "Song:", this->song);
 	json_object_set_boolean(componentObj, "Mute:", this->mute);
 	json_object_set_boolean(componentObj, "Mono:", this->mono);
+	json_object_set_string(componentObj, "AudioName:", this->audio_name.c_str());
+	
 
 	json_array_append_value(componentsObj, component);
 }
@@ -118,10 +121,12 @@ void AudioEmitter::LoadEmitter(JSON_Object* obj, GameObject* go)
 	go->audio_emitter->song = json_object_get_number(obj, "Song:");
 	go->audio_emitter->mute = json_object_get_boolean(obj, "Mute:");
 	go->audio_emitter->mono = json_object_get_boolean(obj, "Mono:");
+	go->audio_emitter->audio_name = json_object_get_string(obj, "AudioName:");
 
-	if(App->scene_intro->gameobject_scene->audio_emitter == nullptr)
+
+	/*if(App->scene_intro->gameobject_scene->audio_emitter == nullptr)
 		go->audio_emitter = App->scene_intro->gameobject_scene->audio_emitter;
 	if (App->scene_intro->GOPath->audio_emitter == nullptr && App->scene_intro->gameobject_scene->audio_emitter != nullptr)
-		go->audio_emitter = App->scene_intro->GOPath->audio_emitter;
+		go->audio_emitter = App->scene_intro->GOPath->audio_emitter;*/
 	
 }

@@ -56,7 +56,7 @@ void SerializationScene::LoadScene(const char* name_scene)
 {
 	App->scene_intro->UnselectGameObject();
 	App->scene_intro->root->DeleteScene();
-
+	App->audio->audios.clear();
 	std::string extension;
 	extension = name_scene;
 	uint type = extension.find_last_of(".");

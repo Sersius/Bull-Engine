@@ -19,10 +19,12 @@ public:
 	void Mute(bool mute);
 	void ChangeTimeToSwap(float new_time);
 	void Mono(bool mono);
-	void StartSound(const char* name);
+	void StartSound();
 	void UpdateSourcePos();
 	void SaveEmitter(JSON_Array* componentsObj) const;
 	void LoadEmitter(JSON_Object* obj, GameObject* go);
+
+
 public:
 	WwiseT::AudioSource* source;
 	math::OBB cube;

@@ -45,7 +45,7 @@ WwiseT::AudioSource * ModuleAudio::CreateSoundEmitter(const char * name)
 	return ret;
 }
 
-void ModuleAudio::Play() const
+void ModuleAudio::Play()
 {
 	
 	std::list<AudioEmitter*>::const_iterator iterator;
@@ -53,9 +53,11 @@ void ModuleAudio::Play() const
 	{	
 			iterator._Ptr->_Myval->StartSound();
 	}
+
+	is_playing = true;
 }
 
-void ModuleAudio::Stop() const
+void ModuleAudio::Stop()
 {
 	std::list<AudioEmitter*>::const_iterator iterator;
 	for (iterator = audios.begin(); iterator != App->audio->audios.end(); ++iterator)
@@ -65,6 +67,8 @@ void ModuleAudio::Stop() const
 		iterator._Ptr->_Myval->source->StopEventByName("Rain");
 
 	}
+
+	is_playing = false;
 }
 
 void ModuleAudio::Pause() const

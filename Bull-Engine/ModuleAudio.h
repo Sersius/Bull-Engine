@@ -18,8 +18,8 @@ public:
 	bool CleanUp();
 
 	// Utils
-	void Play()const;
-	void Stop()const;
+	void Play();
+	void Stop();
 	void Pause()const;
 	void Resume()const;
 	void SetListener(WwiseT::AudioSource* new_listener);
@@ -31,6 +31,7 @@ private:
 public:
 	std::list<AudioEmitter*> audios;
 	
+	bool is_playing = false;
 };
 
 #endif // __ModuleAudio_H__

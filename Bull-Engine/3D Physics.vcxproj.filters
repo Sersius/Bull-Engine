@@ -891,6 +891,9 @@
     <ClInclude Include="AudioListener.h">
       <Filter>Sources\Modules\Components GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="ReverbZone.h">
+      <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModuleCamera3D.cpp">
@@ -1152,6 +1155,9 @@
       <Filter>Sources\Modules\Components GameObject</Filter>
     </ClCompile>
     <ClCompile Include="AudioListener.cpp">
+      <Filter>Sources\Modules\Components GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ReverbZone.cpp">
       <Filter>Sources\Modules\Components GameObject</Filter>
     </ClCompile>
   </ItemGroup>

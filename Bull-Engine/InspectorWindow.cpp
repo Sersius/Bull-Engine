@@ -10,6 +10,7 @@
 #include "Camera.h"
 #include "AudioEmitter.h"
 #include "AudioListener.h"
+#include "ReverbZone.h"
 
 #include "ImGui/imgui.h"
 #include "ImGuizmo/ImGuizmo.h"
@@ -166,7 +167,15 @@ void InspectorWindow::Draw()
 				}
 			}
 		}
-		
+		if (selected_go->reverb_zone != nullptr)
+		{
+			if (ImGui::CollapsingHeader("ReverbZone"))
+			{
+				if (ImGui::SliderFloat("Radius", &selected_go->reverb_zone->radius, 1.0f, 20.0f)) {
+					selected_go->reverb_zone->SetRadius(selected_go->reverb_zone->radius);
+				}
+			}
+		}
 	}
 
 	ImGui::End();

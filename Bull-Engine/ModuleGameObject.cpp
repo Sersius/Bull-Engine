@@ -10,6 +10,7 @@
 #include "Camera.h"
 #include "AudioEmitter.h"
 #include "AudioListener.h"
+#include "ReverbZone.h"
 
 #include "ImGui/imgui.h"
 
@@ -83,6 +84,12 @@ Component* GameObject::CreateComponent(COMPONENT_TYPE type,char* name)
 		_type = (Component*)audio_listener;
 		components.push_back(audio_listener);
 	}
+	else if (type == COMPONENT_TYPE::REVERB_ZONE)
+	{
+		reverb_zone = new ReverbZone(this);
+		_type = (Component*)reverb_zone;
+		components.push_back(reverb_zone);
+	}
 	return _type;
 }
 
@@ -104,6 +111,21 @@ Transform * GameObject::GetComponentTransform() const
 Camera * GameObject::GetComponentCamera() const
 {
 	return (Camera*)GetComponent(COMPONENT_TYPE::CAMERA);
+}
+
+AudioEmitter * GameObject::GetComponentAudioEmitter() const
+{
+	return (AudioEmitter*)GetComponent(COMPONENT_TYPE::AUDIO_EMITTER);
+}
+
+AudioListener * GameObject::GetComponentAudioListener() const
+{
+	return (AudioListener*)GetComponent(COMPONENT_TYPE::AUDIO_LISTENER);
+}
+
+ReverbZone * GameObject::GetComponentReverbZone() const
+{
+	return (ReverbZone*)GetComponent(COMPONENT_TYPE::REVERB_ZONE);
 }
 
 Component * GameObject::GetComponent(COMPONENT_TYPE type) const

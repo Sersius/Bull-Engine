@@ -18,7 +18,8 @@ enum COMPONENT_TYPE
 	MATERIAL,
 	CAMERA,
 	AUDIO_EMITTER,
-	AUDIO_LISTENER
+	AUDIO_LISTENER,
+	REVERB_ZONE
 };
 
 class Component;
@@ -28,6 +29,7 @@ class Transform;
 class Camera;
 class AudioEmitter;
 class AudioListener;
+class ReverbZone;
 
 class GameObject
 {
@@ -43,6 +45,9 @@ public:
 	Mesh* GetComponentMesh() const;
 	Transform* GetComponentTransform() const;
 	Camera* GetComponentCamera() const;
+	AudioEmitter* GetComponentAudioEmitter() const;
+	AudioListener* GetComponentAudioListener() const;
+	ReverbZone* GetComponentReverbZone() const;
 	Component* GetComponent(COMPONENT_TYPE type) const;
 	void SetName(const char* new_name);
 	void SetActive(bool active);
@@ -65,6 +70,7 @@ public:
 	Camera* camera = nullptr;
 	AudioEmitter* audio_emitter = nullptr;
 	AudioListener* audio_listener = nullptr;
+	ReverbZone* reverb_zone = nullptr;
 	bool render_model = true;
 	bool is_primitive = false;
 	uint uuid = 0;

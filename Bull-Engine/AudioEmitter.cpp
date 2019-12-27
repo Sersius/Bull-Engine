@@ -11,7 +11,6 @@ AudioEmitter::AudioEmitter(GameObject * parent) : Component(parent, COMPONENT_TY
 
 }
 
-
 void AudioEmitter::Update(float dt)
 {
 	UpdateSourcePos();
@@ -36,13 +35,13 @@ AudioEmitter::~AudioEmitter()
 	RELEASE(source);
 }
 
-
 void AudioEmitter::ChangeVolume(float new_volume)
 {
 	volume = new_volume;
 	source->SetVolume(new_volume);
 
 }
+
 void AudioEmitter::ChangePitch(float new_pitch)
 {
 	volume = new_pitch;
@@ -64,6 +63,7 @@ void AudioEmitter::ChangeTimeToSwap(float new_time)
 {
 	time_to_swap = new_time;
 }
+
 void AudioEmitter::Mono(bool mono)
 {
 	this->mono = mono;
@@ -111,6 +111,7 @@ void AudioEmitter::SaveEmitter(JSON_Array* componentsObj) const
 
 	json_array_append_value(componentsObj, component);
 }
+
 void AudioEmitter::LoadEmitter(JSON_Object* obj, GameObject* go)
 {
 	App->scene_intro->gameobject_scene->audio_emitter == nullptr;

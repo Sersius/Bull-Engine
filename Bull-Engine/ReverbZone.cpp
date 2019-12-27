@@ -67,3 +67,20 @@ void ReverbZone::DebugDrawSphere()
 
 	glLineWidth(1.0f);
 }
+
+void ReverbZone::SaveReverbZone(JSON_Array * componentsObj) const
+{
+	JSON_Value* component = json_value_init_object();
+	JSON_Object* componentObj = json_value_get_object(component);
+	json_object_set_number(componentObj, "Type:", this->type);
+	json_object_set_number(componentObj, "Radius:", this->radius);
+
+	json_array_append_value(componentsObj, component);
+}
+
+void ReverbZone::LoadReverbZone(JSON_Object * obj, GameObject * go)
+{
+	App->scene_intro->gameobject_scene->reverb_zone == nullptr;
+	App->scene_intro->GOPath->reverb_zone == nullptr;
+	go->reverb_zone->radius = json_object_get_number(obj, "Radius:");
+}

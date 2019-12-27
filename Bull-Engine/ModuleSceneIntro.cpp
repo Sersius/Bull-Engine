@@ -8,6 +8,7 @@
 #include "Mesh.h"
 #include "Transform.h"
 #include "AudioEmitter.h"
+#include "ReverbZone.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -50,6 +51,11 @@ bool ModuleSceneIntro::Start()
 	GOPath->audio_emitter->audio_name = "Rain";
 	//GOPath->audio_emitter->mono = true;
 	//GOPath->audio_emitter->StartSound("Rain");
+
+	reverb_zone = CreateGameObject(root);
+	reverb_zone->SetName("ReverbZone");
+	reverb_zone->CreateComponent(COMPONENT_TYPE::REVERB_ZONE);
+	reverb_zone->reverb_zone->radius = 5.0f;
 	
 	
 	camera_scene = CreateGameObject(root);

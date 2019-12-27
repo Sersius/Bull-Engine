@@ -37,6 +37,7 @@ public:
 	GameObject* root = nullptr;
 	GameObject* gameobject_scene = nullptr;
 	GameObject* GOPath = nullptr;
+	GameObject* reverb_zone = nullptr;
 	GameObject* camera_scene = nullptr;
 	GameObject* selected = nullptr;
 	TimerInGame timer_in_game;

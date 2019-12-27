@@ -27,7 +27,6 @@ public:
 
 public:
 	WwiseT::AudioSource* source;
-	math::OBB cube;
 	std::string audio_name;
 	float volume = 1.0f;
 	float pitch = 1.0f;

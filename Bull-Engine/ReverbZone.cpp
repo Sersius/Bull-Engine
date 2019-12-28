@@ -33,10 +33,10 @@ void ReverbZone::Update(float dt)
 		{
 			for (int j = 0; j < App->scene_intro->root->children[i]->children.size(); ++j) {
 				if (sphere.Intersects(App->scene_intro->root->children[i]->children[j]->bounding_box) == true) {
-					audio_emitter->source->ApplyEnvReverb(12, "tunnel");
+					audio_emitter->source->ApplyEnvReverb(1.0f, "Rain");
 				}
 				else {
-					audio_emitter->source->ApplyEnvReverb(0, "tunnel");
+					audio_emitter->source->ApplyEnvReverb(0.0f, "Rain");
 				}
 			}
 		}

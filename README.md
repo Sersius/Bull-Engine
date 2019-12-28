@@ -17,6 +17,8 @@ A 3d game engine developed with OpenGL in c ++. This project has been done by tw
   - File format
   - Time manager
   - Inspector
+  - Audio banks
+  - Audio states
   
 - Sergio Gómez
   - Frustum culling
@@ -24,6 +26,7 @@ A 3d game engine developed with OpenGL in c ++. This project has been done by tw
   - "Assets" window
   - Mouse picking
   - Inspector
+  - Reverb zone
 
 # Features
 

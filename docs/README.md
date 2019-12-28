@@ -40,6 +40,22 @@ For pick a gameobject in the scene we use mouse picking using the Raycast method
 Our engine has a internal game clock that will run when the Game mode is active, so its dt will be passed to all the upadtes instead of the dt from the app. And the Game mode is to see the scene through the game camera.
 
 ## Audio sub-system
+For the audio sub-system we use [Wwise](https://www.audiokinetic.com/products/wwise/) to use audio banks in the engine. We have implemented 3 audio components:
+
+### Audio Source
+With this component we reproduce audio, depending on the side you can hear the audio from the right or left part of the headphones
+
+* Option for mute de audio source.
+
+* Change the volume with this slider.
+
+### Audio Listener
+This component allows you to hear in the engine.
+
+### Reverb Zone
+This component changes the reverberation of an audio if the audio source is inside the reverb zone.
+
+* You can modify the radius of the affected area.
 
 ***
 

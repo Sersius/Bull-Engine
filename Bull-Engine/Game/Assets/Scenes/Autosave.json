@@ -1,7 +1,7 @@
 [
     {
         "Name:": "Root",
-        "UUID:": 1201103988,
+        "UUID:": 3711234078,
         "Components:": [
             {
                 "Type:": 1,
@@ -19,8 +19,8 @@
     },
     {
         "Name:": "Source\/Listener",
-        "UUID:": 261826613,
-        "Parent UUID:": 1201103988,
+        "UUID:": 2434039052,
+        "Parent UUID:": 3711234078,
         "Components:": [
             {
                 "Type:": 1,
@@ -52,7 +52,7 @@
                 "Volume:": 1,
                 "Pitch:": 1,
                 "TimeToSwap:": 30,
-                "Song:": 2,
+                "Song:": 1,
                 "Mute:": false,
                 "Mono:": false,
                 "AudioName:": "BGmusic"
@@ -61,8 +61,8 @@
     },
     {
         "Name:": "Sphere",
-        "UUID:": 1867328609,
-        "Parent UUID:": 261826613,
+        "UUID:": 2704517676,
+        "Parent UUID:": 2434039052,
         "Components:": [
             {
                 "Type:": 1,
@@ -90,8 +90,8 @@
     },
     {
         "Name:": "SourceMove",
-        "UUID:": 227592517,
-        "Parent UUID:": 1201103988,
+        "UUID:": 2590206868,
+        "Parent UUID:": 3711234078,
         "Components:": [
             {
                 "Type:": 1,
@@ -120,7 +120,7 @@
                 "Volume:": 1,
                 "Pitch:": 1,
                 "TimeToSwap:": 30,
-                "Song:": 2,
+                "Song:": 1,
                 "Mute:": false,
                 "Mono:": false,
                 "AudioName:": "Rain"
@@ -129,8 +129,8 @@
     },
     {
         "Name:": "Sphere",
-        "UUID:": 3069241277,
-        "Parent UUID:": 227592517,
+        "UUID:": 2719667360,
+        "Parent UUID:": 2590206868,
         "Components:": [
             {
                 "Type:": 1,
@@ -157,9 +157,28 @@
         ]
     },
     {
+        "Name:": "ReverbZone",
+        "UUID:": 441267355,
+        "Parent UUID:": 3711234078,
+        "Components:": [
+            {
+                "Type:": 1,
+                "PositionX": 0,
+                "PositionY": 0,
+                "PositionZ": 5.3006010055541992,
+                "RotationX": -0,
+                "RotationY": 0,
+                "RotationZ": -0,
+                "ScaleX": 1,
+                "ScaleY": 1,
+                "ScaleZ": 1
+            }
+        ]
+    },
+    {
         "Name:": "Camera",
-        "UUID:": 1414675987,
-        "Parent UUID:": 1201103988,
+        "UUID:": 3533092921,
+        "Parent UUID:": 3711234078,
         "Components:": [
             {
                 "Type:": 1,

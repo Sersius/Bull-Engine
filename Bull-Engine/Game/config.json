@@ -1,8 +1,8 @@
 {
   "window": {
     "title": "Bull Engine",
-    "width": 1281,
-    "height": 1024,
+    "width": 1024,
+    "height": 768,
     "version": "0.0.0",
     "repo": "kgabis/parson",
     "description": "Small json parser and reader",

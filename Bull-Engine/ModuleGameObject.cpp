@@ -280,6 +280,8 @@ void GameObject::SaveInfoGameObject(GameObject* go,JSON_Array* json_array)
 		go->audio_listener->SaveListener(componentsGO);
 	if (go->audio_emitter != nullptr)
 		go->audio_emitter->SaveEmitter(componentsGO);
+	if (go->reverb_zone != nullptr)
+		go->reverb_zone->SaveReverbZone(componentsGO);
 
 	json_object_set_value(object_json, "Components:", components);
 	json_array_append_value(json_array, value_json);
@@ -328,6 +330,11 @@ void GameObject::LoadInfoGambeObject(JSON_Object* obj,GameObject* go)
 		{
 			CreateComponent(COMPONENT_TYPE::AUDIO_EMITTER);
 			go->audio_emitter->LoadEmitter(type, go);
+		}
+		else if (num_type == 7)
+		{
+			CreateComponent(COMPONENT_TYPE::REVERB_ZONE);
+			go->reverb_zone->LoadReverbZone(type, go);
 		}
 	}
 

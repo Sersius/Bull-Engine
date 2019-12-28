@@ -55,7 +55,7 @@ bool ModuleSceneIntro::Start()
 	reverb_zone = CreateGameObject(root);
 	reverb_zone->SetName("ReverbZone");
 	reverb_zone->CreateComponent(COMPONENT_TYPE::REVERB_ZONE);
-	reverb_zone->reverb_zone->radius = 5.0f;
+	reverb_zone->reverb_zone->SetRadius(5.0f);
 	
 	
 	camera_scene = CreateGameObject(root);

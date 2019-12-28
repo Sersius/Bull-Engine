@@ -35,14 +35,17 @@ void GameObject::Update(float dt)
 {
 	for (uint i = 0; i < children.size(); i++) {
 		children[i]->Update(dt);
+
+		if (children[i]->reverb_zone != nullptr)
+			DrawBoundingBox();
 	}
 	App->scene_intro->GameObjects.size();
 	if (camera)
 		camera->Update(dt);
 	if (audio_emitter)
 		audio_emitter->Update(dt);
-
-	DrawBoundingBox();
+	if (reverb_zone)
+		reverb_zone->Update(dt);
 }
 
 Component* GameObject::CreateComponent(COMPONENT_TYPE type,char* name)
@@ -217,7 +220,16 @@ math::AABB GameObject::GetAABB()
 {
 	math::AABB aux_box(float3(0, 0, 0), float3(0, 0, 0));
 
-	aux_box = App->scene_intro->selected->bounding_box;
+	if (GetComponentMesh() == nullptr && children.size() <= 0)
+	{
+		Transform* transform = GetComponentTransform();
+		OBB boundingBox(aux_box);
+		boundingBox.Transform(transform->GetGlobalMatrix());
+
+		aux_box = boundingBox.MinimalEnclosingAABB();
+	}
+	else if (GetComponentMesh() != nullptr)
+		aux_box = parent->bounding_box;
 
 	return aux_box;
 }

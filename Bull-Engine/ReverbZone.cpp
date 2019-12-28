@@ -21,16 +21,23 @@ void ReverbZone::Update(float dt)
 {
 
 	sphere.pos = parent->GetComponentTransform()->position;
+	AABB box = sphere.MinimalEnclosingAABB();
+	OBB boundingBox(box);
+	box.Transform(parent->GetComponentTransform()->GetGlobalMatrix());
 
 	DebugDrawSphere();
 	for (int i = 0; i < App->scene_intro->root->children.size(); ++i) {
 		AudioEmitter* audio_emitter = App->scene_intro->root->children[i]->GetComponentAudioEmitter();
-		if (audio_emitter != nullptr) {
-			if (sphere.Intersects(App->scene_intro->root->children[i]->GetAABB()) == true) {
-				audio_emitter->source->ApplyEnvReverb(12, "tunnel");
-			}
-			else {
-				audio_emitter->source->ApplyEnvReverb(0, "tunnel");
+
+		if (audio_emitter != nullptr && App->scene_intro->root->children.size() >= 0)
+		{
+			for (int j = 0; j < App->scene_intro->root->children[i]->children.size(); ++j) {
+				if (sphere.Intersects(App->scene_intro->root->children[i]->children[j]->bounding_box) == true) {
+					audio_emitter->source->ApplyEnvReverb(12, "tunnel");
+				}
+				else {
+					audio_emitter->source->ApplyEnvReverb(0, "tunnel");
+				}
 			}
 		}
 	}

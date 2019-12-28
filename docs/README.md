@@ -11,6 +11,8 @@ This system is the implementation of the audio engine Wwise. In our game engine 
 * File format
 * Time manager
 * Inspector
+* Audio banks
+* Audio states
 
 ### [Sergio Gómez](https://github.com/Sersius)
 * Frustum culling
@@ -18,6 +20,7 @@ This system is the implementation of the audio engine Wwise. In our game engine 
 * "Assets" window
 * Mouse picking
 * Inspector
+* Reverb zone
 
 ## Main core sub-systems
 

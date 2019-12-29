@@ -3,7 +3,8 @@ This game engine has been made for the Game Engines subjects of the 3rd year in 
 This system is the implementation of the audio engine Wwise. In our game engine you can create audio listeners, audio sources and reverv zones.
 
 ## Team Members
-(put photos)
+
+!["Víctor"](Team_photo1.png)
 
 ### [Víctor Tirado](https://github.com/VictorTirado)
 * Hierarchy
@@ -13,6 +14,8 @@ This system is the implementation of the audio engine Wwise. In our game engine 
 * Inspector
 * Audio banks
 * Audio states
+
+!["Sergio"](Team_photo2.png)
 
 ### [Sergio Gómez](https://github.com/Sersius)
 * Frustum culling

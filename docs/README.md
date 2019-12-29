@@ -60,6 +60,11 @@ This component changes the reverberation of an audio if the audio source is insi
 
 * You can modify the radius of the affected area.
 
+## Demo video of Bull-Engine
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aVKD1MmDOok" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+If you can't see the video click [here](https://www.youtube.com/watch?v=aVKD1MmDOok)
+
 ***
 
 ~~~~~~~~~~~~~~~
@@ -93,6 +98,11 @@ Camera controls
 * Par Shapes
 
 ***
+
+## Links
+[Bull Engine Repository](https://github.com/Sersius/Bull-Engine) 
+
+[Latest Release](https://github.com/Sersius/Bull-Engine/releases) 
 
 ## **License** 
 ~~~~~~~~~~~~~~~
